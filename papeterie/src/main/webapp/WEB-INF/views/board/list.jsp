@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2> 수정본 입니다 </h2>
+	<h2>리스트</h2>
 </body>
 </html>
