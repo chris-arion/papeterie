@@ -29,7 +29,7 @@
 	<!-- src/main/resource에 mapper.xml을 위치하기 -->
 	<beans:bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<beans:property name="url" value="jdbc:mysql://3.37.233.74:3306/shop" />
+		<beans:property name="url" value="jdbc:mysql://3.37.233.74:3306/papeterie" />
 		<beans:property name="username" value="chris" />
 		<beans:property name="password" value="3pe6gq8c" />
 	</beans:bean>
