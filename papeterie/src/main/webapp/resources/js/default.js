@@ -18,7 +18,10 @@
     }
 });  
 
-
+$( '#tothetop' ).click( function() {
+    var htmloffset = $( 'html' ).offset();
+    $( 'html, body' ).animate( { scrollTop : htmloffset.top }, 400 );
+});
 
 // 카테고리 서브메뉴 숨기기,보이기
 function view_sub(n)
@@ -30,3 +33,12 @@ function hide_sub(n)
 {
 	document.getElementsByClassName("sub")[n].style.visibility="hidden";
 }
+
+
+
+
+
+
+
+
+

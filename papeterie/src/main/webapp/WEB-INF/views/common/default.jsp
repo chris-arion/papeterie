@@ -4,83 +4,114 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title><decorator:title default="2021. 12. 1 오전 11:18:48" /></title>
+<title><decorator:title default="PAPETERIE" /></title>
 <decorator:head />
-<link rel="stylesheet" href="/resources/css/menu.css">
-<script src="/resources/js/menu.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="/resources/css/default.css">
+<script src="/resources/js/default.js"></script>
 </head>
 <body>
+
 	<!-- 
 	일전의 top.jsp / bottom.jsp의 역할을 한다
 	해당하는 decorator 태그에 지정된 문서가 자동으로 대치된다  
 	-->
-	<div id="first"></div>
-	<div id="second">
-		<ul id="shop">
-			<li><a href="../main/index">PAPETERIE</a></li>
-			<li id="">
-				<ul id="menu">
-					<li onmouseover="showsub(0)" onmouseout="hidesub(0)">
-						Item1
-						<ul class="sub">
-							<li>sub 1</li>
-							<li>sub 2</li>
-							<li>sub 3</li>
-						</ul>
-					</li>
-					<li onmouseover="showsub(1)" onmouseout="hidesub(1)">
-						Item2
-						<ul class="sub">
-							<li>sub 1</li>
-							<li>sub 2</li>
-							<li>sub 3</li>
-						</ul>
-					</li>
-					<li onmouseover="showsub(2)" onmouseout="hidesub(2)">
-						Item3
-						<ul class="sub">
-							<li>sub 1</li>
-							<li>sub 2</li>
-							<li>sub 3</li>
-						</ul>
-					</li>
-					<li onmouseover="showsub(3)" onmouseout="hidesub(3)">
-						Item4
-						<ul class="sub">
-							<li>sub 1</li>
-							<li>sub 2</li>
-							<li>sub 3</li>
-						</ul>
-					</li>
-					<li onmouseover="showsub(4)" onmouseout="hidesub(4)">
-						커뮤니티
-						<ul class="sub">
-							<li><a href="../board/list">공지사항</a></li>
-							<li>고객센터</li>
-							<li>추천상품</li>
-						</ul>
-					</li>
-				</ul>
-			</li>
-			<li>
-				<c:if test="${userid == null }">
-					<a href="../member/login">로그인</a>
-					/
-					<a href="../member/signin">회원가입</a>
+	
+	<!-- 탑 부분 -->
+	<div class="top_head"> 
+	
+		<!-- 첫번째 층 -->
+		<div class="top_head_first">
+		
+			<!-- 스크롤 내리면 상단의 로고 -->
+			<a class="top-logo-text3" href="/">로고들어갈부분</a>
+			
+			<!-- 로그인이 안되었을때 -->
+			<div class="top-head-menu">
+				<c:if test="${userid == null}">
+					<a class="top_head_first_menu" href="../member/login">로그인</a> <a class="top_head_first_menu2">|</a>
+					<a class="top_head_first_menu" href="#">회원가입</a> <a class="top_head_first_menu2">|</a>
+					<a class="top_head_first_menu" href="#">마이페이지</a> <a class="top_head_first_menu2">|</a>
+					<a class="top_head_first_menu" href="#">장바구니</a>
 				</c:if>
-				<c:if test="${userid != null }">
-					${name}님 <a href="../member/logout">로그아웃</a>
-					/
-					<a href="../member/mypage">Mypage</a>
+				
+				<!-- 로그인이 되었을때 -->
+				<c:if test="${userid != null}">
+					<span>${uname}</span> 님 <a class="top_head_first_menu" href="../member/logout">로그아웃</a> <a>|</a>
+					<a class="top_head_first_menu" href="#">마이페이지</a> <a class="top_head_first_menu2">|</a>
+					<a class="top_head_first_menu" href="#">장바구니</a>
 				</c:if>
-			</li>
-		</ul>
+			</div>
+		</div>
+		
+		<!-- 두번째 층 -->
+		<div class="top_head_second">
+		
+			<!-- 처음시작시 로고 뜨는부분 -->
+			<div class="top-logo-head">
+				<a class="top-logo-text1" href="/">로고들어갈부분</a>
+			</div>
+		</div>
+		
+		<!-- 세번째 층  -->
+		<div class="second-head">
+			
+			<!-- 메뉴 카테고리 -->
+			<ul class="second-menu">
+				<li onmouseover="view_sub(0)" onmouseout="hide_sub(0)">
+					Item1
+					<ul class="sub">
+						<li>menu 1</li>
+						<li>menu 2</li>
+						<li>menu 3</li>
+					</ul>
+				</li>
+				<li onmouseover="view_sub(1)" onmouseout="hide_sub(1)">
+					Item2
+					<ul class="sub">
+						<li>menu 1</li>
+						<li>menu 2</li>
+						<li>menu 3</li>
+					</ul>
+				</li>
+				<li onmouseover="view_sub(2)" onmouseout="hide_sub(2)">
+					Item3
+					<ul class="sub">
+						<li>menu 1</li>
+						<li>menu 2</li>
+						<li>menu 3</li>
+					</ul>
+				</li>
+				<li onmouseover="view_sub(3)" onmouseout="hide_sub(3)">
+					Item4
+					<ul class="sub">
+						<li>menu 1</li>
+						<li>menu 2</li>
+						<li>menu 3</li>
+					</ul>
+				</li>
+				<li onmouseover="view_sub(4)" onmouseout="hide_sub(4)">
+					커뮤니티
+					<ul class="sub">
+						<li><a href="#">공지사항</a></li>
+						<li><a href="#">고객센터</a></li>
+						<li><a href="#">추천상품</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
 	</div>
+	
+<decorator:body/>
+	
+<!-- 문서의 내용이 출력 -->
+	
+<!-- 바텀 부분 -->
+<div id="bottom-head">
 
-	<decorator:body />
-
-	<!-- 문서의 내용이 출력 -->
-
-	<div id="bottom">My Shop 정보</div>
+</div>
 </body>
 </html>

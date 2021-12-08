@@ -4,29 +4,6 @@ body {
 	margin: 0px;
 }
 
-#first {
-	width: 900px;
-	height: 25px;
-	background: #eee;
-	margin: auto;
-	text-align: center;
-}
-
-#second {
-	width: 900px;
-	height: 60px;
-	margin: auto;
-	border: 1px solid red;
-}
-
-
-#bottom {
-	width: 900px;
-	height: 100px;
-	background: gray;
-	margin: auto;
-	margin-top: 50px;
-}
 
 #section {
 	/* display: flex;
@@ -37,6 +14,7 @@ body {
 	margin: auto;
 	/* border: 1px solid black; */
 	position: relative;
+	padding-top: 50px;
 }
 
 /* 

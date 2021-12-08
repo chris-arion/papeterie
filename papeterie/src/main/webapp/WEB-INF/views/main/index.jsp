@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메인페이지</title>
+<title>PAPETERIE</title>
 <link rel="stylesheet" href="/resources/css/style.css">
 </head>
 <body>
