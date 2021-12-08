@@ -20,22 +20,42 @@
 			<li><a href="../main/index">PAPETERIE</a></li>
 			<li id="">
 				<ul id="menu">
-					<li>
+					<li onmouseover="showsub(0)" onmouseout="hidesub(0)">
 						Item1
+						<ul class="sub">
+							<li>sub 1</li>
+							<li>sub 2</li>
+							<li>sub 3</li>
+						</ul>
 					</li>
-					<li>
+					<li onmouseover="showsub(1)" onmouseout="hidesub(1)">
 						Item2
+						<ul class="sub">
+							<li>sub 1</li>
+							<li>sub 2</li>
+							<li>sub 3</li>
+						</ul>
 					</li>
-					<li>
+					<li onmouseover="showsub(2)" onmouseout="hidesub(2)">
 						Item3
+						<ul class="sub">
+							<li>sub 1</li>
+							<li>sub 2</li>
+							<li>sub 3</li>
+						</ul>
 					</li>
-					<li>
+					<li onmouseover="showsub(3)" onmouseout="hidesub(3)">
 						Item4
+						<ul class="sub">
+							<li>sub 1</li>
+							<li>sub 2</li>
+							<li>sub 3</li>
+						</ul>
 					</li>
-					<li onmouseover="show_sub(0);" onmouseout="hide_sub(0);">
+					<li onmouseover="showsub(4)" onmouseout="hidesub(4)">
 						커뮤니티
 						<ul class="sub">
-							<li><a href="../gongji/list">공지사항</a></li>
+							<li><a href="../board/list">공지사항</a></li>
 							<li>고객센터</li>
 							<li>추천상품</li>
 						</ul>
@@ -62,6 +82,5 @@
 	<!-- 문서의 내용이 출력 -->
 
 	<div id="bottom">My Shop 정보</div>
-
 </body>
 </html>
