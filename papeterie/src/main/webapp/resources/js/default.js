@@ -4,7 +4,7 @@
  
  
  
- // 일정스크롤 내릴시 픽스드
+ // 일정스크롤 내릴시 두번째층 숨기고 fixed
  $(window).scroll(function(){
     if ($(window).scrollTop() >= 50) {
        $('.top_head').addClass('fixed-header');

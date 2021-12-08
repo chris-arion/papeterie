@@ -29,19 +29,21 @@
 			<a class="top-logo-text3" href="/">로고들어갈부분</a>
 			
 			<!-- 로그인이 안되었을때 -->
-			<c:if test="${userid == null}">
-				<a class="top_head_first_menu" href="#">로그인</a> <a>|</a>
-				<a class="top_head_first_menu" href="#">회원가입</a> <a>|</a>
-				<a class="top_head_first_menu" href="#">마이페이지</a> <a>|</a>
-				<a class="top_head_first_menu" href="#">장바구니</a>
-			</c:if>
-			
-			<!-- 로그인이 되었을때 -->
-			<c:if test="${userid != null}">
-				<a class="top_head_first_menu" href="#">로그아웃</a> <a>|</a>
-				<a class="top_head_first_menu" href="#">마이페이지</a> <a>|</a>
-				<a class="top_head_first_menu" href="#">장바구니</a>
-			</c:if>
+			<div class="top-head-menu">
+				<c:if test="${userid == null}">
+					<a class="top_head_first_menu" href="#">로그인</a> <a class="top_head_first_menu2">|</a>
+					<a class="top_head_first_menu" href="#">회원가입</a> <a class="top_head_first_menu2">|</a>
+					<a class="top_head_first_menu" href="#">마이페이지</a> <a class="top_head_first_menu2">|</a>
+					<a class="top_head_first_menu" href="#">장바구니</a>
+				</c:if>
+				
+				<!-- 로그인이 되었을때 -->
+				<c:if test="${userid != null}">
+					<a class="top_head_first_menu" href="#">로그아웃</a> <a class="top_head_first_menu2">|</a>
+					<a class="top_head_first_menu" href="#">마이페이지</a> <a class="top_head_first_menu2">|</a>
+					<a class="top_head_first_menu" href="#">장바구니</a>
+				</c:if>
+			</div>
 		</div>
 		
 		<!-- 두번째 층 -->
@@ -49,13 +51,7 @@
 		
 			<!-- 처음시작시 로고 뜨는부분 -->
 			<div class="top-logo-head">
-				<a class="top-logo-text1" href="/">로고</a> <a class="top-logo-text2" href="/">들어갈부분</a>
-			</div>
-			
-			<!-- 검색어 나타나는곳 -->
-			<div>
-				<input type="text" name="search" id="search" placeholder="검색어를 입력해주세요.">
-				<img src="/resources/img/search.png" id="search_img">
+				<a class="top-logo-text1" href="/">로고들어갈부분</a>
 			</div>
 		</div>
 		
@@ -107,13 +103,14 @@
 			</ul>
 		</div>
 	</div>
-	<decorator:body/>
 	
-	<!-- 문서의 내용이 출력 -->
+<decorator:body/>
 	
-	<!-- 바텀 부분 -->
-	<div id="bottom">
-	My shop 정보
-	</div>
+<!-- 문서의 내용이 출력 -->
+	
+<!-- 바텀 부분 -->
+<div id="bottom-head">
+
+</div>
 </body>
 </html>
