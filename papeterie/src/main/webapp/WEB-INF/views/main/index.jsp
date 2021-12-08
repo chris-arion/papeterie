@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>2021. 12. 7 오후 2:27:34</title>
+<title>PAPETERIE</title>
 <link rel="stylesheet" href="/resources/css/style.css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>

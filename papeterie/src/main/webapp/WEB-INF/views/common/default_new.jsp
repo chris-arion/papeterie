@@ -30,7 +30,7 @@
 			
 			<!-- 로그인이 안되었을때 -->
 			<c:if test="${userid == null}">
-				<a class="top_head_first_menu" href="#">로그인</a> <a>|</a>
+				<a class="top_head_first_menu" href="../member/login">로그인</a> <a>|</a>
 				<a class="top_head_first_menu" href="#">회원가입</a> <a>|</a>
 				<a class="top_head_first_menu" href="#">마이페이지</a> <a>|</a>
 				<a class="top_head_first_menu" href="#">장바구니</a>
@@ -38,7 +38,7 @@
 			
 			<!-- 로그인이 되었을때 -->
 			<c:if test="${userid != null}">
-				<a class="top_head_first_menu" href="#">로그아웃</a> <a>|</a>
+				<span>${uname}</span> 님 <a class="top_head_first_menu" href="../member/logout">로그아웃</a> <a>|</a>
 				<a class="top_head_first_menu" href="#">마이페이지</a> <a>|</a>
 				<a class="top_head_first_menu" href="#">장바구니</a>
 			</c:if>
