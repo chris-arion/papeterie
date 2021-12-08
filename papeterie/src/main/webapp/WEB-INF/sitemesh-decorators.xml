@@ -4,8 +4,9 @@
  <excludes>
   <pattern>/imsi</pattern>
  </excludes>
+ 
  <!-- 기본 패턴 -->
- <decorator name="default" page="default.jsp">
+ <decorator name="default" page="default_new.jsp">
   <pattern>*</pattern> 
  </decorator>
  

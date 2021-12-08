@@ -1,8 +1,11 @@
 /**
  * 
  */
-
-$(window).scroll(function(){
+ 
+ 
+ 
+ // 일정스크롤 내릴시 픽스드
+ $(window).scroll(function(){
     if ($(window).scrollTop() >= 50) {
        $('.top_head').addClass('fixed-header');
        $('.top_head_second').css('display','none');
@@ -15,12 +18,9 @@ $(window).scroll(function(){
     }
 });  
 
-$( '#tothetop' ).click( function() {
-    var htmloffset = $( 'html' ).offset();
-    $( 'html, body' ).animate( { scrollTop : htmloffset.top }, 400 );
-});
 
 
+// 카테고리 서브메뉴 숨기기,보이기
 function view_sub(n)
 {
 	document.getElementsByClassName("sub")[n].style.visibility="visible";
@@ -30,4 +30,3 @@ function hide_sub(n)
 {
 	document.getElementsByClassName("sub")[n].style.visibility="hidden";
 }
-
