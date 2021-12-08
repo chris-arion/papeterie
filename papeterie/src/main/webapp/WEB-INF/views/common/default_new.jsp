@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title><decorator:title default="2021. 12. 1 오전 11:18:48" /></title>
+<title><decorator:title default="PAPETERIE" /></title>
 <decorator:head />
 <link rel="stylesheet" href="/resources/css/default.css">
 <script src="/resources/js/default.js"></script>
