@@ -8,4 +8,7 @@
 		values(#{title},#{content},#{name});
 	</insert>
 
+	<select id="list" resultType="kr.co.papeterie.vo.GongjiVO">
+		select * from gongji order by id desc;
+	</select>
 </mapper>

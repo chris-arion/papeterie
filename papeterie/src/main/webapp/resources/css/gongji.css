@@ -79,6 +79,7 @@
 input:focus {outline:none;}
 
 h2{
+	font-size:24px;
 	font-weight:bold;
 	padding:20px;
 
@@ -134,3 +135,16 @@ h2{
 #content-btn:hover {
 	opacity:0.5;
 }
+
+.list-center{
+	text-align:center;
+}
+
+.list-table th,td{
+	font-size:14px;
+}
+
+#btn_text{
+	text-align:right;
+}
+

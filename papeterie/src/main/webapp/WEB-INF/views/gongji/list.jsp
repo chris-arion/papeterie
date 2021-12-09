@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,20 +23,31 @@
 	<h2> 공지사항 </h2>
 	
 	<!-- 리스트 목록 -->
-	<table class="table">
+	<table class="table list-table">
+	<thead>
 		<tr>
-			<th>번호</th>
+			<th width="100">번호</th>
 			<th>제목</th>
-			<th>날짜</th>
-			<th>작성자</th>
+			<th width="300">날짜</th>
+			<th width="150">작성자</th>
 		</tr>
+	</thead>
+		<c:forEach items="${list}" var="gvo">
+		<tbody>
 		<tr>
-			<td></td>
-			<td></td>
-			<td></td>
-			<td></td>
+			<td class="list-center">
+				${gvo.id}
+			</td>
+			<td>${gvo.title}</td>
+			<td class="list-center">${gvo.writeday}</td>
+			<td class="list-center">${gvo.name}</td>
 		</tr>
+		</tbody>
+		</c:forEach>
 	</table>
+	<div id="btn_text">
+	  <button type="button" class="btn btn-light" onclick="location='write'">글쓰기</button>
+	</div>
 </div>
 </body>
 </html>
