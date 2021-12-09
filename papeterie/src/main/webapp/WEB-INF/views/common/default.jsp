@@ -5,13 +5,13 @@
 <html>
 <head>
 <title><decorator:title default="PAPETERIE" /></title>
-<decorator:head />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
+ <script src="http://code.jquery.com/jquery-latest.js"></script>
 <link rel="stylesheet" href="/resources/css/default.css">
 <script src="/resources/js/default.js"></script>
+
+<decorator:head />
 </head>
 <body>
 
@@ -27,7 +27,7 @@
 		<div class="top_head_first">
 		
 			<!-- 스크롤 내리면 상단의 로고 -->
-			<a class="top-logo-text3" href="/">로고들어갈부분</a>
+			<a class="top-logo-text3" href="/main/index">로고들어갈부분</a>
 			
 			<!-- 로그인이 안되었을때 -->
 			<div class="top-head-menu">
@@ -52,7 +52,7 @@
 		
 			<!-- 처음시작시 로고 뜨는부분 -->
 			<div class="top-logo-head">
-				<a class="top-logo-text1" href="/">로고들어갈부분</a>
+				<a class="top-logo-text1" href="/main/index">로고들어갈부분</a>
 			</div>
 		</div>
 		
