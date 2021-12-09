@@ -21,6 +21,18 @@ input[type=submit], input[type=button] {
 	display: none;
 }
 
+#member_table {
+	width: 700px;
+	border: 1px solid black;
+	border-collapse: collapse;
+	padding: 10px;
+}
+
+#member_table > th, tr, td {
+	border: 1px solid black;
+	border-collapse: collapse;
+	padding: 10px;
+}
 
 
 
