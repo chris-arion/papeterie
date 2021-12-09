@@ -7,7 +7,6 @@
 <title>LOGIN</title>
 <link rel="stylesheet" href="/resources/css/style.css">
 <link rel="stylesheet" href="/resources/css/member.css">
-<script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
 	<div id="section">
