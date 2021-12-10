@@ -28,7 +28,7 @@
 #goods_detail_table td{
 	border: 1px solid green;
 	width: 420px;
-	height: 40px;
+	height: 50px;
 }
 #goods_detail_table .td_head{
 	text-align: left;
@@ -40,6 +40,13 @@
 }
 #goods_detail_table #select_box{
 	width: 250px;
+}
+#goods_detail_table #goods_option_list{
+	height: 250px;
+}
+#goods_detail_table #total_price{
+	font-size: 25px;
+	float: right;
 }
 #goods_side .goods_buy_button{
 	width: 320px;
@@ -63,10 +70,135 @@
 	font-weight: bold;
 	color: black;
 }
+#right_button, #left_button{
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	border: 1px solid #ccc;
+	text-align: center;
+}
+#center_count{
+	display: inline-block;
+	width: 45px;
+	height: 25px;
+	border: 1px solid #ccc;
+	text-align: center;
+}
+.option_name{
+	display: inline-block;
+	width: 150px;
+	height: 25px;
+}
+.option_price{
+	display: inline-block;
+	width: 140px;
+	height: 25px;
+	text-align: right;
+}
 /* 상품 상세 정보 박스 */
-#goods_detail{
+#goods_data{
 	border: 1px solid green;
 	clear: both;
 	width: 900px;
-	height: 400px;
+	height: auto;
+}
+#goods_data .goods_data_menu{
+	border-bottom: 1px solid gray;
+	width: 900px;
+	text-align: center;
+}
+.goods_data_menu_sub{
+	margin: auto;
+	width: 150px;
+	height: 35px;
+	border: 1px solid gray;
+	display: inline-block;
+	vertical-align: bottom;
+	padding-top: 7px;
+	font-size: 13px;
+}
+.goods_data_menu_sub:hover{
+	cursor: pointer;
+}
+#goods_data .sub_here{
+	height: 45px;
+	background: gray;
+	color: white;
+	padding-top: 12px;
+}
+#goods_data #goods_detail{
+	border: 1px solid black;
+	width: 900px;
+	min-height: 300px;
+	margin-top: 50px;
+	font-size: 0;
+}
+#goods_data #goods_shipping{
+	border: 1px solid yellow;
+	width: 900px;
+	min-height: 300px;
+	margin-top: 50px;
+	font-size: 0;
+}
+#goods_data #goods_refund{
+	border: 1px solid black;
+	width: 900px;
+	min-height: 300px;
+	margin-top: 50px;
+	font-size: 0;
+}
+#goods_data #goods_review{
+	border: 1px solid yellow;
+	width: 900px;
+	min-height: 300px;
+	margin-top: 50px;
+	font-size: 0;
+}
+#goods_data #review_content{
+	padding-top:30px;
+	width: 850px;
+	margin: auto;
+	font-size: 15px;
+}
+#goods_data #review_content > table{
+	clear: right;
+	width: 850px;
+	border-top: 1px solid #aaa;
+}
+#goods_data #goods_inquiry{
+	border: 1px solid black;
+	width: 900px;
+	min-height: 300px;
+	margin-top: 50px;
+	font-size: 0;
+}
+#goods_data #inquiry_content{
+	padding-top:30px;
+	width: 850px;
+	margin: auto;
+	font-size: 15px;
+}
+#goods_data #inquiry_content > table{
+	clear: right;
+	width: 850px;
+	border-top: 1px solid #aaa;
+}
+strong{
+	font-size: 20px;
+}
+.write_button, .write_button:visited{
+	float:right;
+	width: 150px;
+	height: 40px;
+	background: black;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	padding-top: 9px;
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+.write_button:hover{
+	cursor: pointer;
+	color: white;
 }

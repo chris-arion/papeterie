@@ -17,5 +17,10 @@ public class GoodsController {
 	
 	private final String module = "/goods";
 	
+	@RequestMapping("/goods_view")
+	public String goods_view()
+	{
+		return module+"/goods_view";
+	}
 	
 }
