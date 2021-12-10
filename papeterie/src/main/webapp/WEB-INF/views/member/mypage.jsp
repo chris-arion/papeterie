@@ -11,27 +11,39 @@
 <body>
 	<div id="section">
 		<div id="side_menu">
-			<div id="">
-				쇼핑내역
-				<ul>
-					<li>전체주문내역</li>
-					<li>주문취소/교환/반품</li>
-					<li>찜목록</li>
-					<li>리뷰</li>
-					<li>고객센터</li>
-					<li></li>
-				</ul>
-			</div>
-
-			<div id="">
-				회원정보
-				<ul>
-					<li>회원정보수정</li>
-					<li>배송지관리</li>
-					<li></li>
-					<li></li>
-				</ul>
-			</div>
+			<ul id="navi">
+				<li class="group">
+					<div class="title">쇼핑내역</div>
+					<ul class="sub">
+						<li>
+							<a href="#">전체주문내역</a>
+						</li>
+						<li>
+							<a href="#">주문취소/교환/반품</a>
+						</li>
+						<li>
+							<a href="#">찜목록</a>
+						</li>
+						<li>
+							<a href="#">리뷰</a>
+						</li>
+						<li>
+							<a href="#">고객센터</a>
+						</li>
+					</ul>
+				</li>
+				<li class="group">
+					<div class="title">회원정보</div>
+					<ul class="sub">
+						<li>
+							<a href="#">회원정보수정</a>
+						</li>
+						<li>
+							<a href="#">배송지관리</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
 		</div>	<!-- id="side_menu" -->
 		
 		<div id="content">

@@ -22,50 +22,56 @@ function view_pwdsearch()
  
 function userid_search_fn() // 이름,이메일을 가지고 서버에가서 아이디를 찾아 오기
 {
-	var name=document.userid_search.name.value;
-	var email=document.userid_search.email.value;
-	var us=new XMLHttpRequest();
-	us.open("get", "userid_search_ok?name=" + name + "&email=" + email);
-	us.send();
-	us.onreadystatechange = function()
-	{
-		if(us.readyState == 4)
-		{
-			if(us.responseText == 0)
-		    {
-		    	alert("이름 혹은 이메일이 틀립니다.");
-		    }	 
-		    else
-		    {   
-		    	//alert();
-		    	var imsi=us.responseText.trim();
-		    	document.getElementById("uid").innerText="당신의 아이디는 " + imsi + " 입니다";
-		    }
+	var uname = document.userid_search.uname.value;
+	var email = document.userid_search.email.value;
+	
+	$.ajax({
+		url : "userid_search_ok",
+		method : "GET",
+		data : {
+			uname : uname,
+			email : email
+		},
+		dataType : "text",
+		success : function(data) {
+			console.log(data)
+			if (data == "0") {
+				$('#uid').text("일치하는 정보가 없습니다")
+				$('#uid').css("color", "red")
+			}
+			else {
+				$('#uid').html("<b>" + uname + "</b>님의 아이디는 <b>" + data + "</b>입니다")
+				$('#uid').css("color", "blue")
+			}
 		}
-	}
+	})
 }
  
 function pwd_search_fn() // 이름,이메일을 가지고 서버에가서 아이디를 찾아 오기
 {
 	var userid = document.pwd_search.userid.value;
-	var name = document.pwd_search.name.value;
+	var uname = document.pwd_search.uname.value;
 	var email = document.pwd_search.email.value;
-	var ps=new XMLHttpRequest();
-	ps.open("get", "pwd_search_ok?userid=" + userid + "&name=" + name + "&email=" + email);
-	ps.send();
-	ps.onreadystatechange = function()
-	{
-		if(ps.readyState == 4)
-		{
-		    if(ps.responseText == 0)
-		    {
-		    	alert("아이디,이름 혹은 이메일이 틀립니다.");
-		    }	 
-		    else  // 성공했을때
-		    {   
-		    	 document.getElementById("pwd_search").style.display="none";
-		    	 alert("이메일로 비밀번호를 전송하였습니다");
+
+	$.ajax({
+		url : "pwd_search_ok",
+		method : "GET",
+		data : {
+			userid : userid,
+			uname : uname,
+			email : email
+		},
+		dataType : "text",
+		success : function(data) {
+			console.log(data)
+			if (data == "0") {
+				$('#pid').text("일치하는 정보가 없습니다")
+				$('#pid').css("color", "red")
+			}
+			else {
+				$('#pid').html("<b>" + uname + "</b>님의 비밀번호는 <b>" + data + "</b>입니다")
+				$('#pid').css("color", "blue")
 			}
 		}
-	}
+	})	
 }

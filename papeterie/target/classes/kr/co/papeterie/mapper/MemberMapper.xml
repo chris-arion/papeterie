@@ -5,15 +5,16 @@
 	<select id="login_ok" parameterType="MemberVO" resultType="MemberVO">
 		select * from member where userid = #{userid} and pwd = #{pwd}
 	</select>
+	<select id="userid_search_ok" parameterType="MemberVO" resultType="String">
+		select userid from member where uname = #{uname} and email = #{email}
+	</select>
+	<select id="pwd_search_ok" parameterType="MemberVO" resultType="String">
+		select pwd from member
+		where uname = #{uname} and email = #{email} and userid = #{userid}
+	</select>
+
 	<select id="userid_check" resultType="Integer">
 		select count(*) from member where userid=#{param1}
-	</select>
-	<select id="userid_search_ok" resultType="String" parameterType="MemberVO">
-		select userid from member where name=#{name} and email=#{email}
-	</select>
-	<select id="pwd_search_ok" resultType="String" parameterType="MemberVO">
-		select pwd from member
-		where name=#{name} and email=#{email} and userid=#{userid}
 	</select>
 	<select id="mypage" resultType="MemberVO">
 		select * from member where userid=#{param1}

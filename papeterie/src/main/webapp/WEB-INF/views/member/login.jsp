@@ -7,6 +7,7 @@
 <title>PAPETERIE - login</title>
 <link rel="stylesheet" href="/resources/css/style.css">
 <link rel="stylesheet" href="/resources/css/member.css">
+<script src="/resources/js/member.js"></script>
 </head>
 <body>
 	<div id="section">
@@ -30,16 +31,14 @@
 			</table>
 		</form>
 		<div align="center">
-			<span onclick="view_uidsearch()">아이디 찾기</span> <span onclick="view_pwdsearch()">비밀번호 찾기</span>
+			<span onclick="view_uidsearch()" style="cursor: pointer;">아이디 찾기</span>
+			<span onclick="view_pwdsearch()" style="cursor: pointer;">비밀번호 찾기</span>
 		</div>
 		<form name="userid_search" id="userid_search">
-			<table>
-				<caption>
-					<h4 id="uid"></h4>
-				</caption>
+			<table id="userid_search_tbl">
 				<tr>
 					<td>
-						<input type="text" name="name" placeholder="이름">
+						<input type="text" name="uname" placeholder="이름">
 					</td>
 				</tr>
 				<tr>
@@ -52,13 +51,15 @@
 						<input type="button" value="아이디찾기" onclick="userid_search_fn()">
 					</td>
 				</tr>
+				<tr>
+					<td>
+						<div align="center"><span id="uid"></span></div>
+					</td>
+				</tr>
 			</table>
 		</form>
 		<form name="pwd_search" id="pwd_search">
-			<table>
-				<caption>
-					<h4 id="pid"></h4>
-				</caption>
+			<table id="pwd_search_tbl">
 				<tr>
 					<td>
 						<input type="text" name="userid" placeholder="아이디">
@@ -66,7 +67,7 @@
 				</tr>
 				<tr>
 					<td>
-						<input type="text" name="name" placeholder="이름">
+						<input type="text" name="uname" placeholder="이름">
 					</td>
 				</tr>
 				<tr>
@@ -77,6 +78,11 @@
 				<tr>
 					<td>
 						<input type="button" value="비밀번호찾기" onclick="pwd_search_fn()">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div align="center"><span id="pid"></span></div>
 					</td>
 				</tr>
 			</table>
