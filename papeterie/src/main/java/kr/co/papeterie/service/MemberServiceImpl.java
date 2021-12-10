@@ -33,4 +33,14 @@ public class MemberServiceImpl implements MemberService {
 		}
 
 	}
+
+	@Override
+	public String userid_search_ok(MemberVO mvo) {
+		return mapper.userid_search_ok(mvo);
+	}
+
+	@Override
+	public String pwd_search_ok(MemberVO mvo) {
+		return mapper.pwd_search_ok(mvo);	
+	}
 }
