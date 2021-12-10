@@ -96,7 +96,7 @@
 				<li onmouseover="view_sub(4)" onmouseout="hide_sub(4)">
 					커뮤니티
 					<ul class="sub">
-						<li><a href="../gongji/write">공지사항</a></li>
+						<li><a href="../gongji/list">공지사항</a></li>
 						<li><a href="#">고객센터</a></li>
 						<li><a href="#">추천상품</a></li>
 					</ul>
