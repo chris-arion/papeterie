@@ -1,9 +1,12 @@
 package kr.co.papeterie.controller;
 
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.papeterie.service.GongjiService;
@@ -37,9 +40,9 @@ public class GongjiController {
 	
 	// 공지사항 리스트
 	@RequestMapping("list")
-	public String list()
+	public String list(Model model, HttpSession session)
 	{
-		return module+"list";
+		return gservice.list(model,session);
 	}
 	
 	// 공지사항 콘텐츠
