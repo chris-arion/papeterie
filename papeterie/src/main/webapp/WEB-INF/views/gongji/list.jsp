@@ -38,16 +38,20 @@
 			<td class="list-center">
 				${gvo.id}
 			</td>
-			<td>${gvo.title}</td>
+			<td><a class="list-title" href="readnum?id=${gvo.id}">${gvo.title}</a></td>
 			<td class="list-center">${gvo.writeday}</td>
 			<td class="list-center">${gvo.name}</td>
 		</tr>
 		</tbody>
 		</c:forEach>
 	</table>
-	<div id="btn_text">
-	  <button type="button" class="btn btn-light" onclick="location='write'">글쓰기</button>
-	</div>
+	
+	<!-- 유저아이디가 관리자가 아닐시 글쓰기 버튼이 안나옴. -->
+	<c:if test="${userid == 'admin'}">
+		<div id="btn_text">
+		  <button type="button" class="btn btn-light" onclick="location='write'">글쓰기</button>
+		</div>
+	</c:if>
 </div>
 </body>
 </html>

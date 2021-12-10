@@ -1,6 +1,7 @@
 package kr.co.papeterie.controller;
 
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,10 +46,38 @@ public class GongjiController {
 		return gservice.list(model,session);
 	}
 	
+	// 공지사항 조회수증가
+	@RequestMapping("readnum")
+	public String readnum(HttpServletRequest request)
+	{
+		return gservice.readnum(request);
+	}
+	
 	// 공지사항 콘텐츠
 	@RequestMapping("content")
-	public String content()
+	public String content(HttpServletRequest request,Model model)
 	{
-		return module+"content";
+		return gservice.content(request,model);
+	}
+	
+	// 공지사항 수정
+	@RequestMapping("update")
+	public String update(HttpServletRequest request,Model model)
+	{
+		return gservice.update(request,model);
+	}
+	
+	// 공지사항 수정완료
+	@RequestMapping("update_ok")
+	public String update_ok(GongjiVO gvo)
+	{
+		return gservice.update_ok(gvo);
+	}
+	
+	// 공지사항 삭제
+	@RequestMapping("delete")
+	public String delete(HttpServletRequest request)
+	{
+		return gservice.delete(Integer.parseInt(request.getParameter("id")));
 	}
 }

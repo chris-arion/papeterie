@@ -30,7 +30,7 @@
 	
 	<!-- 작성 폼 -->
 	<form method="post" action="write_ok">
-	<table class="table">
+	<table class="table table-center">
 		<tr>
 			<th width="150">작성자</th>
 			<td><input type="text" name="name" id="name" size="40"></td>
