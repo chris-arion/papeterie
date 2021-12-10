@@ -21,6 +21,20 @@ input[type=submit], input[type=button] {
 	display: none;
 }
 
+#login_table {
+	width: 400px;
+	/* border: 1px solid black; */
+	border-collapse: collapse;
+	padding: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#login_table > th, tr, td {
+	/* border: 1px solid black; */
+	border-collapse: collapse;
+	padding: 10px;
+}
 
 
 

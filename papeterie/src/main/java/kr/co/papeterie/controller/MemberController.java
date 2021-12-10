@@ -33,6 +33,10 @@ public class MemberController {
 		return "/main/index";
 	}
 
+	@RequestMapping("/member/mypage")
+	public String mypage() {
+		return "/member/mypage";
+	}
 	
 
 }

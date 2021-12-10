@@ -11,4 +11,27 @@
 	<select id="list" resultType="kr.co.papeterie.vo.GongjiVO">
 		select * from gongji order by id desc;
 	</select>
+	
+	<select id="content" resultType="kr.co.papeterie.vo.GongjiVO">
+		select * from gongji where id=#{param1}
+	</select>
+	
+	<update id="readnum">
+		update gongji set readnum=readnum+1
+		where id=#{param1}
+	</update>
+	
+	<select id="update" resultType="kr.co.papeterie.vo.GongjiVO">
+		select * from gongji where id=#{param1}
+	</select>
+	
+	<update id="update_ok" parameterType="kr.co.papeterie.vo.GongjiVO">
+		update gongji set title=#{title}, content=#{content}
+		where id=#{id}
+	</update>
+	
+	<delete id="delete">
+		delete from gongji where id=#{param1}
+	</delete>
+	
 </mapper>

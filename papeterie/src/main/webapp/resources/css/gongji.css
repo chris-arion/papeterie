@@ -49,8 +49,8 @@
 }
 
 #section{
-	width:1200px;
-	height:800px;
+	width:1000px;
+	height:auto;
 	margin:auto;
 }
 
@@ -66,7 +66,6 @@
 
 .table th{
 	background:#fbfbfb;
-	text-align:center;
 }
 
 #title,#name{
@@ -122,14 +121,13 @@ h2{
 #content-btn{
 	width: 60px;
 	height: 35px;
-	border: 1px solid white;
+	border: 1px solid silver;
 	cursor: pointer;
 	font-size: 12px;
-	background: #f2f2f2;
+	background: white;
 	color: black;
 	margin-bottom: 10px;
 	font-weight:bold;
-	margin-top:50px;
 }
 
 #content-btn:hover {
@@ -144,7 +142,63 @@ h2{
 	font-size:14px;
 }
 
+.list-table th{
+	text-align:center;
+}
+
 #btn_text{
 	text-align:right;
 }
+
+.table-center th{
+	text-align:center;
+}
+
+.content-bold{
+	font-weight:bold;	
+}
+
+#content-content{
+	padding:25px;
+}
+
+.update-center th{
+	text-align:center;
+}
+
+.list-title{	
+	color:black;
+}
+
+.list-title:hover{	
+	color:black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
