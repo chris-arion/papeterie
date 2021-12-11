@@ -42,6 +42,15 @@ input[type=submit], input[type=button] {
 	margin-right: auto;
 }
 
+#side_menu {
+	display: inline-block;
+	position: relative;
+	float: left;
+	width: 155px;
+	height: 500px;
+	border: 1px solid green;
+}
+
 ul#navi {
 	width: 150px;
 	text-indent: 10px;
@@ -85,9 +94,11 @@ ul.sub li:hover {
 }
 
 #content {
-	display: block;
-	left: 170px;
-	width: 825px;
+	display: inline-block;
+	/* justify-content: right; */
+	position: relative;
+	float: right;
+	width: 840px;
 	height: 500px;
 	border: 1px solid green;
 }
