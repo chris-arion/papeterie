@@ -38,6 +38,11 @@
 							</div>
 						</td>
 					</tr>
+					<tr>
+						<td>
+							<div align="center"><span id="msg"></span></div>
+						</td>
+					</tr>
 				</table>
 			</form>
 		</div>
