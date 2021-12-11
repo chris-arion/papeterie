@@ -33,6 +33,7 @@
 						<td>
 							<div align="center">
 								<span onclick="view_uidsearch()" style="cursor: pointer;">아이디 찾기</span>
+								<a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>
 								<span onclick="view_pwdsearch()" style="cursor: pointer;">비밀번호 찾기</span>
 							</div>
 						</td>
