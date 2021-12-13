@@ -23,4 +23,9 @@ public class GoodsController {
 		return module+"/goods_view";
 	}
 	
+	@RequestMapping("/purchase")
+	public String purchase()
+	{
+		return module+"/purchase";
+	}
 }
