@@ -7,8 +7,8 @@ import org.springframework.stereotype.Service;
 import kr.co.papeterie.mapper.QnaMapper;
 
 @Service
-@Qualifier("qs")
-public class QnaServiceImpl {
+@Qualifier("qser")
+public class QnaServiceImpl implements QnaService{
 
 	@Autowired
 	private QnaMapper mapper;

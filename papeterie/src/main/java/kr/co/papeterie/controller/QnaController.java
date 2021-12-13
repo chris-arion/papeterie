@@ -12,7 +12,7 @@ import kr.co.papeterie.service.QnaService;
 public class QnaController {
 
 	@Autowired
-	@Qualifier("qs")
+	@Qualifier("qser")
 	private QnaService qservice;
 	
 	private final String module="/custom/";
