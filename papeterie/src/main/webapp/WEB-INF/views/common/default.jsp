@@ -97,7 +97,7 @@
 					커뮤니티
 					<ul class="sub">
 						<li><a href="../gongji/list">공지사항</a></li>
-						<li><a href="#">고객센터</a></li>
+						<li><a href="../qna/list">고객센터</a></li>
 						<li><a href="#">추천상품</a></li>
 					</ul>
 				</li>

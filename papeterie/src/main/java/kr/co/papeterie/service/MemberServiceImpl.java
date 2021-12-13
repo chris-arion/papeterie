@@ -29,6 +29,7 @@ public class MemberServiceImpl implements MemberService {
 		{
 			session.setAttribute("userid", retvo.getUserid());
 			session.setAttribute("uname", retvo.getUname());
+			session.setAttribute("pwd", retvo.getPwd());
 			return "redirect:/main/index";
 		}
 

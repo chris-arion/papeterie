@@ -3,4 +3,13 @@
 
 <mapper namespace="kr.co.papeterie.mapper.QnaMapper">
 
+	<insert id="write_ok" parameterType="kr.co.papeterie.vo.QnaVO">
+		insert into qna(userid,name,category,title,content,writeday,bimil)
+		values(#{userid},#{name},#{category},#{title},#{content},now(),1);
+	</insert>
+	
+	<select id="list" resultType="kr.co.papeterie.vo.QnaVO">
+		select * from qna order by id desc;
+	</select>
+
 </mapper>
