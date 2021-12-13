@@ -9,8 +9,8 @@ input[type=text], input[type=password] {
 }
 
 input[type=submit], input[type=button] {
-	width: 406px;
-	height: 42px;
+	width: 402px;
+	height: 40px;
 	border: 1px solid #6799FF;
 	font-size: 17px;
 	background: #6799FF;
@@ -18,6 +18,7 @@ input[type=submit], input[type=button] {
 }
 
 #userid_search, #pwd_search {
+	align: center;
 	display: none;
 }
 
@@ -40,6 +41,15 @@ input[type=submit], input[type=button] {
 	padding: 10px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+#side_menu {
+	display: inline-block;
+	position: relative;
+	float: left;
+	width: 155px;
+	height: 500px;
+	border: 1px solid green;
 }
 
 ul#navi {
@@ -85,9 +95,11 @@ ul.sub li:hover {
 }
 
 #content {
-	display: block;
-	left: 170px;
-	width: 825px;
+	display: inline-block;
+	/* justify-content: right; */
+	position: relative;
+	float: right;
+	width: 840px;
 	height: 500px;
 	border: 1px solid green;
 }
