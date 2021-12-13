@@ -47,7 +47,7 @@ function userid_search_fn() // 이름,이메일을 가지고 서버에가서 아
 	})
 }
  
-function pwd_search_fn() // 이름,이메일을 가지고 서버에가서 아이디를 찾아 오기
+function pwd_search_fn() // 이름, 이메일을 가지고 서버에가서 아이디를 찾아 오기
 {
 	var userid = document.pwd_search.userid.value;
 	var uname = document.pwd_search.uname.value;
