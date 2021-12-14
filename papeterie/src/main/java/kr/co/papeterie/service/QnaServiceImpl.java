@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import kr.co.papeterie.mapper.QnaMapper;
+import kr.co.papeterie.vo.GongjiVO;
 import kr.co.papeterie.vo.QnaVO;
 
 @Service
@@ -22,6 +23,10 @@ public class QnaServiceImpl implements QnaService{
 
 	@Override
 	public String write_ok(QnaVO qvo,HttpSession session,HttpServletRequest request) {
+		
+		int grp=mapper.get_grp();
+		qvo.setGrp(grp+1);
+		
 		qvo.setCategory(Integer.parseInt(request.getParameter("category")));
 		qvo.setUserid(session.getAttribute("userid").toString());
 		qvo.setName(session.getAttribute("uname").toString());
@@ -75,6 +80,29 @@ public class QnaServiceImpl implements QnaService{
 	@Override
 	public String delete(int id) {
 		mapper.delete(id);
+		return "redirect:"+module+"list";
+	}
+	
+	@Override
+	public String update(HttpServletRequest request, Model model) {
+		int id=Integer.parseInt(request.getParameter("id"));
+		model.addAttribute("qvo",mapper.update(id));
+		return module+"update";
+	}
+	
+	@Override
+	public String update_ok(QnaVO qvo) {
+		int id = qvo.getId();
+		mapper.update_ok(qvo);
+		
+		return "redirect:"+module+"content?id="+id;
+	}
+	
+	@Override
+	public String rewrite_ok(QnaVO qvo,HttpSession session) {
+		
+		mapper.up_seq(qvo.getSeq(),qvo.getGrp());
+		mapper.rewrite_ok(qvo);
 		return "redirect:"+module+"list";
 	}
 }

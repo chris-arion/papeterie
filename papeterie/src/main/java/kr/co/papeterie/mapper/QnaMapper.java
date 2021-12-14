@@ -18,4 +18,14 @@ public interface QnaMapper {
 	public int ispwd(String pwd,int id);
 	
 	public void delete(int id);
+	
+	public QnaVO update(int id);
+	
+	public void update_ok(QnaVO qvo);
+	
+	public int get_grp();
+	
+	public void up_seq(int seq, int grp);
+	
+	public void rewrite_ok(QnaVO qvo);
 }

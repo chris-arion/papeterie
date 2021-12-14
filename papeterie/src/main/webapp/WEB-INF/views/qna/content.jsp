@@ -46,11 +46,16 @@ function delete_ok()
 		</tr>
 	</table>
 	
-	<!-- 유저아이디가 관리자가 아닐시 삭제, 수정버튼이 안나옴. -->
+	
 	<div id="btn_text">
-		<c:if test="${userid == 'admin'}">
+		<c:if test="${userid == qvo.userid && userid != null}">
 			<input type="button" value="삭제" id="content-btn" onclick="delete_ok()">
 			<input type="button" value="수정" id="content-btn" onclick="location='update?id=${qvo.id}'">
+		</c:if>
+		
+		<!-- 유저아이디가 관리자이면 답변달기 버튼나옴. -->
+		<c:if test="${userid == 'admin' }">
+			<input type="button" value="답글작성" id="content-btn" onclick="location='rewrite?grp=${qvo.grp}&seq=${qvo.seq}&depth=${qvo.dep}'">
 		</c:if>
 		<input type="button" value="목록" id="content-btn" onclick="location='list'">
 	</div>

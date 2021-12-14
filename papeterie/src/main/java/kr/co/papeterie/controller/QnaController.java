@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.papeterie.service.QnaService;
+import kr.co.papeterie.vo.GongjiVO;
 import kr.co.papeterie.vo.QnaVO;
 
 @Controller
@@ -68,6 +69,34 @@ public class QnaController {
 	public String delete(HttpServletRequest request)
 	{
 		return qservice.delete(Integer.parseInt(request.getParameter("id")));
+	}
+	
+	@RequestMapping("update")
+	public String update(HttpServletRequest request,Model model)
+	{
+		return qservice.update(request,model);
+	}
+	
+	@RequestMapping("update_ok")
+	public String update_ok(QnaVO qvo)
+	{
+		return qservice.update_ok(qvo);
+	}
+	
+	@RequestMapping("rewrite")
+	public String rewrite(HttpServletRequest request,Model model)
+	{
+		model.addAttribute("grp",request.getParameter("grp"));
+		model.addAttribute("seq",request.getParameter("seq"));
+		model.addAttribute("dep",request.getParameter("dep"));
+		
+		return module+"rewrite";
+	}
+	
+	@RequestMapping("rewrite_ok")
+	public String rewrite_ok(QnaVO qvo,HttpSession session)
+	{
+		return qservice.rewrite_ok(qvo,session);
 	}
 	
 }

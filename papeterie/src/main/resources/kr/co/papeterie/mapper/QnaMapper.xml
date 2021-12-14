@@ -4,8 +4,8 @@
 <mapper namespace="kr.co.papeterie.mapper.QnaMapper">
 
 	<insert id="write_ok" parameterType="kr.co.papeterie.vo.QnaVO">
-		insert into qna(userid,name,category,title,content,writeday,bimil)
-		values(#{userid},#{name},#{category},#{title},#{content},now(),1);
+		insert into qna(userid,name,pwd,category,title,content,writeday,bimil,grp,seq,dep)
+		values(#{userid},#{name},#{pwd},#{category},#{title},#{content},now(),1,#{grp},#{seq},#{dep});
 	</insert>
 	
 	<select id="list" resultType="kr.co.papeterie.vo.QnaVO">
@@ -29,4 +29,28 @@
  	<delete id="delete">
 		delete from qna where id=#{param1}
 	</delete>
+	
+	<select id="update" resultType="kr.co.papeterie.vo.QnaVO">
+		select * from qna where id=#{param1}
+	</select>
+	
+	<update id="update_ok" parameterType="kr.co.papeterie.vo.QnaVO">
+		update qna set title=#{title}, content=#{content}, category=#{category}
+		where id=#{id}
+	</update>
+	
+	<select id="get_grp" resultType="Integer">
+		select ifnull(max(grp),0) from qna;
+	</select>
+	
+	<update id="up_seq">
+		update qna set seq=seq+1
+		where seq=#{param1} and grp=#{param2}
+	</update>
+	
+	<insert id="rewrite_ok" parameterType="kr.co.papeterie.vo.QnaVO">
+		insert into qna(userid,title,content,grp,seq,dep)
+		values(#{userid},#{title},#{content},#{grp},#{seq},#{dep});
+	</insert>
+	
 </mapper>

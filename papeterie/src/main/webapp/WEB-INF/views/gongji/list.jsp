@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,12 +27,10 @@
 			<th width="150">작성자</th>
 		</tr>
 	</thead>
-		<c:forEach items="${list}" var="gvo">
+		<c:forEach items="${list}" var="gvo" varStatus="status">
 		<tbody>
 		<tr>
-			<td class="list-center">
-				${gvo.id}
-			</td>
+			<td class="list-center">${fn:length(list) - status.index}</td>
 			<td><a class="list-title" href="readnum?id=${gvo.id}">${gvo.title}</a></td>
 			<td class="list-center">${gvo.writeday}</td>
 			<td class="list-center">${gvo.name}</td>

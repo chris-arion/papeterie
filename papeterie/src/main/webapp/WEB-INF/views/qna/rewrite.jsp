@@ -20,27 +20,17 @@
 <div id="section">
 
 	<!-- 페이지 제목 -->
-	<h2> 상품 문의 </h2>
+	<h2> 답변 작성 </h2>
 	
 	<!-- 작성 폼 -->
-	<form method="post" action="write_ok" name="write">
+	<form method="post" action="rewrite_ok" name="rewrite">
+		<input type="hidden" name="grp" value="${grp}">
+		<input type="hidden" name="seq" value="${seq+1}">
+		<input type="hidden" name="depth" value="${depth+1}">
 	<table class="table table-center">
 		<tr>
 			<th width="150">작성자</th>
 			<td>${uname}</td>
-		</tr>
-		<tr>
-			<th>분류</th>
-			<td>
-				<select class="write-sel" name="category">
-					<option value="0" disabled>-분류선택-</option>
-					<option value="1">제품문의</option>
-					<option value="2">배송문의</option>
-					<option value="3">이벤트문의</option>
-					<option value="4">교환/반품/환불</option>
-					<option value="5">기타문의</option>
-				</select>
-			</td>
 		</tr>
 		<tr>
 			<th>제목</th>

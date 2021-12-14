@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
 
+import kr.co.papeterie.vo.GongjiVO;
 import kr.co.papeterie.vo.QnaVO;
 
 public interface QnaService {
@@ -20,4 +21,10 @@ public interface QnaService {
 	public String bimil_ok(HttpServletRequest request,Model model);
 	
 	public String delete(int id);
+	
+	public String update(HttpServletRequest request,Model model);
+	
+	public String update_ok(QnaVO qvo);
+	
+	public String rewrite_ok(QnaVO qvo,HttpSession session);
 }
