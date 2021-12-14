@@ -41,10 +41,4 @@ public class HomeController {
 		return "/main/index";
 	}
 	
-	@RequestMapping("/goods/goods_view")
-	public String goods_view()
-	{
-		return "/goods/goods_view";
-	}
-	
 }

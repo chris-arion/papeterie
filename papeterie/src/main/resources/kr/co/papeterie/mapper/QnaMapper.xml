@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.papeterie.mapper.QnaMapper">
+
+	<insert id="write_ok" parameterType="kr.co.papeterie.vo.QnaVO">
+		insert into qna(userid,name,category,title,content,writeday,bimil)
+		values(#{userid},#{name},#{category},#{title},#{content},now(),1);
+	</insert>
+	
+	<select id="list" resultType="kr.co.papeterie.vo.QnaVO">
+		select * from qna order by id desc;
+	</select>
+
+</mapper>

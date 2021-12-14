@@ -2,9 +2,7 @@
  * 
  */
  
- 
- 
-$(document).ready(function() {
+ $(document).ready(function() {
 	  $('.top_head_first').css('paddingTop','5px')
 	
 	  $('#summernote').summernote({

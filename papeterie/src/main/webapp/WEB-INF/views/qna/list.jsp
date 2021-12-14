@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="/resources/css/gongji.css">
+<link rel="stylesheet" href="/resources/css/qna.css">
 </head>
 <body>
 
@@ -14,27 +14,29 @@
 <div id="section">
 
 	<!-- 페이지 제목 -->
-	<h2> 공지사항 </h2>
+	<h2> Q&A </h2>
 	
 	<!-- 리스트 목록 -->
 	<table class="table list-table">
 	<thead>
 		<tr>
-			<th width="100">번호</th>
+			<th width="80">번호</th>
+			<th width="80">상품</th>
 			<th>제목</th>
-			<th width="300">날짜</th>
-			<th width="150">작성자</th>
+			<th width="80">이름</th>
+			<th width="200">날짜</th>
+			<th width="80">조회수</th>
 		</tr>
 	</thead>
-		<c:forEach items="${list}" var="gvo">
+		<c:forEach items="${list}" var="qvo">
 		<tbody>
 		<tr>
-			<td class="list-center">
-				${gvo.id}
-			</td>
-			<td><a class="list-title" href="readnum?id=${gvo.id}">${gvo.title}</a></td>
-			<td class="list-center">${gvo.writeday}</td>
-			<td class="list-center">${gvo.name}</td>
+			<td class="list-center">${qvo.id}</td>
+			<td>상품사진</td>
+			<td><a href="bimil?id=${qvo.id}">${qvo.title}</a>&nbsp;&nbsp;<img src="/resources/img/ico_lock.gif"></td>
+			<td class="list-center">${uname}</td>
+			<td class="list-center">${qvo.writeday}</td>
+			<td class="list-center">${qvo.readnum}</td>
 		</tr>
 		</tbody>
 		</c:forEach>

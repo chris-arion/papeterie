@@ -22,11 +22,6 @@ function delete_ok()
 </script>
 </head>
 <body>
-<!-- 헤더 이미지 -->
-<div class="content2" align="center">
-	<img src="/resources/img/gongji.jpg" width="1903" height="400">
-	<div class="content_text2"> Notice Content </div>
-</div>
 
 <!-- 본문 시작 -->
 <div id="section">
