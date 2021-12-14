@@ -6,8 +6,8 @@
 <meta charset="UTF-8">
 <title>PAPETERIE - login</title>
 <link rel="stylesheet" href="/resources/css/style.css">
-<link rel="stylesheet" href="/resources/css/member.css">
-<script src="/resources/js/member.js"></script>
+<link rel="stylesheet" href="/resources/css/login.css">
+<script src="/resources/js/login.js"></script>
 </head>
 <body>
 

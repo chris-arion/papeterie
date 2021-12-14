@@ -34,7 +34,7 @@
 				<c:if test="${userid == null}">
 					<a class="top_head_first_menu" href="../member/login">로그인</a> <a class="top_head_first_menu2">|</a>
 					<a class="top_head_first_menu" href="#">회원가입</a> <a class="top_head_first_menu2">|</a>
-					<a class="top_head_first_menu" href="../member/login">마이페이지</a> <a class="top_head_first_menu2">|</a>
+					<a class="top_head_first_menu" href="../member/mypage">마이페이지</a> <a class="top_head_first_menu2">|</a>
 					<a class="top_head_first_menu" href="#">장바구니</a>
 				</c:if>
 				

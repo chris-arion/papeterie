@@ -1,22 +1,5 @@
 @charset "UTF-8";
 
-input[type=text], input[type=password] {
-	width: 400px;
-	height: 40px;
-	border: 1px solid #6799FF;
-	font-size: 17px;
-	color: #6799FF;
-}
-
-input[type=submit], input[type=button] {
-	width: 402px;
-	height: 40px;
-	border: 1px solid #6799FF;
-	font-size: 17px;
-	background: #6799FF;
-	color: white;
-}
-
 #userid_search, #pwd_search {
 	align: center;
 	display: none;
@@ -102,4 +85,9 @@ ul.sub li:hover {
 	width: 840px;
 	height: 500px;
 	border: 1px solid green;
+}
+
+#ship_add {
+	text-align: right;
+	padding: 10px;
 }

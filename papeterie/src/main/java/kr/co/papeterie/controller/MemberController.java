@@ -60,4 +60,19 @@ public class MemberController {
 		}
 	}
 
+	@RequestMapping("/member/addressbook")
+	public String addressbook() {
+		return "/member/addressbook";
+	}
+	
+	@RequestMapping("/member/add")
+	public String add() {
+		return "/member/add";
+	}
+	
+	
+	
+	
+	
+	
 }
