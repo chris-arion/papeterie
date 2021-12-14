@@ -37,4 +37,44 @@ public class QnaServiceImpl implements QnaService{
 		model.addAttribute("uname",session.getAttribute("uname"));
 		return module+"list";
 	}
+	
+	@Override
+	public String readnum(HttpServletRequest request) {
+		int id = Integer.parseInt(request.getParameter("id"));
+		mapper.readnum(id);
+		return "redirect:"+module+"content?id="+id;
+	}
+	
+	@Override
+	public String content(HttpServletRequest request,Model model) {
+		
+		String id = request.getParameter("id");
+		model.addAttribute("qvo",mapper.content(id));
+		return module+"content";
+	}
+
+	@Override
+	public String bimil_ok(HttpServletRequest request,Model model) {
+		
+		int id = Integer.parseInt(request.getParameter("id"));
+		String pwd = request.getParameter("pwd");
+		
+		int chk = mapper.ispwd(pwd, id);
+		if(chk==1)
+		{
+			return "redirect:"+module+"readnum?id="+id;
+		}
+		else
+		{
+			int fail = 1;
+			model.addAttribute("fail",fail);
+			return "redirect:"+module+"bimil?id="+id;
+		}
+	}
+	
+	@Override
+	public String delete(int id) {
+		mapper.delete(id);
+		return "redirect:"+module+"list";
+	}
 }

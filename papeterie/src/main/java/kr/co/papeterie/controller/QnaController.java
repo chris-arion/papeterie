@@ -46,4 +46,28 @@ public class QnaController {
 		return module+"bimil";
 	}
 	
+	@RequestMapping("bimil_ok")
+	public String bimil_ok(HttpServletRequest request,Model model)
+	{
+		return qservice.bimil_ok(request,model);
+	}
+	
+	@RequestMapping("readnum")
+	public String readnum(HttpServletRequest request)
+	{
+		return qservice.readnum(request);
+	}
+	
+	@RequestMapping("content")
+	public String content(HttpServletRequest request,Model model)
+	{
+		return qservice.content(request,model);
+	}
+	
+	@RequestMapping("delete")
+	public String delete(HttpServletRequest request)
+	{
+		return qservice.delete(Integer.parseInt(request.getParameter("id")));
+	}
+	
 }

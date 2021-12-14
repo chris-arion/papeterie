@@ -21,7 +21,7 @@
 	<thead>
 		<tr>
 			<th width="80">번호</th>
-			<th width="80">상품</th>
+			<th width="150">분류</th>
 			<th>제목</th>
 			<th width="80">이름</th>
 			<th width="200">날짜</th>
@@ -32,8 +32,24 @@
 		<tbody>
 		<tr>
 			<td class="list-center">${qvo.id}</td>
-			<td>상품사진</td>
-			<td><a href="bimil?id=${qvo.id}">${qvo.title}</a>&nbsp;&nbsp;<img src="/resources/img/ico_lock.gif"></td>
+			<td class="list-center">
+				<c:if test="${qvo.category == 1}">
+					제품문의
+				</c:if>
+				<c:if test="${qvo.category == 2}">
+					배송문의
+				</c:if>
+				<c:if test="${qvo.category == 3}">
+					이벤트문의
+				</c:if>
+				<c:if test="${qvo.category == 4}">
+					교환/반품/환불
+				</c:if>
+				<c:if test="${qvo.category == 5}">
+					기타문의
+				</c:if>
+			</td>
+			<td><a href="bimil?id=${qvo.id}" id="bimil-title">${qvo.title}</a>&nbsp;&nbsp;<img src="/resources/img/ico_lock.gif"></td>
 			<td class="list-center">${uname}</td>
 			<td class="list-center">${qvo.writeday}</td>
 			<td class="list-center">${qvo.readnum}</td>
