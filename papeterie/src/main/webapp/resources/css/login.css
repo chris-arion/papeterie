@@ -17,4 +17,29 @@ input[type=submit], input[type=button] {
 	color: white;
 }
 
+#userid_search, #pwd_search {
+	align: center;
+	display: none;
+}
+
+#login_table {
+	width: 400px;
+	border-collapse: collapse;
+	padding: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#login_table>th, tr, td {
+	border-collapse: collapse;
+	padding: 10px;
+}
+
+#userid_search_tbl, #pwd_search_tbl {
+	width: 400px;
+	border-collapse: collapse;
+	padding: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
 

@@ -2,14 +2,19 @@ package kr.co.papeterie.controller;
 
 import java.io.PrintWriter;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.co.papeterie.service.AddressService;
 import kr.co.papeterie.service.MemberService;
+import kr.co.papeterie.vo.AddressVO;
 import kr.co.papeterie.vo.MemberVO;
 
 @Controller
@@ -18,6 +23,10 @@ public class MemberController {
 	@Autowired
 	@Qualifier("member")
 	private MemberService service;
+	
+	@Autowired
+	@Qualifier("address")
+	private AddressService aservice;
 
 	@RequestMapping("/member/login")
 	public String login() {
@@ -61,18 +70,32 @@ public class MemberController {
 	}
 
 	@RequestMapping("/member/addressbook")
-	public String addressbook() {
-		return "/member/addressbook";
+	public String addressbook(HttpSession session, Model model) {
+		return aservice.list(session, model);
 	}
 	
-	@RequestMapping("/member/add")
-	public String add() {
-		return "/member/add";
+	@RequestMapping("/member/add_ok")
+	public String add(AddressVO avo, HttpSession session, Model model) {
+		return aservice.add_ok(avo, session, model);
 	}
 	
+	@RequestMapping("/member/get_addr")
+	public @ResponseBody AddressVO get_addr(HttpServletRequest request) throws Exception {
+		AddressVO avo = aservice.get_addr(request);
+		System.out.println("userid = " + avo.getUserid());
+		return avo;
+	}
 	
+	@RequestMapping("/member/update_ok")
+	public String update_ok(AddressVO avo, HttpSession session) {
+		System.out.println("idx = " + avo.getIdx());
+		return aservice.update_ok(avo, session);
+	}
 	
-	
+	@RequestMapping("/member/del_addr")
+	public String del_addr(HttpServletRequest request) {
+		return aservice.del_addr(request);
+	}
 	
 	
 }

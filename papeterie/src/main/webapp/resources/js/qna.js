@@ -33,6 +33,18 @@
 	
 function write_check()
 {
+	if(document.write.name.value == "")
+	{
+		document.getElementById("write-name").style.marginLeft="20px";
+		document.getElementById("write-name").innerText="작성자를 입력해주세요.";
+		document.getElementById("write-name").style.color="red";
+		return false;
+	}
+	else
+	{
+		document.getElementById("write-name").style.display="none";
+	}
+	
 	if(document.write.title.value == "")
 	{
 		document.getElementById("write-title").style.marginLeft="20px";
@@ -44,4 +56,4 @@ function write_check()
 	{
 		document.getElementById("write-title").style.display="none";
 	}
-}
+}	

@@ -44,7 +44,7 @@
 					<td>${avo.rname}</td>
 					<td>
 						<img src="/resources/img/ic_desc.svg" alt="수정" title="수정" onclick="update_addr_fn(${avo.idx})">
-						<img src="/resources/img/ic_delete.svg" alt="삭제" title="삭제">
+						<a href="del_addr?idx=${avo.idx}"><img src="/resources/img/ic_delete.svg" alt="삭제" title="삭제"></a>
 					</td>
 				</tr>
 				</c:forEach>
@@ -80,7 +80,7 @@
 					</tr>
 					<tr>
 						<td></td>
-						<td><input type="checkbox" name="sdefault" id="a_sdefault" value="1">기본 배송지로 설정</td>
+						<td><input type="checkbox" name="sdefault" id="a_sdefault" value="1"> 기본 배송지로 설정</td>
 					</tr>
 					<tr>
 						<td>요청사항</td>
@@ -107,6 +107,7 @@
 
 		<div id="update_frm">
 			<form action="update_ok" method="post" name="ufrm" id="ufrm">
+				<input type="hidden" name="idx" id="u_idx" value="">
 				<table class="add_table">
 					<tr>
 						<td>배송지명</td>
@@ -134,7 +135,7 @@
 					</tr>
 					<tr>
 						<td></td>
-						<td><input type="checkbox" name="sdefault" id="u_sdefault"> 기본 배송지로 설정</td>
+						<td><input type="checkbox" name="sdefault" id="u_sdefault" value="1"> 기본 배송지로 설정</td>
 					</tr>
 					<tr>
 						<td>요청사항</td>
