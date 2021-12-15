@@ -2,7 +2,6 @@ package kr.co.papeterie.mapper;
 
 import java.util.ArrayList;
 
-import kr.co.papeterie.vo.GongjiVO;
 import kr.co.papeterie.vo.QnaVO;
 
 public interface QnaMapper {
