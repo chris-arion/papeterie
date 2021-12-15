@@ -19,6 +19,7 @@ function qnalist(){
 		
 	}
 }
+
 </script>
 </head>
 <body>
@@ -62,7 +63,15 @@ function qnalist(){
 					기타문의
 				</c:if>
 			</td>
-			<td><a href="bimil?id=${qvo.id}" id="bimil-title">${qvo.title}</a>&nbsp;&nbsp;<img src="/resources/img/ico_lock.gif"></td>
+			<td>
+				<c:if test="${qvo.dep > 0}">
+					<c:forEach begin="0" end="${qvo.dep}">
+						&nbsp;&nbsp;
+					</c:forEach>
+					<span id="re">RE</span>
+				</c:if>
+				<a href="bimil?id=${qvo.id}" id="bimil-title">${qvo.title}</a>&nbsp;&nbsp;<img src="/resources/img/ico_lock.gif">
+			</td>
 			<td class="list-center">${qvo.name}</td>
 			<td class="list-center">${qvo.writeday}</td>
 			<td class="list-center">${qvo.readnum}</td>

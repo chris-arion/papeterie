@@ -101,6 +101,10 @@ public class QnaServiceImpl implements QnaService{
 	@Override
 	public String rewrite_ok(QnaVO qvo,HttpSession session) {
 		
+		qvo.setUserid(session.getAttribute("userid").toString());
+		qvo.setName(session.getAttribute("uname").toString());
+		qvo.setPwd(session.getAttribute("pwd").toString());
+		
 		mapper.up_seq(qvo.getSeq(),qvo.getGrp());
 		mapper.rewrite_ok(qvo);
 		return "redirect:"+module+"list";

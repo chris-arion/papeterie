@@ -26,7 +26,7 @@
 	<form method="post" action="rewrite_ok" name="rewrite">
 		<input type="hidden" name="grp" value="${grp}">
 		<input type="hidden" name="seq" value="${seq+1}">
-		<input type="hidden" name="depth" value="${depth+1}">
+		<input type="hidden" name="dep" value="${dep+1}">
 	<table class="table table-center">
 		<tr>
 			<th width="150">작성자</th>

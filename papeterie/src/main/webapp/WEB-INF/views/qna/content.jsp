@@ -48,7 +48,7 @@ function delete_ok()
 	
 	
 	<div id="btn_text">
-		<c:if test="${userid == qvo.userid && userid != null}">
+		<c:if test="${userid == qvo.userid && userid != null || userid == 'admin'}">
 			<input type="button" value="삭제" id="content-btn" onclick="delete_ok()">
 			<input type="button" value="수정" id="content-btn" onclick="location='update?id=${qvo.id}'">
 		</c:if>

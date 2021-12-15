@@ -40,9 +40,14 @@
 				
 				<!-- 로그인이 되었을때 -->
 				<c:if test="${userid != null}">
-					<span><b>${uname}</b></span> 님 <a class="top_head_first_menu" href="../member/logout">로그아웃</a> <a>|</a>
+					<span class="top_head_first_menu">${uname}님</span> <a class="top_head_first_menu" href="../member/logout">로그아웃</a> <a class="top_head_first_menu2">|</a>
 					<a class="top_head_first_menu" href="../member/mypage">마이페이지</a> <a class="top_head_first_menu2">|</a>
 					<a class="top_head_first_menu" href="#">장바구니</a>
+				</c:if>
+				
+				<c:if test="${userid == 'admin'}">
+					<a class="top_head_first_menu2">|</a>
+					<a class="top_head_first_menu" href="#">관리자페이지</a>
 				</c:if>
 			</div>
 		</div>
