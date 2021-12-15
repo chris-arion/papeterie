@@ -4,6 +4,7 @@
 	<excludes>
 		<pattern>/imsi</pattern>
 		<pattern>/member/add</pattern>
+		<pattern>/admin/manager</pattern>
 	</excludes>
 
 	<!-- 기본 패턴 -->

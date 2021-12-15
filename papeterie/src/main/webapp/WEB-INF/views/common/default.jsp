@@ -47,7 +47,7 @@
 				
 				<c:if test="${userid == 'admin'}">
 					<a class="top_head_first_menu2">|</a>
-					<a class="top_head_first_menu" href="#">관리자페이지</a>
+					<a class="top_head_first_menu" href="../admin/manager">관리자페이지</a>
 				</c:if>
 			</div>
 		</div>
