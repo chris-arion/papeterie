@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+#section{
+	margin: auto;
+	width: 450px;
+}
+#section .juso{
+	width: 450px;
+	margin: auto;
+	border-top: 2px solid #ccc;
+	margin-bottom: 10px;
+}
+#section table{
+	width: 450px;
+	border-spacing: 0px;
+}
+#section table .td_head{
+	width: 100px;
+	height: 20px;
+	background: #aaa;
+	font-weight: bold;
+	color: white;
+}
+#section table td{
+	border-bottom: 1px solid #eee;
+	padding-left: 10px;
+}
+#section .btn{
+	display: inline-block;
+	color: white;
+	text-align: center;
+	border: 1px solid #aaa;
+	background: #ccc;
+	width: 100px;
+	height: 20px;
+	cursor: pointer;
+}
+#section #add{
+	border: 1px solid lightsalmon;
+	background: lightsalmon;
+	color: white;
+	width: 450px;
+	height: 30px; 
+	margin: auto;
+	text-align: center;
+	font-weight: bold;
+	font-size: 20px;
+	padding-top: 5px;
+	cursor: pointer;
+}

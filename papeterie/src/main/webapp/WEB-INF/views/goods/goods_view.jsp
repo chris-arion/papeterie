@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,16 +15,17 @@
 <body>
 	<div id="section">
 		<div id="goods_img">
-			<img src="">
+			<img src="${gvo.img}">
 		</div>
-		
 		<div id="goods_side">
-		<h3>상품명 입력</h3>
-		<form>
+		<h3>${gvo.title}</h3>
+		<form method="post" action="login_check" name="goods_form">
+		<input type="hidden" name="pcode" value="${gvo.pcode}">
+		<input type="hidden" name="su" value="1">
 			<table id="goods_detail_table">
 				<tr>
 					<td class="td_head">판매 가격</td>
-					<td class="td_content"> <strong>ex)3,000원</strong> </td>
+					<td class="td_content"> <strong id="goods_price"><fmt:formatNumber value="${gvo.price}"/>원</strong> </td>
 				</tr>
 				<tr>
 					<td class="td_head">배송 정보</td>
@@ -32,41 +35,34 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="td_head">옵션 선택</td>
-					<td class="td_content">
-						<select id="select_box" onchange="select_option()">
-							<option>==선택==</option>
-							<option> 옵션1 </option>
-							<option> 옵션2 </option>							
-						</select>
-					</td>
-				</tr>
-				<tr>
 					<td colspan="2" id="goods_option_list">
 						<div class="goods_option">
-							<div class="option_name">선택한 옵션1</div>
-							<div id="left_button">+</div>
-							<div id="center_count">수량</div>
-							<div id="right_button">-</div>
-							<div class="option_price">옵션1 가격</div>
+							<div class="option_name">${gvo.title}</div>
+							<input type="button" class="left_button" onclick="count_goods(this)" value="-">
+							<div class="center_count">1</div>
+							<input type="button" class="right_button" onclick="count_goods(this)" value="+">
+							<div class="option_price"><fmt:formatNumber value="${gvo.price}"/>원</div>
 						</div>
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2">
-					총 금액 <strong id="total_price">5,000 원</strong>
+					<td colspan="2" id="blank"></td>
+				</tr>
+				<tr>
+					<td colspan="2" id="total_price_td">
+					<span id="total_price_word" class="td_head">총 합계 금액</span> <strong id="total_price"><fmt:formatNumber value="${gvo.price}"/>원</strong>
 					</td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center">
-						<a href="" class="goods_buy_button">바 로 구 매</a>
+						<input type="submit" class="goods_buy_button" value="바 로 구 매"><br>
 						<a href="" class="goods_sub_button">찜 하 기</a>
 						<a href="" class="goods_sub_button">장 바 구 니</a>
 					</td>
 				</tr>
 			</table>
+			</form>
 		</div>
-		
 		<div id="goods_data">
 			<div id="goods_detail">
 				<div class="goods_data_menu">
@@ -76,6 +72,7 @@
 					<div class="goods_data_menu_sub" onclick="Goods_Menu_Move(3)">리뷰(후기)</div>
 					<div class="goods_data_menu_sub" onclick="Goods_Menu_Move(4)">문의사항</div>
 				</div>
+				${gvo.content}
 			</div>
 			<div id="goods_shipping">
 				<div class="goods_data_menu">
@@ -110,13 +107,18 @@
 				<table>
 					<tr>
 						<td>평점</td>
-						<td>리뷰내용</td>
+						<td><a href="javascript:show_review()">리뷰내용</a></td>
 						<td>작성자</td>
 						<td>작성일</td>
 					</tr>
+					<tr class="review_detail_tr">
+						<td colspan="4" class="review_detail">
+						이곳은 리뷰 내용이 등록될 곳입니다
+						</td>
+					</tr>
 					<tr>
 						<td>평점</td>
-						<td>리뷰내용</td>
+						<td><a href="javascript:show_review()">리뷰내용</a></td>
 						<td>작성자</td>
 						<td>작성일</td>
 					</tr>
@@ -136,20 +138,21 @@
 				<table>
 					<tr>
 						<td>문의번호</td>
-						<td>문의내용</td>
+						<td><a href="javascript:show_inquiry()">문의내용</a></td>
 						<td>작성자</td>
 						<td>작성일</td>
+						<td>답변처리상태</td>
 					</tr>
 					<tr>
 						<td>문의번호</td>
-						<td>문의내용</td>
+						<td><a href="javascript:show_inquiry()">문의내용</a></td>
 						<td>작성자</td>
 						<td>작성일</td>
+						<td>답변처리상태</td>
 					</tr>
 				</table>
 				</div>
 			</div>
 		</div>
-	</div>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,11 +9,10 @@
 <link rel="stylesheet" href="/resources/css/purchase.css">
 <script src="/resources/js/purchase.js"></script>
 
-
 </head>
 <body>
 	<div id="section">
-	<form method="post" action="" onsubmit="final_check()">
+	<form method="post" action="" onsubmit="return final_check()">
 		<span id="page_title">주문서 작성/결제</span> <span id="page_sub">01장바구니 > <strong>02주문서작성/결제 ></strong> 03주문완료</span>
 		<hr>
 		<div id="goods_table">
@@ -33,7 +33,7 @@
 					</td>
 					<td>```</td>
 					<td>수량*가격</td>
-					<td class="goods_td">```</td>
+					<td class="goods_td">10%포인트 적립</td>
 					<td class="goods_td">```</td>
 					<td class="goods_td">```</td>
 				</tr>
@@ -61,12 +61,11 @@
 			</div>
 		</div>
 		<div id="purchase_agree">
-		<c:if test="${userid == null}">
 			<div id="agree_check_all">
 				<input type="checkbox" id="agree_all" name="agree_all" onchange="checkAll()"><label for="agree_all">이용약관 및 비회원 주문에 대한 개인정보 수집 이용 동의를 확인하고 전체 동의합니다.</label>
 			</div>
 			<div class="agree">
-				<span><strong>비회원 주문에 대한 개인정보 수집 이용 동의</strong></span>
+				<span><strong>개인정보 수집 이용 동의</strong></span>
 				<div class="agree_detail">
 				<textarea readonly>
 수집 목적 : 서비스 제공 및 계약의 이행, 구매 및 대금결제, 물품배송 또는 청구지 발송, 불만처리 등 민원처리, 
@@ -79,10 +78,10 @@
 				</textarea>
 				</div>
 				<div class="agree_check">
-					<input type="checkbox" id="agree1" name="agreecheck" onchange="check_back(this)"><label for="agree1"><strong>(필수)</strong> 비회원 개인정보 수집 이용에 대한 내용을 확인 하였으며 이에 동의 합니다.</label>
+					<input type="checkbox" id="agree1" name="agreecheck" onchange="check_back(this)"><label for="agree1"><strong>(필수)</strong> 비회원 개인정보 수집 이용에 대한 내용을 확인 하였으며 이에 동의 합니다.
+					&nbsp<span class="submit_alert">필수사항 체크하세요</span></label>
 				</div>
 			</div>
-		</c:if>
 			<div class="agree">
 				<span><strong>이용약관 동의</strong></span>
 				<div class="agree_detail">
@@ -265,7 +264,8 @@
 				</textarea>	
 				</div>
 				<div class="agree_check">
-					<input type="checkbox" id="agree2" name="agreecheck" onchange="check_back(this)"><label for="agree2"><strong>(필수)</strong> 이용약관에 대한 내용을 확인 하였으며 이에 동의 합니다.</label>
+					<input type="checkbox" id="agree2" name="agreecheck" onchange="check_back(this)"><label for="agree2"><strong>(필수)</strong> 이용약관에 대한 내용을 확인 하였으며 이에 동의 합니다.
+					&nbsp<span class="submit_alert">필수사항 체크하세요</span></label>
 				</div>
 			</div>
 		</div>
@@ -273,30 +273,24 @@
 			<span><strong>주문자 정보</strong></span>
 			<table>
 				<tr>
-					<td class="td_title">*주문하시는 분</td>
-					<td><input type="text" name="" id="buyer"></td>
+					<td class="td_title">주문하시는 분</td>
+					<td>
+						<input type="hidden" name="uname" value="${mvo.uname}">
+						<span id="buyer">${mvo.uname}</span>
+					</td>
 				</tr>
 				<tr>
-					<td class="td_title">전화번호</td>
-					<td><input type="text" name="" id="buyer_tel"></td>
-				</tr>
-				<tr>
-					<td class="td_title">*휴대폰번호</td>
-					<td><input type="text" name="" id="buyer_phone"></td>
+					<td class="td_title">연락처 번호</td>
+					<td>
+						<input type="hidden" name="phone" value="${mvo.phone}">
+						<span id="buyer_phone">${mvo.phone}</span>
+					</td>
 				</tr>
 				<tr>
 					<td class="td_title">*이메일</td>
 					<td>
-						<input type="text" name="email_id">@<input type="text" name="email_juso" id="email_juso">
-						<input type="hidden" name="" id="buyer_email" value="">
-						<select id="select_mail" onchange="change_mail(this)">
-							<option value="0">직접 입력</option>
-							<option value="1">네이버</option>
-							<option value="2">다음</option>
-							<option value="3">네이트</option>
-							<option value="4">G메일</option>
-							<option value="5">핫메일</option>
-						</select>
+						<input type="hidden" name="email" value="${mvo.email}">
+						<span id="buyer_email">${mvo.email}</span>
 					</td>
 				</tr>
 			</table>
@@ -307,32 +301,51 @@
 				<tr>
 					<td class="td_title">배송지 확인</td>
 					<td>
-						<input type="radio" name="shipping_loc" checked="checked" onclick="shipping_my(this)" value="0">직접입력
+						<input type="radio" name="shipping_loc" id="shipping_loc" checked="checked" onclick="shipping_my(this)" value="0">직접입력
 						<input type="radio" name="shipping_loc" onclick="shipping_my(this)" value="1">주문자정보와 동일
+						<input type="hidden" id="imsi_target" value="${avo.rname}">
+						<input type="hidden" id="imsi_zipNo" value="${avo.zip}">
+						<input type="hidden" id="imsi_roadAddrPart1" value="${avo.addr1}">
+						<input type="hidden" id="imsi_addrDetail" value="${avo.addr2}">
+						<input type="hidden" id="imsi_phone" value="${avo.phone}">
+						<input type="hidden" id="imsi_option" value="${avo.soption}">
 					</td>
 				</tr>
 				<tr>
 					<td class="td_title">*받으실분</td>
-					<td><input type="text" name="" id="target"></td>
+					<td>
+						<input type="text" name="rname" id="target"><br>
+						<span class="submit_alert">받으실분 입력하세요</span>
+					</td>
 				</tr>
 				<tr>
 					<td class="td_title">*받으실 곳</td>
 					<td>
-						<button onclick="addOpen()">주소 검색</button><br>
-						<input type="text" name="" id="target_address">
+						<input type="text" name="zip" id="zipNo" onclick="addOpen()" placeholder="우편번호"> 
+						<button type="button" onclick="addOpen()">주소 검색</button>
+						<button type="button" onclick="my_address()" id="address_list">나의 주소록</button>
+						<br>
+						<input type="text" name="addr1" id="roadAddrPart1" onclick="addOpen()" placeholder="도로명주소">
+						<input type="text" name="addr2" id="addrDetail" placeholder="상세주소"><br>
+						<span class="submit_alert">받으실 곳 입력하세요</span>
 					</td>
 				</tr>
 				<tr>
-					<td class="td_title">전화번호</td>
-					<td><input type="text" name="" id="target_tel"></td>
+					<td class="td_title">*연락처 번호</td>
+					<td><input type="text" name="phone" id="target_phone" onkeypress="justNum()"><br>
+						<span class="submit_alert">휴대폰번호 입력하세요</span>
+					</td>
 				</tr>
 				<tr>
-					<td class="td_title">*휴대폰 번호</td>
-					<td><input type="text" name="" id="target_phone"></td>
-				</tr>
-				<tr>
-					<td class="td_title">남기실 말씀</td>
-					<td><input type="text" name="" id="target_notice"></td>
+					<td class="td_title">수령 방법</td>
+					<td>
+						<select name="soption" id="target_option">
+							<option value="1">경비실</option>
+							<option value="2">부재시 문앞</option>
+							<option value="3">편의점</option>
+							<option value="4">직접 수령</option>
+						</select>
+					</td>
 				</tr>
 			</table>
 		</div>
@@ -349,23 +362,28 @@
 				</tr>
 				<tr>
 					<td class="td_title">할인 및 적립</td>
-					<td>(쿠폰 사용)</td>
+					<td>
+					<input type="radio" name="upoint" id="pointsave" checked="checked">포인트 적립
+					<input type="radio" name="upoint" id="pointuse">포인트 사용
+					<span>(현재 포인트: ${mvo.spoint})</span>
+					</td>
 				</tr>
 				<tr>
 					<td class="td_title">최종 결제 금액</td>
-					<td><strong>50,000원</strong></td>
+					<td><strong class="final_total_price">50,000원</strong></td>
 				</tr>
 				<tr>
 					<td class="td_title">결제 수단</td>
 					<td>
-						<input type="radio" name="purchase_how" value="1" checked="checked">신용카드
-						<input type="radio" name="purchase_how" value="2">휴대폰 결제
+						<input type="radio" name="purchase_how" value="0" checked="checked">신용카드
+						<input type="radio" name="purchase_how" value="1">휴대폰 결제
 					</td>
 				</tr>
 			</table>
 		</div>
 		<div id="purchase_final_price">
-			<strong><span>최종 결제 금액  </span> <span id="final_price">50,000원</span></strong>
+			<strong><span>최종 결제 금액  </span> <span id="final_price" class="final_total_price">50,000원</span></strong>
+			<input type="hidden" name="price" id="price" value="">
 		</div>
 		<div id="purchase_button_area">
 			<input type="submit" value="결제하기">
