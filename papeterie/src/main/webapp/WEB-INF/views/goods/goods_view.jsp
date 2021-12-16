@@ -134,21 +134,10 @@
 					<div class="goods_data_menu_sub sub_here" onclick="Goods_Menu_Move(4)">문의사항</div>
 				</div>
 				<div id="inquiry_content">
-				<span><strong>상 품 문 의</strong></span> <a href=""><span class="write_button">상품문의 글쓰기</span></a>
+				<span><strong>상 품 문 의</strong></span> <a href="../qna/write"><span class="write_button">상품문의 글쓰기</span></a>
 				<table>
 					<tr>
-						<td>문의번호</td>
-						<td><a href="javascript:show_inquiry()">문의내용</a></td>
-						<td>작성자</td>
-						<td>작성일</td>
-						<td>답변처리상태</td>
-					</tr>
-					<tr>
-						<td>문의번호</td>
-						<td><a href="javascript:show_inquiry()">문의내용</a></td>
-						<td>작성자</td>
-						<td>작성일</td>
-						<td>답변처리상태</td>
+						
 					</tr>
 				</table>
 				</div>
