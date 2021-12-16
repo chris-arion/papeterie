@@ -4,9 +4,10 @@ public class OrderVO {
 	private int idx;		// 인덱스
 	private String order_code;	// 주문코드 : 202112160001
 	private String userid;	// 아이디
-	private String pcode;	// 상품코드
-	private int count;		// 주문 수량
+	private String pcode;	// 상품코드 : p0101, p0102, ...
+	private int count;		// 주문 수량 : 1, 2, ...
 	private int price;		// 주문 금액
+	private int ship_price;	// 배송비
 	private int addr_id;	// 배송지 인덱스
 	private int pay_type;	// 결재수단 : 0 - 계좌이체, 1 - 신용카드, 2 - 간편결재
 	private int bank;		// 계좌이체 시 선택한 은행
@@ -16,6 +17,7 @@ public class OrderVO {
 	private String phone;	// 간편결재 전화번호
 	private int state;		// 주문 상태 : 0 - 주문 완료, 1 - 결재완료, 2 - 입금대기, 3 - 입금확인, 4 - 상품준비중, 5 - 배송중, 6 - 배송완료
 	private String regdate;	// 주문일자
+
 	public int getIdx() {
 		return idx;
 	}
@@ -100,6 +102,17 @@ public class OrderVO {
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
 	}
-	
+	public String getOrder_code() {
+		return order_code;
+	}
+	public void setOrder_code(String order_code) {
+		this.order_code = order_code;
+	}
+	public int getShip_price() {
+		return ship_price;
+	}
+	public void setShip_price(int ship_price) {
+		this.ship_price = ship_price;
+	}	
 	
 }
