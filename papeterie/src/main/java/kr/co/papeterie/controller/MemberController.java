@@ -2,15 +2,19 @@ package kr.co.papeterie.controller;
 
 import java.io.PrintWriter;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-//import kr.co.papeterie.service.AddressService;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import kr.co.papeterie.service.AddressService;
 import kr.co.papeterie.service.MemberService;
-//import kr.co.papeterie.vo.AddressVO;
+import kr.co.papeterie.vo.AddressVO;
 import kr.co.papeterie.vo.MemberVO;
 
 @Controller
@@ -19,11 +23,11 @@ public class MemberController {
 	@Autowired
 	@Qualifier("member")
 	private MemberService service;
-/*	
+	
 	@Autowired
 	@Qualifier("address")
 	private AddressService aservice;
-*/
+
 	@RequestMapping("/member/login")
 	public String login() {
 		return "/member/login";
@@ -64,7 +68,7 @@ public class MemberController {
 			out.print(pwd);
 		}
 	}
-/*
+
 	@RequestMapping("/member/addressbook")
 	public String addressbook(HttpSession session, Model model) {
 		return aservice.list(session, model);
@@ -92,6 +96,6 @@ public class MemberController {
 	public String del_addr(HttpServletRequest request) {
 		return aservice.del_addr(request);
 	}
-*/	
+	
 	
 }
