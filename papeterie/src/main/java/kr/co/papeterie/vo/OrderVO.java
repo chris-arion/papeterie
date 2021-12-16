@@ -2,6 +2,7 @@ package kr.co.papeterie.vo;
 
 public class OrderVO {
 	private int idx;		// 인덱스
+	private String order_code;	// 주문코드 : 202112160001
 	private String userid;	// 아이디
 	private String pcode;	// 상품코드
 	private int count;		// 주문 수량
