@@ -55,7 +55,7 @@ function delete_ok()
 		
 		<!-- 유저아이디가 관리자이면 답변달기 버튼나옴. -->
 		<c:if test="${userid == 'admin' }">
-			<input type="button" value="답글작성" id="content-btn" onclick="location='rewrite?grp=${qvo.grp}&seq=${qvo.seq}&depth=${qvo.dep}'">
+			<input type="button" value="답글작성" id="content-btn" onclick="location='rewrite?grp=${qvo.grp}&seq=${qvo.seq}&depth=${qvo.dep}&pwd=${qvo.pwd}'">
 		</c:if>
 		<input type="button" value="목록" id="content-btn" onclick="location='list'">
 	</div>

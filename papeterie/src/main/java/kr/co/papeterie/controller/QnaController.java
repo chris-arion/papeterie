@@ -93,9 +93,9 @@ public class QnaController {
 	}
 	
 	@RequestMapping("rewrite_ok")
-	public String rewrite_ok(QnaVO qvo,HttpSession session)
+	public String rewrite_ok(QnaVO qvo,HttpSession session,HttpServletRequest request)
 	{
-		return qservice.rewrite_ok(qvo,session);
+		return qservice.rewrite_ok(qvo,session,request);
 	}
 	
 }

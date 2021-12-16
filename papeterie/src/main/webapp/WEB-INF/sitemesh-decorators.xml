@@ -5,6 +5,7 @@
 		<pattern>/imsi</pattern>
 		<pattern>/member/add</pattern>
 		<pattern>/admin/manager</pattern>
+		<pattern>/admin/user</pattern>
 		<pattern>/goods/jusoPopup</pattern>
 		<pattern>/goods/myjuso</pattern>
 	</excludes>

@@ -98,11 +98,11 @@ public class QnaServiceImpl implements QnaService{
 	}
 	
 	@Override
-	public String rewrite_ok(QnaVO qvo,HttpSession session) {
+	public String rewrite_ok(QnaVO qvo,HttpSession session,HttpServletRequest request) {
 		
 		qvo.setUserid(session.getAttribute("userid").toString());
 		qvo.setName(session.getAttribute("uname").toString());
-		qvo.setPwd(session.getAttribute("pwd").toString());
+		qvo.setPwd(request.getParameter("pwd"));
 		
 		mapper.up_seq(qvo.getSeq(),qvo.getGrp());
 		mapper.rewrite_ok(qvo);

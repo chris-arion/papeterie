@@ -4,6 +4,7 @@ package kr.co.papeterie.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.papeterie.service.AdminService;
@@ -19,8 +20,14 @@ public class AdminController {
 	private final String module="/admin/";
 	
 	@RequestMapping("manager")
-	public String manager()
+	public String manager(Model model)
 	{
-		return module+"manager";
+		return aservice.manager(model);
+	}
+	
+	@RequestMapping("user")
+	public String user()
+	{
+		return module+"user";
 	}
 }

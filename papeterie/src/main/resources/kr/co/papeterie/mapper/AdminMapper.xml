@@ -3,4 +3,24 @@
 
 <mapper namespace="kr.co.papeterie.mapper.AdminMapper">
 	
+	<select id="userlist" resultType="String">
+		select count(*) from member;
+	</select>
+	
+	<select id="userpoint" resultType="String">
+		SELECT SUM(spoint) FROM member;
+	</select>
+	
+	<select id="gongjilist" resultType="String">
+		select count(*) from gongji;
+	</select>
+	
+	<select id="qnalist" resultType="String">
+		select count(*) from qna where bimil=0;
+	</select>
+	
+	<select id="qnalist2" resultType="String">
+		select count(*) from qna where bimil=1;
+	</select>
+	
 </mapper>

@@ -25,5 +25,5 @@ public interface QnaService {
 	
 	public String update_ok(QnaVO qvo);
 	
-	public String rewrite_ok(QnaVO qvo,HttpSession session);
+	public String rewrite_ok(QnaVO qvo,HttpSession session,HttpServletRequest request);
 }

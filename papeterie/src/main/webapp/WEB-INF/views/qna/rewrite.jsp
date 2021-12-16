@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String pwd = request.getParameter("pwd");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,6 +30,7 @@
 		<input type="hidden" name="grp" value="${grp}">
 		<input type="hidden" name="seq" value="${seq+1}">
 		<input type="hidden" name="dep" value="${dep+1}">
+		<input type="hidden" name="pwd" value="<%=pwd%>">
 	<table class="table table-center">
 		<tr>
 			<th width="150">작성자</th>
