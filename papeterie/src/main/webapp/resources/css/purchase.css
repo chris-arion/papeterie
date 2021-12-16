@@ -111,7 +111,7 @@
 /* 결제 동의 */
 #purchase_agree{
 	width: 900px;
-	height: 500px;
+	min-height: 200px;
 	margin-top: 50px;
 }
 #agree_check_all label{
@@ -149,24 +149,35 @@
 	font-size: 11px;
 	position: relative;
 	top: -3px;
+	margin: 0px;
 }
 /* 주문자 정보 */
 #user_detail{
-
-}
-
-/* 배송 주소 */
-#user_address{
-	margin-top: 30px;
-}
-#user_address #address{
-	margin-top: 5px;
-	width: 500px;
+	margin-top: 50px;
 }
 #email_juso{
 	width: 100px;
 }
-
+#select_mail{
+	height: 25px;
+}
+/* 배송 주소 */
+#user_address{
+	margin-top: 30px;
+}
+#zipNo{
+	width: 100px;
+	margin-bottom: 5px;
+}
+#address_list{
+	display: none;
+}
+#roadAddrPart1{
+	width: 300px;
+}
+#addrDetail{
+	width: 150px;
+}
 /* 결제 수단 */
 #purchase_detail{
 	margin-top: 30px;
@@ -189,16 +200,19 @@ table strong{
 }
 table td{
 	font-size: 13px;
-	height: 30px;
+	height: 50px;
 	padding: 10px 30px;
 	border-bottom: 1px solid #ccc;
 }
 table input[type=text]{
 	width: 220px;
-	height: 23px;
+	height: 25px;
 }
-select{
-	height: 27px;
+.submit_alert{
+	color: red;
+	weight: bold;
+	font-size: 12px;
+	display: none;
 }
 
 /* 최종 결제 금액 */
@@ -227,4 +241,3 @@ select{
 	font-size: 20px;
 	font-weight: bold;
 }
-

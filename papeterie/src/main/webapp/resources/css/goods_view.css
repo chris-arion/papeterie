@@ -3,53 +3,108 @@
 #section{
 	width: 900px;
 	height: auto;
-	border: 1px solid black;
 	margin: auto;
 	margin-top: 50px;
 }
 /* 상품 이미지 박스 */
 #goods_img{
-	border: 1px solid yellow;
-	background: #eee;
 	float: left;
 	width: 423px;
 	height: 522px;			
 }
+#goods_img > img{
+	width: 423px;
+	height: 522px;
+}
 /* 상품 설명 박스 */
 #goods_side{
-	border: 1px solid red;
-	float: right;
+	float: left;
+	margin-left: 40px;
 	width: 420px;
-	height: 600px;
+	min-height: 600px;
 }
 #goods_side h3{
 	margin-bottom: 20px;
+	font-weight: bold;
 }
 #goods_detail_table td{
-	border: 1px solid green;
 	width: 420px;
 	height: 50px;
 }
 #goods_detail_table .td_head{
 	text-align: left;
-	width: 100px;
+	width: 90px;
+	font-size: 15px;
+	color: gray;
+	font-weight: bold;
 }
 #goods_detail_table .td_content{
 	padding-left: 20px;
 	width: 350px;
 }
-#goods_detail_table #select_box{
-	width: 250px;
-}
 #goods_detail_table #goods_option_list{
-	height: 250px;
+	height: 50px;
+}
+#goods_detail_table #blank{
+	height: 140px;
+	border-bottom: 1px solid #ccc;
+}
+#goods_detail_table .goods_option{
+	border: 1px solid #aaa;
+	height: 50px;
+	padding-top: 10px;
+	margin-top: 10px; 
+	display: flex;
+	vertical-align: middle;
+}
+.right_button, .left_button{
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	border: 1px solid #ccc;
+	text-align: center;
+	cursor: pointer;
+}
+.center_count{
+	display: inline-block;
+	width: 45px;
+	height: 25px;
+	border: 1px solid #ccc;
+	text-align: center;
+}
+.option_name{
+	display: inline-block;
+	padding-left: 10px;
+	padding-top: 2px;
+	width: 200px;
+	height: 25px;
+	overflow: hidden;
+ 	text-overflow: ellipsis;
+ 	white-space: nowrap;
+ 	font-size: 13px;
+}
+.option_price{
+	display: inline-block;
+	width: 100px;
+	height: 25px;
+	font-weight: bold;
+	text-align: right;
+}
+#goods_detail_table #total_price_td{
+	height: 70px;
+	padding: 20px 0px;
 }
 #goods_detail_table #total_price{
-	font-size: 25px;
+	font-size: 35px;
 	float: right;
+	color: #ff7f4d;
+}
+#goods_detail_table #total_price_word{
+	display: inline-block;
+	padding-top:10px;
 }
 #goods_side .goods_buy_button{
-	width: 320px;
+	width: 405px;
 	height: 40px;
 	background: lightsalmon;
 	border: 1px solid lightsalmon;
@@ -59,9 +114,14 @@
 	padding-top: 5px;
 	font-weight: bold;
 	color: white;
+	cursor: pointer;
+}
+#goods_side .goods_buy_button:hover{
+	background: #ff7f4d;
+	border: 1px solid #ff7f4d;
 }
 #goods_side .goods_sub_button{
-	width: 157px;
+	width: 200px;
 	height: 40px;
 	border: 1px solid lightsalmon;
 	display: inline-block;
@@ -70,34 +130,11 @@
 	font-weight: bold;
 	color: black;
 }
-#right_button, #left_button{
-	display: inline-block;
-	width: 25px;
-	height: 25px;
-	border: 1px solid #ccc;
-	text-align: center;
-}
-#center_count{
-	display: inline-block;
-	width: 45px;
-	height: 25px;
-	border: 1px solid #ccc;
-	text-align: center;
-}
-.option_name{
-	display: inline-block;
-	width: 150px;
-	height: 25px;
-}
-.option_price{
-	display: inline-block;
-	width: 140px;
-	height: 25px;
-	text-align: right;
+#goods_side .goods_sub_button:hover{
+	background: #ffede6;
 }
 /* 상품 상세 정보 박스 */
 #goods_data{
-	border: 1px solid green;
 	clear: both;
 	width: 900px;
 	height: auto;
@@ -112,6 +149,7 @@
 	width: 150px;
 	height: 35px;
 	border: 1px solid gray;
+	border-bottom: none;
 	display: inline-block;
 	vertical-align: bottom;
 	padding-top: 7px;
@@ -127,28 +165,27 @@
 	padding-top: 12px;
 }
 #goods_data #goods_detail{
-	border: 1px solid black;
 	width: 900px;
 	min-height: 300px;
 	margin-top: 50px;
 	font-size: 0;
 }
+/* 상품 배송 정보 */
 #goods_data #goods_shipping{
-	border: 1px solid yellow;
 	width: 900px;
 	min-height: 300px;
 	margin-top: 50px;
 	font-size: 0;
 }
+/* 상품 교환,반품 */
 #goods_data #goods_refund{
-	border: 1px solid black;
 	width: 900px;
 	min-height: 300px;
 	margin-top: 50px;
 	font-size: 0;
 }
+/* 리뷰 후기 */
 #goods_data #goods_review{
-	border: 1px solid yellow;
 	width: 900px;
 	min-height: 300px;
 	margin-top: 50px;
@@ -165,8 +202,14 @@
 	width: 850px;
 	border-top: 1px solid #aaa;
 }
+.review_detail_tr{
+	display: none;
+}
+.review_detail{
+	padding-left: 30px;
+}
+/* 상품 문의 */
 #goods_data #goods_inquiry{
-	border: 1px solid black;
 	width: 900px;
 	min-height: 300px;
 	margin-top: 50px;
@@ -201,4 +244,5 @@ strong{
 .write_button:hover{
 	cursor: pointer;
 	color: white;
+	background: #333;
 }
