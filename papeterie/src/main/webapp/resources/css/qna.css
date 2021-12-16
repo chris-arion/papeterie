@@ -103,6 +103,62 @@ border:1px solid silver;
 
 .bimil-text{
 	text-align:center;
+	margin-top:40px;
+	margin-bottom:40px;
+	font-size:18px;
+}
+
+#bimil-title{
+	color:black;
+}
+
+#re{
+display:inline-block;
+width:20px;
+height:17px;
+background:gray;
+color:white;
+font-size:12px;
+text-align:center;
+}
+
+.bimil-passowrd{
+	font-weight:bold;
+	font-size:12px;
+}
+
+#bimil-inputpwd{
+	font-size:12px;
+	border:1px solid silver;
+}
+
+#bimil-content{
+	text-align:center;
+}
+
+#bimil-sub{
+	width: 150px;
+	height: 55px;
+	border: 1px solid white;
+	cursor: pointer;
+	font-size: 18px;
+	background: black;
+	color: white;
+	margin-bottom: 10px;
+	font-weight:bold;
+	margin-top:50px;
+}
+
+#content-btn{
+	width: 60px;
+	height: 35px;
+	border: 1px solid silver;
+	cursor: pointer;
+	font-size: 12px;
+	background: white;
+	color: black;
+	margin-bottom: 10px;
+	font-weight:bold;
 }
 
 
