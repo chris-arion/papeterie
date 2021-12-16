@@ -35,14 +35,14 @@
 					<a class="top_head_first_menu" href="../member/login">로그인</a> <a class="top_head_first_menu2">|</a>
 					<a class="top_head_first_menu" href="#">회원가입</a> <a class="top_head_first_menu2">|</a>
 					<a class="top_head_first_menu" href="../member/login">마이페이지</a> <a class="top_head_first_menu2">|</a>
-					<a class="top_head_first_menu" href="#">장바구니</a>
+					<a class="top_head_first_menu" href="../basket/cart">장바구니</a>
 				</c:if>
 				
 				<!-- 로그인이 되었을때 -->
 				<c:if test="${userid != null}">
 					<span class="top_head_first_menu">${uname}님</span> <a class="top_head_first_menu" href="../member/logout">로그아웃</a> <a class="top_head_first_menu2">|</a>
 					<a class="top_head_first_menu" href="../member/mypage">마이페이지</a> <a class="top_head_first_menu2">|</a>
-					<a class="top_head_first_menu" href="#">장바구니</a>
+					<a class="top_head_first_menu" href="../basket/cart">장바구니</a>
 				</c:if>
 				
 				<c:if test="${userid == 'admin'}">

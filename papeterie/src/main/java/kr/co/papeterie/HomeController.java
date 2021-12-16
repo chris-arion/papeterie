@@ -41,4 +41,9 @@ public class HomeController {
 		return "/main/index";
 	}
 	
+	@RequestMapping("/basket/cart")
+	public String cart() {
+		return "/basket/cart";
+	}
+	
 }

@@ -2,6 +2,15 @@
  * 
  */
 
+
+$(document).ready(function(){
+	$("#userid").focus();
+});
+
+function loginfocus() {
+	document.getElementById("userid").focus();
+}
+
 function view_uidsearch() // 아이디 찾기 창 보이기
 {
 	document.getElementById("userid_search").style.display = "block";

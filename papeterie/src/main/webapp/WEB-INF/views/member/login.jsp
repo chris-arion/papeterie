@@ -17,7 +17,7 @@
 				<table id="login_table">
 					<tr>
 						<td>
-							<input type="text" name="userid" placeholder="아이디">
+							<input type="text" name="userid" id="userid" placeholder="아이디">
 						</td>
 					</tr>
 					<tr>
