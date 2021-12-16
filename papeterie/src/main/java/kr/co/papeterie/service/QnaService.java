@@ -5,7 +5,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
 
-import kr.co.papeterie.vo.GongjiVO;
 import kr.co.papeterie.vo.QnaVO;
 
 public interface QnaService {

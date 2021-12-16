@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import kr.co.papeterie.mapper.QnaMapper;
-import kr.co.papeterie.vo.GongjiVO;
 import kr.co.papeterie.vo.QnaVO;
 
 @Service
