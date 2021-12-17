@@ -2,6 +2,7 @@
  * 
  */
 
+// 카트에 사용할 변수
 var count = 1;
  
  function Goods_Menu_Move(n){
@@ -55,7 +56,12 @@ function add_cart_fn(pcode)
 		cache : false,
 		success : function(data) {
 			//console.log("return OK");
-			console.log(data);
+			//console.log(data);
+			if (data.trim() != null) {
+				if (confirm("장바구니로 이동하시겠습니까?")) {
+					location="../basket/cart";
+				}
+			}
 		},
 		error : function(request, status, error) {
 			console.log("return FAIL");

@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.papeterie.service.BasketService;
@@ -21,12 +22,12 @@ public class BasketController {
 	private BasketService service;
 
 	@RequestMapping("/basket/cart")
-	public String cart() {
-		return "/basket/cart";
+	public String cart(HttpSession session, Model model) {
+		return service.cartlist(session, model);
 	}
 
 	@RequestMapping("/basket/add_cart")
-	public String add_cart(HttpServletRequest request, HttpSession session, CartVO cvo, PrintWriter out) {
+	public void add_cart(HttpServletRequest request, HttpSession session, CartVO cvo, PrintWriter out) {
 		String pcode = request.getParameter("pcode");
 		int count = Integer.parseInt(request.getParameter("count"));
 		
@@ -46,7 +47,9 @@ public class BasketController {
 		cvo.setPcode(pcode);
 		cvo.setCount(count);
 		
-		return service.add_cart(cvo);
+		String retString = service.add_cart(cvo);
+		
+		out.print(retString);
 	}
 
 }

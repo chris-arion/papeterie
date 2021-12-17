@@ -5,4 +5,14 @@
 	<insert id="add_cart" parameterType="CartVO">
 		insert into cart (userid, pcode, count) values (#{userid}, #{pcode}, #{count})
 	</insert>
+	<select id="iscount" resultType="Integer">
+		select ifnull(max(count), 0) from cart where userid = #{_userid} and pcode = #{_pcode}
+	</select>
+	<update id="update_count" parameterType="CartVO">
+		update cart set count = #{_count} where userid = #{_userid}
+	</update>
+	<select id="cartlist" resultType="CartVO">
+		select c.idx as idx, c.userid as userid, c.pcode as pcode, c.count as count, c.regdate as regdate, 
+		p.title as title, p.price as price, p.img as img from cart c , product p where c.userid = #{_userid} and c.pcode = p.pcode ;
+	</select>
 </mapper>
