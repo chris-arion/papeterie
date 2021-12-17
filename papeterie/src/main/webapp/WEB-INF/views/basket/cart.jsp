@@ -6,7 +6,6 @@
 <meta charset="UTF-8">
 <title>PAPETERIE - 장바구니</title>
 <link rel="stylesheet" href="/resources/css/style.css">
-<link rel="stylesheet" href="/resources/css/purchase.css">
 <link rel="stylesheet" href="/resources/css/cart.css">
 </head>
 <body>
@@ -15,11 +14,11 @@
 
 		<span id="page_title">장바구니</span> <span id="page_sub"><strong>01장바구니 ></strong> 02주문서작성/결제 > 03주문완료</span>
 		<hr>
-		<div id="goods_table">
+		<div id="cart_table">
 			<span><strong>장바구니 목록</strong></span>
 			<table>
 				<tr>
-					<th><input type="checkbox" id="allCheck" checked="checked"></th>
+					<th id="goods_check"><input type="checkbox" id="allCheck" checked="checked"></th>
 					<th id="goods_id">상품/옵션 정보</th>
 					<th id="goods_default">수량</th>
 					<th id="goods_default">상품금액</th>
@@ -28,21 +27,14 @@
 					<th id="goods_default">배송비</th>
 				</tr>
 				<tr>
-					<td><input type="checkbox" name="hobby" id="h2" checked="checked"></td>
-					<td class="goods_id_td"><img id="goods_img" src=""> 상품 명</td>
+					<td><input type="checkbox" name="cartchk" id="p0101" checked="checked"></td>
+					<td class="goods_id_td"><img id="goods_img" src="/resources/img/p01/main/368_detail_066.jpg"> 배달이친구들. 팝업카드 2종</td>
 					<td>1개</td>
 					<td>4,000원</td>
 					<td class="goods_td">10%포인트 적립</td>
 					<td class="goods_td">4,000원</td>
 					<td class="goods_td">3,000원</td>
 				</tr>
-<!-- 				
-				<tr>
-					<td colspan="6" id="go_basket">
-						<a href=""><span>장바구니 가기></span></a>
-					</td>
-				</tr>
- -->
 			</table>
 		</div>
 		<div id="goods_total_price">
