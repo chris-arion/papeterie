@@ -21,26 +21,22 @@
         <thead>
             <tr>
                 <th>번호</th>
-				<th>아이디</th>
-				<th>닉네임</th>
-				<th>비밀번호</th>
-				<th>이메일</th>
-				<th>전화번호</th>
-				<th>포인트</th>
-				<th>가입일</th>
+				<th>이름</th>
+				<th>제목</th>
+				<th>내용</th>
+				<th>조회수</th>
+				<th>작성일</th>
             </tr>
         </thead>
         <tbody>
-        <c:forEach items="${list}" var="mvo">
+        <c:forEach items="${list}" var="gvo">
             <tr>
-                <td>${mvo.idx}</td>
-				<td>${mvo.userid}</td>
-				<td>${mvo.uname}</td>
-				<td>${mvo.pwd}</td>
-				<td>${mvo.email}</td>
-				<td>${mvo.phone}</td>
-				<td>${mvo.spoint}</td>
-				<td>${mvo.regdate}</td>
+                <td>${gvo.id}</td>
+                <td>${gvo.name}</td>
+				<td>${gvo.title}</td>
+				<td><a href="../gongji/content?id=${gvo.id}">Click</a></td>
+				<td>${gvo.readnum}</td>
+				<td>${gvo.writeday}</td>
             </tr>
         </c:forEach>
         </tbody>

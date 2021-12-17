@@ -23,4 +23,12 @@
 		select count(*) from qna where bimil=1;
 	</select>
 	
+	<select id="user_list" resultType="kr.co.papeterie.vo.MemberVO">
+		select * from member;
+	</select>
+	
+	<select id="gongji_list" resultType="kr.co.papeterie.vo.GongjiVO">
+		select * from gongji;
+	</select>
+	
 </mapper>

@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.papeterie.service.AdminService;
+import kr.co.papeterie.vo.GongjiVO;
+import kr.co.papeterie.vo.MemberVO;
 
 @Controller
 @RequestMapping("/admin")
@@ -26,8 +28,14 @@ public class AdminController {
 	}
 	
 	@RequestMapping("user")
-	public String user()
+	public String user(MemberVO mvo,Model model)
 	{
-		return module+"user";
+		return aservice.user_list(mvo, model);
+	}
+	
+	@RequestMapping("gongji")
+	public String gongji(GongjiVO gvo,Model model)
+	{
+		return aservice.gongji_list(gvo, model);
 	}
 }
