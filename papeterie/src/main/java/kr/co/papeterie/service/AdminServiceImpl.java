@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import kr.co.papeterie.mapper.AdminMapper;
 import kr.co.papeterie.vo.GongjiVO;
 import kr.co.papeterie.vo.MemberVO;
+import kr.co.papeterie.vo.QnaVO;
 
 @Service
 @Qualifier("as")
@@ -46,4 +47,13 @@ public class AdminServiceImpl implements AdminService{
 		
 		return module+"gongji";
 	}
+	
+	@Override
+	public String qna_list(QnaVO qvo, Model model) {
+		
+		model.addAttribute("list",mapper.qna_list());
+		
+		return module+"qna";
+	}
+	
 }

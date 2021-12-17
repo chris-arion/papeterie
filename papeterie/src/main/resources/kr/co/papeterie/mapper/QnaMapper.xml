@@ -53,4 +53,8 @@
 		values(#{userid},#{name},#{pwd},#{title},#{content},#{grp},#{seq},#{dep});
 	</insert>
 	
+	<update id="dapbun">
+		update qna set dapbun=1 where id=#{param1} 
+	</update>
+	
 </mapper>

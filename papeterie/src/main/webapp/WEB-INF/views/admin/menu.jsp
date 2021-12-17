@@ -35,7 +35,7 @@
     		<li><a href="#">▶ 상품관리</a></li>
     		<li><a href="user">▶ 회원관리</a></li>
     		<li><a href="gongji">▶ 공지관리</a></li>
-    		<li><a href="#">▶ Qna관리</a></li>
+    		<li><a href="qna">▶ Q&A관리</a></li>
     	</ul>
     	<div id="logout"><a>▶ Log Out</a> </div>
 	</div>

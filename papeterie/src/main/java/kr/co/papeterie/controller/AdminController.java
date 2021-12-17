@@ -1,6 +1,8 @@
 package kr.co.papeterie.controller;
 
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import kr.co.papeterie.service.AdminService;
 import kr.co.papeterie.vo.GongjiVO;
 import kr.co.papeterie.vo.MemberVO;
+import kr.co.papeterie.vo.QnaVO;
 
 @Controller
 @RequestMapping("/admin")
@@ -38,4 +41,11 @@ public class AdminController {
 	{
 		return aservice.gongji_list(gvo, model);
 	}
+	
+	@RequestMapping("qna")
+	public String qna(QnaVO qvo,Model model)
+	{
+		return aservice.qna_list(qvo, model);
+	}
+	
 }

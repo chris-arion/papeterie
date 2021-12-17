@@ -36,6 +36,7 @@
     
 $(document).ready(function() {
     $('#example').DataTable( {
+    	"order" : [[0,"desc"]],
     	"lengthMenu": [[10, 25, 50, 100, 500, -1], [10, 25, 50, 100, 500, "전부"]],
         "language": {
             "decimal" : "",
@@ -65,6 +66,13 @@ $(document).ready(function() {
         }
     } );
 } );
-    
-    
-    
+
+
+
+
+
+
+
+
+
+

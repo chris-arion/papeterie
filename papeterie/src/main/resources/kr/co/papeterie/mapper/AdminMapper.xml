@@ -16,19 +16,23 @@
 	</select>
 	
 	<select id="qnalist" resultType="String">
-		select count(*) from qna where bimil=0;
-	</select>
-	
-	<select id="qnalist2" resultType="String">
 		select count(*) from qna where bimil=1;
 	</select>
 	
+	<select id="qnalist2" resultType="String">
+		select count(*) from qna where bimil=0;
+	</select>
+	
 	<select id="user_list" resultType="kr.co.papeterie.vo.MemberVO">
-		select * from member;
+		select * from member order by idx desc;
 	</select>
 	
 	<select id="gongji_list" resultType="kr.co.papeterie.vo.GongjiVO">
-		select * from gongji;
+		select * from gongji order by id desc;
+	</select>
+	
+	<select id="qna_list" resultType="kr.co.papeterie.vo.QnaVO">
+		select * from qna order by id desc;
 	</select>
 	
 </mapper>

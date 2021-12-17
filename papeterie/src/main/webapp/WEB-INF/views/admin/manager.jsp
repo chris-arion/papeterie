@@ -12,9 +12,9 @@
 	
 <!-- 본문 내용 -->
 <div id="content">
-	<div id="content-head">
-		<span>Admin Dashboard</span>
-	</div>
+<div id="content-head">
+	<span id="content-head-text">Admin Dashboard</span>
+</div>
 	<div id="content-user">
 		<div id="content-userbox">
 			<div id="content-userhead">회원 <span id="content-userhead2">(명)</span></div>

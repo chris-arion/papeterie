@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import kr.co.papeterie.vo.GongjiVO;
 import kr.co.papeterie.vo.MemberVO;
+import kr.co.papeterie.vo.QnaVO;
 
 public interface AdminMapper {
 
@@ -20,4 +21,7 @@ public interface AdminMapper {
 	public ArrayList<MemberVO> user_list();
 	
 	public ArrayList<GongjiVO> gongji_list();
+	
+	public ArrayList<QnaVO> qna_list();
+	
 }
