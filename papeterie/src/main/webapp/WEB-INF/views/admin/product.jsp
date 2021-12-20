@@ -66,7 +66,7 @@ height:1300px;
 				<td>${gsvo.pcode}</td>
 				<td><a href="../goods/goods_view?pcode=${gsvo.pcode}">Click</a></td>
 				<td>${gsvo.regdate}</td>
-				<td><a href="product_delete?id=${gsvo.idx}">삭제</a></td>
+				<td><a href="product_delete?id=${gsvo.idx}" style="color:tomato;">삭제</a></td>
             </tr>
         </c:forEach>
         </tbody>

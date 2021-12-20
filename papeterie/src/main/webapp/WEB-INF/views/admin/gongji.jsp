@@ -54,7 +54,7 @@ function delete_ok(my)
 				<td><a href="../gongji/content?id=${gvo.id}">Click</a></td>
 				<td>${gvo.readnum}</td>
 				<td>${gvo.writeday}</td>
-				<td><a  href="../gongji/update?id=${gvo.id}">수정</a> / <a href="#" onclick="delete_ok(${gvo.id})">삭제</a></td>
+				<td><a href="../gongji/update?id=${gvo.id}" style="color:DodgerBlue;">수정</a> / <a href="#" onclick="delete_ok(${gvo.id})" style="color:tomato;">삭제</a></td>
             </tr>
         </c:forEach>
         </tbody>

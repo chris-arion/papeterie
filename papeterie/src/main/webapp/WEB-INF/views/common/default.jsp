@@ -44,11 +44,6 @@
 					<a class="top_head_first_menu" href="../member/mypage">마이페이지</a> <a class="top_head_first_menu2">|</a>
 					<a class="top_head_first_menu" href="../basket/cart">장바구니</a>
 				</c:if>
-				
-				<c:if test="${userid == 'admin'}">
-					<a class="top_head_first_menu2">|</a>
-					<a class="top_head_first_menu" href="../admin/manager">관리자페이지</a>
-				</c:if>
 			</div>
 		</div>
 		
