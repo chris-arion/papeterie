@@ -7,6 +7,7 @@
 <title>PAPETERIE - 배송지관리</title>
 <link rel="stylesheet" href="/resources/css/style.css">
 <link rel="stylesheet" href="/resources/css/member.css">
+<link rel="stylesheet" href="/resources/css/addressbook.css">
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="/resources/js/member.js"></script>
 <script>

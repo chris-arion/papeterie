@@ -12,22 +12,30 @@
 		select pwd from member
 		where uname = #{uname} and email = #{email} and userid = #{userid}
 	</select>
-
+<!-- 
 	<select id="userid_check" resultType="Integer">
-		select count(*) from member where userid=#{param1}
+		select count(*) from member where userid = #{param1}
 	</select>
 	<select id="mypage" resultType="MemberVO">
-		select * from member where userid=#{param1}
+		select * from member where userid = #{param1}
 	</select>
 	<update id="mypage_update_ok" parameterType="MemberVO">
-		update member set email=#{email},phone=#{phone}
-		where userid=#{userid}
+		update member set email = #{email},phone=#{phone}
+		where userid = #{userid}
 	</update>
 	<select id="ispwd" resultType="Integer">
 		select count(*) from member
 		where pwd=#{param1} and userid=#{param2}
 	</select>
 	<update id="change_pwd">
-		update member set pwd=#{param1} where userid=#{param2}
+		update member set pwd = #{param1} where userid = #{param2}
 	</update>
+ -->	
+	<select id="mywishlist" resultType="WishlistVO">
+		select w.*, p.title, p.price, p.img from wishlist w , product p 
+		where w.pcode = p.pcode and w.userid = #{_userid} order by idx desc
+	</select>
+	<delete id="del_wishlist">
+		delete from wishlist where idx = #{_idx}
+	</delete>
 </mapper>

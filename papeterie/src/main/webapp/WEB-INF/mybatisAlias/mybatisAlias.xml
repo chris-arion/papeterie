@@ -9,6 +9,7 @@
 		<typeAlias type="kr.co.papeterie.vo.MemberVO" alias="MemberVO"/>
 		<typeAlias type="kr.co.papeterie.vo.AddressVO" alias="AddressVO"/>
 		<typeAlias type="kr.co.papeterie.vo.CartVO" alias="CartVO"/>
+		<typeAlias type="kr.co.papeterie.vo.WishlistVO" alias="WishlistVO"/>
 	</typeAliases>
 	
 </configuration>

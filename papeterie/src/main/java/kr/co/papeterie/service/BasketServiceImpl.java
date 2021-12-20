@@ -2,13 +2,13 @@ package kr.co.papeterie.service;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-
 import kr.co.papeterie.mapper.BasketMapper;
 import kr.co.papeterie.vo.CartVO;
 
@@ -51,9 +51,38 @@ public class BasketServiceImpl implements BasketService {
 		
 		System.out.println("userid = " + userid);
 		ArrayList<CartVO> list = mapper.cartlist(userid);
+		int listsize = list.size();
 		model.addAttribute("cusername", cusername);
 		model.addAttribute("list", list);
+		model.addAttribute("listsize", listsize);
 		return "/basket/cart";
 	}
 
+	@Override
+	public void del_cart(HttpServletRequest request) {
+		// 
+		String[] chkarray = request.getParameterValues("cartchk");
+		
+		for (int i = 0; i < chkarray.length; i++) {
+			System.out.println("val = " + chkarray[i]);
+			mapper.del_cart(Integer.parseInt(chkarray[i]));
+		}
+
+	}
+
+	@Override
+	public void add_wishlist(HttpServletRequest request, HttpSession session) {
+		//
+		String userid = session.getAttribute("userid").toString();
+		String[] chkarray = request.getParameterValues("cartchk");
+		
+		for (int i = 0; i < chkarray.length; i++) {
+			String pcode = mapper.getpcode(Integer.parseInt(chkarray[i]));
+			if (mapper.iswishlist(userid, pcode) == 0) {
+				mapper.add_wishlist(userid, pcode);
+			}
+		}
+	}
+
+	
 }

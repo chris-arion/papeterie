@@ -11,4 +11,9 @@ public interface BasketMapper {
 	public int iscount(@Param("_userid") String userid, @Param("_pcode") String pcode);
 	public void update_count(@Param("_count") int count, @Param("_userid") String userid);
 	public ArrayList<CartVO> cartlist(@Param("_userid") String userid);
+	public void update_userid(@Param("_userid") String userid, @Param("_sessionid") String sessionid);
+	public void del_cart(@Param("_idx") int idx);
+	public void add_wishlist(@Param("_userid") String userid, @Param("_pcode") String pcode);
+	public int iswishlist(@Param("_userid") String userid, @Param("_pcode") String pcode);
+	public String getpcode(@Param("_idx") int idx);
 }

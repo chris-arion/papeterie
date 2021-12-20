@@ -4,8 +4,6 @@ public class OrderVO {
 	private int idx;		// 인덱스
 	private String order_code;	// 주문코드 : 202112160001
 	private String userid;	// 아이디
-	private String pcode;	// 상품코드 : p0101, p0102, ...
-	private int count;		// 주문 수량 : 1, 2, ...
 	private int price;		// 주문 금액
 	private int ship_price;	// 배송비
 	private int addr_id;	// 배송지 인덱스
@@ -29,18 +27,6 @@ public class OrderVO {
 	}
 	public void setUserid(String userid) {
 		this.userid = userid;
-	}
-	public String getPcode() {
-		return pcode;
-	}
-	public void setPcode(String pcode) {
-		this.pcode = pcode;
-	}
-	public int getCount() {
-		return count;
-	}
-	public void setCount(int count) {
-		this.count = count;
 	}
 	public int getPrice() {
 		return price;
