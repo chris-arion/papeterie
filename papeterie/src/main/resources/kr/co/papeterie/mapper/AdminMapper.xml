@@ -35,4 +35,17 @@
 		select * from qna order by id desc;
 	</select>
 	
+	<select id="pro_list" resultType="kr.co.papeterie.vo.GoodsVO">
+		select * from product order by idx desc;
+	</select>
+	
+	<insert id="product_add_ok" parameterType="kr.co.papeterie.vo.GoodsVO">
+		insert into product(title,price,img,category,pcode,regdate)
+		values(#{title},#{price},#{img},#{category},#{pcode},now())
+	</insert>
+	
+	<delete id="product_delete">
+		delete from product where idx=#{param1}
+	</delete>
+	
 </mapper>

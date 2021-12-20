@@ -26,7 +26,7 @@ public class GoodsController {
 	public String goods_view(HttpServletRequest request, Model model)
 	{
 		String pcode = request.getParameter("pcode");
-		return gservice.goods_view("p0149", model);
+		return gservice.goods_view(pcode, model);
 	}
 	
 	@RequestMapping("/login_check")

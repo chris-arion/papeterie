@@ -1,8 +1,11 @@
 package kr.co.papeterie.service;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.ui.Model;
 
 import kr.co.papeterie.vo.GongjiVO;
+import kr.co.papeterie.vo.GoodsVO;
 import kr.co.papeterie.vo.MemberVO;
 import kr.co.papeterie.vo.QnaVO;
 
@@ -16,5 +19,10 @@ public interface AdminService {
 	
 	public String qna_list(QnaVO qvo,Model model);
 	
+	public String pro_list(GoodsVO gsvo,Model model);
+	
+	public String product_add_ok(GoodsVO gsvo,HttpServletRequest request) throws Exception;
+	
+	public String product_delete(HttpServletRequest request);
 	
 }

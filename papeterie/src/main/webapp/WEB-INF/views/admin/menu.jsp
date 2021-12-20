@@ -32,7 +32,7 @@
     		<li><a href="manager">▶ 전체페이지</a></li>
     		<li><a href="#">▶ 주문관리</a></li>
     		<li><a href="#">▶ 배송관리</a></li>
-    		<li><a href="#">▶ 상품관리</a></li>
+    		<li><a href="product">▶ 상품관리</a></li>
     		<li><a href="user">▶ 회원관리</a></li>
     		<li><a href="gongji">▶ 공지관리</a></li>
     		<li><a href="qna">▶ Q&A관리</a></li>
