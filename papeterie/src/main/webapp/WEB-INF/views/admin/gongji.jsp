@@ -12,43 +12,55 @@
 <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap.min.css">
+<script>
+function delete_ok(my)
+{
+	if(!confirm("정말로 삭제하시겠습니까?"))
+	{
+		
+	}
+	else
+	{
+		location="../gongji/delete?id="+my;
+	}
+}
+</script>
 </head>
 <body>
 <!-- 본문 내용 -->
 <div id="content">
 <div id="content-head">
-	<span id="content-head-text">User Management</span>
+	<span id="content-head-text">Notice Management</span>
 </div>
 <div id="table_margin">
 	<table id="example" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
                 <th>번호</th>
-				<th>아이디</th>
-				<th>닉네임</th>
-				<th>비밀번호</th>
-				<th>이메일</th>
-				<th>전화번호</th>
-				<th>포인트</th>
-				<th>가입일</th>
+				<th>이름</th>
+				<th>제목</th>
+				<th>내용</th>
+				<th>조회수</th>
+				<th>작성일</th>
+				<th>수정/삭제</th>
             </tr>
         </thead>
         <tbody>
-        <c:forEach items="${list}" var="mvo">
+        <c:forEach items="${list}" var="gvo">
             <tr>
-                <td>${mvo.idx}</td>
-				<td>${mvo.userid}</td>
-				<td>${mvo.uname}</td>
-				<td>${mvo.pwd}</td>
-				<td>${mvo.email}</td>
-				<td>${mvo.phone}</td>
-				<td>${mvo.spoint}</td>
-				<td>${mvo.regdate}</td>
+                <td>${gvo.id}</td>
+                <td>${gvo.name}</td>
+				<td>${gvo.title}</td>
+				<td><a href="../gongji/content?id=${gvo.id}">Click</a></td>
+				<td>${gvo.readnum}</td>
+				<td>${gvo.writeday}</td>
+				<td><a  href="../gongji/update?id=${gvo.id}">수정</a> / <a href="#" onclick="delete_ok(${gvo.id})">삭제</a></td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
 </div>
+<div><input type="button" value="공지사항 작성" id="content-btn" onclick="location='../gongji/write'"></div>
 </div>
 </body>
 </html>

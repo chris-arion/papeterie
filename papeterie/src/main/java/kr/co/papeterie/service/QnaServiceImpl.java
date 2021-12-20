@@ -30,6 +30,7 @@ public class QnaServiceImpl implements QnaService{
 		qvo.setUserid(session.getAttribute("userid").toString());
 		qvo.setName(session.getAttribute("uname").toString());
 		qvo.setPwd(session.getAttribute("pwd").toString());
+		
 		mapper.write_ok(qvo);
 		return "redirect:"+module+"list";
 	}
@@ -103,7 +104,9 @@ public class QnaServiceImpl implements QnaService{
 		qvo.setUserid(session.getAttribute("userid").toString());
 		qvo.setName(session.getAttribute("uname").toString());
 		qvo.setPwd(request.getParameter("pwd"));
+		String id = request.getParameter("id");
 		
+		mapper.dapbun(id);
 		mapper.up_seq(qvo.getSeq(),qvo.getGrp());
 		mapper.rewrite_ok(qvo);
 		return "redirect:"+module+"list";

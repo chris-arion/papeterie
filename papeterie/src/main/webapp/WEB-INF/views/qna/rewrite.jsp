@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%
 	String pwd = request.getParameter("pwd");
+	String id = request.getParameter("id");
 %>
 <!DOCTYPE html>
 <html>
@@ -31,6 +32,7 @@
 		<input type="hidden" name="seq" value="${seq+1}">
 		<input type="hidden" name="dep" value="${dep+1}">
 		<input type="hidden" name="pwd" value="<%=pwd%>">
+		<input type="hidden" name="id" value="<%=id%>">
 	<table class="table table-center">
 		<tr>
 			<th width="150">작성자</th>

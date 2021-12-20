@@ -1,6 +1,9 @@
 /**
  * 
  */
+
+// 카트에 사용할 변수
+var count = 1;
  
  function Goods_Menu_Move(n){
  	var offset = $(".goods_data_menu").eq(n).offset().top;
@@ -30,6 +33,8 @@
  	else{
  		cnt++;
  	}
+ 	// 선택 수량 저장
+ 	count = cnt;
  	var price = document.getElementById("goods_price").innerText.replace("원","").replace(",","");
  	price = parseInt(price);
  	price = comma(price*cnt);
@@ -38,3 +43,29 @@
  	document.getElementsByClassName("option_price")[here].innerText = price+"원";
  	document.getElementById("total_price").innerText = price+"원";
  }
+
+function add_cart_fn(pcode)
+{
+	$.ajax({
+		url : "../basket/add_cart",
+		method : "GET",
+		data : {
+			pcode : pcode,
+			count : count
+		},
+		cache : false,
+		success : function(data) {
+			//console.log("return OK");
+			//console.log(data);
+			if (data.trim() != null) {
+				if (confirm("장바구니로 이동하시겠습니까?")) {
+					location="../basket/cart";
+				}
+			}
+		},
+		error : function(request, status, error) {
+			console.log("return FAIL");
+			console.log("code: " + request.status + ", message: " + request.responseText + ", error: " + error);
+		}
+	})
+}

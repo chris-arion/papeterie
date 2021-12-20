@@ -57,7 +57,7 @@
 					<td colspan="2" align="center">
 						<input type="submit" class="goods_buy_button" value="바 로 구 매"><br>
 						<a href="" class="goods_sub_button">찜 하 기</a>
-						<a href="" class="goods_sub_button">장 바 구 니</a>
+						<a href="javascript:;" class="goods_sub_button" onclick="add_cart_fn('${gvo.pcode}')">장 바 구 니</a>
 					</td>
 				</tr>
 			</table>

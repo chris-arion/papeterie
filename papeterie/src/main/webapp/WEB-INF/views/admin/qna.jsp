@@ -12,12 +12,25 @@
 <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap.min.css">
+<script>
+function qna_delete(my)
+{
+	if(!confirm("정말로 삭제하시겠습니까?"))
+	{
+		
+	}
+	else
+	{
+		location="../qna/delete?id="+my;
+	}
+}
+</script>
 </head>
 <body>
 <!-- 본문 내용 -->
 <div id="content">
 <div id="content-head">
-	<span id="content-head-text">User Management</span>
+	<span id="content-head-text">Q&A Management</span>
 </div>
 <div id="table_margin">
 	<table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -26,25 +39,38 @@
                 <th>번호</th>
 				<th>아이디</th>
 				<th>닉네임</th>
-				<th>비밀번호</th>
-				<th>이메일</th>
-				<th>전화번호</th>
-				<th>포인트</th>
-				<th>가입일</th>
+				<th>제목</th>
+				<th>내용</th>
+				<th>조회수</th>
+				<th>분류</th>
+				<th>작성일</th>
+				<th>답변하기</th>
+				<th>수정/삭제</th>
             </tr>
         </thead>
         <tbody>
-        <c:forEach items="${list}" var="mvo">
+        <c:forEach items="${list}" var="qvo">
+        <c:if test="${qvo.bimil == 1}">
             <tr>
-                <td>${mvo.idx}</td>
-				<td>${mvo.userid}</td>
-				<td>${mvo.uname}</td>
-				<td>${mvo.pwd}</td>
-				<td>${mvo.email}</td>
-				<td>${mvo.phone}</td>
-				<td>${mvo.spoint}</td>
-				<td>${mvo.regdate}</td>
+                <td>${qvo.id}</td>
+				<td>${qvo.userid}</td>
+				<td>${qvo.name}</td>
+				<td>${qvo.title}</td>
+				<td><a href="../qna/content?id=${qvo.id}">Click</a></td>
+				<td>${qvo.readnum}</td>
+				<td>${qvo.category}</td>
+				<td>${qvo.writeday}</td>
+				<td>
+					<c:if test="${qvo.dapbun == 0}">
+						<a href="../qna/rewrite?id=${qvo.id}&grp=${qvo.grp}&seq=${qvo.seq}&dep=${qvo.dep}&pwd=${qvo.pwd}">답변작성</a>
+					</c:if>
+					<c:if test="${qvo.dapbun == 1}">
+						답변완료
+					</c:if>
+				</td>
+				<td><a href="../qna/update?id=${qvo.id}">수정</a> / <a href="#" onclick="qna_delete(${qvo.id})">삭제</a></td>
             </tr>
+        </c:if>
         </c:forEach>
         </tbody>
     </table>

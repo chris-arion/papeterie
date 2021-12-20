@@ -2,9 +2,15 @@ package kr.co.papeterie.vo;
 
 public class QnaVO {
 
-	private int id,readnum,category,bimil,grp,seq,dep;
+	private int id,readnum,category,bimil,grp,seq,dep,dapbun;
 	private String userid,name,title,content,writeday,pwd;
 	
+	public int getDapbun() {
+		return dapbun;
+	}
+	public void setDapbun(int dapbun) {
+		this.dapbun = dapbun;
+	}
 	public String getPwd() {
 		return pwd;
 	}

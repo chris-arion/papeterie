@@ -27,4 +27,6 @@ public interface QnaMapper {
 	public void up_seq(int seq, int grp);
 	
 	public void rewrite_ok(QnaVO qvo);
+	
+	public void dapbun(String id);
 }
