@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +13,7 @@
 </head>
 <body>
 	<div id="section">
-	<form method="post" action="" onsubmit="return final_check()">
+	<form method="post" action="purchase_ok" name="orderform" onsubmit="return final_check()">
 		<span id="page_title">주문서 작성/결제</span> <span id="page_sub">01장바구니 > <strong>02주문서작성/결제 ></strong> 03주문완료</span>
 		<hr>
 		<div id="goods_table">
@@ -24,21 +25,38 @@
 					<th id="goods_default">상품금액</th>
 					<th id="goods_discount">할인/적립</th>
 					<th id="goods_default">합계 금액</th>
-					<th id="goods_default">배송비</th>
 				</tr>
-				<tr>
+				<c:if test="${pvo == null}"> <!-- 장바구니 경우 -->
+					<tr>
 					<td class="goods_id_td">
 						<img id="goods_img" src="">
 						상품 명
 					</td>
 					<td>```</td>
 					<td>수량*가격</td>
-					<td class="goods_td">10%포인트 적립</td>
-					<td class="goods_td">```</td>
+					<td class="goods_td">3%포인트 적립</td>
 					<td class="goods_td">```</td>
 				</tr>
+				</c:if> <!-- 바로 구매 경우 -->
+				<c:if test="${pvo != null}">
 				<tr>
-					<td colspan="6" id="go_basket">
+				<input type="hidden" name="pcode" value="${pvo.pcode}">
+				<input type="hidden" name="pcode" value="p0101">
+				<input type="hidden" name="count" value="${count}">
+				<input type="hidden" name="count" value="3">
+					<td class="goods_id_td">
+						<img id="goods_img" src="${pvo.img}">
+						${pvo.title}
+					</td>
+					<td>${count}개</td>
+					<td><fmt:formatNumber value="${pvo.price}"/>원</td>
+					<td class="goods_td">10%포인트 적립</td>
+					<c:set var="total_price" value="${pvo.price*count}"/>
+					<td class="goods_td"><fmt:formatNumber value="${total_price}"/>원</td>
+				</tr>
+				</c:if>
+				<tr>
+					<td colspan="5" id="go_basket">
 						<a href=""><span>장바구니 가기></span></a>
 					</td>
 				</tr>
@@ -46,18 +64,29 @@
 		</div>
 		<div id="goods_total_price">
 			<div id="price_main">
-				총 몇개의 상품금액<br>
-				<strong>4,000원</strong>
+			<c:if test="${pvo != null}"> <!-- 바로 구매 경우 -->
+				총 1개의 상품금액<br>
+				<strong><fmt:formatNumber value="${total_price}"/>원</strong>
+			</c:if>
 			</div>
 			<div class="price_img"><img src="/resources/img/purchase_plus.png"></div>
 			<div id="price_ship">
 				배송비<br>
-				<strong>3,000원</strong>
+				<c:if test="${pvo != null}"> <!-- 바로 구매 경우 -->
+					<c:if test="${(pvo.price*count) >= 30000}">
+					<c:set var="bprice" value="0"/>
+					<strong>0원</strong>
+					</c:if>
+					<c:if test="${(pvo.price*count) < 30000}">
+					<c:set var="bprice" value="2500"/>
+					<strong>2,500원</strong>
+					</c:if>
+				</c:if>
 			</div>
 			<div class="price_img"><img src="/resources/img/purchase_right_arrow.png"></div>
 			<div id="price_total">
 				합계<br>
-				<strong>ex)10,000원</strong>
+				<strong><fmt:formatNumber value="${total_price+bprice}"/>원</strong>
 			</div>
 		</div>
 		<div id="purchase_agree">
@@ -275,21 +304,18 @@
 				<tr>
 					<td class="td_title">주문하시는 분</td>
 					<td>
-						<input type="hidden" name="uname" value="${mvo.uname}">
 						<span id="buyer">${mvo.uname}</span>
 					</td>
 				</tr>
 				<tr>
 					<td class="td_title">연락처 번호</td>
 					<td>
-						<input type="hidden" name="phone" value="${mvo.phone}">
 						<span id="buyer_phone">${mvo.phone}</span>
 					</td>
 				</tr>
 				<tr>
 					<td class="td_title">*이메일</td>
 					<td>
-						<input type="hidden" name="email" value="${mvo.email}">
 						<span id="buyer_email">${mvo.email}</span>
 					</td>
 				</tr>
@@ -303,12 +329,21 @@
 					<td>
 						<input type="radio" name="shipping_loc" id="shipping_loc" checked="checked" onclick="shipping_my(this)" value="0">직접입력
 						<input type="radio" name="shipping_loc" onclick="shipping_my(this)" value="1">주문자정보와 동일
+						<input type="hidden" name="bidx" id="bidx" value="${avo.idx}">
+						<input type="hidden" id="imsi_addr_name" value="${avo.addr_name}">
 						<input type="hidden" id="imsi_target" value="${avo.rname}">
 						<input type="hidden" id="imsi_zipNo" value="${avo.zip}">
 						<input type="hidden" id="imsi_roadAddrPart1" value="${avo.addr1}">
 						<input type="hidden" id="imsi_addrDetail" value="${avo.addr2}">
 						<input type="hidden" id="imsi_phone" value="${avo.phone}">
 						<input type="hidden" id="imsi_option" value="${avo.soption}">
+					</td>
+				</tr>
+				<tr>
+					<td class="td_title">*배송지명</td>
+					<td>
+						<input type="text" name="addr_name" id="addr_name"><br>
+						<span class="submit_alert">배송지명 입력하세요</span>
 					</td>
 				</tr>
 				<tr>
@@ -340,10 +375,11 @@
 					<td class="td_title">수령 방법</td>
 					<td>
 						<select name="soption" id="target_option">
-							<option value="1">경비실</option>
-							<option value="2">부재시 문앞</option>
-							<option value="3">편의점</option>
-							<option value="4">직접 수령</option>
+							<option value="1">직접수령</option>
+							<option value="2">배송 전 연락바랍니다</option>
+							<option value="3">부재시 경비실에 맡겨주세요</option>
+							<option value="4">부재시 문앞에 놓아주세요</option>
+							<option value="5">부재시 택배함에 넣어주세요</option>
 						</select>
 					</td>
 				</tr>
@@ -354,36 +390,87 @@
 			<table>
 				<tr>
 					<td class="td_title">상품 합계 금액</td>
-					<td><strong>12,000원</strong></td>
+					<td>
+					<strong><fmt:formatNumber value="${total_price}"/>원</strong>
+					</td>
 				</tr>
 				<tr>
 					<td class="td_title">배송비</td>
-					<td>2,000원</td>
+					<td>
+						<input type="hidden" name="ship_price" value="${bprice}">
+						<strong><fmt:formatNumber value="${bprice}"/>원</strong>
+					</td>
 				</tr>
 				<tr>
 					<td class="td_title">할인 및 적립</td>
-					<td>
-					<input type="radio" name="upoint" id="pointsave" checked="checked">포인트 적립
-					<input type="radio" name="upoint" id="pointuse">포인트 사용
-					<span>(현재 포인트: ${mvo.spoint})</span>
+					<td>	
+						<span>결제 금액의 10% 포인트 적립</span>
+						<span>(현재 포인트: ${mvo.spoint})</span><br>
+						<span class="my_point">
+							<c:if test="${pvo != null}"> <!-- 바로 구매 경우 -->
+							<strong>${total_price*0.1}</strong>point 적립
+							</c:if>
+						</span>
 					</td>
 				</tr>
 				<tr>
 					<td class="td_title">최종 결제 금액</td>
-					<td><strong class="final_total_price">50,000원</strong></td>
+					<td><strong><fmt:formatNumber value="${total_price+bprice}"/>원</strong></td>
 				</tr>
 				<tr>
 					<td class="td_title">결제 수단</td>
 					<td>
-						<input type="radio" name="purchase_how" value="0" checked="checked">신용카드
-						<input type="radio" name="purchase_how" value="1">휴대폰 결제
+						<input type="radio" name="pay_type" value="0" onclick="sudan_chg(0)" checked="checked">계좌이체
+						<input type="radio" name="pay_type" value="1" onclick="sudan_chg(1)">신용카드
+						<input type="radio" name="pay_type" value="2" onclick="sudan_chg(2)">간편결제
+						<input type="hidden" name="state" value="2">
+						<div class="sudan" id="first_sudan">
+						은행선택 : <select name="bank" id="bank">
+								<option value="0">선택</option>
+								<option value="1">신한은행</option>
+								<option value="2">우리은행</option>
+								<option value="3">농협은행</option>
+								<option value="4">하나은행</option>
+							</select><br>
+						<span class="submit_alert">은행 선택하세요</span>
+						</div>
+						<div class="sudan">
+						카드선택 : <select name="card" id="card">
+								<option value="0">선택</option>
+								<option value="1">신한카드</option>
+								<option value="2">우리카드</option>
+								<option value="3">농협카드</option>
+								<option value="4">하나카드</option>
+							</select>
+						할부기간 : <select name="halbu" id="halbu">
+								<option value="0">선택</option>
+								<option value="1">1개월</option>
+								<option value="2">2개월</option>
+								<option value="3">3개월</option>
+								<option value="4">4개월</option>
+							</select><br>
+						<span class="submit_alert">카드사및 할부기간 선택하세요</span>
+						</div>
+						<div class="sudan">
+						통신사 : <select name="com" id="com">
+								<option value="0">선택</option>
+								<option value="1">SKT</option>
+								<option value="2">KT</option>
+								<option value="3">LG</option>
+								<option value="4">알뜰통신</option>
+							</select>
+						전화번호 : <input type="text" name="pphone" id="pphone"><br>
+						<span class="submit_alert">통신사 및 전화번호 입력하세요</span>
+						</div>
 					</td>
 				</tr>
 			</table>
 		</div>
 		<div id="purchase_final_price">
-			<strong><span>최종 결제 금액  </span> <span id="final_price" class="final_total_price">50,000원</span></strong>
-			<input type="hidden" name="price" id="price" value="">
+			<strong><span>최종 결제 금액  </span> <span id="final_price" class="final_total_price">
+			<fmt:formatNumber value="${total_price+bprice}"/>원
+			</span></strong>
+			<input type="hidden" name="price" id="price" value="${total_price}">
 		</div>
 		<div id="purchase_button_area">
 			<input type="submit" value="결제하기">

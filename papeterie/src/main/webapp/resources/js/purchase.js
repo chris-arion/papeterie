@@ -49,17 +49,18 @@
  /* 배송정보가 주문자 정보와 일치체크 할 경우 */
  function shipping_my(my){
  	if(my.value == "0"){
+ 		document.getElementById("addr_name").value="";
  		document.getElementById("target").value="";
  		document.getElementById("zipNo").value="";
  		document.getElementById("roadAddrPart1").value="";
  		document.getElementById("addrDetail").value="";
  		document.getElementById("target_phone").value="";
- 		document.getElementById("target_option").value="0";
- 		document.getElementById("target_notice").value="";
+ 		document.getElementById("target_option").value="1";
  		document.getElementById("address_list").style.display = "none";
  	}
  	else{
  		document.getElementById("address_list").style.display = "inline-block";
+ 		document.getElementById("addr_name").value = document.getElementById("imsi_addr_name").value;
 	 	document.getElementById("target").value=document.getElementById("imsi_target").value;
 	 	document.getElementById("zipNo").value=document.getElementById("imsi_zipNo").value;
 	 	document.getElementById("roadAddrPart1").value=document.getElementById("imsi_roadAddrPart1").value;
@@ -79,6 +80,28 @@
  	}
  }
  
+ /* 결제 수단 변경 */
+ function sudan_chg(n)
+ {
+ 	document.getElementById("bank").value = "0";
+ 	document.getElementById("card").value = "0";
+ 	document.getElementById("halbu").value = "0";
+ 	document.getElementById("com").value = "0";
+ 	document.getElementById("pphone").value = "";
+	var sudan = document.getElementsByClassName("sudan");
+	for(i=0; i<sudan.length; i++)
+	{
+		sudan[i].style.display = "none";	
+	}
+	sudan[n].style.display = "block";
+	if(document.orderform.pay_type.value == 0){
+		document.orderform.state.value = 2;
+	}
+	else{
+		document.orderform.state.value = 1;
+	}
+ }
+ 
  /*유효성 검사*/
  function final_check(){  
  	/* 회원 체크 */
@@ -90,6 +113,7 @@
 	else{
 		document.getElementsByClassName("submit_alert")[0].style.display = "none";
 	}
+	
 	/* 필수2 체크 */
 	if(document.getElementById("agree2").checked == false){
 		document.getElementById("agree2").focus();
@@ -99,31 +123,75 @@
 	else{
 		document.getElementsByClassName("submit_alert")[1].style.display = "none";
 	}
-	/* 배송 받을사람 체크 */
-	if(document.getElementById("target").value == ""){
-		document.getElementById("target").focus();
+	
+	/* 배송지명 체크 */
+	if(document.getElementById("addr_name").value == ""){
+		document.getElementById("addr_name").focus();
 		document.getElementsByClassName("submit_alert")[2].style.display = "inline";
 		return false;
 	}
 	else{
 		document.getElementsByClassName("submit_alert")[2].style.display = "none";
 	}
-	 /* 배송지 주소 체크 */
-	if(document.getElementById("addrDetail").value == ""){
-		document.getElementById("addrDetail").focus();
+	
+	/* 배송 받을사람 체크 */
+	if(document.getElementById("target").value == ""){
+		document.getElementById("target").focus();
 		document.getElementsByClassName("submit_alert")[3].style.display = "inline";
 		return false;
 	}
 	else{
 		document.getElementsByClassName("submit_alert")[3].style.display = "none";
 	}
-	/* 주문자 전화번호 체크 */
-	if(document.getElementById("target_phone").value == ""){
-		document.getElementById("target_phone").focus();
+	
+	 /* 배송지 주소 체크 */
+	if(document.getElementById("addrDetail").value == ""){
+		document.getElementById("addrDetail").focus();
 		document.getElementsByClassName("submit_alert")[4].style.display = "inline";
 		return false;
 	}
 	else{
 		document.getElementsByClassName("submit_alert")[4].style.display = "none";
 	}
+	
+	/* 주문자 전화번호 체크 */
+	if(document.getElementById("target_phone").value == ""){
+		document.getElementById("target_phone").focus();
+		document.getElementsByClassName("submit_alert")[5].style.display = "inline";
+		return false;
+	}
+	else{
+		document.getElementsByClassName("submit_alert")[5].style.display = "none";
+	}
+	
+	/*계좌이체 선택 했을 경우*/
+	if(document.orderform.pay_type.value==0 && document.orderform.bank.value==0){
+		document.orderform.bank.focus();
+		document.getElementsByClassName("submit_alert")[6].style.display = "inline";
+		return false;
+	}
+	else{
+		document.getElementsByClassName("submit_alert")[6].style.display = "none";
+	}
+	/*신용카드 선택 했을 경우*/
+	if(document.orderform.pay_type.value==1
+	&& (document.orderform.card.value==0 || document.orderform.halbu.value==0)){ 
+		document.orderform.card.focus();
+		document.getElementsByClassName("submit_alert")[7].style.display = "inline";
+		return false;
+	}
+	else{
+		document.getElementsByClassName("submit_alert")[7].style.display = "none";
+	}
+	/*간편결제 선택 했을 경우*/
+	if(document.orderform.pay_type.value==2 
+	&& (document.orderform.com.value==0 || document.orderform.pphone.value=="")){ 
+		document.orderform.com.focus();
+		document.getElementsByClassName("submit_alert")[8].style.display = "inline";
+		return false;
+	}
+	else{
+		document.getElementsByClassName("submit_alert")[8].style.display = "none";
+	}
+
  }

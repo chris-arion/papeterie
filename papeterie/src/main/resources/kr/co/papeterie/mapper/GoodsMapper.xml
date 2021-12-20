@@ -18,4 +18,18 @@
 		insert into address name (addr_name, userid, rname, zip, addr1, addr2, phone, sdefault, soption)
 		values (#{addr_name}, #{userid}, #{rname}, #{zip}, #{addr1}, #{addr2}, #{phone}, #{sdefault}, #{soption})
 	</insert>
+	<select id="address_recent_id" resultType="Integer">
+		select idx from address where userid=#{param1} order by idx desc limit 0, 1
+	</select>
+	<update id="address_update" parameterType="kr.co.papeterie.vo.AddressVO">
+		update address set addr_name=#{addr_name}, rname=#{rname}, zip=#{zip}, addr1=#{addr1}, addr2=#{addr2}, phone=#{phone}, soption=#{soption} where idx=#{idx}
+	</update>
+	<select id="make_order_code" resultType="Integer">
+		select count(distinct order_code) from porder where regdate like concat('%',#{param1},'%')
+	</select>
+	<insert id="purchase_ok" parameterType="kr.co.papeterie.vo.OrderVO">
+		insert into porder (order_code, userid, pcode, count, price, ship_price, addr_id, pay_type, bank, card, halbu, com, phone, state)
+		values (#{order_code}, #{userid}, #{pcode}, #{count}, #{price}, #{ship_price}, #{addr_id}, #{pay_type}, #{bank}, #{card}, #{halbu}, #{com}, #{phone}, #{state})
+	</insert>
+	
 </mapper>

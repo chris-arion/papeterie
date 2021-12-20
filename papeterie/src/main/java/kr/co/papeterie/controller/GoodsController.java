@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.papeterie.service.GoodsService;
 import kr.co.papeterie.vo.AddressVO;
+import kr.co.papeterie.vo.OrderVO;
 
 @Controller
 @RequestMapping("/goods")
@@ -26,7 +27,7 @@ public class GoodsController {
 	public String goods_view(HttpServletRequest request, Model model)
 	{
 		String pcode = request.getParameter("pcode");
-		return gservice.goods_view("p0149", model);
+		return gservice.goods_view(pcode, model);
 	}
 	
 	@RequestMapping("/login_check")
@@ -39,13 +40,13 @@ public class GoodsController {
 		else
 		{
 			String pcode = request.getParameter("pcode");
-			String su = request.getParameter("su");
-			return "redirect:"+module+"/purchase?pcode="+pcode+"&su="+su;
+			String count = request.getParameter("count");
+			return "redirect:"+module+"/purchase?pcode="+pcode+"&count="+count;
 		}	
 	}
 	
 	@RequestMapping("/purchase")
-	public String purchase(HttpSession session, Model model)
+	public String purchase(HttpSession session, Model model, HttpServletRequest request)
 	{
 		if(session.getAttribute("userid") == null)
 		{
@@ -53,7 +54,7 @@ public class GoodsController {
 		}
 		else
 		{
-			return gservice.purchase(session, model);
+			return gservice.purchase(session, model, request);
 		}		
 	}
 	
@@ -80,4 +81,17 @@ public class GoodsController {
 	{
 		return gservice.address_add_ok(session, avo);
 	}
+	
+	@RequestMapping("/purchase_ok")
+	public String purchase_ok(HttpServletRequest request, HttpSession session, AddressVO avo, OrderVO ovo)
+	{
+		return gservice.purchase_ok(request, session, avo, ovo);
+	}
+	
+	@RequestMapping("/purchase_finish")
+	public String purchase_finish(HttpSession session, Model model)
+	{
+		return gservice.purchase_finish(session, model);
+	}
+
 }

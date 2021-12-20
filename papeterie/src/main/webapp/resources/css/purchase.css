@@ -57,9 +57,11 @@
 }
 #goods_table #goods_default{
 	width: 110px;
+	text-align: center;
 }
 #goods_table #goods_discount{
 	width: 120px;
+	text-align: center;
 }
 #goods_table .goods_id_td{
 	text-align: left;
@@ -181,6 +183,14 @@
 /* 결제 수단 */
 #purchase_detail{
 	margin-top: 30px;
+}
+.sudan{
+	margin-top: 5px;
+	margin-bottom: 5px;
+	display: none;
+}
+#first_sudan{
+	display: block; 
 }
 
 /* 공통 테이블 */

@@ -21,7 +21,7 @@
 		<h3>${gvo.title}</h3>
 		<form method="post" action="login_check" name="goods_form">
 		<input type="hidden" name="pcode" value="${gvo.pcode}">
-		<input type="hidden" name="su" value="1">
+		<input type="hidden" name="count" value="1">
 			<table id="goods_detail_table">
 				<tr>
 					<td class="td_head">판매 가격</td>

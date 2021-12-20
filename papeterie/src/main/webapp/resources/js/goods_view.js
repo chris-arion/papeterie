@@ -34,7 +34,7 @@
  	price = parseInt(price);
  	price = comma(price*cnt);
  	document.getElementsByClassName("center_count")[here].innerText = cnt;
- 	document.goods_form.su.value = cnt;
+ 	document.goods_form.count.value = cnt;
  	document.getElementsByClassName("option_price")[here].innerText = price+"원";
  	document.getElementById("total_price").innerText = price+"원";
  }

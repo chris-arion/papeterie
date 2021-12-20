@@ -168,28 +168,41 @@
 	width: 900px;
 	min-height: 300px;
 	margin-top: 50px;
-	font-size: 0;
 }
+.left_table_type{
+	width: 700px;
+	margin: auto;
+}
+.left_table_type th{
+	width: 200px;
+	border: 1px solid #eee;
+	font-size: 11px;
+	padding-left: 10px;
+}
+.left_table_type td{
+	border: 1px solid #eee;
+	height: 50px;
+	font-size: 14px;
+	color: #333;
+	padding-left: 10px;
+} 
 /* 상품 배송 정보 */
 #goods_data #goods_shipping{
 	width: 900px;
 	min-height: 300px;
 	margin-top: 50px;
-	font-size: 0;
 }
 /* 상품 교환,반품 */
 #goods_data #goods_refund{
 	width: 900px;
 	min-height: 300px;
 	margin-top: 50px;
-	font-size: 0;
 }
 /* 리뷰 후기 */
 #goods_data #goods_review{
 	width: 900px;
 	min-height: 300px;
 	margin-top: 50px;
-	font-size: 0;
 }
 #goods_data #review_content{
 	padding-top:30px;

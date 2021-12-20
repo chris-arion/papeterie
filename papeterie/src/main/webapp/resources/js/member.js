@@ -56,7 +56,7 @@ function update_addr_fn(idx)
 		//datatype : "json",
 		success : function(data) {
 			//console.log("return OK");
-			//console.log(data.idx);
+			console.log(data);
 			$("#u_idx").val(data.idx);
 			$("#u_addr_name").val(data.addr_name);
 			$("#u_rname").val(data.rname);

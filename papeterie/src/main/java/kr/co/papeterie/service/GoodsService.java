@@ -1,14 +1,18 @@
 package kr.co.papeterie.service;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
 
 import kr.co.papeterie.vo.AddressVO;
+import kr.co.papeterie.vo.OrderVO;
 
 public interface GoodsService {
 	public String goods_view(String pcode, Model model);
-	public String purchase(HttpSession session, Model model);
+	public String purchase(HttpSession session, Model model, HttpServletRequest request);
 	public String myjuso(HttpSession session, Model model);
 	public String address_add_ok(HttpSession session, AddressVO avo);
+	public String purchase_ok(HttpServletRequest request, HttpSession session, AddressVO avo, OrderVO ovo);
+	public String purchase_finish(HttpSession session, Model model);
 }

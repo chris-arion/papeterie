@@ -43,16 +43,19 @@
 					<td>
 					<input type="hidden" class="soption" value="${avo.soption}">
 					<c:if test="${avo.soption == 1}">
-					경비실
+					직접수령
 					</c:if>
 					<c:if test="${avo.soption == 2}">
-					부재시 문앞
+					배송 전 연락바랍니다
 					</c:if>
 					<c:if test="${avo.soption == 3}">
-					편의점
+					부재시 경비실에 맡겨주세요
 					</c:if>
 					<c:if test="${avo.soption == 4}">
-					직접 수령
+					부재시 문앞에 놓아주세요
+					</c:if>
+					<c:if test="${avo.soption == 5}">
+					부재시 택배함에 넣어주세요
 					</c:if>
 					</td>
 				</tr>
