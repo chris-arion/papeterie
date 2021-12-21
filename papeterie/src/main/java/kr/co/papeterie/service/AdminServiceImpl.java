@@ -143,9 +143,11 @@ public class AdminServiceImpl implements AdminService{
 
 	@Override
 	public String state_ok(HttpServletRequest request) {
+		
+		String state = request.getParameter("state");
 		String id = request.getParameter("id");
 		
-		mapper.state_ok(id);
+		mapper.state_ok(state,id);
 		
 		return "redirect:"+module+"porder";
 	}

@@ -40,7 +40,7 @@ public interface AdminMapper {
 	
 	public ArrayList<OrderVO> porder(OrderVO ovo);
 	
-	public void state_ok(String id);
+	public void state_ok(String state,String id);
 	
 	
 }

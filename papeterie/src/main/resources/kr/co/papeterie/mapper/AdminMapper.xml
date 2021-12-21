@@ -65,7 +65,7 @@
 		order by idx desc;
 	</select>
 	
-	<update id="state_ok">
-		update porder set state=state+1 where idx=#{param1}
+	<update id="state_ok" parameterType="String">
+		update porder set state=#{param1} where idx=#{param2};
 	</update>
 </mapper>

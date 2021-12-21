@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ include file="menu.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -12,12 +13,19 @@
 <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap.min.css">
+<script>
+function state_chg(my,id)
+{
+	location="state_ok?state="+my+"&id="+id;	
+}
+</script>
 </head>
 <body>
 <!-- 본문 내용 -->
 <div id="content">
 <div id="content-head">
 	<span id="content-head-text">Porder Management</span>
+	<span id="test"></span>
 </div>
 <div id="table_margin">
 	<table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -36,9 +44,9 @@
             </tr>
         </thead>
         <tbody>
-        <c:forEach items="${list}" var="ovo">
+        <c:forEach items="${list}" var="ovo" varStatus="status">
             <tr>
-                <td>${ovo.idx}</td>
+                <td>${fn:length(list) - status.index}</td>
 				<td>${ovo.order_code}</td>
 				<td>${ovo.userid}</td>
 				<td>${ovo.price} 원</td>
@@ -54,31 +62,18 @@
 					<c:if test="${ovo.pay_type == 2}">
 						간편결제
 					</c:if>
-				
 				</td>
 				<td>${ovo.phone}</td>
 				<td>
-					<c:if test="${ovo.state == 0}">
-						<a href="state_ok?id=${ovo.idx}" style="color:#ff0000;">주문 완료</a>
-					</c:if>
-					<c:if test="${ovo.state == 1}">
-						<a href="state_ok?id=${ovo.idx}" style="color:#ff8c00;">결제 완료</a>
-					</c:if>
-					<c:if test="${ovo.state == 2}">
-						<a href="state_ok?id=${ovo.idx}" style="color:#ffd700;">입금 대기</a>
-					</c:if>
-					<c:if test="${ovo.state == 3}">
-						<a href="state_ok?id=${ovo.idx}" style="color:#008000;">입금 확인</a>
-					</c:if>
-					<c:if test="${ovo.state == 4}">
-						<a href="state_ok?id=${ovo.idx}" style="color:#0000ff;">상품 준비중</a>
-					</c:if>
-					<c:if test="${ovo.state == 5}">
-						<a href="state_ok?id=${ovo.idx}" style="color:#4b0082;">배송중</a>
-					</c:if>
-					<c:if test="${ovo.state == 6}">
-						<span style="color:#800080;">배송 완료</span>
-					</c:if>
+					<select name="state" id="state" onchange="state_chg(this.value,${ovo.idx})">
+						<option value="0" <c:if test="${ovo.state == 0}">selected</c:if>>주문 완료</option>
+						<option value="1" <c:if test="${ovo.state == 1}">selected</c:if>>결제 완료</option>
+						<option value="2" <c:if test="${ovo.state == 2}">selected</c:if>>입금 대기</option>
+						<option value="3" <c:if test="${ovo.state == 3}">selected</c:if>>입금 확인</option>
+						<option value="4" <c:if test="${ovo.state == 4}">selected</c:if>>상품 준비중</option>
+						<option value="5" <c:if test="${ovo.state == 5}">selected</c:if>>배송중</option>
+						<option value="6" <c:if test="${ovo.state == 6}">selected</c:if>>배송 완료</option>
+					</select>
 				</td>
 				<td>${ovo.regdate}</td>
             </tr>
