@@ -21,7 +21,7 @@
 		<div id="content">
 			<div style="margin-left: 20px; margin-top: 20px;">찜목록</div>
 			<BR>
-			<table id="wishlist_table">
+			<table id="">
 				<tr>
 					<th width="60">No</th>
 					<th width="470">상품정보</th>
