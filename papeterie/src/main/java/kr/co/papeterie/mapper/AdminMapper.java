@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import kr.co.papeterie.vo.GongjiVO;
 import kr.co.papeterie.vo.GoodsVO;
 import kr.co.papeterie.vo.MemberVO;
+import kr.co.papeterie.vo.OrderVO;
 import kr.co.papeterie.vo.QnaVO;
 
 public interface AdminMapper {
@@ -34,5 +35,12 @@ public interface AdminMapper {
 	public void product_add_ok(GoodsVO gsvo);
 	
 	public void product_delete(String id);
+	
+	public MemberVO admin_login_ok();
+	
+	public ArrayList<OrderVO> porder(OrderVO ovo);
+	
+	public void state_ok(String id);
+	
 	
 }

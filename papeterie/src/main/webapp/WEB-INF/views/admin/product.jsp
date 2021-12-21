@@ -61,7 +61,7 @@ height:1300px;
                 <td>${fn:length(list) - status.index}</td>
 				<td align="center"><img src="${gsvo.img}" width="50"></td>
 				<td>${gsvo.title}</td>
-				<td>${gsvo.price}</td>
+				<td>${gsvo.price} 원</td>
 				<td>${gsvo.category}</td>
 				<td>${gsvo.pcode}</td>
 				<td><a href="../goods/goods_view?pcode=${gsvo.pcode}">Click</a></td>

@@ -28,6 +28,14 @@ height:930px;
 position:absolute;
 }
 
+#content2{
+display:inline-block;
+background:#f2f2f2;
+width:1603px;
+height:1500px;
+position:absolute;
+}
+
 #manager{
 width:1200px;
 margin:auto;
@@ -213,11 +221,86 @@ color:white;
 	border:1px solid silver;
 }
 
+#section2{
+	width:600px;
+	height:800px;
+	margin:auto;
+	margin-top:100px;
+}
 
+#login-form{
+	width:400px;
+	height:400px;
+	margin:auto;
+	border:1px solid silver;
+	background:white;
+	padding:60px 20px;
+}
 
+.login-head{
+	display:inline-block;
+	width:100px;
+	height:35px;
+	font-weight:bold;
+	font-size:14px;
+	padding-top:15px;
+	text-align:center;
+	border-left:1px solid silver;
+	border-top:2px solid silver;
+	border-right:1px solid silver;
+	background:#f2f2f2;
+	cursor:pointer;
+}
 
+.login-input{
+	width:330px;
+	height:50px;
+	border:2px solid silver;
+	padding-left:20px;
+}
 
+#login-ok{
+	width:358px;
+	height:50px;
+	background:gray;
+	color:white;
+	font-size:18px;
+	border:none;
+	border-radius:8px;
+	cursor:pointer;
+}
 
+.click{
+	background:white;
+	border-top:2px solid gray;
+}
+
+#chk{
+-webkit-transform: scale(1.5);
+margin-bottom:10px;
+}
+
+.porder-box{
+	display:inline-block;
+	width:300px;
+	height:200px;
+	border:1px solid green;
+	margin:20px;
+}
+
+#porder-maintext{	
+	display:inline-block;
+	width:1030px;
+	height:60px;
+	position:absolute;
+	border:1px solid silver;
+	top:586px;
+	left:40px;
+	font-size:20px;
+	font-weight:bold;
+	padding-left:20px;
+	padding-top:15px;
+}
 
 
 
