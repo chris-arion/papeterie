@@ -7,6 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+
+</style>
 </head>
 <body>
 	
@@ -56,6 +59,18 @@
 		</table>
 	</div>
 	<div class="box">
+		<table class="table" id="gongji-table">
+			<tr>
+				<th>최근 공지사항</th>
+			</tr>
+			<c:forEach items="${gongji_list}" var="gvo">
+				<tr>
+					<td>${gvo.title}</td>
+				</tr>
+			</c:forEach>
+		</table>
+	</div>
+	<div class="box">
 		<table class="table gongji">
 			<tr>
 				<th colspan="2" height="30">Q&A</th>
@@ -72,6 +87,19 @@
 				<td class="gongji-td">답글</td>
 				<td class="gongji-td-right">${qnalist2}개</td>
 			</tr>
+		</table>
+	</div>
+	<div class="box">
+		<table class="table" id="gongji-table">
+			<tr>
+				<th>최근 Q&A</th>
+			</tr>
+			<c:forEach items="${qna_list}" var="qvo">
+				<tr>
+					<td width="100">${qvo.name}</td>
+					<td>${qvo.title}</td>
+				</tr>
+			</c:forEach>
 		</table>
 	</div>
 	</div>

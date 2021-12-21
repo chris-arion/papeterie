@@ -23,7 +23,11 @@ public interface AdminMapper {
 	
 	public ArrayList<GongjiVO> gongji_list();
 	
+	public ArrayList<GongjiVO> gongji_list_limit();
+	
 	public ArrayList<QnaVO> qna_list();
+	
+	public ArrayList<QnaVO> qna_list_limit();
 	
 	public ArrayList<GoodsVO> pro_list();
 	

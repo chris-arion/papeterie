@@ -6,13 +6,30 @@
 		insert into cart (userid, pcode, count) values (#{userid}, #{pcode}, #{count})
 	</insert>
 	<select id="iscount" resultType="Integer">
-		select ifnull(max(count), 0) from cart where userid = #{_userid} and pcode = #{_pcode}
+		select ifnull(max(count), 0) from cart 
+		where userid = #{_userid} and pcode = #{_pcode} and DATE_FORMAT(regdate, "%Y-%m-%d") = CURDATE()
 	</select>
 	<update id="update_count" parameterType="CartVO">
 		update cart set count = #{_count} where userid = #{_userid}
 	</update>
 	<select id="cartlist" resultType="CartVO">
 		select c.idx as idx, c.userid as userid, c.pcode as pcode, c.count as count, c.regdate as regdate, 
-		p.title as title, p.price as price, p.img as img from cart c , product p where c.userid = #{_userid} and c.pcode = p.pcode ;
+		p.title as title, p.price as price, p.img as img from cart c , product p 
+		where c.userid = #{_userid} and c.pcode = p.pcode and DATE_FORMAT(c.regdate, "%Y-%m-%d") = CURDATE()
+	</select>
+	<update id="update_userid">
+		update cart set userid = #{_userid} where userid = #{_sessionid} and DATE_FORMAT(regdate, "%Y-%m-%d") = CURDATE()
+	</update>
+	<delete id="del_cart" parameterType="Integer">
+		delete from cart where idx = ${_idx}
+	</delete>
+	<insert id="add_wishlist" parameterType="String">
+		insert into wishlist (userid, pcode) values (#{_userid}, #{_pcode})
+	</insert>
+	<select id="iswishlist" parameterType="String" resultType="Integer">
+		select count(*) from wishlist where userid = #{_userid} and pcode = #{_pcode}
+	</select>
+	<select id="getpcode" parameterType="Integer" resultType="String">
+		select pcode from cart where idx = #{_idx}
 	</select>
 </mapper>

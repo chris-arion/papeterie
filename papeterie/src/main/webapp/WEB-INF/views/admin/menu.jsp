@@ -37,5 +37,5 @@
     		<li><a href="gongji">▶ 공지관리</a></li>
     		<li><a href="qna">▶ Q&A관리</a></li>
     	</ul>
-    	<div id="logout"><a>▶ Log Out</a> </div>
+    	<div id="logout"><a href="../main/index">▶ Log Out</a> </div>
 	</div>

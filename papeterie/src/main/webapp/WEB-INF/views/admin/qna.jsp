@@ -68,7 +68,7 @@ function qna_delete(my)
 						답변완료
 					</c:if>
 				</td>
-				<td><a href="../qna/update?id=${qvo.id}">수정</a> / <a href="#" onclick="qna_delete(${qvo.id})">삭제</a></td>
+				<td><a href="../qna/update?id=${qvo.id}" style="color:DodgerBlue;">수정</a> / <a href="#" onclick="qna_delete(${qvo.id})" style="color:tomato;">삭제</a></td>
             </tr>
         </c:if>
         </c:forEach>

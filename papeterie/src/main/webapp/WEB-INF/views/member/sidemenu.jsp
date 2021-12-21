@@ -11,7 +11,7 @@
 							<a href="#">주문취소/교환/반품</a>
 						</li>
 						<li>
-							<a href="#">찜목록</a>
+							<a href="../member/wishlist">찜목록</a>
 						</li>
 						<li>
 							<a href="#">리뷰</a>

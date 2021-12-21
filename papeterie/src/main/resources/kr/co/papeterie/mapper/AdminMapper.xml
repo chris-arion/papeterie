@@ -31,8 +31,16 @@
 		select * from gongji order by id desc;
 	</select>
 	
+	<select id="gongji_list_limit" resultType="kr.co.papeterie.vo.GongjiVO">
+		select * from gongji order by id desc limit 3;
+	</select>
+	
 	<select id="qna_list" resultType="kr.co.papeterie.vo.QnaVO">
 		select * from qna order by id desc;
+	</select>
+	
+	<select id="qna_list_limit" resultType="kr.co.papeterie.vo.QnaVO">
+		select * from qna order by id desc limit 3;
 	</select>
 	
 	<select id="pro_list" resultType="kr.co.papeterie.vo.GoodsVO">

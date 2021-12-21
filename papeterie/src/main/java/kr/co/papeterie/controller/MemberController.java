@@ -97,5 +97,14 @@ public class MemberController {
 		return aservice.del_addr(request);
 	}
 	
+	@RequestMapping("/member/wishlist")
+	public String wishlist(HttpSession session, Model model) {
+		return service.mywishlist(session, model);
+	}
 	
+	@RequestMapping("/member/del_wishlist")
+	public String del_wishlist(HttpServletRequest request) {
+		return service.del_wishlist(request);
+	}
+
 }

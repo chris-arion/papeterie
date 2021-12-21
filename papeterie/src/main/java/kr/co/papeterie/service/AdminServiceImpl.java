@@ -36,6 +36,8 @@ public class AdminServiceImpl implements AdminService{
 		model.addAttribute("gongjilist",mapper.gongjilist());
 		model.addAttribute("qnalist",mapper.qnalist());
 		model.addAttribute("qnalist2",mapper.qnalist2());
+		model.addAttribute("gongji_list",mapper.gongji_list_limit());
+		model.addAttribute("qna_list",mapper.qna_list_limit());
 		
 		return module+"manager";
 	}

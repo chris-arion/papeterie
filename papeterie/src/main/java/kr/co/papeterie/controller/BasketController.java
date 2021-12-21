@@ -51,5 +51,27 @@ public class BasketController {
 		
 		out.print(retString);
 	}
+	
+	@RequestMapping("/basket/cart_proc")
+	public String cart_proc(HttpServletRequest request, HttpSession session) {
+		String mode = request.getParameter("mode");
+		System.out.println("mode = " + mode + ", ");
+		
+		if (mode.equals("cartDelete")) {
+			service.del_cart(request);
+			return "redirect:/basket/cart";
+		}
+		else if (mode.equals("cartToWish")) {
+			service.add_wishlist(request, session);
+			return "redirect:/basket/cart";
+		}
+		else if (mode.equals("orderSelect")) {
+			return null;
+			
+		}
+		
+		return null;
+	}
+	
 
 }
