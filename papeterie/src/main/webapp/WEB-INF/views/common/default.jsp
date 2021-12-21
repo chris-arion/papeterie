@@ -125,7 +125,25 @@
 				<th>판매처 안내</th>
 			</tr>
 			<tr>
-				<td colspan="5">&nbsp;</td>
+				<td colspan="5">&nbsp;
+								<!-- 테스트용 -->
+				<form action="">
+				<select id="test" class="test" name="test">
+					<c:forEach items="${glist}" var="gvo">
+					<option value="${gvo.pcode}">${gvo.pcode}</option>
+					</c:forEach>
+				</select>
+				<input type="button" value="이동" onclick="gotourl()">
+				</form>
+				<script>
+					function gotourl() {
+						var selectOption = document.getElementById("test");
+						selectOption = selectOption.options[selectOption.selectedIndex].value;
+						//alert(selectOption);
+						location = "../goods/goods_view?pcode=" + selectOption;
+					}
+				</script>
+				</td>
 			</tr>
 			<tr>
 				<td colspan="5" class="bottom-table-text">상호 : (주)Papeterie  사업자등록번호 : 120-10-01010 통신판매업신고번호 : 2022-서울구로-0106 [사업자정보확인] </td>
