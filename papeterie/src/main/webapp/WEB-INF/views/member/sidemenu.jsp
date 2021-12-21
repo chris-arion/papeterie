@@ -5,7 +5,7 @@
 					<div class="title">쇼핑내역</div>
 					<ul class="sub">
 						<li>
-							<a href="#">전체주문내역</a>
+							<a href="../member/mypage">전체주문내역</a>
 						</li>
 						<li>
 							<a href="#">주문취소/교환/반품</a>

@@ -111,9 +111,12 @@
 	
 <!-- 바텀 부분 -->
 <div id="bottom-head">
-	<div id="bottom-logo"><img src="/resources/img/papeterie.png"  width="250" style="cursor:pointer;" onclick="location='../main/index'"></div>
+	<!-- <div id="bottom-logo"><img src="/resources/img/papeterie.png"  width="250" style="cursor:pointer;" onclick="location='../main/index'"></div> -->
 	<div id="bottom-first-text">
 		<table class="bottom-table">
+			<tr>
+				<td rowspan="7"><img src="/resources/img/papeterie.png" width="250" style="cursor:pointer;" onclick="location='../main/index'"></td>
+			</tr>
 			<tr>
 				<th><a href="../gongji/list">공지사항</a></th>
 				<th><a href="../qna/list">질문/답변</a></th>

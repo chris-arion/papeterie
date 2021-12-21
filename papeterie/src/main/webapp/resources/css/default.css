@@ -146,13 +146,18 @@
 	
 	#bottom-logo img{
 	margin-top:50px;
-	margin-left:350px;
+	margin-left:150px;
 	}
 	
 	#bottom-first-text{
 	position:relative;
-	left:700px;
-	top:-110px;
+	/* left:350px; */
+	top: 10px;
+	}
+	
+	.bottom-table {
+		margin-left: auto;
+		margin-right: auto;
 	}
 	
 	.bottom-table th{
