@@ -45,4 +45,7 @@
 		select product.*, orderitem.count from product, orderitem where
 		product.pcode = orderitem.pcode and order_code=#{parma1}
 	</select>
+	<select id="all_goods" resultType="kr.co.papeterie.vo.GoodsVO">
+		select * from product order by idx desc
+	</select>
 </mapper>

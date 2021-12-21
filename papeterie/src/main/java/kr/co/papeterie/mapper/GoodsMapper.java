@@ -22,4 +22,5 @@ public interface GoodsMapper {
 	public void set_orderitem(OrderitemVO ivo);	
 	public OrderVO get_porder(String userid);
 	public ArrayList<GoodsVO> get_product(String order_code);
+	public ArrayList<GoodsVO> all_goods();
 }

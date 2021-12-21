@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import kr.co.papeterie.mapper.BasketMapper;
+import kr.co.papeterie.mapper.GoodsMapper;
 import kr.co.papeterie.mapper.MemberMapper;
+import kr.co.papeterie.vo.GoodsVO;
 import kr.co.papeterie.vo.MemberVO;
 import kr.co.papeterie.vo.WishlistVO;
 
@@ -24,6 +26,9 @@ public class MemberServiceImpl implements MemberService {
 	
 	@Autowired
 	private BasketMapper bmapper;
+
+	@Autowired
+	private GoodsMapper gmapper;
 
 	@Override
 	public String login_ok(MemberVO mvo, HttpSession session) {
@@ -72,4 +77,14 @@ public class MemberServiceImpl implements MemberService {
 		mapper.del_wishlist(idx);
 		return "redirect:/member/wishlist";
 	}
+	
+	@Override
+	public String review_write(HttpServletRequest request, Model model) {
+		// 
+		String pcode = request.getParameter("pcode");
+		GoodsVO gvo = gmapper.goods_view(pcode);
+		model.addAttribute("gvo", gvo);
+		return null;
+	}
+
 }

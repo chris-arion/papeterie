@@ -8,6 +8,7 @@
 		<pattern>/goods/jusoPopup</pattern>
 		<pattern>/goods/myjuso</pattern>
 		<pattern>/admin</pattern>
+		<pattern>/review/*</pattern>
 	</excludes>
 
 	<!-- 기본 패턴 -->

@@ -107,4 +107,9 @@ public class MemberController {
 		return service.del_wishlist(request);
 	}
 
+	@RequestMapping("/review/write")
+	public String review_write(HttpServletRequest request, Model model) {
+		return service.review_write(request, model);
+	}
+
 }

@@ -13,4 +13,5 @@ public interface MemberService {
 	public String pwd_search_ok(MemberVO mvo);
 	public String mywishlist(HttpSession session, Model model);
 	public String del_wishlist(HttpServletRequest request);
+	public String review_write(HttpServletRequest request, Model model);
 }
