@@ -5,6 +5,10 @@
 	<select id="goods_view" resultType="kr.co.papeterie.vo.GoodsVO">
 		select * from product where pcode=#{param1}
 	</select>
+	<select id="get_cartproduct" resultType="kr.co.papeterie.vo.GoodsVO">
+		select product.*, cart.count, product.pcode product from product, cart where product.pcode=cart.pcode 
+		and cart.userid=#{param1} and product.pcode in (${param2})
+	</select>
 	<select id="get_member" resultType="kr.co.papeterie.vo.MemberVO">
 		select * from member where userid=#{param1}
 	</select>
@@ -28,8 +32,17 @@
 		select count(distinct order_code) from porder where regdate like concat('%',#{param1},'%')
 	</select>
 	<insert id="purchase_ok" parameterType="kr.co.papeterie.vo.OrderVO">
-		insert into porder (order_code, userid, pcode, count, price, ship_price, addr_id, pay_type, bank, card, halbu, com, phone, state)
-		values (#{order_code}, #{userid}, #{pcode}, #{count}, #{price}, #{ship_price}, #{addr_id}, #{pay_type}, #{bank}, #{card}, #{halbu}, #{com}, #{phone}, #{state})
+		insert into porder (order_code, userid, price, ship_price, addr_id, pay_type, bank, card, halbu, com, phone, state)
+		values (#{order_code}, #{userid}, #{price}, #{ship_price}, #{addr_id}, #{pay_type}, #{bank}, #{card}, #{halbu}, #{com}, #{phone}, #{state})
 	</insert>
-	
+	<insert id="set_orderitem" parameterType="kr.co.papeterie.vo.OrderitemVO">
+		insert into orderitem (order_code, pcode, count) values (#{order_code}, #{pcode}, #{count})
+	</insert>
+	<select id="get_porder" resultType="kr.co.papeterie.vo.OrderVO">
+		select * from porder where userid=#{param1} order by order_code desc limit 0,1
+	</select>
+	<select id="get_product" resultType="kr.co.papeterie.vo.GoodsVO">
+		select product.*, orderitem.count from product, orderitem where
+		product.pcode = orderitem.pcode and order_code=#{parma1}
+	</select>
 </mapper>

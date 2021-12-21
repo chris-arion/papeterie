@@ -89,9 +89,13 @@ public class GoodsController {
 	}
 	
 	@RequestMapping("/purchase_finish")
-	public String purchase_finish(HttpSession session, Model model)
-	{
-		return gservice.purchase_finish(session, model);
+	public String purchase_finish(HttpSession session, Model model) 
+	{ 
+		return gservice.purchase_finish(session, model); 
 	}
-
+	
+	/*
+	 * @RequestMapping("/purchase_finish") public String purchase_finish() { return
+	 * module+"/purchase_finish"; }
+	 */
 }

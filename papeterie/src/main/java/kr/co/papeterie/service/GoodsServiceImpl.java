@@ -12,7 +12,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import kr.co.papeterie.vo.AddressVO;
+import kr.co.papeterie.vo.GoodsVO;
 import kr.co.papeterie.vo.OrderVO;
+import kr.co.papeterie.vo.OrderitemVO;
+import kr.co.papeterie.mapper.BasketMapper;
 import kr.co.papeterie.mapper.GoodsMapper;
 
 @Service
@@ -21,6 +24,9 @@ public class GoodsServiceImpl implements GoodsService{
 
 	@Autowired
 	private GoodsMapper mapper;
+	
+	@Autowired
+	private BasketMapper bmapper;
 	
 	private final String module = "/goods";
 	
@@ -37,15 +43,31 @@ public class GoodsServiceImpl implements GoodsService{
 		String userid = session.getAttribute("userid").toString();
 		model.addAttribute("mvo", mapper.get_member(userid));
 		model.addAttribute("avo", mapper.get_juso(userid));
+		
 		if(request.getParameter("pcode") != null) //바로 구매로 넘어오는 경우
 		{
-			model.addAttribute("pvo", mapper.goods_view(request.getParameter("pcode")));
-			model.addAttribute("count", request.getParameter("count"));
+			GoodsVO pvo = new GoodsVO();
+			pvo = mapper.goods_view(request.getParameter("pcode"));
+			pvo.setCount(Integer.parseInt(request.getParameter("count")));
+			model.addAttribute("pvo", pvo);
 		}
-		else // 장바구니에서 오는 경우
+		else 
 		{
-			//model.addAttribute("list", mapper.get_basket(userid));
-		}	
+			String[] chkarray = request.getParameter("idxlist").split(",");
+			String pcodelist = "";
+			for (int i = 0; i < chkarray.length; i++) {
+				String pcode = bmapper.getpcode(Integer.parseInt(chkarray[i]));
+				if(pcodelist == "")
+				{
+					pcodelist = "'"+pcode+"'";
+				}
+				else
+				{
+					pcodelist = pcodelist+",'"+pcode+"'";
+				}
+			}
+			model.addAttribute("list", mapper.get_cartproduct(userid, pcodelist));
+		}
 		return module+"/purchase";
 	}
 	
@@ -83,6 +105,7 @@ public class GoodsServiceImpl implements GoodsService{
 			avo.setIdx(addr_id);
 			mapper.address_update(avo);
 		}
+		
 		// 주문번호 생성하기
 		LocalDate today = LocalDate.now();
 		String a = today.toString();
@@ -94,12 +117,24 @@ public class GoodsServiceImpl implements GoodsService{
 		
 		String order_code = number_f+number_b;
 		
-		// 주문 테이블에 데이터 입력
+		// 주문 테이블에 주문번호, 내용 데이터 입력
 		ovo.setOrder_code(order_code);
 		ovo.setUserid(userid);
 		ovo.setAddr_id(addr_id);
 		ovo.setPhone(request.getParameter("pphone"));
 		mapper.purchase_ok(ovo);
+		
+		// 주문상품 테이블에 주문번호, 상품, 수량 입력
+		String[] pcodesplit = request.getParameterValues("pcode");
+		String[] countsplit = request.getParameterValues("count");
+		OrderitemVO ivo = new OrderitemVO();
+		ivo.setOrder_code(order_code);
+		for(int i=0; i<pcodesplit.length; i++)
+		{
+			ivo.setPcode(pcodesplit[i]);
+			ivo.setCount(Integer.parseInt(countsplit[i]));
+			mapper.set_orderitem(ivo);
+		}
 		
 		return "redirect:"+module+"/purchase_finish";
 	}
@@ -108,7 +143,16 @@ public class GoodsServiceImpl implements GoodsService{
 	public String purchase_finish(HttpSession session, Model model)
 	{
 		String userid = session.getAttribute("userid").toString();
-		// 주문
+		// 주문정보 가져오기
+		OrderVO ovo = new OrderVO();
+		ovo = mapper.get_porder(userid);
+		String order_code = ovo.getOrder_code();
+		System.out.println(order_code);
+		
+		// 주문상품 가져오기
+		model.addAttribute("list", mapper.get_product(order_code));
+		model.addAttribute("ovo", ovo);
+		
 		return module+"/purchase_finish";
 	}
 	

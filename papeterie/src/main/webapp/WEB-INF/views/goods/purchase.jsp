@@ -26,34 +26,41 @@
 					<th id="goods_discount">할인/적립</th>
 					<th id="goods_default">합계 금액</th>
 				</tr>
+				<c:set var="total_count" value="0"/>
 				<c:if test="${pvo == null}"> <!-- 장바구니 경우 -->
+				<c:set var="total_price" value="0"/>
+				<c:forEach items="${list}" var="pvo">
 					<tr>
-					<td class="goods_id_td">
-						<img id="goods_img" src="">
-						상품 명
-					</td>
-					<td>```</td>
-					<td>수량*가격</td>
-					<td class="goods_td">3%포인트 적립</td>
-					<td class="goods_td">```</td>
-				</tr>
+					<input type="hidden" name="pcode" value="${pvo.pcode}">
+					<input type="hidden" name="count" value="${pvo.count}">
+						<td class="goods_id_td">
+							<img id="goods_img" src="${pvo.img}">
+							${pvo.title}
+						</td>
+						<td>${pvo.count}개</td>
+						<td><fmt:formatNumber value="${pvo.price}"/>원</td>
+						<td class="goods_td">10%포인트 적립</td>
+						<td class="goods_td"><fmt:formatNumber value="${pvo.price*pvo.count}"/>원</td>
+					</tr>
+					<c:set var="total_price" value="${total_price+(pvo.price*pvo.count)}"/>
+					<c:set var="total_count" value="${total_count+1}"/>
+				</c:forEach>
 				</c:if> <!-- 바로 구매 경우 -->
 				<c:if test="${pvo != null}">
 				<tr>
 				<input type="hidden" name="pcode" value="${pvo.pcode}">
-				<input type="hidden" name="pcode" value="p0101">
-				<input type="hidden" name="count" value="${count}">
-				<input type="hidden" name="count" value="3">
+				<input type="hidden" name="count" value="${pvo.count}">
 					<td class="goods_id_td">
 						<img id="goods_img" src="${pvo.img}">
 						${pvo.title}
 					</td>
-					<td>${count}개</td>
+					<td>${pvo.count}개</td>
 					<td><fmt:formatNumber value="${pvo.price}"/>원</td>
 					<td class="goods_td">10%포인트 적립</td>
-					<c:set var="total_price" value="${pvo.price*count}"/>
+					<c:set var="total_price" value="${pvo.price*pvo.count}"/>
 					<td class="goods_td"><fmt:formatNumber value="${total_price}"/>원</td>
 				</tr>
+				<c:set var="total_count" value="${total_count+1}"/>
 				</c:if>
 				<tr>
 					<td colspan="5" id="go_basket">
@@ -64,23 +71,19 @@
 		</div>
 		<div id="goods_total_price">
 			<div id="price_main">
-			<c:if test="${pvo != null}"> <!-- 바로 구매 경우 -->
-				총 1개의 상품금액<br>
+				총 ${total_count} 개의 상품금액<br>
 				<strong><fmt:formatNumber value="${total_price}"/>원</strong>
-			</c:if>
 			</div>
 			<div class="price_img"><img src="/resources/img/purchase_plus.png"></div>
 			<div id="price_ship">
 				배송비<br>
-				<c:if test="${pvo != null}"> <!-- 바로 구매 경우 -->
-					<c:if test="${(pvo.price*count) >= 30000}">
-					<c:set var="bprice" value="0"/>
-					<strong>0원</strong>
-					</c:if>
-					<c:if test="${(pvo.price*count) < 30000}">
-					<c:set var="bprice" value="2500"/>
-					<strong>2,500원</strong>
-					</c:if>
+				<c:if test="${total_price >= 30000}">
+				<c:set var="bprice" value="0"/>
+				<strong>0원</strong>
+				</c:if>
+				<c:if test="${total_price < 30000}">
+				<c:set var="bprice" value="2500"/>
+				<strong>2,500원</strong>
 				</c:if>
 			</div>
 			<div class="price_img"><img src="/resources/img/purchase_right_arrow.png"></div>
@@ -407,9 +410,7 @@
 						<span>결제 금액의 10% 포인트 적립</span>
 						<span>(현재 포인트: ${mvo.spoint})</span><br>
 						<span class="my_point">
-							<c:if test="${pvo != null}"> <!-- 바로 구매 경우 -->
 							<strong>${total_price*0.1}</strong>point 적립
-							</c:if>
 						</span>
 					</td>
 				</tr>

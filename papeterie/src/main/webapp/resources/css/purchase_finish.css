@@ -6,7 +6,78 @@
 	margin: auto;
 	margin-top: 50px;
 }
-#section table{
+#section #page_title{
+	font-size: 25px;
+	font-weight: bold;
 	
+}
+#section #page_sub{
+	float: right;
+	font-size: 15px;
+	color: #aaa;
+}
+#receipt{
+	clear: both;
+	width: 700px;
+	height: auto;
+	margin: auto;
+	margin-top: 50px;
+	border: 10px solid #ccc;
+	min-height: 700px;
+}
+#receipt_head{
+	border-bottom: 2px solid #333;
+	height: 100px;
+}
+#receipt_logo{
+	height: 100px;
+}
+#receipt_head > span{
+	float: right;
+	font-size: 14px;
+	font-weight: bold;
+	color: #777;
+	padding: 10px;
+}
+#receipt_middle{
+	clear: both;
+	border: 1px solid yellow;
+	min-height: 500px; 
+	padding: 30px 20px;
+}
+#receipt_middle li{
+	margin-bottom: 10px;
+}
+#receipt_middle table{
+	width: 600px;
+	margin: auto;
+}
+#receipt_middle table th{
+	border-bottom: 1px solid #777;
+	font-size: 14px;
+	text-align: center;
+	padding: 5px 10px;
+}
+#receipt_middle .product_title{
+	text-align: left;
+}
+#receipt_middle table td{
+	font-size: 14px;
+	text-align: right;
+	padding: 5px 15px;
+}
+#receipt_middle .product_price{
+	text-align: center;
+}
+#receipt_middle .total_price{
+	width: 600px;
+	margin: auto;
+	float: right;
+	border-top: 1px solid #777;
+}
+#receipt_bottom{
+	clear: both;
+	border-top: 1px solid #777;
+	height: 100px;
 }
 

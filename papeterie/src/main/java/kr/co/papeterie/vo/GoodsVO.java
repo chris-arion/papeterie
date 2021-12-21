@@ -1,7 +1,13 @@
 package kr.co.papeterie.vo;
 
 public class GoodsVO {
-	private int idx, price, option;
+	private int idx, price, option, count;
+	public int getCount() {
+		return count;
+	}
+	public void setCount(int count) {
+		this.count = count;
+	}
 	private String title, img, category, pcode, content, regdate;
 	
 	public int getIdx() {

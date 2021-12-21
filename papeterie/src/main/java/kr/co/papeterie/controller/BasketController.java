@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.papeterie.service.BasketService;
+import kr.co.papeterie.service.GoodsService;
 import kr.co.papeterie.vo.CartVO;
 
 @Controller
@@ -20,6 +21,10 @@ public class BasketController {
 	@Autowired
 	@Qualifier("basket")
 	private BasketService service;
+	
+	@Autowired
+	@Qualifier("goods")
+	private GoodsService gservice;
 
 	@RequestMapping("/basket/cart")
 	public String cart(HttpSession session, Model model) {
@@ -53,7 +58,7 @@ public class BasketController {
 	}
 	
 	@RequestMapping("/basket/cart_proc")
-	public String cart_proc(HttpServletRequest request, HttpSession session) {
+	public String cart_proc(HttpServletRequest request, HttpSession session, Model model) {
 		String mode = request.getParameter("mode");
 		System.out.println("mode = " + mode + ", ");
 		
@@ -65,9 +70,16 @@ public class BasketController {
 			service.add_wishlist(request, session);
 			return "redirect:/basket/cart";
 		}
-		else if (mode.equals("orderSelect")) {
-			return null;
-			
+		else if (mode.equals("orderSelect")) {		
+			String[] chkarray = request.getParameterValues("cartchk");
+			String idxlist = "";
+			for (int i = 0; i < chkarray.length; i++) {
+				if(idxlist == "")
+					idxlist = chkarray[i];
+				else
+					idxlist = idxlist+","+chkarray[i];
+			}
+			return "redirect:/goods/purchase?idxlist="+idxlist;	
 		}
 		
 		return null;
