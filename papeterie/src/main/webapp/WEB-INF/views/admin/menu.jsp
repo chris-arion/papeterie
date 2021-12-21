@@ -30,12 +30,12 @@
     	</div> 
     	<ul id="menu-list">
     		<li><a href="manager">▶ 전체페이지</a></li>
-    		<li><a href="#">▶ 주문관리</a></li>
+    		<li><a href="porder">▶ 주문관리</a></li>
     		<li><a href="#">▶ 배송관리</a></li>
     		<li><a href="product">▶ 상품관리</a></li>
     		<li><a href="user">▶ 회원관리</a></li>
     		<li><a href="gongji">▶ 공지관리</a></li>
     		<li><a href="qna">▶ Q&A관리</a></li>
     	</ul>
-    	<div id="logout"><a href="../main/index">▶ Log Out</a> </div>
+    	<div id="logout"><a href="/admin">▶ Log Out</a> </div>
 	</div>

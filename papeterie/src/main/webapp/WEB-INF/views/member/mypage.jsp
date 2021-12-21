@@ -13,6 +13,7 @@
  		<%@include file="sidemenu.jsp" %>
  		
 		<div id="content">
+			<div style="margin-left: 20px; margin-top: 20px;">전체주문내역</div>
 			<table id="mypage_table">
 				<tr>
 					<td>1</td>

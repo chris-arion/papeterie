@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import kr.co.papeterie.vo.GongjiVO;
 import kr.co.papeterie.vo.GoodsVO;
 import kr.co.papeterie.vo.MemberVO;
+import kr.co.papeterie.vo.OrderVO;
 import kr.co.papeterie.vo.QnaVO;
 
 public interface AdminService {
@@ -25,4 +26,9 @@ public interface AdminService {
 	
 	public String product_delete(HttpServletRequest request);
 	
+	public String admin_login_ok(HttpServletRequest request,MemberVO mvo);
+	
+	public String porder(OrderVO ovo,Model model);
+	
+	public String state_ok(HttpServletRequest request);
 }

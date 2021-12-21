@@ -15,7 +15,14 @@ public class OrderVO {
 	private String phone;	// 간편결재 전화번호
 	private int state;		// 주문 상태 : 0 - 주문 완료, 1 - 결재완료, 2 - 입금대기, 3 - 입금확인, 4 - 상품준비중, 5 - 배송중, 6 - 배송완료
 	private String regdate;	// 주문일자
-
+	private String addr1;   // 배송지 조인 주소
+	
+	public String getAddr1() {
+		return addr1;
+	}
+	public void setAddr1(String addr1) {
+		this.addr1 = addr1;
+	}
 	public int getIdx() {
 		return idx;
 	}

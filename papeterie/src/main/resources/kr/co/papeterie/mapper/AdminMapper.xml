@@ -56,4 +56,16 @@
 		delete from product where idx=#{param1}
 	</delete>
 	
+	<select id="admin_login_ok" resultType="kr.co.papeterie.vo.MemberVO">
+		select userid,pwd from member where userid='admin' and pwd='admin';
+	</select>
+	
+	<select id="porder" resultType="kr.co.papeterie.vo.OrderVO">
+		SELECT p.*,a.addr1 FROM porder AS p , address AS a WHERE a.idx=p.addr_id
+		order by idx desc;
+	</select>
+	
+	<update id="state_ok">
+		update porder set state=state+1 where idx=#{param1}
+	</update>
 </mapper>

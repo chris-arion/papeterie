@@ -8,13 +8,21 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-
+#porder-head{	
+	display:inline-block;
+	width:1030px;
+	height:485px;
+	margin-left:40px;
+	margin-top:100px;
+	border:1px solid silver;
+	background:white;
+}
 </style>
 </head>
 <body>
 	
 <!-- 본문 내용 -->
-<div id="content">
+<div id="content2">
 <div id="content-head">
 	<span id="content-head-text">Admin Dashboard</span>
 </div>
@@ -103,6 +111,16 @@
 		</table>
 	</div>
 	</div>
+	<div id="porder-maintext" style="background:white;">판매진행현황</div>
+	<div id="porder-head">
+		<div class="porder-box">123</div>
+		<div class="porder-box">123</div>
+		<div class="porder-box">123</div>
+		<div class="porder-box">123</div>
+		<div class="porder-box">123</div>
+		<div class="porder-box">123</div>
+	</div>
+	
 </div>
 </body>
 </html>

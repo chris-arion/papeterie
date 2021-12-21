@@ -69,6 +69,23 @@ $(document).ready(function() {
 
 
 
+function color_chg()
+{
+	var element = document.getElementById("div1");
+	element.classList.add('click');
+	
+	var element2 = document.getElementById("div2");
+	element2.classList.remove('click');
+}
+
+function color_chg2()
+{
+	var element = document.getElementById("div2");
+	element.classList.add('click');
+	
+	var element2 = document.getElementById("div1");
+	element2.classList.remove('click');
+}
 
 
 

@@ -17,6 +17,7 @@ import kr.co.papeterie.mapper.AdminMapper;
 import kr.co.papeterie.vo.GongjiVO;
 import kr.co.papeterie.vo.GoodsVO;
 import kr.co.papeterie.vo.MemberVO;
+import kr.co.papeterie.vo.OrderVO;
 import kr.co.papeterie.vo.QnaVO;
 
 @Service
@@ -110,5 +111,42 @@ public class AdminServiceImpl implements AdminService{
 		
 		return "redirect:"+module+"product";
 	}
+
+	@Override
+	public String admin_login_ok(HttpServletRequest request,MemberVO mvo) {
+		
+		String userid = request.getParameter("userid");
+		String pwd = request.getParameter("pwd");
+		
+		mvo = mapper.admin_login_ok();
+		String userid2 = mvo.getUserid();
+		String pwd2 = mvo.getPwd();
+		
+		if(userid.equals(userid2) && pwd.equals(pwd2))
+		{
+			return "redirect:"+module+"manager";
+		}
+		else
+		{
+			return module+"admin_login";
+		}
+	}
 	
+	@Override
+	public String porder(OrderVO ovo, Model model) {
+		
+		model.addAttribute("list",mapper.porder(ovo));
+		
+		
+		return module+"porder";
+	}
+
+	@Override
+	public String state_ok(HttpServletRequest request) {
+		String id = request.getParameter("id");
+		
+		mapper.state_ok(id);
+		
+		return "redirect:"+module+"porder";
+	}
 }

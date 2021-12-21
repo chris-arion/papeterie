@@ -14,6 +14,7 @@ import kr.co.papeterie.service.AdminService;
 import kr.co.papeterie.vo.GongjiVO;
 import kr.co.papeterie.vo.GoodsVO;
 import kr.co.papeterie.vo.MemberVO;
+import kr.co.papeterie.vo.OrderVO;
 import kr.co.papeterie.vo.QnaVO;
 
 @Controller
@@ -74,5 +75,21 @@ public class AdminController {
 		return aservice.product_delete(request);
 	}
 	
+	@RequestMapping("admin_login_ok")
+	public String admin_login_ok(HttpServletRequest request,MemberVO mvo)
+	{
+		return aservice.admin_login_ok(request,mvo);
+	}
 	
+	@RequestMapping("porder")
+	public String porder(OrderVO ovo,Model model)
+	{
+		return aservice.porder(ovo, model);
+	}
+	
+	@RequestMapping("state_ok")
+	public String state_ok(HttpServletRequest request)
+	{
+		return aservice.state_ok(request);
+	}
 }
