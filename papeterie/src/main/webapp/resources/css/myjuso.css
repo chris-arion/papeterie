@@ -7,7 +7,7 @@
 #section .juso{
 	width: 450px;
 	margin: auto;
-	border-top: 2px solid #ccc;
+	border-top: 2px solid gray;
 	margin-bottom: 10px;
 }
 #section table{
@@ -17,34 +17,41 @@
 #section table .td_head{
 	width: 100px;
 	height: 20px;
-	background: #aaa;
+	background: gray;
 	font-weight: bold;
 	color: white;
+	padding:10px;
+	text-align:center;
 }
 #section table td{
 	border-bottom: 1px solid #eee;
-	padding-left: 10px;
+	padding-left: 20px;
 }
 #section .btn{
 	display: inline-block;
 	color: white;
 	text-align: center;
-	border: 1px solid #aaa;
-	background: #ccc;
-	width: 100px;
-	height: 20px;
+	border: 1px solid black;
+	background: black;
+	width: 60px;
+	height: 23px;
 	cursor: pointer;
+	margin-top:10px;
+	margin-bottom:10px;
+	font-weight:bold;
+	font-size:12px;
+	padding-top:3px;
 }
 #section #add{
-	border: 1px solid lightsalmon;
-	background: lightsalmon;
+	border: 1px solid black;
+	background: black;
 	color: white;
-	width: 450px;
-	height: 30px; 
-	margin: auto;
+	width: 100px;
+	height: 25px; 
 	text-align: center;
 	font-weight: bold;
-	font-size: 20px;
-	padding-top: 5px;
+	font-size: 12px;
+	padding-top: 8px;
 	cursor: pointer;
+	float:right;
 }

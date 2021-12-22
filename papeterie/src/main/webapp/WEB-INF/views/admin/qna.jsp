@@ -49,16 +49,32 @@ function qna_delete(my)
             </tr>
         </thead>
         <tbody>
-        <c:forEach items="${list}" var="qvo">
+        <c:forEach items="${list}" var="qvo" varStatus="status">
         <c:if test="${qvo.bimil == 1}">
             <tr>
-                <td>${qvo.id}</td>
+                <td>${fn:length(list) - status.index}</td>
 				<td>${qvo.userid}</td>
 				<td>${qvo.name}</td>
 				<td>${qvo.title}</td>
 				<td><a href="../qna/content?id=${qvo.id}">Click</a></td>
 				<td>${qvo.readnum}</td>
-				<td>${qvo.category}</td>
+				<td>
+					<c:if test="${qvo.category == 1}">
+						제품문의
+					</c:if>
+					<c:if test="${qvo.category == 2}">
+						배송문의
+					</c:if>
+					<c:if test="${qvo.category == 3}">
+						이벤트문의
+					</c:if>
+					<c:if test="${qvo.category == 4}">
+						교환/반품/환불
+					</c:if>
+					<c:if test="${qvo.category == 5}">
+						기타문의
+					</c:if>
+				</td>
 				<td>${qvo.writeday}</td>
 				<td>
 					<c:if test="${qvo.dapbun == 0}">

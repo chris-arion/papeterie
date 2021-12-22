@@ -102,7 +102,7 @@
 	width: 900px;
 	margin-top: 50px;
 	padding: 30px 20px 10px;
-	border: 1px solid #ccc;
+	border: 1px solid gray;
 	text-align: right;
 }
 
@@ -126,12 +126,49 @@
 }
 
 #goods_total_price #price_total {
-	width: 120px;
+	width: 150px;
 	height: 50px;
 }
 
 #goods_total_price .price_img {
-	margin: 0px 10px;
+	margin: 0px 15px;
+	margin-left:20px;
 	width: 20px;
 	height: 50px;
+}
+
+.btn-left{
+	width:150px;
+	height:40px;
+	font-size:13px;
+	font-weight:bold;
+	border:1px solid gray;
+	background:white;
+	color:gray;
+	cursor:pointer;
+	margin-right:10px;
+}
+
+.btn-right{
+	width:180px;
+	height:55px;
+	font-size:15px;
+	font-weight:bold;
+	border:1px solid gray;
+	background:white;
+	color:black;
+	cursor:pointer;
+	margin-left:10px;
+}
+
+.btn-right2{
+	width:180px;
+	height:55px;
+	font-size:15px;
+	font-weight:bold;
+	border:1px solid black;
+	background:black;
+	color:white;
+	cursor:pointer;
+	margin-left:10px;
 }

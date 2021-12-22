@@ -12,6 +12,7 @@
 </head>
 <body>
 	<div id="section">
+	<div id="add" onclick="move_address()">배송지 관리</div>
 	<h3>나의 주소록</h3>
 		<c:set var="i" value="0"/>
 		<c:forEach items="${list}" var="avo">
@@ -68,7 +69,6 @@
 		</div>
 		<c:set var="i" value="${i+1}"/>
 		</c:forEach>
-		<div id="add" onclick="move_address()">배송지 관리</div>
 	</div>
 </body>
 </html>

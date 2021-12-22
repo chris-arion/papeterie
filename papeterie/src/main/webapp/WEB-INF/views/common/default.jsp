@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<link rel="stylesheet" href="/resources/css/default.css?var=1">
+<link rel="stylesheet" href="/resources/css/default.css?var=2">
 <script src="/resources/js/default.js?var=1"></script>
 
 <decorator:head />
@@ -124,6 +124,26 @@
 		<div class="bottom-second">팩스번호 : 010-101-0011 메일 : papeterie@market.com / Papeterie 인스타그램 : @Papeterie </div>
 		<div class="bottom-second">주소 : 서울 구로구 구로중앙로34길 33-4 영림빌딩  호스팅제공 : 경영기술개발원 (주)</div>
 		<div class="bottom-second">© Papeterie Guro Corp. All right Reserved</div>
+		
+		<!-- 테스트용 -->
+		<div>
+		<form action="">
+			<select id="test" class="test" name="test">
+				<c:forEach items="${glist}" var="gvo">
+				<option value="${gvo.pcode}">${gvo.pcode}</option>
+				</c:forEach>
+			</select>
+			<input type="button" value="이동" onclick="gotourl()">
+			</form>
+			<script>
+				function gotourl() {
+					var selectOption = document.getElementById("test");
+					selectOption = selectOption.options[selectOption.selectedIndex].value;
+					//alert(selectOption);
+					location = "../goods/goods_view?pcode=" + selectOption;
+				}
+			</script>
+		</div>
 	</div>
 </div>
 </body>

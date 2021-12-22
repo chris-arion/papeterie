@@ -97,7 +97,6 @@
 #goods_detail_table #total_price{
 	font-size: 35px;
 	float: right;
-	color: #ff7f4d;
 }
 #goods_detail_table #total_price_word{
 	display: inline-block;
@@ -106,8 +105,8 @@
 #goods_side .goods_buy_button{
 	width: 405px;
 	height: 40px;
-	background: lightsalmon;
-	border: 1px solid lightsalmon;
+	background: black;
+	border: 1px solid black;
 	display: inline-block;
 	margin-bottom: 10px;
 	text-decoration: none;
@@ -116,14 +115,10 @@
 	color: white;
 	cursor: pointer;
 }
-#goods_side .goods_buy_button:hover{
-	background: #ff7f4d;
-	border: 1px solid #ff7f4d;
-}
 #goods_side .goods_sub_button{
 	width: 200px;
 	height: 40px;
-	border: 1px solid lightsalmon;
+	border: 1px solid black;
 	display: inline-block;
 	text-decoration: none;
 	padding-top: 5px;
@@ -131,7 +126,7 @@
 	color: black;
 }
 #goods_side .goods_sub_button:hover{
-	background: #ffede6;
+	background: #f2f2f2;
 }
 /* 상품 상세 정보 박스 */
 #goods_data{

@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>상품 상세</title>
 
-<link rel="stylesheet" href="/resources/css/goods_view.css">
+<link rel="stylesheet" href="/resources/css/goods_view.css?var=1">
 <script src="/resources/js/goods_view.js"></script>
 
 </head>
@@ -143,5 +143,6 @@
 				</div>
 			</div>
 		</div>
+	</div>
 </body>
 </html>
