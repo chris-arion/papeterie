@@ -16,4 +16,5 @@ public interface MemberService {
 	public String del_wishlist(HttpServletRequest request);
 	public String review_write(HttpServletRequest request, Model model);
 	public String review_write_ok(HttpServletRequest request, HttpSession session, ReviewVO rvo) throws Exception;
+	public String myorderlist(HttpSession session, Model model);
 }

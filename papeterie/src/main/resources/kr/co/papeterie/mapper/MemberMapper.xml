@@ -42,4 +42,8 @@
 		insert into review (pcode, score, userid, content, filename) 
 		values (#{pcode}, #{score}, #{userid}, #{content}, #{filename})
 	</insert>
+	<select id="myorderlist" resultType="MyOrderVO">
+		select p.idx, p.order_code, p.price, p.ship_price, p.state, p.regdate, o.pcode, p2.title, p2.img 
+		from porder p, orderitem o, product p2 where userid = #{_userid} and p.order_code = o.order_code and o.pcode = p2.pcode order by p.order_code desc;
+	</select>
 </mapper>

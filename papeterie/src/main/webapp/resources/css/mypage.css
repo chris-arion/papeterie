@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+#content > table, tr, td {
+	border-collapse: collapse;
+	border: 1px solid silver;
+}
+
+.orderITEM {
+	width: 700px;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.orderITEM .td1 {
+	width: 300px;
+}
+
+.orderITEM .td2 {
+	width: 450px;
+}
+
+.orderITEM .td3 {
+	width: 200px;
+}
+
+.orderNO {
+	padding: 5px;
+	text-align: left;
+}
+
+.orderDATE {
+	padding: 5px;
+	text-align: right;
+}
+
+.item_desc {
+	padding: 5px 40px;
+	text-align: left;
+}
+
+.review_btn {
+	padding: 5px 10px;
+	text-align: right;
+}

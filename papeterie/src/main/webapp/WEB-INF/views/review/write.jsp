@@ -8,35 +8,7 @@
 <link rel="stylesheet" href="/resources/css/style.css">
 <link rel="stylesheet" href="/resources/css/review.css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script>
-function review_ok() {
-	var formData = new FormData($('#frm')[0]);
-
-	$.ajax({
-		url : "write_ok",
-		method : "POST",
-		enctype: "multipart/form-data",  
-		data : formData,
-		cache : false,
-		processData: false, // 필수 
-		contentType: false, // 필수
-		datatype : "text",
-		success : function(data) {
-			//console.log("return OK");
-			console.log(data);
-			self.close();
-		},
-		error : function(request, status, error) {
-			console.log("return FAIL");
-			console.log("code: " + request.status + ", message: " + request.responseText + ", error: " + error);
-		}
-	});
-	
-}
-function review_cancel() {
-	self.close();   //자기자신창을 닫습니다.
-}
-</script>
+<script src="/resources/js/mypage.js"></script>
 </head>
 <body>
 

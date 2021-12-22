@@ -7,7 +7,7 @@
 }
 
 #review_write > table, tr, td, th {
-	border: 1px solid purple;
+	/* border: 1px solid purple; */
 	border-collapse: collapse;
 	padding: 5px;
 	text-align: center;

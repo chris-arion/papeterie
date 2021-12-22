@@ -46,8 +46,8 @@ public class MemberController {
 	}
 
 	@RequestMapping("/member/mypage")
-	public String mypage() {
-		return "/member/mypage";
+	public String mypage(HttpSession session, Model model) {
+		return service.myorderlist(session, model);
 	}
 
 	@RequestMapping("/member/userid_search_ok")

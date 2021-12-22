@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.apache.ibatis.annotations.Param;
 
 import kr.co.papeterie.vo.MemberVO;
+import kr.co.papeterie.vo.MyOrderVO;
 import kr.co.papeterie.vo.ReviewVO;
 import kr.co.papeterie.vo.WishlistVO;
 
@@ -15,5 +16,6 @@ public interface MemberMapper {
 	public ArrayList<WishlistVO> mywishlist(@Param("_userid") String userid);
 	public void del_wishlist(@Param("_idx") int idx);
 	public void review_write_ok(ReviewVO rvo);
+	public ArrayList<MyOrderVO> myorderlist(@Param("_userid") String userid);
 
 }

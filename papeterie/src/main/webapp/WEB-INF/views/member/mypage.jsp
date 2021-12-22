@@ -7,6 +7,8 @@
 <title>PAPETERIE - mypage</title>
 <link rel="stylesheet" href="/resources/css/style.css">
 <link rel="stylesheet" href="/resources/css/member.css">
+<link rel="stylesheet" href="/resources/css/mypage.css">
+<script src="/resources/js/mypage.js"></script>
 </head>
 <body>
 	<div id="section">
@@ -14,45 +16,29 @@
  		
 		<div id="content">
 			<div style="margin-left: 20px; margin-top: 20px;">전체주문내역</div>
-			<div style="margin: 10px; text-align: right;"><input type="button" value="리뷰" onclick="open_pop('p0163')"></div>
-			<script>
-			function open_pop(pcode){
-			    var frmPop= document.frmPopup;
-			    var url = '../review/write';
-			    window.open('','write','width=450, height=550, toolbar=no, menubar=no, resizable=no');  
-			     
-			    frmPop.action = url;
-			    frmPop.target = 'write'; //window,open()의 두번째 인수와 같아야 하며 필수다.  
-			    frmPop.pcode.value = pcode;
-			    frmPop.submit();   
-			}
-			</script>
-
-			<form name="frmPopup">
+			
+ 			<form name="frmPopup">
 			<input type="hidden" name="pcode">
 			</form>
 			
-			<table id="mypage_table">
+			<c:set var="prev_code" value="0" scope="page"></c:set>
+			<table class="orderITEM">
+				<c:forEach items="${olist}" var="mvo">
+				<c:if test="${prev_code != mvo.order_code}">
 				<tr>
-					<th width="150">1</th>
-					<th width="150">2</th>
-					<th width="150">3</th>
-					<th width="150">4</th>
+					<td class="td1"><div class="orderNO"><strong>주문번호 : ${mvo.order_code}</strong></div></td>
+					<td class="td3" colspan="2"><div class="orderDATE">주문일시 : ${mvo.regdate}</div></td>
 				</tr>
+				<c:set var="prev_code">${mvo.order_code}</c:set>
+				</c:if>
 				<tr>
-					<td>1</td>
-					<td>2</td>
-					<td>3</td>
-					<td>4</td>
+					<td class="td2" colspan="2"><div class="item_desc"><img src="${mvo.img}" width="35"> <span>${mvo.title}</span></div></td>
+					<td class="td3"><div class="review_btn"><input type="button" value="리뷰" onclick="open_pop('${mvo.pcode}')"></div></td>
 				</tr>
-				<tr>
-					<td>5</td>
-					<td>6</td>
-					<td>7</td>
-					<td>8</td>
-				</tr>
+				</c:forEach>
 			</table>
-		</div>	<!-- id="content" -->
+
+ 		</div>	<!-- id="content" -->
 
 	</div>	<!-- id="section" -->
 </body>

@@ -19,6 +19,7 @@ import kr.co.papeterie.mapper.GoodsMapper;
 import kr.co.papeterie.mapper.MemberMapper;
 import kr.co.papeterie.vo.GoodsVO;
 import kr.co.papeterie.vo.MemberVO;
+import kr.co.papeterie.vo.MyOrderVO;
 import kr.co.papeterie.vo.ReviewVO;
 import kr.co.papeterie.vo.WishlistVO;
 
@@ -114,6 +115,15 @@ public class MemberServiceImpl implements MemberService {
 		rvo.setFilename("/resources/img/p01/review/" + multi.getFilesystemName("filename"));
 		mapper.review_write_ok(rvo);
 		return null;
+	}
+
+	@Override
+	public String myorderlist(HttpSession session, Model model) {
+		// 
+		String userid = session.getAttribute("userid").toString();
+		ArrayList<MyOrderVO> list= mapper.myorderlist(userid);
+		model.addAttribute("olist", list);
+		return "/member/mypage";
 	}
 
 }
