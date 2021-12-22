@@ -284,8 +284,16 @@ margin-bottom:10px;
 	display:inline-block;
 	width:300px;
 	height:200px;
-	border:1px solid green;
 	margin:20px;
+	padding-top:60px;
+}
+
+.porder-box-text{
+	font-weight:bold;
+	text-align:center;
+	font-size: 24px;
+	margin-bottom:10px;
+	color:white;
 }
 
 #porder-maintext{	
@@ -296,13 +304,26 @@ margin-bottom:10px;
 	border:1px solid silver;
 	top:586px;
 	left:40px;
-	font-size:20px;
+	font-size:16px;
 	font-weight:bold;
 	padding-left:20px;
-	padding-top:15px;
+	padding-top:18px;
 }
 
+#porder-head{	
+	display:inline-block;
+	width:1030px;
+	height:485px;
+	margin-left:40px;
+	margin-top:100px;
+	border:1px solid silver;
+	background:white;
+}
 
+#state{
+	border:1px solid silver;
+	padding:3px;
+}
 
 
 

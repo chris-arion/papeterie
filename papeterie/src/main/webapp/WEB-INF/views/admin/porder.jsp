@@ -34,11 +34,6 @@ function state_chg(my,id)
                 <th>번호</th>
 				<th>주문번호</th>
 				<th>주문자</th>
-				<th>가격</th>
-				<th>배송비</th>
-				<th>배송지</th>
-				<th>결제방법</th>
-				<th>전화번호</th>
 				<th>상태</th>
 				<th>주문일</th>
             </tr>
@@ -47,23 +42,8 @@ function state_chg(my,id)
         <c:forEach items="${list}" var="ovo" varStatus="status">
             <tr>
                 <td>${fn:length(list) - status.index}</td>
-				<td>${ovo.order_code}</td>
+				<td><a href="porder_content?idx=${ovo.idx}&ocode=${ovo.order_code}">${ovo.order_code}</a></td>
 				<td>${ovo.userid}</td>
-				<td>${ovo.price} 원</td>
-				<td>${ovo.ship_price} 원</td>
-				<td>${ovo.addr1}</td>
-				<td>
-					<c:if test="${ovo.pay_type == 0}">
-						계좌이체
-					</c:if>
-					<c:if test="${ovo.pay_type == 1}">
-						신용카드
-					</c:if>
-					<c:if test="${ovo.pay_type == 2}">
-						간편결제
-					</c:if>
-				</td>
-				<td>${ovo.phone}</td>
 				<td>
 					<select name="state" id="state" onchange="state_chg(this.value,${ovo.idx})">
 						<option value="0" <c:if test="${ovo.state == 0}">selected</c:if>>주문 완료</option>

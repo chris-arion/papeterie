@@ -42,5 +42,11 @@ public interface AdminMapper {
 	
 	public void state_ok(String state,String id);
 	
+	public ArrayList<OrderVO> state_chk();
+	
+	public OrderVO porder_content(OrderVO ovo);
+	
+	public ArrayList<GoodsVO> porder_pcode(GoodsVO gvo,String ocode);
+	
 	
 }

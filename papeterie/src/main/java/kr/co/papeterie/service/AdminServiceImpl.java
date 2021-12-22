@@ -39,6 +39,32 @@ public class AdminServiceImpl implements AdminService{
 		model.addAttribute("qnalist2",mapper.qnalist2());
 		model.addAttribute("gongji_list",mapper.gongji_list_limit());
 		model.addAttribute("qna_list",mapper.qna_list_limit());
+		model.addAttribute("cntlist",mapper.state_chk());
+		
+		ArrayList<OrderVO> list=mapper.state_chk();
+		OrderVO count0 = list.get(0);
+		OrderVO count1 = list.get(1);
+		OrderVO count2 = list.get(2);
+		OrderVO count3 = list.get(3);
+		OrderVO count4 = list.get(4);
+		OrderVO count5 = list.get(5);
+		OrderVO count6 = list.get(6);
+		
+		int cnt0 = count0.getCnt();
+		int cnt1 = count1.getCnt();
+		int cnt2 = count2.getCnt();
+		int cnt3 = count3.getCnt();
+		int cnt4 = count4.getCnt();
+		int cnt5 = count5.getCnt();
+		int cnt6 = count6.getCnt();
+		
+		model.addAttribute("cnt0",cnt0);
+		model.addAttribute("cnt1",cnt1);
+		model.addAttribute("cnt2",cnt2);
+		model.addAttribute("cnt3",cnt3);
+		model.addAttribute("cnt4",cnt4);
+		model.addAttribute("cnt5",cnt5);
+		model.addAttribute("cnt6",cnt6);
 		
 		return module+"manager";
 	}
@@ -77,7 +103,7 @@ public class AdminServiceImpl implements AdminService{
 	@Override
 	public String product_add_ok(GoodsVO gsvo,HttpServletRequest request) throws Exception {
 		
-		String path = request.getRealPath("/resources/img/p01/main/");
+		String path = request.getRealPath("/resources/img/p01/");
 		int max = 1024 * 1024 * 10;
 		MultipartRequest multi = new MultipartRequest(request, path, max, "utf-8", new DefaultFileRenamePolicy());
 		
@@ -87,15 +113,12 @@ public class AdminServiceImpl implements AdminService{
 		String pcode = pcode1 + pcode2;
 		
 		
-		
-		
 		gsvo.setTitle(multi.getParameter("title"));
 		gsvo.setPrice(Integer.parseInt(multi.getParameter("price")));
 		gsvo.setCategory(multi.getParameter("category"));
 		gsvo.setImg("/resources/img/p01/main/"+multi.getFilesystemName("img"));
+		gsvo.setContent("<img class='js-smart-img' src='/resources/img/p01/detail/"+multi.getFilesystemName("content")+"'/>");
 		gsvo.setPcode(pcode);
-		
-		
 		
 		mapper.product_add_ok(gsvo);
 		
@@ -150,5 +173,18 @@ public class AdminServiceImpl implements AdminService{
 		mapper.state_ok(state,id);
 		
 		return "redirect:"+module+"porder";
+	}
+
+	@Override
+	public String porder_content(HttpServletRequest request, OrderVO ovo,Model model,GoodsVO gvo) {
+		
+		int idx = Integer.parseInt(request.getParameter("idx"));
+		String ocode = request.getParameter("ocode");
+		ovo.setIdx(idx);
+		
+		model.addAttribute("ovo",mapper.porder_content(ovo));
+		model.addAttribute("list",mapper.porder_pcode(gvo,ocode));
+		
+		return module+"porder_content";
 	}
 }

@@ -138,7 +138,9 @@ select:focus {outline:none;}
 			<td><input type="file" name="content"></td>
 		</tr>
 	</table>
-	<div align="center"><input type="submit" value="상품등록" id="submit"></div>
+	<div align="center">
+		<input type="submit" value="상품등록" id="submit">
+	</div>
 </form>
 </div>
 </div>

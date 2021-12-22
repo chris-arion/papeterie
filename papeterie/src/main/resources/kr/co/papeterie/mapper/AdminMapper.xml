@@ -48,8 +48,8 @@
 	</select>
 	
 	<insert id="product_add_ok" parameterType="kr.co.papeterie.vo.GoodsVO">
-		insert into product(title,price,img,category,pcode,regdate)
-		values(#{title},#{price},#{img},#{category},#{pcode},now())
+		insert into product(title,price,img,content,category,pcode,regdate)
+		values(#{title},#{price},#{img},#{content},#{category},#{pcode},now())
 	</insert>
 	
 	<delete id="product_delete">
@@ -68,4 +68,19 @@
 	<update id="state_ok" parameterType="String">
 		update porder set state=#{param1} where idx=#{param2};
 	</update>
+	
+	<select id="state_chk" resultType="kr.co.papeterie.vo.OrderVO">
+		SELECT COUNT(state) AS cnt , state FROM porder
+		GROUP BY state
+		HAVING COUNT(state) >= 1;
+	</select>
+	
+	<select id="porder_content" resultType="kr.co.papeterie.vo.OrderVO" parameterType="kr.co.papeterie.vo.OrderVO">
+		SELECT p.*,a.addr1 FROM porder AS p , address AS a WHERE a.idx=p.addr_id AND p.idx=#{idx}
+	</select>
+	
+	<select id="porder_pcode" resultType="kr.co.papeterie.vo.GoodsVO">
+		SELECT * FROM product AS p , orderitem AS o
+		WHERE p.pcode=o.pcode AND o.order_code=#{param2}
+	</select>
 </mapper>

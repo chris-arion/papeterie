@@ -92,4 +92,11 @@ public class AdminController {
 	{
 		return aservice.state_ok(request);
 	}
+	
+	@RequestMapping("porder_content")
+	public String porder_content(HttpServletRequest request,OrderVO ovo,Model model,GoodsVO gvo)
+	{
+		return aservice.porder_content(request,ovo,model,gvo);
+	}
+	
 }

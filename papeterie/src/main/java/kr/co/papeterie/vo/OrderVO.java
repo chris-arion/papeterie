@@ -8,15 +8,24 @@ public class OrderVO {
 	private int ship_price;	// 배송비
 	private int addr_id;	// 배송지 인덱스
 	private int pay_type;	// 결재수단 : 0 - 계좌이체, 1 - 신용카드, 2 - 간편결재
-	private int bank;		// 계좌이체 시 선택한 은행
-	private int card;		// 신용카드 선택 시 카드 종류 
+	private int bank;		// 계좌이체 시 선택한 은행 : 1 - 신한은행, 2 - 우리은행, 3 - 농협은행, 4 - 하나은행
+	private int card;		// 신용카드 선택 시 카드 종류 : 1 - 신한카드, 2 - 우리카드, 3 - 농협카드, 4 - 하나카드
 	private int halbu;		// 신용카드 할부 개월수
-	private int com;		// 간편결재 시 통신사
+	private int com;		// 간편결재 시 통신사 : 1 - SKT, 2 - KT, 3 - LG, 4 - 알뜰통신
 	private String phone;	// 간편결재 전화번호
 	private int state;		// 주문 상태 : 0 - 주문 완료, 1 - 결재완료, 2 - 입금대기, 3 - 입금확인, 4 - 상품준비중, 5 - 배송중, 6 - 배송완료
-	private String regdate;	// 주문일자
-	private String addr1;   // 배송지 조인 주소
+	private String regdate;	// 주문일자'
 	
+	private String addr1;   // 배송지 조인 주소
+	private int cnt;
+	
+	
+	public int getCnt() {
+		return cnt;
+	}
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
+	}
 	public String getAddr1() {
 		return addr1;
 	}

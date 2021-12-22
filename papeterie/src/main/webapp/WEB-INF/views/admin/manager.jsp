@@ -7,17 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style>
-#porder-head{	
-	display:inline-block;
-	width:1030px;
-	height:485px;
-	margin-left:40px;
-	margin-top:100px;
-	border:1px solid silver;
-	background:white;
-}
-</style>
 </head>
 <body>
 	
@@ -111,16 +100,33 @@
 		</table>
 	</div>
 	</div>
-	<div id="porder-maintext" style="background:white;">판매진행현황</div>
-	<div id="porder-head">
-		<div class="porder-box">123</div>
-		<div class="porder-box">123</div>
-		<div class="porder-box">123</div>
-		<div class="porder-box">123</div>
-		<div class="porder-box">123</div>
-		<div class="porder-box">123</div>
+	<div id="porder-maintext" style="background:white;">판매 진행 현황</div>
+	<div id="porder-head"> 
+		<div class="porder-box" style="background:#4cc5cd;">
+			<div class="porder-box-text">주문접수</div>
+			<div class="porder-box-text">${cnt0}건</div>
+		</div>
+		<div class="porder-box" style="background:#e17e90;">
+			<div class="porder-box-text">결제완료</div>
+			<div class="porder-box-text">${cnt1}건</div>
+		</div>
+		<div class="porder-box" style="background:#a8c77b;">
+			<div class="porder-box-text">입금대기중</div>
+			<div class="porder-box-text">${cnt2}건</div>
+		</div>
+		<div class="porder-box" style="background:#c8abd9;">
+			<div class="porder-box-text">상품준비중</div>
+			<div class="porder-box-text">${cnt4}건</div>
+		</div>
+		<div class="porder-box" style="background:#f7b32a;">
+			<div class="porder-box-text">배송중</div>
+			<div class="porder-box-text">${cnt5}건</div>
+		</div>
+		<div class="porder-box" style="background:#93c4e4;">
+			<div class="porder-box-text">배송완료</div>
+			<div class="porder-box-text">${cnt6}건</div>
+		</div>
 	</div>
-	
 </div>
 </body>
 </html>

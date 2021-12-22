@@ -31,4 +31,6 @@ public interface AdminService {
 	public String porder(OrderVO ovo,Model model);
 	
 	public String state_ok(HttpServletRequest request);
+	
+	public String porder_content(HttpServletRequest request,OrderVO ovo,Model model,GoodsVO gvo);
 }
