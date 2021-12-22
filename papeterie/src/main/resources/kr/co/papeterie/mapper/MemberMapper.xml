@@ -38,4 +38,8 @@
 	<delete id="del_wishlist">
 		delete from wishlist where idx = #{_idx}
 	</delete>
+	<insert id="review_write_ok" parameterType="ReviewVO">
+		insert into review (pcode, score, userid, content, filename) 
+		values (#{pcode}, #{score}, #{userid}, #{content}, #{filename})
+	</insert>
 </mapper>

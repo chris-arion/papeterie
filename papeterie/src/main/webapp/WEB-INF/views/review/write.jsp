@@ -8,11 +8,41 @@
 <link rel="stylesheet" href="/resources/css/style.css">
 <link rel="stylesheet" href="/resources/css/review.css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+function review_ok() {
+	var formData = new FormData($('#frm')[0]);
+
+	$.ajax({
+		url : "write_ok",
+		method : "POST",
+		enctype: "multipart/form-data",  
+		data : formData,
+		cache : false,
+		processData: false, // 필수 
+		contentType: false, // 필수
+		datatype : "text",
+		success : function(data) {
+			//console.log("return OK");
+			console.log(data);
+			self.close();
+		},
+		error : function(request, status, error) {
+			console.log("return FAIL");
+			console.log("code: " + request.status + ", message: " + request.responseText + ", error: " + error);
+		}
+	});
+	
+}
+function review_cancel() {
+	self.close();   //자기자신창을 닫습니다.
+}
+</script>
 </head>
 <body>
 
 <form name="frm" id="frm" action="write_ok" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="pcode" value="${gvo.pcode}">
+	<input type="hidden" name="userid" value="${userid}">
 	<table id="review_write">
 		<tr>
 			<td><img id="goods_img" src="${gvo.img}"> ${gvo.title}</td>
@@ -23,11 +53,11 @@
 		<tr>
 			<td>
 			    <fieldset>
-			        <input type="radio" name="rating" value="5" id="rate1"><label for="rate1">★</label>
-			        <input type="radio" name="rating" value="4" id="rate2"><label for="rate2">★</label>
-			        <input type="radio" name="rating" value="3" id="rate3"><label for="rate3">★</label>
-			        <input type="radio" name="rating" value="2" id="rate4"><label for="rate4">★</label>
-			        <input type="radio" name="rating" value="1" id="rate5"><label for="rate5">★</label>
+			        <input type="radio" name="score" value="5" id="rate1"><label for="rate1">★</label>
+			        <input type="radio" name="score" value="4" id="rate2"><label for="rate2">★</label>
+			        <input type="radio" name="score" value="3" id="rate3"><label for="rate3">★</label>
+			        <input type="radio" name="score" value="2" id="rate4"><label for="rate4">★</label>
+			        <input type="radio" name="score" value="1" id="rate5"><label for="rate5">★</label>
 			    </fieldset>
 				<div class="_3Q4AGAjnPM">선택하세요.</div>
 			</td>
@@ -46,8 +76,8 @@
 		</tr>
 		<tr>
 			<td>
-			<input type="button" value="등록" onclick="">
-			<input type="button" value="취소" onclick="">
+			<input type="button" value="등록" onclick="review_ok()">
+			<input type="button" value="취소" onclick="review_cancel()">
 			</td>
 		</tr>
 	</table>

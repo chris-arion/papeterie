@@ -76,5 +76,5 @@ function update_addr_fn(idx)
 			console.log("return FAIL");
 			console.log("code: " + request.status + ", message: " + request.responseText + ", error: " + error);
 		}
-	})
+	});
 }

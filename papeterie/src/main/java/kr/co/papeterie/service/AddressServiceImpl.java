@@ -48,16 +48,16 @@ public class AddressServiceImpl implements AddressService {
 	public AddressVO get_addr(HttpServletRequest request) throws Exception {
 		// 
 		int idx = Integer.parseInt(request.getParameter("idx"));
-		System.out.println("idx = " + idx);
+//		System.out.println("idx = " + idx);
 		AddressVO avo = mapper.get_address(idx);
-		System.out.println("addr1 = " + avo.getAddr1());
+//		System.out.println("addr1 = " + avo.getAddr1());
 		
 		return avo;
 	}
 
 	@Override
 	public String update_ok(AddressVO avo, HttpSession session) {
-		System.out.println("update_ok");
+//		System.out.println("update_ok");
 		String userid = session.getAttribute("userid").toString();
 		// 기본 배송지 처리
 		if (avo.getSdefault() == 1) {
@@ -75,7 +75,7 @@ public class AddressServiceImpl implements AddressService {
 	public String del_addr(HttpServletRequest request) {
 		// 
 		int idx = Integer.parseInt(request.getParameter("idx"));
-		System.out.println("del_addr : idx = " + idx);
+//		System.out.println("del_addr : idx = " + idx);
 		mapper.del_addr(idx);
 		
 		return "redirect:/member/addressbook";

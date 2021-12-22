@@ -16,6 +16,7 @@ import kr.co.papeterie.service.AddressService;
 import kr.co.papeterie.service.MemberService;
 import kr.co.papeterie.vo.AddressVO;
 import kr.co.papeterie.vo.MemberVO;
+import kr.co.papeterie.vo.ReviewVO;
 
 @Controller
 public class MemberController {
@@ -110,6 +111,12 @@ public class MemberController {
 	@RequestMapping("/review/write")
 	public String review_write(HttpServletRequest request, Model model) {
 		return service.review_write(request, model);
+	}
+
+	@RequestMapping("/review/write_ok")
+	public void review_write_ok(HttpServletRequest request, HttpSession session, ReviewVO rvo, PrintWriter out) throws Exception {
+		service.review_write_ok(request, session, rvo);
+		out.print("1");
 	}
 
 }
