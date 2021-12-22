@@ -52,7 +52,8 @@ ul.sub li:hover {
 }
 
 #content {
-	display: inline-block;
+	display: block;
+	/* display: inline-block; */
 	/* justify-content: right; */
 	position: relative;
 	float: right;
