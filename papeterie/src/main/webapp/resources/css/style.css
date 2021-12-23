@@ -12,9 +12,9 @@ body {
 	/* min-height: 450px; */
 	/* background: yellow; */
 	margin: auto;
-	border: 1px solid black;
-	position: relative;
-	padding-top: 50px;
+	/* border: 1px solid black; */
+	position: relative; 
+	padding-top: 60px;
 	/* overflow: hidden; */
 }
 

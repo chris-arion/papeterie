@@ -139,9 +139,10 @@
 	
 	/* 바텀 부분 CSS */
 	#bottom-head{
-	height:325px;
+	width:auto;
+	height:350px;
 	background:#f2f2f2;
-	margin-top:180px;
+	margin-top:210px;
 	}
 	
 	#bottom-logo img{

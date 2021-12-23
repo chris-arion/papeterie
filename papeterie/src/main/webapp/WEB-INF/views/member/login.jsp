@@ -13,17 +13,24 @@
 
 	<div id="section">
 		<div align="center">
+			<div id="login-head">회원 로그인</div>
 			<form name="frm" method="post" action="login_ok">
 				<table id="login_table">
 					<tr>
 						<td>
-							<input type="text" name="userid" id="userid" placeholder="아이디">
+							<input type="text" name="userid" id="userid" class="login-input" placeholder="아이디">
 						</td>
 					</tr>
 					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
 						<td>
-							<input type="password" name="pwd" placeholder="비밀번호">
+							<input type="password" name="pwd" class="login-input" placeholder="비밀번호">
 						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
 					</tr>
 					<tr>
 						<td>
@@ -31,11 +38,16 @@
 						</td>
 					</tr>
 					<tr>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
 						<td>
 							<div align="center">
-								<span onclick="view_uidsearch()" style="cursor: pointer;">아이디 찾기</span>
-								<a>&nbsp;&nbsp;|&nbsp;&nbsp;</a>
-								<span onclick="view_pwdsearch()" style="cursor: pointer;">비밀번호 찾기</span>
+								<span class="login-sub-text">회원가입</span>
+								<a style="color:silver;">&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+								<span onclick="view_uidsearch()" class="login-sub-text">아이디 찾기</span>
+								<a style="color:silver;">&nbsp;&nbsp;|&nbsp;&nbsp;</a>
+								<span onclick="view_pwdsearch()" class="login-sub-text">비밀번호 찾기</span>
 							</div>
 						</td>
 					</tr>
@@ -47,24 +59,29 @@
 				</table>
 			</form>
 		</div>
+		
+	</div>
 
-		<div id="userid_search" align="center">
+	<div id="userid_search" align="center">
 			<form name="userid_search">
 				<table id="userid_search_tbl">
 					<tr>
 						<td>
-							<input type="text" name="uname" placeholder="이름">
+							<input type="text" name="uname" placeholder="이름" class="check-input">
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<input type="text" name="email" placeholder="이메일">
+							<input type="text" name="email" placeholder="이메일" class="check-input">
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<input type="button" value="아이디찾기" onclick="userid_search_fn()">
+							<input type="button" value="아이디찾기" onclick="userid_search_fn()" class="check-btn">
 						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
 					</tr>
 					<tr>
 						<td>
@@ -80,23 +97,26 @@
 				<table id="pwd_search_tbl">
 					<tr>
 						<td>
-							<input type="text" name="userid" placeholder="아이디">
+							<input type="text" name="userid" placeholder="아이디" class="check-input">
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<input type="text" name="uname" placeholder="이름">
+							<input type="text" name="uname" placeholder="이름" class="check-input">
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<input type="text" name="email" placeholder="이메일">
+							<input type="text" name="email" placeholder="이메일" class="check-input">
 						</td>
 					</tr>
 					<tr>
 						<td>
-							<input type="button" value="비밀번호찾기" onclick="pwd_search_fn()">
+							<input type="button" value="비밀번호찾기" onclick="pwd_search_fn()" class="check-btn">
 						</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
 					</tr>
 					<tr>
 						<td>
@@ -106,8 +126,5 @@
 				</table>
 			</form>
 		</div>
-		
-	</div>
-
 </body>
 </html>

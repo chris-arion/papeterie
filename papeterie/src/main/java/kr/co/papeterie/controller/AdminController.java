@@ -2,6 +2,7 @@ package kr.co.papeterie.controller;
 
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -76,9 +77,9 @@ public class AdminController {
 	}
 	
 	@RequestMapping("admin_login_ok")
-	public String admin_login_ok(HttpServletRequest request,MemberVO mvo)
+	public String admin_login_ok(HttpServletRequest request,MemberVO mvo,HttpSession session)
 	{
-		return aservice.admin_login_ok(request,mvo);
+		return aservice.admin_login_ok(request,mvo,session);
 	}
 	
 	@RequestMapping("porder")
@@ -97,6 +98,13 @@ public class AdminController {
 	public String porder_content(HttpServletRequest request,OrderVO ovo,Model model,GoodsVO gvo)
 	{
 		return aservice.porder_content(request,ovo,model,gvo);
+	}
+	
+	@RequestMapping("admin_logout")
+	public String admin_logout(HttpSession session)
+	{
+		session.invalidate();
+		return "redirect:/admin";
 	}
 	
 }

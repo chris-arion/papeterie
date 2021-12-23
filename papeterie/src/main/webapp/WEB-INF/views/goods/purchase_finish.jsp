@@ -13,7 +13,7 @@
 </head>
 <body>
 	<div id="section">
-		<span id="page_title">주문/결제 완료</span> <span id="page_sub">01장바구니 > 02주문서작성/결제 > <strong>03주문완료</strong></span>
+		<span id="page_title">주문/결제 완료</span> <span id="page_sub">01장바구니 > 02주문서작성/결제 > <strong style="color:black;">03주문완료</strong></span>
 		<hr>
 	<div id="receipt">
 		<div id="receipt_head">
