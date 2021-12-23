@@ -9,13 +9,13 @@
 		select ceil(count(*)/5) from review
 	</select>
 	<select id="next_review" resultType="kr.co.papeterie.vo.ReviewVO">
-		select * from review order by regdate desc limit #{param}, 5
+		select * from review where pcode=#{param1} order by regdate desc limit #{param2}, 5
 	</select>
 	<select id="qna_chong" resultType="Integer">
 		select ceil(count(*)/5) from qna
 	</select>
 	<select id="next_qna" resultType="kr.co.papeterie.vo.QnaVO">
-		select qna.*, if(dapbun=1,'답변완료','답변대기') as dap from qna order by writeday desc limit #{parma1},5
+		select qna.*, if(dapbun=1,'답변완료','답변대기') as dap from qna where userid!='admin' order by writeday desc limit #{parma1},5
 	</select>
 	<select id="get_cartproduct" resultType="kr.co.papeterie.vo.GoodsVO">
 		select product.*, cart.count, product.pcode product from product, cart where product.pcode=cart.pcode 
@@ -62,6 +62,9 @@
 	</select>  
 	<select id="all_goods" resultType="kr.co.papeterie.vo.GoodsVO">
 		select * from product order by idx desc
+	</select>
+	<select id="checkwish" resultType="Integer">
+		select count(*) from wishlist w where userid = #{_userid} and pcode = #{_pcode}
 	</select>
 	
 </mapper>

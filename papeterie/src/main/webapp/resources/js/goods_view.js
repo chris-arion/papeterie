@@ -8,6 +8,7 @@ var count = 1;
 window.onload = function(){
 	Next_qna(1);
 	Next_review(1);
+	check_wish();
 }
 
 function Goods_Menu_Move(n){
@@ -75,6 +76,15 @@ function add_cart_fn(pcode)
 	});
 }
 
+function qna_write(userid){
+	if(userid != ""){
+		location = "/qna/write";
+	}
+	else{
+		location = "/member/login";
+	}
+}
+
 function add_wish_fn(pcode) {
 	//alert(pcode);
 	$.ajax({
@@ -96,11 +106,13 @@ function add_wish_fn(pcode) {
 	});
 
 }function Next_review(p){
+	var pcode = goods_form.pcode.value;
 	$.ajax({
 		url : "next_review",
 		method : "post",
 		data : {
-			"review_p" : p
+			review_p : p,
+			pcode : pcode
 		},
 		datatype : "json",
 		success : function(res){
@@ -112,46 +124,52 @@ function add_wish_fn(pcode) {
 			var a = "";
 			var b = "";
 			
-			for(var i=0; i<reviewlist.length; i++){
+			if(reviewlist.length<1){
 				a = a+"<tr>";
-				a = a+"<td class='td_name'>"+reviewlist[i].score+"</td>";
-				a = a+"<td class='td_title'><a href='javascript:view_review("+i+")'>"+reviewlist[i].content+"</a></td>";
-				a = a+"<td class='td_user'>"+reviewlist[i].userid+"</td>";
-				a = a+"<td>"+reviewlist[i].regdate+"</td>";
+				a = a+"<td colspan='4'>등록된 리뷰가 없습니다</td>";
 				a = a+"</tr>";
-				a = a+"<tr class='review_content'>";
-				a = a+"<td colspan='4'><div class='review_content_x' onclick='hide_review(this)'>x</div>"+reviewlist[i].content;
-				a = a+"<div><img src='"+reviewlist[i].filename+"'></div>";
-				a = a+"</td>";
-				a = a+"</tr>";
-			}
-			b = b+"<tr>";
-			b = b+"<td colspan='4'>";
-			if(review_sp == 1){
-				b = b+"이전";
 			}
 			else{
-				b = b+"<a href='javascript:Next_review("+(review_sp-1)+")'>이전</a>";
-			}
-			for(var i=review_sp; i<=review_ep; i++){
-				b = b+"&nbsp";
-				if(i == review_p){
-					b = b+"<a href='javascript:Next_review("+i+")' style='color:red'>"+i+"</a>";
+				for(var i=0; i<reviewlist.length; i++){
+					a = a+"<tr>";
+					a = a+"<td class='td_name'>"+reviewlist[i].score+"</td>";
+					a = a+"<td class='td_title'><a href='javascript:view_review("+i+")'>"+reviewlist[i].content+"</a></td>";
+					a = a+"<td class='td_user'>"+reviewlist[i].userid+"</td>";
+					a = a+"<td>"+reviewlist[i].regdate+"</td>";
+					a = a+"</tr>";
+					a = a+"<tr class='review_content'>";
+					a = a+"<td colspan='4'><div class='review_content_x' onclick='hide_review(this)'>x</div>"+reviewlist[i].content;
+					a = a+"<div><img src='"+reviewlist[i].filename+"'></div>";
+					a = a+"</td>";
+					a = a+"</tr>";
+				}
+				b = b+"<tr>";
+				b = b+"<td colspan='4'>";
+				if(review_sp == 1){
+					b = b+"이전";
 				}
 				else{
-					b = b+"<a href='javascript:Next_review("+i+")'>"+i+"</a>";
+					b = b+"<a href='javascript:Next_review("+(review_sp-1)+")'>이전</a>";
 				}
-				b = b+"&nbsp";
+				for(var i=review_sp; i<=review_ep; i++){
+					b = b+"&nbsp";
+					if(i == review_p){
+						b = b+"<span style='color:red'>"+i+"</span>";
+					}
+					else{
+						b = b+"<a href='javascript:Next_review("+i+")'>"+i+"</a>";
+					}
+					b = b+"&nbsp";
+				}
+				if(review_ep == review_c){
+					b = b+"다음";
+				}
+				else{
+					b = b+"<a href='javascript:Next_review("+(review_ep+1)+")'>다음</a>";
+				}
+				b = b+"</td>";
+				b = b+"</tr>";
 			}
-			if(review_ep == review_c){
-				b = b+"다음";
-			}
-			else{
-				b = b+"<a href='javascript:Next_review("+(review_ep+1)+")'>다음</a>";
-			}
-			b = b+"</td>";
-			b = b+"</tr>";
-			
 			$("#review_list").html(a);
 			$("#review_end").html(b);
 		},
@@ -168,7 +186,7 @@ function Next_qna(p){
 		url : "next_qna",
 		method : "post",
 		data : {
-			"qna_p" : p
+			qna_p : p
 		},
 		datatype : "json",
 		success : function(res){
@@ -180,44 +198,59 @@ function Next_qna(p){
 			var a = "";
 			var b = "";
 			
-			for(var i=0; i<qnalist.length; i++){
+			if(qnalist.length<1){
 				a = a+"<tr>";
-				a = a+"<td class='td_name'>"+qnalist[i].name+"</td>";
-				a = a+"<td class='td_title'><a href='javascript:view_qna("+i+")'>"+qnalist[i].title+"</a></td>";
-				a = a+"<td class='td_dap'>"+qnalist[i].dap+"</td>";
-				a = a+"<td>"+qnalist[i].writeday+"</td>";	
+				a = a+"<td colspan='4'>등록된 문의글이 없습니다</td>";
 				a = a+"</tr>";
-				a = a+"<tr class='qna_content'>";
-				a = a+"<td colspan='4'><div class='qna_content_x' onclick='hide_qna(this)'>x</div>"+qnalist[i].content+"</td>";
-				a = a+"</tr>";
-			}
-			b = b+"<tr>";
-			b = b+"<td colspan='4'>";
-			if(qna_sp == 1){
-				b = b+"이전";
 			}
 			else{
-				b = b+"<a href='javascript:Next_qna("+(qna_sp-1)+")'>이전</a>";
-			}
-			for(var i=qna_sp; i<=qna_ep; i++){
-				b = b+"&nbsp";
-				if(i == qna_p){
-					b = b+"<a href='javascript:Next_qna("+i+")' style='color:red'>"+i+"</a>";
+				for(var i=0; i<qnalist.length; i++){
+					a = a+"<tr>";
+					a = a+"<td class='td_name'>"+qnalist[i].name+"</td>";
+					if(qnalist[i].bimil == 0){
+						a = a+"<td class='td_title'><a class='bimil_title' href='javascript:view_qna("+i+")'>"+qnalist[i].title+"</a></td>";
+					}
+					else{
+						a = a+"<td class='td_title'><a href='javascript:bimil_check("+i+")'><img src='/resources/img/ico_lock.gif'>"+qnalist[i].title+"</a></td>";
+					}
+					a = a+"<td class='td_dap'>"+qnalist[i].dap+"</td>";
+					a = a+"<td>"+qnalist[i].writeday+"</td>";	
+					a = a+"</tr>";
+					a = a+"<tr class='qna_content'>";
+					a = a+"<td colspan='4'><div class='qna_content_x' onclick='hide_qna(this)'>x</div>"+qnalist[i].content+"</td>";
+					a = a+"</tr>";
+					a = a+"<tr class='bimil'>";
+					a = a+"<td colspan='4'><input type='password' class='my_pwd' placeholder='비밀번호 입력'><button class='btn_open' onclick='bimil_pwdchk("+i+")'>확인</button><button class='btn_close' onclick='close_pwd("+i+")'>취소</button></td>";					
+					a = a+"</tr>";
+					a = a+"<form><input type='hidden' class='bimil_pwd' value='"+qnalist[i].pwd+"'></form>";
+				}
+				b = b+"<tr>";
+				b = b+"<td colspan='4'>";
+				if(qna_sp == 1){
+					b = b+"이전";
 				}
 				else{
-					b = b+"<a href='javascript:Next_qna("+i+")'>"+i+"</a>";
+					b = b+"<a href='javascript:Next_qna("+(qna_sp-1)+")'>이전</a>";
 				}
-				b = b+"&nbsp";
-			}
-			if(qna_ep == qna_c){
-				b = b+"다음";
-			}
-			else{
-				b = b+"<a href='javascript:Next_qna("+(qna_ep+1)+")'>다음</a>";
-			}
-			b = b+"</td>";
-			b = b+"</tr>";
-			
+				for(var i=qna_sp; i<=qna_ep; i++){
+					b = b+"&nbsp";
+					if(i == qna_p){
+						b = b+"<span style='color:red'>"+i+"</span>";
+					}
+					else{
+						b = b+"<a href='javascript:Next_qna("+i+")'>"+i+"</a>";
+					}
+					b = b+"&nbsp";
+				}
+				if(qna_ep == qna_c){
+					b = b+"다음";
+				}
+				else{
+					b = b+"<a href='javascript:Next_qna("+(qna_ep+1)+")'>다음</a>";
+				}
+				b = b+"</td>";
+				b = b+"</tr>";
+			}	
 			$("#qna_list").html(a);
 			$("#qna_end").html(b);
 		},
@@ -248,6 +281,31 @@ function add_wish_fn(pcode) {
 		}
 	});
 }
+ function bimil_check(my){ 	
+ 	var cnt = $('.qna_content').length;
+ 	for(var i = 0; i<cnt ; i++){
+ 		$(".bimil").eq(i).css("display","none");
+ 	}
+ 		$(".bimil").eq(my).css("display","table-row");
+ 	
+ }
+ 
+ function bimil_pwdchk(my){
+ 	var my_pwd =  document.getElementsByClassName("my_pwd")[my].value;
+ 	var put_pwd = document.getElementsByClassName("bimil_pwd")[my].value;
+ 	if(my_pwd == put_pwd){
+ 		document.getElementsByClassName("bimil")[my].style.display = "none";
+ 		view_qna(my);
+ 	}
+ 	else{
+ 		alert("비밀번호가 일치하지 않습니다");
+ 	}
+ }
+ 
+ function close_pwd(my){;
+ 	document.getElementsByClassName("bimil")[my].style.display = "none";
+ }
+ 
  function view_review(n){
  	var cnt = $('.review_content').length;
  	for(var i=0; i<cnt; i++){
@@ -255,6 +313,7 @@ function add_wish_fn(pcode) {
  	}
  	document.getElementsByClassName("review_content")[n].style.display = "table-row";
  }
+ 
  function hide_review(my){
  	var index = $(".review_content_x").index(my);
  	document.getElementsByClassName("review_content")[index].style.display = "none";
@@ -267,8 +326,31 @@ function add_wish_fn(pcode) {
  	}
  	document.getElementsByClassName("qna_content")[n].style.display = "table-row";
  }
+ 
  function hide_qna(my){
  	var index = $(".qna_content_x").index(my);
  	document.getElementsByClassName("qna_content")[index].style.display = "none";
  }
  
+function check_wish() {
+	var pcode = $('[name=goods_form] [name=pcode]').val();
+	//alert(pcode);
+	$.ajax({
+		url : "checkwish",
+		method : "GET",
+		data : {
+			pcode : pcode
+		},
+		cache : false,
+		success : function(data) {
+			if (data.trim() == "1") {
+				$("#goods_addwish").css("background-color", "yellow");
+			}
+		},
+		error : function(request, status, error) {
+			console.log("return FAIL");
+			console.log("code: " + request.status + ", message: " + request.responseText + ", error: " + error);
+		}
+	});
+	
+}

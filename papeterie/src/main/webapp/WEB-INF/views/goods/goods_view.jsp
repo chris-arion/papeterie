@@ -126,7 +126,7 @@
 					<div class="goods_data_menu_sub sub_here" onclick="Goods_Menu_Move(4)">문의사항</div>
 				</div>
 				<div id="inquiry_content">
-				<span><strong>상 품 문 의</strong></span> <a href="../qna/write"><span class="write_button">상품문의 글쓰기</span></a>
+				<span><strong>상 품 문 의</strong></span> <a href="#" onclick="qna_write('${userid}')"><span class="write_button">상품문의 글쓰기</span></a>
 				<table>
 					<tbody id="qna_list">
 					</tbody>
