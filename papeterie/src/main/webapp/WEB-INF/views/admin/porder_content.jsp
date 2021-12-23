@@ -14,6 +14,12 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap.min.css">
 <style>
 
+.table{
+width:600px;
+margin:auto;
+margin-top:50px;
+}
+
 .table>tbody>tr>td{
 padding:10px;
 padding-left:30px;
@@ -32,7 +38,8 @@ background:white;
 
 #porder-content-product{
 display:inline-block;
-margin-right:100px;
+width:300px;
+margin-bottom:40px;
 }
 
 .porder-content-text{
@@ -43,14 +50,14 @@ margin-bottom:5px;
 </head>
 <body>
 <!-- 본문 내용 -->
-<div id="content">
+<div id="content3">
 <div id="content-head">
 	<span id="content-head-text">Porder Content</span>
 </div>
 <div id="">
 	<table class="table porder-content-table">
 		<tr>
-			<th>주문번호</th>
+			<th width="100">주문번호</th>
 			<td>${ovo.order_code}</td>
 		</tr>
 		<tr>
@@ -59,7 +66,7 @@ margin-bottom:5px;
 		</tr>
 		<tr>
 			<th>주문상품</th>
-			<td>
+			<td align="center" style="padding:50px;">
 				<c:forEach items="${list}" var="gvo">
 					<div id="porder-content-product">
 						<div class="porder-content-text"><img src="${gvo.img}" width="100"></div>

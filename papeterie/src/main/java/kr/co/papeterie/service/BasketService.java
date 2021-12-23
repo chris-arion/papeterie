@@ -12,4 +12,5 @@ public interface BasketService {
 	public String cartlist(HttpSession session, Model model);
 	public void del_cart(HttpServletRequest request);
 	public void add_wishlist(HttpServletRequest request, HttpSession session);
+	public void addwish(HttpServletRequest request, HttpSession session);
 }

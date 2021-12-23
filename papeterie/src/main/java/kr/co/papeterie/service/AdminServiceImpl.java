@@ -1,9 +1,9 @@
 package kr.co.papeterie.service;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -136,7 +136,7 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
-	public String admin_login_ok(HttpServletRequest request,MemberVO mvo) {
+	public String admin_login_ok(HttpServletRequest request,MemberVO mvo,HttpSession session) {
 		
 		String userid = request.getParameter("userid");
 		String pwd = request.getParameter("pwd");
@@ -147,6 +147,8 @@ public class AdminServiceImpl implements AdminService{
 		
 		if(userid.equals(userid2) && pwd.equals(pwd2))
 		{
+			session.setAttribute("userid", mvo.getUserid());
+			session.setAttribute("uname", "관리자");
 			return "redirect:"+module+"manager";
 		}
 		else

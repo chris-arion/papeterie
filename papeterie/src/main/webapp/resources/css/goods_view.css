@@ -97,7 +97,6 @@
 #goods_detail_table #total_price{
 	font-size: 35px;
 	float: right;
-	color: #ff7f4d;
 }
 #goods_detail_table #total_price_word{
 	display: inline-block;
@@ -115,10 +114,6 @@
 	font-weight: bold;
 	color: white;
 	cursor: pointer;
-}
-#goods_side .goods_buy_button:hover{
-	background: #ff7f4d;
-	border: 1px solid #ff7f4d;
 }
 #goods_side .goods_sub_button{
 	width: 200px;

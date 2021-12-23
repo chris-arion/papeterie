@@ -1,6 +1,7 @@
 package kr.co.papeterie.service;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
 
@@ -26,7 +27,7 @@ public interface AdminService {
 	
 	public String product_delete(HttpServletRequest request);
 	
-	public String admin_login_ok(HttpServletRequest request,MemberVO mvo);
+	public String admin_login_ok(HttpServletRequest request,MemberVO mvo,HttpSession session);
 	
 	public String porder(OrderVO ovo,Model model);
 	

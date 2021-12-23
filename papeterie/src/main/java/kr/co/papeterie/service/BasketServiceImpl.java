@@ -84,5 +84,16 @@ public class BasketServiceImpl implements BasketService {
 		}
 	}
 
+	@Override
+	public void addwish(HttpServletRequest request, HttpSession session) {
+		// 
+		String userid = session.getAttribute("userid").toString();
+		String pcode = request.getParameter("pcode");
+		if (mapper.iswishlist(userid, pcode) == 0) {
+			mapper.add_wishlist(userid, pcode);
+		}
+		
+	}
+
 	
 }

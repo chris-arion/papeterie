@@ -28,7 +28,38 @@ public class MemberController {
 	@Autowired
 	@Qualifier("address")
 	private AddressService aservice;
-
+	
+	@RequestMapping("/member/signup1")
+	public String signup1()
+	{
+		return "/member/signup1";
+	}
+	
+	@RequestMapping("/member/signup2")
+	public String signup2()
+	{
+		return "/member/signup2";
+	}
+	
+	@RequestMapping("/member/signup3")
+	public String signup3()
+	{
+		return "/member/signup3";
+	}
+	
+	@RequestMapping("/member/signup_ok")
+	public String signup_ok(MemberVO mvo)
+	{
+		return service.signup_ok(mvo);
+	}
+	
+	@RequestMapping("/member/userid_check")
+	public void userid_check(HttpServletRequest request,PrintWriter out)
+	{
+		String chk= service.userid_check(request);
+		out.print(chk);
+	}
+	
 	@RequestMapping("/member/login")
 	public String login() {
 		return "/member/login";

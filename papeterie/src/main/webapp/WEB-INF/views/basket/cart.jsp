@@ -67,16 +67,16 @@
 	
 			<div class="btn_order_box">
 				<span class="btn_left_box">
-					<button type="button" class="btn_order_choice_del" onclick="cart_process('cartDelete');">선택 상품 삭제</button>
+					<button type="button" class="btn_order_choice_del btn-left" onclick="cart_process('cartDelete');">선택 상품 삭제</button>
 					<c:if test="${userid == null}">
-					<button type="button" class="btn_order_choice_wish" onclick="location='../member/login'">선택 상품 찜</button>
+					<button type="button" class="btn_order_choice_wish btn-left" onclick="location='../member/login'">선택 상품 찜</button>
 					</c:if>
 					<c:if test="${userid != null}">
-					<button type="button" class="btn_order_choice_wish" onclick="cart_process('cartToWish');">선택 상품 찜</button>
+					<button type="button" class="btn_order_choice_wish btn-left" onclick="cart_process('cartToWish');">선택 상품 찜</button>
 					</c:if>
 				</span> <span class="btn_right_box">
-					<button type="button" class="btn_order_choice_buy" onclick="cart_process('orderSelect');">선택 상품 주문</button>
-					<button type="button" class="btn_order_whole_buy" onclick="order_all();">전체 상품 주문</button>
+					<button type="button" class="btn_order_choice_buy btn-right" onclick="cart_process('orderSelect');">선택 상품 주문</button>
+					<button type="button" class="btn_order_whole_buy btn-right2" onclick="order_all();">전체 상품 주문</button>
 				</span>
 			</div>
 		</form>

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +12,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<link rel="stylesheet" href="/resources/css/admin.css?var=3">
+<link rel="stylesheet" href="/resources/css/admin.css?var=4">
 <script src="/resources/js/admin.js"></script>
 </head>
 <body>
@@ -36,5 +38,5 @@
     		<li><a href="gongji">▶ 공지관리</a></li>
     		<li><a href="qna">▶ Q&A관리</a></li>
     	</ul>
-    	<div id="logout"><a href="/admin">▶ Log Out</a> </div>
+    	<div id="logout"><a href="admin_logout">▶ Log Out</a> </div>
 	</div>

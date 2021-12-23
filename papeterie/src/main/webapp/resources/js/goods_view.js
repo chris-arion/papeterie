@@ -5,7 +5,6 @@
 // 카트에 사용할 변수
 var count = 1;
 
-
 window.onload = function(){
 	Next_qna(1);
 	Next_review(1);
@@ -95,6 +94,7 @@ function add_wish_fn(pcode) {
 			console.log("code: " + request.status + ", message: " + request.responseText + ", error: " + error);
 		}
 	});
+
 }function Next_review(p){
 	$.ajax({
 		url : "next_review",
@@ -160,6 +160,7 @@ function add_wish_fn(pcode) {
 			console.log("code: " + request.status + ", message: " + request.responseText + ", error: " + error);
 		}
 	})
+
 }
 
 function Next_qna(p){

@@ -112,7 +112,11 @@ public class MemberServiceImpl implements MemberService {
 		rvo.setScore(Integer.parseInt(multi.getParameter("score")));
 		rvo.setUserid(multi.getParameter("userid"));
 		rvo.setContent(multi.getParameter("content"));
-		rvo.setFilename("/resources/img/p01/review/" + multi.getFilesystemName("filename"));
+		String filename = multi.getFilesystemName("filename");
+		if (filename != null) {
+			rvo.setFilename("/resources/img/p01/review/" + multi.getFilesystemName("filename"));
+		}
+		
 		mapper.review_write_ok(rvo);
 		return null;
 	}
@@ -124,6 +128,21 @@ public class MemberServiceImpl implements MemberService {
 		ArrayList<MyOrderVO> list= mapper.myorderlist(userid);
 		model.addAttribute("olist", list);
 		return "/member/mypage";
+	}
+
+	@Override
+	public String signup_ok(MemberVO mvo) {
+		
+		mapper.signup_ok(mvo);
+		return "/member/signup3";
+	}
+
+	@Override
+	public String userid_check(HttpServletRequest request) {
+		
+		String userid = request.getParameter("userid");
+		String chk = mapper.userid_check(userid);
+		return chk;
 	}
 
 }

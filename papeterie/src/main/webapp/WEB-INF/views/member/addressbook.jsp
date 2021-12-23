@@ -23,11 +23,10 @@
 			<table id="addlist_table">
 				<tr>
 					<th width="120">배송지명</th>
-					<th width="80">우편번호</th>
 					<th width="300">주소</th>
-					<th width="130">연락처</th>
+					<th width="150">연락처</th>
 					<th width="80">받는 분</th>
-					<th width="70">관리</th>
+					<th width="90">관리</th>
 				</tr>
 				<c:forEach items="${list}" var="avo">
 				<tr>
@@ -39,8 +38,7 @@
 						${avo.addr_name}
 						</c:if>
 					</td>
-					<td>${avo.zip}</td>
-					<td>${avo.addr1} ${avo.addr2}</td>
+					<td>(${avo.zip}) ${avo.addr1} ${avo.addr2}</td>
 					<td>${avo.phone}</td>
 					<td>${avo.rname}</td>
 					<td>

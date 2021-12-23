@@ -46,4 +46,12 @@
 		select p.idx, p.order_code, p.price, p.ship_price, p.state, p.regdate, o.pcode, p2.title, p2.img 
 		from porder p, orderitem o, product p2 where userid = #{_userid} and p.order_code = o.order_code and o.pcode = p2.pcode order by p.order_code desc;
 	</select>
+	<insert id="signup_ok" parameterType="MemberVO">
+		insert into member(userid,uname,pwd,email,phone,regdate,gender)
+		values(#{userid},#{uname},#{pwd},#{email},#{phone},now(),#{gender});
+	</insert>
+	<select id="userid_check" resultType="String">
+		select count(*) as chk from member where userid=#{param1};
+	</select>
+	
 </mapper>
