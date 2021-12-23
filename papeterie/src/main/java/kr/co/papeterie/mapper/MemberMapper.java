@@ -19,5 +19,6 @@ public interface MemberMapper {
 	public ArrayList<MyOrderVO> myorderlist(@Param("_userid") String userid);
 	public void signup_ok(MemberVO mvo);
 	public String userid_check(String userid);
-
+	public ArrayList<ReviewVO> myreviewlist(@Param("_userid") String userid);
+	public void del_review(@Param("_idx") int idx);
 }

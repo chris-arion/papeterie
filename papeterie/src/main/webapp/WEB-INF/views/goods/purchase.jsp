@@ -14,6 +14,7 @@
 <body>
 	<div id="section">
 	<form method="post" action="purchase_ok" name="orderform" onsubmit="return final_check()">
+		<input type="hidden" name="idxlist" value="${idxlist}">
 		<span id="page_title">주문서 작성/결제</span> <span id="page_sub">01장바구니 > <strong>02주문서작성/결제 ></strong> 03주문완료</span>
 		<hr>
 		<div id="goods_table">

@@ -88,8 +88,11 @@ public class MemberServiceImpl implements MemberService {
 	public String review_write(HttpServletRequest request, Model model) {
 		// 
 		String pcode = request.getParameter("pcode");
+		String order_code = request.getParameter("order_code");
+//		System.out.println("review_write : order_code = " + order_code);
 		GoodsVO gvo = gmapper.goods_view(pcode);
 		model.addAttribute("gvo", gvo);
+		model.addAttribute("order_code", order_code);
 		return null;
 	}
 
@@ -116,8 +119,13 @@ public class MemberServiceImpl implements MemberService {
 		if (filename != null) {
 			rvo.setFilename("/resources/img/p01/review/" + multi.getFilesystemName("filename"));
 		}
+		String order_code = multi.getParameter("order_code");
+		rvo.setOrder_code(order_code);
 		
 		mapper.review_write_ok(rvo);
+		
+//		System.out.println("order_code = " + order_code);
+		bmapper.deliver_ok(order_code);
 		return null;
 	}
 
@@ -143,6 +151,23 @@ public class MemberServiceImpl implements MemberService {
 		String userid = request.getParameter("userid");
 		String chk = mapper.userid_check(userid);
 		return chk;
+	}
+
+	@Override
+	public String myreviewlist(HttpSession session, Model model) {
+		// 
+		String userid = session.getAttribute("userid").toString();
+		ArrayList<ReviewVO> rlist = mapper.myreviewlist(userid);
+		model.addAttribute("rlist", rlist);
+		return "/member/myreview";
+	}
+
+	@Override
+	public String del_review(HttpServletRequest request, HttpSession session) {
+		// 
+		int idx = Integer.parseInt(request.getParameter("idx"));
+		mapper.del_review(idx);
+		return "redirect:/member/myreview";
 	}
 
 }

@@ -14,6 +14,7 @@
 
 <form name="frm" id="frm" action="write_ok" method="post" enctype="multipart/form-data">
 	<input type="hidden" name="pcode" value="${gvo.pcode}">
+	<input type="hidden" name="order_code" value="${order_code}">
 	<input type="hidden" name="userid" value="${userid}">
 	<table id="review_write">
 		<tr>

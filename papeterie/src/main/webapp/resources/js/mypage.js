@@ -2,7 +2,7 @@
  * 
  */
 
-function open_pop(pcode){
+function open_pop(pcode, ordercode){
     var frmPop= document.frmPopup;
     var url = '../review/write';
     window.open('','write','width=450, height=550, toolbar=no, menubar=no, resizable=no');  
@@ -10,6 +10,7 @@ function open_pop(pcode){
     frmPop.action = url;
     frmPop.target = 'write'; //window,open()의 두번째 인수와 같아야 하며 필수다.  
     frmPop.pcode.value = pcode;
+    frmPop.order_code.value = ordercode;
     frmPop.submit();   
 }
 

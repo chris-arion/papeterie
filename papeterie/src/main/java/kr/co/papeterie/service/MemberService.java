@@ -19,4 +19,6 @@ public interface MemberService {
 	public String myorderlist(HttpSession session, Model model);
 	public String signup_ok(MemberVO mvo);
 	public String userid_check(HttpServletRequest request);
+	public String myreviewlist(HttpSession session, Model model);
+	public String del_review(HttpServletRequest request, HttpSession session);
 }

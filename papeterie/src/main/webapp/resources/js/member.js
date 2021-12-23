@@ -78,3 +78,9 @@ function update_addr_fn(idx)
 		}
 	});
 }
+
+function del_review(idx) {
+	if (confirm("삭제하시겠습니까?")) {
+		location = "del_review?idx=" + idx;
+	}
+}

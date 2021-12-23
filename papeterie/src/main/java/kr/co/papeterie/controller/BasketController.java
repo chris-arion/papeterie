@@ -45,9 +45,9 @@ public class BasketController {
 			userid = session.getAttribute("userid").toString();
 		}
 		
-		System.out.println("userid = " + userid);
-		System.out.println("pcode = " + pcode);
-		System.out.println("count = " + count);
+//		System.out.println("userid = " + userid);
+//		System.out.println("pcode = " + pcode);
+//		System.out.println("count = " + count);
 		cvo.setUserid(userid);
 		cvo.setPcode(pcode);
 		cvo.setCount(count);
@@ -60,7 +60,7 @@ public class BasketController {
 	@RequestMapping("/basket/cart_proc")
 	public String cart_proc(HttpServletRequest request, HttpSession session, Model model) {
 		String mode = request.getParameter("mode");
-		System.out.println("mode = " + mode + ", ");
+//		System.out.println("mode = " + mode + ", ");
 		
 		if (mode.equals("cartDelete")) {
 			service.del_cart(request);

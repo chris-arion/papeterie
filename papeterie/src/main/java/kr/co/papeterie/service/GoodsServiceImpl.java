@@ -77,7 +77,8 @@ public class GoodsServiceImpl implements GoodsService{
 		}
 		else 
 		{
-			String[] chkarray = request.getParameter("idxlist").split(",");
+			String idxlist = request.getParameter("idxlist");
+			String[] chkarray = idxlist.split(",");
 			String pcodelist = "";
 			for (int i = 0; i < chkarray.length; i++) {
 				String pcode = bmapper.getpcode(Integer.parseInt(chkarray[i]));
@@ -91,6 +92,7 @@ public class GoodsServiceImpl implements GoodsService{
 				}
 			}
 			model.addAttribute("list", mapper.get_cartproduct(userid, pcodelist));
+			model.addAttribute("idxlist", idxlist);
 		}
 		return module+"/purchase";
 	}

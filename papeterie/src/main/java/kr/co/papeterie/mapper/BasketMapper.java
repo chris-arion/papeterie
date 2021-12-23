@@ -16,4 +16,5 @@ public interface BasketMapper {
 	public void add_wishlist(@Param("_userid") String userid, @Param("_pcode") String pcode);
 	public int iswishlist(@Param("_userid") String userid, @Param("_pcode") String pcode);
 	public String getpcode(@Param("_idx") int idx);
+	public void deliver_ok(@Param("_order_code") String order_code);
 }

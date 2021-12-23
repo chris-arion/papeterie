@@ -281,6 +281,7 @@ function add_wish_fn(pcode) {
 		}
 	});
 }
+
  function bimil_check(my){ 	
  	var cnt = $('.qna_content').length;
  	for(var i = 0; i<cnt ; i++){
@@ -305,7 +306,7 @@ function add_wish_fn(pcode) {
  function close_pwd(my){;
  	document.getElementsByClassName("bimil")[my].style.display = "none";
  }
- 
+
  function view_review(n){
  	var cnt = $('.review_content').length;
  	for(var i=0; i<cnt; i++){
