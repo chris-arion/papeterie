@@ -53,5 +53,11 @@
 	<select id="userid_check" resultType="String">
 		select count(*) as chk from member where userid=#{param1};
 	</select>
+	<select id="myreviewlist" resultType="ReviewVO">
+		select * from review where userid = #{_userid}
+	</select>
+	<delete id="del_review">
+		delete from review where idx = #{_idx}
+	</delete>
 	
 </mapper>

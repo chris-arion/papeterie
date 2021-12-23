@@ -44,3 +44,20 @@
 #review_write input[type=radio]:checked ~ label{
     text-shadow: 0 0 0 #a00; /* 마우스 클릭 체크 */
 }
+#content table {
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+	border-top: 1px solid #444444;
+	border-collapse: collapse;
+}
+
+#content th, td {
+	border-bottom: 1px solid #444444;
+	border-left: 1px solid #444444;
+	padding: 10px;
+}
+
+#content th:first-child, td:first-child {
+	border-left: none;
+}

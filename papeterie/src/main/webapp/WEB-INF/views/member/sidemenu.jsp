@@ -14,7 +14,7 @@
 							<a href="../member/wishlist">찜목록</a>
 						</li>
 						<li>
-							<a href="#">리뷰</a>
+							<a href="../member/myreview">리뷰</a>
 						</li>
 						<li>
 							<a href="#">고객센터</a>

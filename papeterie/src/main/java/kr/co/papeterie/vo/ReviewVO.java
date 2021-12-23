@@ -2,6 +2,7 @@ package kr.co.papeterie.vo;
 
 public class ReviewVO {
 	private int idx;			// 인덱스
+	private String order_code;	// 주문번호
 	private String pcode;		// 상품코드
 	private int score;			// 별점
 	private String userid;		// 아이디
@@ -50,6 +51,12 @@ public class ReviewVO {
 	}
 	public void setRegdate(String regdate) {
 		this.regdate = regdate;
+	}
+	public String getOrder_code() {
+		return order_code;
+	}
+	public void setOrder_code(String order_code) {
+		this.order_code = order_code;
 	}
 	
 }

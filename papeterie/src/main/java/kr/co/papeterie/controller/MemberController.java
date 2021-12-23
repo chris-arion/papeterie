@@ -149,5 +149,15 @@ public class MemberController {
 		service.review_write_ok(request, session, rvo);
 		out.print("1");
 	}
+	
+	@RequestMapping("/member/myreview")
+	public String myreview(HttpSession session, Model model) {
+		return service.myreviewlist(session, model);
+	}
+
+	@RequestMapping("/member/del_review")
+	public String del_review(HttpServletRequest request, HttpSession session, Model model) {
+		return service.del_review(request, session);
+	}
 
 }

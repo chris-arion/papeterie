@@ -39,9 +39,11 @@
 .item_desc {
 	padding: 5px 5px 5px 50px;
 	text-align: left;
+	height: 65px;
 }
 
 .review_btn {
 	padding: 5px 10px;
 	text-align: right;
+	height: 65px;
 }

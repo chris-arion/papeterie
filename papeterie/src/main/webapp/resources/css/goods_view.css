@@ -325,3 +325,9 @@ strong{
 	color: white;
 	background: #333;
 }
+.review_detail_tr{
+	display: none;
+}
+.review_detail{
+	padding-left: 30px;
+}

@@ -32,4 +32,7 @@
 	<select id="getpcode" parameterType="Integer" resultType="String">
 		select pcode from cart where idx = #{_idx}
 	</select>
+	<update id="deliver_ok">
+		update porder set state = 6 where order_code = #{_order_code}
+	</update>
 </mapper>
