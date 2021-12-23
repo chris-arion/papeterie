@@ -1,5 +1,6 @@
 package kr.co.papeterie.controller;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -147,5 +148,14 @@ public class GoodsController {
 		return gservice.purchase_finish(session, model); 
 	}
 
+	@RequestMapping("/checkwish")
+	public void checkwish(HttpServletRequest request, HttpSession session, PrintWriter out) {
+		if (gservice.checkwish(request, session) == 1) {
+			out.print("1");
+		}
+		else {
+			out.print("0");
+		}
+	}
 	
 }

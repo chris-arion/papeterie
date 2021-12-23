@@ -8,6 +8,7 @@ var count = 1;
 window.onload = function(){
 	Next_qna(1);
 	Next_review(1);
+	check_wish();
 }
 
 function Goods_Menu_Move(n){
@@ -248,6 +249,7 @@ function add_wish_fn(pcode) {
 		}
 	});
 }
+
  function view_review(n){
  	var cnt = $('.review_content').length;
  	for(var i=0; i<cnt; i++){
@@ -272,3 +274,25 @@ function add_wish_fn(pcode) {
  	document.getElementsByClassName("qna_content")[index].style.display = "none";
  }
  
+function check_wish() {
+	var pcode = $('[name=goods_form] [name=pcode]').val();
+	//alert(pcode);
+	$.ajax({
+		url : "checkwish",
+		method : "GET",
+		data : {
+			pcode : pcode
+		},
+		cache : false,
+		success : function(data) {
+			if (data.trim() == "1") {
+				$("#goods_addwish").css("background-color", "yellow");
+			}
+		},
+		error : function(request, status, error) {
+			console.log("return FAIL");
+			console.log("code: " + request.status + ", message: " + request.responseText + ", error: " + error);
+		}
+	});
+	
+}

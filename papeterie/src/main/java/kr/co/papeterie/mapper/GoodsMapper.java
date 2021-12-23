@@ -2,6 +2,8 @@ package kr.co.papeterie.mapper;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.annotations.Param;
+
 import kr.co.papeterie.vo.AddressVO;
 import kr.co.papeterie.vo.GoodsVO;
 import kr.co.papeterie.vo.MemberVO;
@@ -30,4 +32,5 @@ public interface GoodsMapper {
 	public OrderVO get_porder(String userid);
 	public ArrayList<GoodsVO> get_product(String order_code);
 	public ArrayList<GoodsVO> all_goods();
+	public int checkwish(@Param("_userid") String userid, @Param("_pcode") String pcode);
 }

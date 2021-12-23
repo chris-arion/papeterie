@@ -21,4 +21,5 @@ public interface GoodsService {
 	public String address_add_ok(HttpSession session, AddressVO avo);
 	public String purchase_ok(HttpServletRequest request, HttpSession session, AddressVO avo, OrderVO ovo);
 	public String purchase_finish(HttpSession session, Model model);
+	public int checkwish(HttpServletRequest request, HttpSession session);
 }

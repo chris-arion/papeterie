@@ -239,5 +239,13 @@ public class GoodsServiceImpl implements GoodsService{
 
 		return module+"/purchase_finish";
 	}
+
+	@Override
+	public int checkwish(HttpServletRequest request, HttpSession session) {
+		// 
+		String userid = session.getAttribute("userid").toString();
+		String pcode = request.getParameter("pcode");
+		return mapper.checkwish(userid, pcode);
+	}
 	
 }

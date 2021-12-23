@@ -63,5 +63,8 @@
 	<select id="all_goods" resultType="kr.co.papeterie.vo.GoodsVO">
 		select * from product order by idx desc
 	</select>
+	<select id="checkwish" resultType="Integer">
+		select count(*) from wishlist w where userid = #{_userid} and pcode = #{_pcode}
+	</select>
 	
 </mapper>
