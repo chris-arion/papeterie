@@ -49,7 +49,7 @@ public class BasketServiceImpl implements BasketService {
 			cusername = session.getAttribute("uname").toString() + " 님";
 		}
 		
-		System.out.println("userid = " + userid);
+//		System.out.println("userid = " + userid);
 		ArrayList<CartVO> list = mapper.cartlist(userid);
 		int listsize = list.size();
 		model.addAttribute("cusername", cusername);
@@ -64,7 +64,7 @@ public class BasketServiceImpl implements BasketService {
 		String[] chkarray = request.getParameterValues("cartchk");
 		
 		for (int i = 0; i < chkarray.length; i++) {
-			System.out.println("val = " + chkarray[i]);
+//			System.out.println("val = " + chkarray[i]);
 			mapper.del_cart(Integer.parseInt(chkarray[i]));
 		}
 

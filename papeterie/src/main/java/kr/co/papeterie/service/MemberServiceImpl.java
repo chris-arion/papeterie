@@ -89,7 +89,7 @@ public class MemberServiceImpl implements MemberService {
 		// 
 		String pcode = request.getParameter("pcode");
 		String order_code = request.getParameter("order_code");
-		System.out.println("review_write : order_code = " + order_code);
+//		System.out.println("review_write : order_code = " + order_code);
 		GoodsVO gvo = gmapper.goods_view(pcode);
 		model.addAttribute("gvo", gvo);
 		model.addAttribute("order_code", order_code);

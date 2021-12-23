@@ -52,12 +52,15 @@
 									</c:when>
 									<c:when test="${mvo.state == 5}">
 									배송중
+									<input type="button" value="배송확인 & 리뷰" onclick="open_pop('${mvo.pcode}')">
+									</c:when>
+									<c:when test="${mvo.state == 6}">
+									배송완료
 									</c:when>
 									<c:otherwise>
 									주문완료 
 									</c:otherwise>
 								</c:choose> 
-								<input type="button" value="배송확인 & 리뷰" onclick="open_pop('${mvo.pcode}')">
 							</div>
 						</td>
 					</tr>
