@@ -63,4 +63,5 @@
 	<select id="all_goods" resultType="kr.co.papeterie.vo.GoodsVO">
 		select * from product order by idx desc
 	</select>
+	
 </mapper>
