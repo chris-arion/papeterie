@@ -2,6 +2,7 @@ package kr.co.papeterie.service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -15,6 +16,8 @@ import kr.co.papeterie.vo.AddressVO;
 import kr.co.papeterie.vo.GoodsVO;
 import kr.co.papeterie.vo.OrderVO;
 import kr.co.papeterie.vo.OrderitemVO;
+import kr.co.papeterie.vo.QnaVO;
+import kr.co.papeterie.vo.ReviewVO;
 import kr.co.papeterie.mapper.BasketMapper;
 import kr.co.papeterie.mapper.GoodsMapper;
 
@@ -36,6 +39,27 @@ public class GoodsServiceImpl implements GoodsService{
 		model.addAttribute("gvo", mapper.goods_view(pcode));
 		return module+"/goods_view";
 	}
+	
+	// ajax를 통해 리뷰 글 가져오기
+	@Override
+	public ArrayList<ReviewVO> next_review(int page)
+	{
+		int index = (page-1)*3;
+		ArrayList<ReviewVO> reviewlist = new ArrayList<ReviewVO>();
+		reviewlist = mapper.next_review(index);
+		return reviewlist;
+	}
+	
+	// ajax를 통해 문의 글 가져오기
+	@Override
+	public ArrayList<QnaVO> next_qna(int page)
+	{
+		int index = (page-1)*3;
+		ArrayList<QnaVO> qnalist = new ArrayList<QnaVO>();
+		qnalist = mapper.next_qna(index);
+		return qnalist;
+	}
+	
 	
 	@Override
 	public String purchase(HttpSession session, Model model, HttpServletRequest request)
@@ -93,6 +117,9 @@ public class GoodsServiceImpl implements GoodsService{
 		String userid = session.getAttribute("userid").toString();
 		avo.setUserid(userid);
 		int addr_id = Integer.parseInt(request.getParameter("bidx"));
+		// 회원 포인트 지급 
+		mapper.update_spoint((int)Math.round((ovo.getPrice()*0.1)), userid);
+		
 		// 신규배송지 일경우 추가후 배송 아이디 가져오기
 		if(request.getParameter("shipping_loc").equals("0"))
 		{
@@ -147,12 +174,69 @@ public class GoodsServiceImpl implements GoodsService{
 		OrderVO ovo = new OrderVO();
 		ovo = mapper.get_porder(userid);
 		String order_code = ovo.getOrder_code();
-		System.out.println(order_code);
+		String[] regdate = ovo.getRegdate().split(" ");
+		String buydate = regdate[0];
+		String buytime = regdate[1];
+		
+		// 결제정보 변환하기
+		String pay_type = "";
+		if(ovo.getPay_type() == 0)
+		{
+			String bank = "";
+			pay_type = "계좌이체";
+			switch(ovo.getBank())
+			{
+				case 1:bank = "신한은행"; break;
+				case 2:bank = "우리은행"; break;
+				case 3:bank = "농협은행"; break;
+				case 4:bank = "하나은행"; break;
+			}
+			model.addAttribute("bank", bank);
+		}
+		else if(ovo.getPay_type() == 1)
+		{
+			String card = "";
+			String halbu = "";
+			pay_type = "카드결제";
+			switch(ovo.getCard())
+			{
+				case 1:card = "신한카드"; break;
+				case 2:card = "우리카드"; break;
+				case 3:card = "농협카드"; break;
+				case 4:card = "하나카드"; break;
+			}
+			switch(ovo.getHalbu())
+			{
+				case 0:halbu = "일시불"; break;
+				case 1:halbu = "1개월"; break;
+				case 2:halbu = "2개월"; break;
+				case 3:halbu = "3개월"; break;
+				case 4:halbu = "4개월"; break;
+			}
+			model.addAttribute("card", card);
+			model.addAttribute("halbu", halbu);
+		}
+		else
+		{
+			String com = "";
+			pay_type = "휴대폰결제";
+			switch(ovo.getCom())
+			{
+				case 1:com = "SKT"; break;
+				case 2:com = "KT"; break;
+				case 3:com = "LG"; break;
+				case 4:com = "알뜰폰"; break;
+			}
+			model.addAttribute("com", com);
+		}
 		
 		// 주문상품 가져오기
 		model.addAttribute("list", mapper.get_product(order_code));
 		model.addAttribute("ovo", ovo);
-		
+		model.addAttribute("pay_type", pay_type);
+		model.addAttribute("buydate", buydate);
+		model.addAttribute("buytime", buytime);
+
 		return module+"/purchase_finish";
 	}
 	

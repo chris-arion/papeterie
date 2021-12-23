@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>상품 상세</title>
 
-<link rel="stylesheet" href="/resources/css/goods_view.css">
+<link rel="stylesheet" href="/resources/css/goods_view.css?var=1">
 <script src="/resources/js/goods_view.js"></script>
 
 </head>
@@ -56,7 +56,12 @@
 				<tr>
 					<td colspan="2" align="center">
 						<input type="submit" class="goods_buy_button" value="바 로 구 매"><br>
-						<a href="" class="goods_sub_button">찜 하 기</a>
+						<c:if test="${userid == null}">
+						<a href="../member/login" class="goods_sub_button" id="goods_addwish">찜 하 기</a>
+						</c:if>
+						<c:if test="${userid != null}">
+						<a href="javascript:;" class="goods_sub_button" id="goods_addwish" onclick="add_wish_fn('${gvo.pcode}')">찜 하 기</a>
+						</c:if>
 						<a href="javascript:;" class="goods_sub_button" onclick="add_cart_fn('${gvo.pcode}')">장 바 구 니</a>
 					</td>
 				</tr>
@@ -103,25 +108,12 @@
 					<div class="goods_data_menu_sub" onclick="Goods_Menu_Move(4)">문의사항</div>
 				</div>
 				<div id="review_content">
-				<span><strong>상 품 후 기</strong></span> <a href=""><span class="write_button">상품후기 글쓰기</span></a>
+				<span><strong>상 품 후 기</strong></span>
 				<table>
-					<tr>
-						<td>평점</td>
-						<td><a href="javascript:show_review()">리뷰내용</a></td>
-						<td>작성자</td>
-						<td>작성일</td>
-					</tr>
-					<tr class="review_detail_tr">
-						<td colspan="4" class="review_detail">
-						이곳은 리뷰 내용이 등록될 곳입니다
-						</td>
-					</tr>
-					<tr>
-						<td>평점</td>
-						<td><a href="javascript:show_review()">리뷰내용</a></td>
-						<td>작성자</td>
-						<td>작성일</td>
-					</tr>
+					<tbody id="review_list">
+					</tbody>
+					<tfoot id="review_end">							
+					</tfoot>
 				</table>
 				</div>
 			</div>
@@ -136,12 +128,14 @@
 				<div id="inquiry_content">
 				<span><strong>상 품 문 의</strong></span> <a href="../qna/write"><span class="write_button">상품문의 글쓰기</span></a>
 				<table>
-					<tr>
-						
-					</tr>
+					<tbody id="qna_list">
+					</tbody>
+					<tfoot id="qna_end">							
+					</tfoot>
 				</table>
 				</div>
 			</div>
 		</div>
+	</div>
 </body>
 </html>

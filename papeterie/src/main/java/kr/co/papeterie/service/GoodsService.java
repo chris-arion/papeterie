@@ -1,5 +1,7 @@
 package kr.co.papeterie.service;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -7,9 +9,13 @@ import org.springframework.ui.Model;
 
 import kr.co.papeterie.vo.AddressVO;
 import kr.co.papeterie.vo.OrderVO;
+import kr.co.papeterie.vo.QnaVO;
+import kr.co.papeterie.vo.ReviewVO;
 
 public interface GoodsService {
 	public String goods_view(String pcode, Model model);
+	public ArrayList<ReviewVO> next_review(int page);
+	public ArrayList<QnaVO> next_qna(int page);
 	public String purchase(HttpSession session, Model model, HttpServletRequest request);
 	public String myjuso(HttpSession session, Model model);
 	public String address_add_ok(HttpSession session, AddressVO avo);

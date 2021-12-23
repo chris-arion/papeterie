@@ -64,7 +64,7 @@
 				</c:if>
 				<tr>
 					<td colspan="5" id="go_basket">
-						<a href=""><span>장바구니 가기></span></a>
+						<a href="../basket/cart"><span>장바구니 가기></span></a>
 					</td>
 				</tr>
 			</table>
@@ -111,7 +111,7 @@
 				</div>
 				<div class="agree_check">
 					<input type="checkbox" id="agree1" name="agreecheck" onchange="check_back(this)"><label for="agree1"><strong>(필수)</strong> 비회원 개인정보 수집 이용에 대한 내용을 확인 하였으며 이에 동의 합니다.
-					&nbsp<span class="submit_alert">필수사항 체크하세요</span></label>
+					&nbsp<span class="submit_alert">필수사항을 체크해주세요.</span></label>
 				</div>
 			</div>
 			<div class="agree">
@@ -330,7 +330,7 @@
 				<tr>
 					<td class="td_title">배송지 확인</td>
 					<td>
-						<input type="radio" name="shipping_loc" id="shipping_loc" checked="checked" onclick="shipping_my(this)" value="0">직접입력
+						<input type="radio" name="shipping_loc" id="shipping_loc" checked="checked" onclick="shipping_my(this)" value="0">직접입력&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						<input type="radio" name="shipping_loc" onclick="shipping_my(this)" value="1">주문자정보와 동일
 						<input type="hidden" name="bidx" id="bidx" value="${avo.idx}">
 						<input type="hidden" id="imsi_addr_name" value="${avo.addr_name}">
@@ -360,10 +360,10 @@
 					<td class="td_title">*받으실 곳</td>
 					<td>
 						<input type="text" name="zip" id="zipNo" onclick="addOpen()" placeholder="우편번호"> 
-						<button type="button" onclick="addOpen()">주소 검색</button>
-						<button type="button" onclick="my_address()" id="address_list">나의 주소록</button>
+						<button type="button" onclick="addOpen()" class="baesong_btn">주소 검색</button>
+						<button type="button" onclick="my_address()" id="address_list" class="baesong_btn">나의 주소록</button>
 						<br>
-						<input type="text" name="addr1" id="roadAddrPart1" onclick="addOpen()" placeholder="도로명주소">
+						<input type="text" name="addr1" id="roadAddrPart1" onclick="addOpen()" placeholder="도로명주소"><br>
 						<input type="text" name="addr2" id="addrDetail" placeholder="상세주소"><br>
 						<span class="submit_alert">받으실 곳 입력하세요</span>
 					</td>
@@ -410,7 +410,7 @@
 						<span>결제 금액의 10% 포인트 적립</span>
 						<span>(현재 포인트: ${mvo.spoint})</span><br>
 						<span class="my_point">
-							<strong>${total_price*0.1}</strong>point 적립
+							<strong><fmt:formatNumber value="${total_price*0.1}"/></strong>point 적립
 						</span>
 					</td>
 				</tr>
@@ -421,12 +421,12 @@
 				<tr>
 					<td class="td_title">결제 수단</td>
 					<td>
-						<input type="radio" name="pay_type" value="0" onclick="sudan_chg(0)" checked="checked">계좌이체
-						<input type="radio" name="pay_type" value="1" onclick="sudan_chg(1)">신용카드
+						<input type="radio" name="pay_type" value="0" onclick="sudan_chg(0)" checked="checked">계좌이체 &nbsp;
+						<input type="radio" name="pay_type" value="1" onclick="sudan_chg(1)">신용카드 &nbsp;
 						<input type="radio" name="pay_type" value="2" onclick="sudan_chg(2)">간편결제
 						<input type="hidden" name="state" value="2">
 						<div class="sudan" id="first_sudan">
-						은행선택 : <select name="bank" id="bank">
+						<br>은행선택 : <select name="bank" id="bank">
 								<option value="0">선택</option>
 								<option value="1">신한은행</option>
 								<option value="2">우리은행</option>
@@ -436,15 +436,15 @@
 						<span class="submit_alert">은행 선택하세요</span>
 						</div>
 						<div class="sudan">
-						카드선택 : <select name="card" id="card">
+						<br>카드선택 : <select name="card" id="card">
 								<option value="0">선택</option>
 								<option value="1">신한카드</option>
 								<option value="2">우리카드</option>
 								<option value="3">농협카드</option>
 								<option value="4">하나카드</option>
-							</select>
+							</select><br><br>
 						할부기간 : <select name="halbu" id="halbu">
-								<option value="0">선택</option>
+								<option value="0">일시불</option>
 								<option value="1">1개월</option>
 								<option value="2">2개월</option>
 								<option value="3">3개월</option>
@@ -453,14 +453,14 @@
 						<span class="submit_alert">카드사및 할부기간 선택하세요</span>
 						</div>
 						<div class="sudan">
-						통신사 : <select name="com" id="com">
+						<br>통신사 : <select name="com" id="com">
 								<option value="0">선택</option>
 								<option value="1">SKT</option>
 								<option value="2">KT</option>
 								<option value="3">LG</option>
 								<option value="4">알뜰통신</option>
 							</select>
-						전화번호 : <input type="text" name="pphone" id="pphone"><br>
+						<br><br>전화번호 : <input type="text" name="pphone" id="pphone"><br>
 						<span class="submit_alert">통신사 및 전화번호 입력하세요</span>
 						</div>
 					</td>
@@ -468,7 +468,7 @@
 			</table>
 		</div>
 		<div id="purchase_final_price">
-			<strong><span>최종 결제 금액  </span> <span id="final_price" class="final_total_price">
+			<strong><span>최종 결제 금액 &nbsp;&nbsp;&nbsp;</span> <span id="final_price" class="final_total_price">
 			<fmt:formatNumber value="${total_price+bprice}"/>원
 			</span></strong>
 			<input type="hidden" name="price" id="price" value="${total_price}">

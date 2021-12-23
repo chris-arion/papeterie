@@ -174,8 +174,7 @@
 		document.getElementsByClassName("submit_alert")[6].style.display = "none";
 	}
 	/*신용카드 선택 했을 경우*/
-	if(document.orderform.pay_type.value==1
-	&& (document.orderform.card.value==0 || document.orderform.halbu.value==0)){ 
+	if(document.orderform.pay_type.value==1	&& document.orderform.card.value==0){ 
 		document.orderform.card.focus();
 		document.getElementsByClassName("submit_alert")[7].style.display = "inline";
 		return false;

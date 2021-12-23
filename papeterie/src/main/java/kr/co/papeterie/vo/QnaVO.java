@@ -4,7 +4,14 @@ public class QnaVO {
 
 	private int id,readnum,category,bimil,grp,seq,dep,dapbun;
 	private String userid,name,title,content,writeday,pwd;
+	private String dap; // 답변완료인지 문자 저장할 변수
 	
+	public String getDap() {
+		return dap;
+	}
+	public void setDap(String dap) {
+		this.dap = dap;
+	}
 	public int getDapbun() {
 		return dapbun;
 	}

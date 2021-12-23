@@ -7,14 +7,21 @@ import kr.co.papeterie.vo.GoodsVO;
 import kr.co.papeterie.vo.MemberVO;
 import kr.co.papeterie.vo.OrderVO;
 import kr.co.papeterie.vo.OrderitemVO;
+import kr.co.papeterie.vo.QnaVO;
+import kr.co.papeterie.vo.ReviewVO;
 
 public interface GoodsMapper {
 	public GoodsVO goods_view(String pcode);
+	public int review_chong();
+	public ArrayList<ReviewVO> next_review(int index);
+	public int qna_chong();	
+	public ArrayList<QnaVO> next_qna(int index);
 	public ArrayList<GoodsVO> get_cartproduct(String userid, String pcodelist);
 	public MemberVO get_member(String userid);
 	public AddressVO get_juso(String userid);
 	public ArrayList<AddressVO> myjuso(String userid);
 	public void address_add_ok(AddressVO avo);
+	public void update_spoint(int spoint, String userid);
 	public int address_recent_id(String userid);
 	public void address_update(AddressVO avo);
 	public int make_order_code(String a);

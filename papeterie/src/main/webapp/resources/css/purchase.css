@@ -54,6 +54,7 @@
 }
 #goods_table #goods_id{
 	width: 300px;
+	padding-left:150px;
 }
 #goods_table #goods_default{
 	width: 110px;
@@ -73,7 +74,11 @@
 	font-size: 15px;
 	tex-decoration: underline;
 	text-align: right;
-	height: 30px;
+	height: 50px;
+}
+
+#goods_table #go_basket a{
+	color:black;
 }
 
 /* 상품 총 가격 */
@@ -106,6 +111,7 @@
 }
 #goods_total_price .price_img{
 	margin: 0px 10px;
+	margin-left:25px;
 	width: 20px;
 	height: 50px;
 }
@@ -124,7 +130,7 @@
 }
 .agree{
 	width: 900px;
-	height: 200px;
+	height: 240px;
 	margin-top: 20px;
 	border: 1px solid #ccc;
 	padding: 10px 20px;
@@ -147,6 +153,9 @@
 	color: #555;
 	font-size: 12px;
 }
+.agree_check{
+	padding-top:30px;
+}
 .agree_check label{
 	font-size: 11px;
 	position: relative;
@@ -165,7 +174,7 @@
 }
 /* 배송 주소 */
 #user_address{
-	margin-top: 30px;
+	margin-top: 50px;
 }
 #zipNo{
 	width: 100px;
@@ -176,13 +185,14 @@
 }
 #roadAddrPart1{
 	width: 300px;
+	margin-bottom:5px;
 }
 #addrDetail{
 	width: 150px;
 }
 /* 결제 수단 */
 #purchase_detail{
-	margin-top: 30px;
+	margin-top: 50px;
 }
 .sudan{
 	margin-top: 5px;
@@ -194,27 +204,27 @@
 }
 
 /* 공통 테이블 */
-table{
+#section table{
 	margin-top: 10px;
 	width: 900px;
 	border-spacing: 0px;
 	border-top: 1px solid #aaa;
 }
-table strong{
+#section table strong{
 	font-size: 15px;
 }
-.td_title{
+#section .td_title{
 	background: #eee;
 	width: 150px;
 	font-weight: bold;
 }
-table td{
+#section table td{
 	font-size: 13px;
 	height: 50px;
 	padding: 10px 30px;
 	border-bottom: 1px solid #ccc;
 }
-table input[type=text]{
+#section table input[type=text]{
 	width: 220px;
 	height: 25px;
 }
@@ -250,4 +260,32 @@ table input[type=text]{
 	border: none;
 	font-size: 20px;
 	font-weight: bold;
+	cursor:pointer;
+}
+
+input[type="checkbox"]{
+	margin-right:10px;
+}
+
+textarea{outline:none;}
+
+input[type="text"]{
+	border:1px solid silver;
+	padding:15px;
+	outline:none;
+}
+
+.baesong_btn{
+	border:1px solid silver;
+	background:white;
+	height:32px;
+	font-weight:bold;
+	font-size:12px;
+	cursor:pointer;
+}
+
+select{
+	border:1px solid silver;	
+	outline:none;
+	height:30px;
 }
