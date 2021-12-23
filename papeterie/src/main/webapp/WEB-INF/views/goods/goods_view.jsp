@@ -56,7 +56,12 @@
 				<tr>
 					<td colspan="2" align="center">
 						<input type="submit" class="goods_buy_button" value="바 로 구 매"><br>
-						<a href="" class="goods_sub_button">찜 하 기</a>
+						<c:if test="${userid == null}">
+						<a href="../member/login" class="goods_sub_button" id="goods_addwish">찜 하 기</a>
+						</c:if>
+						<c:if test="${userid != null}">
+						<a href="javascript:;" class="goods_sub_button" id="goods_addwish" onclick="add_wish_fn('${gvo.pcode}')">찜 하 기</a>
+						</c:if>
 						<a href="javascript:;" class="goods_sub_button" onclick="add_cart_fn('${gvo.pcode}')">장 바 구 니</a>
 					</td>
 				</tr>

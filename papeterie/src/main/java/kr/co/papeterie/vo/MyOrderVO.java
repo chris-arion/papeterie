@@ -5,7 +5,7 @@ public class MyOrderVO {
 	private String order_code;	// 주문코드
 	private int price;			// 주문 금액
 	private int ship_price;		// 배송비
-	private int state;			// 주문 상태
+	private int state;			// 주문 상태 : 0 - 주문 완료, 1 - 결재완료, 2 - 입금대기, 3 - 입금확인, 4 - 상품준비중, 5 - 배송중, 6 - 배송완료
 	private String regdate;		// 주문일
 	private String pcode;		// 상품코드
 	private String title;		// 상품명

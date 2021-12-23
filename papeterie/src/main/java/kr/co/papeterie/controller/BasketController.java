@@ -85,5 +85,10 @@ public class BasketController {
 		return null;
 	}
 	
+	@RequestMapping("/basket/addwish")
+	public void addwish(HttpServletRequest request, HttpSession session, PrintWriter out) {
+		service.addwish(request, session);
+		out.print("done");
+	}
 
 }

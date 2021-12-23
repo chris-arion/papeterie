@@ -9,34 +9,7 @@ body {
 	justify-content: center;
 	width: 900px;
 	height: auto;
-	/* min-height: 450px; */
-	/* background: yellow; */
 	margin: auto;
-	/* border: 1px solid black; */
 	position: relative; 
 	padding-top: 60px;
-	/* overflow: hidden; */
 }
-
-/* 
-#section {
-	width: 900px;
-	height: 600px;
-	background: yellow;
-	margin: auto;
-}
- 
-table {
-	width: 700px;
-	border: 1px solid black;
-	border-collapse: collapse;
-	padding: 10px;
-}
-
-th, tr, td {
-	border: 1px solid black;
-	border-collapse: collapse;
-	padding: 10px;
-}
-
-*/

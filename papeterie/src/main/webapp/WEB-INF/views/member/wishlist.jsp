@@ -24,8 +24,8 @@
 			<table id="">
 				<tr>
 					<th width="60">No</th>
-					<th width="470">상품정보</th>
-					<th width="110">상품금액</th>
+					<th width="400">상품정보</th>
+					<th width="100">상품금액</th>
 					<th width="60">삭제</th>
 				</tr>
 				<c:forEach items="${wlist}" var="wvo">

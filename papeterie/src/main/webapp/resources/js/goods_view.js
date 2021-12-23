@@ -4,18 +4,18 @@
 
 // 카트에 사용할 변수
 var count = 1;
- 
- function Goods_Menu_Move(n){
- 	var offset = $(".goods_data_menu").eq(n).offset().top;
+
+function Goods_Menu_Move(n){
+	var offset = $(".goods_data_menu").eq(n).offset().top;
  	$('html, body').animate({scrollTop : offset-100}, 400);
- }
+}
  
- function comma(str) {
-        str = String(str);
-        return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
-    }
+function comma(str) {
+    str = String(str);
+    return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+}
  
- function count_goods(my){
+function count_goods(my){
  	var class_name = my.className;
  	var class_cnt = document.getElementsByClassName(class_name).length;
  	var here = "";
@@ -42,7 +42,7 @@ var count = 1;
  	document.goods_form.count.value = cnt;
  	document.getElementsByClassName("option_price")[here].innerText = price+"원";
  	document.getElementById("total_price").innerText = price+"원";
- }
+}
 
 function add_cart_fn(pcode)
 {
@@ -67,5 +67,26 @@ function add_cart_fn(pcode)
 			console.log("return FAIL");
 			console.log("code: " + request.status + ", message: " + request.responseText + ", error: " + error);
 		}
-	})
+	});
+}
+
+function add_wish_fn(pcode) {
+	//alert(pcode);
+	$.ajax({
+		url : "../basket/addwish",
+		method : "GET",
+		data : {
+			pcode : pcode
+		},
+		cache : false,
+		success : function(data) {
+			if (data.trim() != null) {
+				$("#goods_addwish").css("background-color", "yellow");
+			}
+		},
+		error : function(request, status, error) {
+			console.log("return FAIL");
+			console.log("code: " + request.status + ", message: " + request.responseText + ", error: " + error);
+		}
+	});
 }
