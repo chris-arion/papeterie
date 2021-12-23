@@ -99,3 +99,17 @@ function cart_process(mode) {
 	}
 
 }
+
+function order_all() {
+    if (confirm("전체 상품을 주문 하시겠습니까?")) {
+    	// 전체 선택
+		$("input:checkbox").prop("checked", true);
+		
+		$("#cartFrm input[name='mode']").val("orderSelect");            
+		$("#cartFrm").attr("method", "post");            
+		$("#cartFrm").attr("action", "cart_proc");            
+		$("#cartFrm").submit();            
+
+        return true;
+	}
+}
