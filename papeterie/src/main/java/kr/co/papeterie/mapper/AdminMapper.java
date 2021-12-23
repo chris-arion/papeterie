@@ -48,5 +48,8 @@ public interface AdminMapper {
 	
 	public ArrayList<GoodsVO> porder_pcode(GoodsVO gvo,String ocode);
 	
+	public String[] memo();
+	
+	public void memo_update(String memo);
 	
 }

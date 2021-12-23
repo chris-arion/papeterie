@@ -100,7 +100,7 @@
 		</table>
 	</div>
 	</div>
-	<div id="porder-maintext" style="background:white;">판매 진행 현황</div>
+	<div id="porder-maintext" style="background:#eeeeee;">판매 진행 현황</div>
 	<div id="porder-head"> 
 		<div class="porder-box" style="background:#4cc5cd;">
 			<div class="porder-box-text">주문접수</div>
@@ -126,6 +126,16 @@
 			<div class="porder-box-text">배송완료</div>
 			<div class="porder-box-text">${cnt6}건</div>
 		</div>
+	</div>
+	<div id="memo-content">
+		<form method="post" action="memo_update">
+			<div id="memo-head"><span id="memo-head-text">관리 메모</span></div>
+			<textarea rows="20" cols="53" name="memo" id="memo-textarea">${memo[0]}</textarea>
+			<div id="memo-footer">
+				${memo[1]}
+				<input type="submit" value="저장">
+			</div>
+		</form>
 	</div>
 </div>
 </body>

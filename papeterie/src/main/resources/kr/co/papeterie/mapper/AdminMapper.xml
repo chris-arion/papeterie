@@ -76,11 +76,19 @@
 	</select>
 	
 	<select id="porder_content" resultType="kr.co.papeterie.vo.OrderVO" parameterType="kr.co.papeterie.vo.OrderVO">
-		SELECT p.*,a.addr1 FROM porder AS p , address AS a WHERE a.idx=p.addr_id AND p.idx=#{idx}
+		SELECT p.*,a.addr1,a.addr2 FROM porder AS p , address AS a WHERE a.idx=p.addr_id AND p.idx=#{idx}
 	</select>
 	
 	<select id="porder_pcode" resultType="kr.co.papeterie.vo.GoodsVO">
 		SELECT * FROM product AS p , orderitem AS o
 		WHERE p.pcode=o.pcode AND o.order_code=#{param2}
 	</select>
+	
+	<select id="memo" resultType="String">
+		select * from memo;
+	</select>
+	
+	<update id="memo_update">
+		update memo set memo=#{param1};
+	</update>
 </mapper>

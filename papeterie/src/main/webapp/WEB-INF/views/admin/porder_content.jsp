@@ -161,7 +161,7 @@ margin-bottom:5px;
 		</c:if>
 		<tr>
 			<th>배송지</th>
-			<td>${ovo.addr1}</td>
+			<td>${ovo.addr1} ${ovo.addr2}</td>
 		</tr>
 	</table>
 </div>

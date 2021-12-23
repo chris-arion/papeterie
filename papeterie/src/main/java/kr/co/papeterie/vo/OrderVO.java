@@ -16,10 +16,18 @@ public class OrderVO {
 	private int state;		// 주문 상태 : 0 - 주문 완료, 1 - 결재완료, 2 - 입금대기, 3 - 입금확인, 4 - 상품준비중, 5 - 배송중, 6 - 배송완료
 	private String regdate;	// 주문일자'
 	
-	private String addr1;   // 배송지 조인 주소
+	private String addr1;   // 배송지 조인 주소1
+	private String addr2;   // 배송지 조인 주소2
+	
 	private int cnt;
 	
 	
+	public String getAddr2() {
+		return addr2;
+	}
+	public void setAddr2(String addr2) {
+		this.addr2 = addr2;
+	}
 	public int getCnt() {
 		return cnt;
 	}

@@ -34,4 +34,6 @@ public interface AdminService {
 	public String state_ok(HttpServletRequest request);
 	
 	public String porder_content(HttpServletRequest request,OrderVO ovo,Model model,GoodsVO gvo);
+	
+	public String memo_update(HttpServletRequest request);
 }

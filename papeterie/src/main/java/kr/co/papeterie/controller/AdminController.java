@@ -107,4 +107,10 @@ public class AdminController {
 		return "redirect:/admin";
 	}
 	
+	@RequestMapping("memo_update")
+	public String memo_update(HttpServletRequest request)
+	{
+		return aservice.memo_update(request);
+	}
+	
 }

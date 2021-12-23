@@ -40,7 +40,8 @@ public class AdminServiceImpl implements AdminService{
 		model.addAttribute("gongji_list",mapper.gongji_list_limit());
 		model.addAttribute("qna_list",mapper.qna_list_limit());
 		model.addAttribute("cntlist",mapper.state_chk());
-		
+		model.addAttribute("memo",mapper.memo());
+		mapper.memo();
 		ArrayList<OrderVO> list=mapper.state_chk();
 		OrderVO count0 = list.get(0);
 		OrderVO count1 = list.get(1);
@@ -188,5 +189,15 @@ public class AdminServiceImpl implements AdminService{
 		model.addAttribute("list",mapper.porder_pcode(gvo,ocode));
 		
 		return module+"porder_content";
+	}
+
+	@Override
+	public String memo_update(HttpServletRequest request) {
+		
+		String memo = request.getParameter("memo");
+		
+		mapper.memo_update(memo);
+		
+		return "redirect:"+module+"manager";
 	}
 }
