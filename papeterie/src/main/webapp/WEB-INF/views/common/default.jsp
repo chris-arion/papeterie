@@ -145,24 +145,6 @@
 			</script>
 		</div>
 	</div>
-		<div>
-			<!-- 테스트용 -->
-			<form action="">
-				<select id="test" class="test" name="test">
-					<c:forEach items="${glist}" var="gvo">
-						<option value="${gvo.pcode}">${gvo.pcode}</option>
-					</c:forEach>
-				</select> <input type="button" value="이동" onclick="gotourl()">
-			</form>
-			<script>
-				function gotourl() {
-					var selectOption = document.getElementById("test");
-					selectOption = selectOption.options[selectOption.selectedIndex].value;
-					//alert(selectOption);
-					location = "../goods/goods_view?pcode=" + selectOption;
-				}
-			</script>
-		</div>
 	</div>
 </body>
 </html>
