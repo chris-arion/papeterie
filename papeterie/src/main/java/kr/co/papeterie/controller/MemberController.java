@@ -114,13 +114,13 @@ public class MemberController {
 	@RequestMapping("/member/get_addr")
 	public @ResponseBody AddressVO get_addr(HttpServletRequest request) throws Exception {
 		AddressVO avo = aservice.get_addr(request);
-		System.out.println("userid = " + avo.getUserid());
+//		System.out.println("userid = " + avo.getUserid());
 		return avo;
 	}
 	
 	@RequestMapping("/member/update_ok")
 	public String update_ok(AddressVO avo, HttpSession session) {
-		System.out.println("idx = " + avo.getIdx());
+//		System.out.println("idx = " + avo.getIdx());
 		return aservice.update_ok(avo, session);
 	}
 	
@@ -158,6 +158,18 @@ public class MemberController {
 	@RequestMapping("/member/del_review")
 	public String del_review(HttpServletRequest request, HttpSession session, Model model) {
 		return service.del_review(request, session);
+	}
+	
+	@RequestMapping("/member/member_update")
+	public String member_update(MemberVO mvo,Model model,HttpSession session)
+	{
+		return service.member_update(mvo,model,session);
+	}
+	
+	@RequestMapping("/member/member_update_ok")
+	public String member_update_ok(MemberVO mvo)
+	{
+		return service.member_update_ok(mvo);
 	}
 
 }

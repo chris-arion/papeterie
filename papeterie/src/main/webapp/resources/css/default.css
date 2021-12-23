@@ -144,17 +144,15 @@
 	background:#f2f2f2;
 	margin-top:210px;
 	}
-	
-	#bottom-logo img{
-	margin-top:60px;
-	margin-left:300px;
-	}	
+
+	#bottom-img{
+	position:relative;
+	}
 
 	#bottom-content{
-	display:inline-block;
-	position:relative;
-	left:640px;
-	top:-100px;
+	width:1700px;
+	height:200px;
+	margin:auto;
 	}
 	
 	#bottom-first{

@@ -21,4 +21,6 @@ public interface MemberMapper {
 	public String userid_check(String userid);
 	public ArrayList<ReviewVO> myreviewlist(@Param("_userid") String userid);
 	public void del_review(@Param("_idx") int idx);
+	public MemberVO member_update(String userid);
+	public void member_update_ok(MemberVO mvo);
 }

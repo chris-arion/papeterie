@@ -21,4 +21,6 @@ public interface MemberService {
 	public String userid_check(HttpServletRequest request);
 	public String myreviewlist(HttpSession session, Model model);
 	public String del_review(HttpServletRequest request, HttpSession session);
+	public String member_update(MemberVO mvo,Model model,HttpSession session);
+	public String member_update_ok(MemberVO mvo);
 }

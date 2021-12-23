@@ -89,7 +89,7 @@ public class MemberServiceImpl implements MemberService {
 		// 
 		String pcode = request.getParameter("pcode");
 		String order_code = request.getParameter("order_code");
-		System.out.println("review_write : order_code = " + order_code);
+//		System.out.println("review_write : order_code = " + order_code);
 		GoodsVO gvo = gmapper.goods_view(pcode);
 		model.addAttribute("gvo", gvo);
 		model.addAttribute("order_code", order_code);
@@ -168,6 +168,24 @@ public class MemberServiceImpl implements MemberService {
 		int idx = Integer.parseInt(request.getParameter("idx"));
 		mapper.del_review(idx);
 		return "redirect:/member/myreview";
+	}
+
+	@Override
+	public String member_update(MemberVO mvo, Model model,HttpSession session) {
+		
+		String userid = session.getAttribute("userid").toString();
+		
+		model.addAttribute("mvo",mapper.member_update(userid));
+		
+		return "/member/member_update";
+	}
+
+	@Override
+	public String member_update_ok(MemberVO mvo) {
+		
+		mapper.member_update_ok(mvo);
+		
+		return "redirect:/member/mypage";
 	}
 
 }
