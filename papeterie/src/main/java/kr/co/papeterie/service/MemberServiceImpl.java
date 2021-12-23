@@ -130,4 +130,19 @@ public class MemberServiceImpl implements MemberService {
 		return "/member/mypage";
 	}
 
+	@Override
+	public String signup_ok(MemberVO mvo) {
+		
+		mapper.signup_ok(mvo);
+		return "/member/signup3";
+	}
+
+	@Override
+	public String userid_check(HttpServletRequest request) {
+		
+		String userid = request.getParameter("userid");
+		String chk = mapper.userid_check(userid);
+		return chk;
+	}
+
 }

@@ -1,9 +1,15 @@
 package kr.co.papeterie.vo;
 
 public class MemberVO {
-	private int idx, spoint;
+	private int idx, spoint, gender;
 	private String userid, uname, pwd, email, phone, regdate;
 	
+	public int getGender() {
+		return gender;
+	}
+	public void setGender(int gender) {
+		this.gender = gender;
+	}
 	public int getIdx() {
 		return idx;
 	}

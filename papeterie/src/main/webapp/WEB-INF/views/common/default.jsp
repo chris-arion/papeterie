@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title><decorator:title default="PAPETERIE" /></title>
+<title>PAPETERIE</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
@@ -33,7 +33,7 @@
 			<div class="top-head-menu">
 				<c:if test="${userid == null}">
 					<a class="top_head_first_menu" href="../member/login">로그인</a> <a class="top_head_first_menu2">|</a>
-					<a class="top_head_first_menu" href="#">회원가입</a> <a class="top_head_first_menu2">|</a>
+					<a class="top_head_first_menu" href="../member/signup1">회원가입</a> <a class="top_head_first_menu2">|</a>
 					<a class="top_head_first_menu" href="../member/login">마이페이지</a> <a class="top_head_first_menu2">|</a>
 					<a class="top_head_first_menu" href="../basket/cart">장바구니</a>
 				</c:if>

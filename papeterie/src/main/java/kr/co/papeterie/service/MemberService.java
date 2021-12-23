@@ -17,4 +17,6 @@ public interface MemberService {
 	public String review_write(HttpServletRequest request, Model model);
 	public String review_write_ok(HttpServletRequest request, HttpSession session, ReviewVO rvo) throws Exception;
 	public String myorderlist(HttpSession session, Model model);
+	public String signup_ok(MemberVO mvo);
+	public String userid_check(HttpServletRequest request);
 }
