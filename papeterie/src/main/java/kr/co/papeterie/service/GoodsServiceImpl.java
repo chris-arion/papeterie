@@ -42,11 +42,11 @@ public class GoodsServiceImpl implements GoodsService{
 	
 	// ajax를 통해 리뷰 글 가져오기
 	@Override
-	public ArrayList<ReviewVO> next_review(int page)
+	public ArrayList<ReviewVO> next_review(int page, String pcode)
 	{
-		int index = (page-1)*3;
+		int index = (page-1)*5;
 		ArrayList<ReviewVO> reviewlist = new ArrayList<ReviewVO>();
-		reviewlist = mapper.next_review(index);
+		reviewlist = mapper.next_review(pcode, index);
 		return reviewlist;
 	}
 	
@@ -54,7 +54,7 @@ public class GoodsServiceImpl implements GoodsService{
 	@Override
 	public ArrayList<QnaVO> next_qna(int page)
 	{
-		int index = (page-1)*3;
+		int index = (page-1)*5;
 		ArrayList<QnaVO> qnalist = new ArrayList<QnaVO>();
 		qnalist = mapper.next_qna(index);
 		return qnalist;
@@ -77,7 +77,8 @@ public class GoodsServiceImpl implements GoodsService{
 		}
 		else 
 		{
-			String[] chkarray = request.getParameter("idxlist").split(",");
+			String idxlist = request.getParameter("idxlist");
+			String[] chkarray = idxlist.split(",");
 			String pcodelist = "";
 			for (int i = 0; i < chkarray.length; i++) {
 				String pcode = bmapper.getpcode(Integer.parseInt(chkarray[i]));
@@ -91,6 +92,7 @@ public class GoodsServiceImpl implements GoodsService{
 				}
 			}
 			model.addAttribute("list", mapper.get_cartproduct(userid, pcodelist));
+			model.addAttribute("idxlist", idxlist);
 		}
 		return module+"/purchase";
 	}
@@ -161,6 +163,13 @@ public class GoodsServiceImpl implements GoodsService{
 			ivo.setPcode(pcodesplit[i]);
 			ivo.setCount(Integer.parseInt(countsplit[i]));
 			mapper.set_orderitem(ivo);
+		}
+		
+		// 주문 완료 후 장바구니에서 삭제
+		String idxlist = request.getParameter("idxlist");
+		String[] chkarray = idxlist.split(",");
+		for (int i = 0; i < chkarray.length; i++) {
+			bmapper.del_cart(Integer.parseInt(chkarray[i]));
 		}
 		
 		return "redirect:"+module+"/purchase_finish";

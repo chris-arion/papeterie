@@ -45,8 +45,11 @@ public class GoodsController {
 	
 	@RequestMapping("/next_review")
 	@ResponseBody
-	 public Map<String, Object> next_review(@RequestParam int review_p) throws Exception
+	 public Map<String, Object> next_review(HttpServletRequest request) throws Exception
 	{
+		String pcode = request.getParameter("pcode");
+		int review_p = Integer.parseInt(request.getParameter("review_p"));
+		
 		Map<String, Object> map = new HashMap<String, Object>();
 		int review_c = gmapper.review_chong();
 		int review_sp = ((review_p-1)/10)*10+1;
@@ -58,15 +61,16 @@ public class GoodsController {
 		map.put("review_c", review_c);
 		map.put("review_sp", review_sp);
 		map.put("review_ep", review_ep);		
-		map.put("reviewlist", gservice.next_review(review_p));
+		map.put("reviewlist", gservice.next_review(review_p, pcode));
 		
 		return map;
 	}
 	
 	@RequestMapping("/next_qna")
 	@ResponseBody
-	 public Map<String, Object> next_qna(@RequestParam int qna_p) throws Exception
+	 public Map<String, Object> next_qna(HttpServletRequest request) throws Exception
 	{
+		int qna_p = Integer.parseInt(request.getParameter("qna_p"));
 		Map<String, Object> map = new HashMap<String, Object>();
 		int qna_c = gmapper.qna_chong();
 		int qna_sp = ((qna_p-1)/10)*10+1;

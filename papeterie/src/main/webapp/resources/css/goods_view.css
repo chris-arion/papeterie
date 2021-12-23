@@ -305,6 +305,24 @@
 	text-align: left;
 	padding-left: 50px;	
 }
+#qna_list .bimil{
+	display: none;
+}
+#qna_list .btn_open, .btn_close{
+	background: white;
+	border: 2px solid black;
+	border-radius: 5px;
+	margin-left: 5px;
+	font-size: 14px;
+}
+#qna_list .btn_open:active, .btn_close:active{
+	background: black;
+	color: white;
+}
+#qna_list a > img{
+	margin-right: 5px;
+	padding-bottom: 7px;
+}
 strong{
 	font-size: 20px;
 }

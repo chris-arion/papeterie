@@ -15,7 +15,7 @@ import kr.co.papeterie.vo.ReviewVO;
 public interface GoodsMapper {
 	public GoodsVO goods_view(String pcode);
 	public int review_chong();
-	public ArrayList<ReviewVO> next_review(int index);
+	public ArrayList<ReviewVO> next_review(String pcode, int index);
 	public int qna_chong();	
 	public ArrayList<QnaVO> next_qna(int index);
 	public ArrayList<GoodsVO> get_cartproduct(String userid, String pcodelist);

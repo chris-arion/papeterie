@@ -34,10 +34,10 @@ public class AddressServiceImpl implements AddressService {
 		avo.setUserid(userid);
 		// 기본 배송지 처리
 		if (avo.getSdefault() == 1) {
-			System.out.println("sdefault = 1");
+//			System.out.println("sdefault = 1");
 			mapper.clear_sdefault(userid);
 		} else {
-			System.out.println("sdefault = 0");
+//			System.out.println("sdefault = 0");
 		}
 		
 		mapper.add_ok(avo);
@@ -61,10 +61,10 @@ public class AddressServiceImpl implements AddressService {
 		String userid = session.getAttribute("userid").toString();
 		// 기본 배송지 처리
 		if (avo.getSdefault() == 1) {
-			System.out.println("sdefault = 1");
+//			System.out.println("sdefault = 1");
 			mapper.clear_sdefault(userid);
 		} else {
-			System.out.println("sdefault = 0");
+//			System.out.println("sdefault = 0");
 		}
 
 		mapper.update_ok(avo);
