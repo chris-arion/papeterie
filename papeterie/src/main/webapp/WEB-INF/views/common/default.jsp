@@ -110,6 +110,7 @@
 <!-- 문서의 내용이 출력 -->
 	
 <!-- 바텀 부분 -->
+
 <div id="bottom-head">
 	<div id="bottom-content">
 		<div id="bottom-img"><img src="/resources/img/papeterie.png"  width="250" style="cursor:pointer;" onclick="location='../main/index'"></div>
