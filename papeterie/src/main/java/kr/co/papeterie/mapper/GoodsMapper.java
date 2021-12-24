@@ -18,6 +18,7 @@ public interface GoodsMapper {
 	public ArrayList<ReviewVO> next_review(String pcode, int index);
 	public int qna_chong();	
 	public ArrayList<QnaVO> next_qna(int index);
+	public ArrayList<QnaVO> dap_qna();
 	public ArrayList<GoodsVO> get_cartproduct(String userid, String pcodelist);
 	public MemberVO get_member(String userid);
 	public AddressVO get_juso(String userid);

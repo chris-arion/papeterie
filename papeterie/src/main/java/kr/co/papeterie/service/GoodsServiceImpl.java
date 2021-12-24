@@ -59,7 +59,11 @@ public class GoodsServiceImpl implements GoodsService{
 		qnalist = mapper.next_qna(index);
 		return qnalist;
 	}
-	
+	@Override
+	public ArrayList<QnaVO> dap_qna()
+	{
+		return mapper.dap_qna();
+	}	
 	
 	@Override
 	public String purchase(HttpSession session, Model model, HttpServletRequest request)
@@ -118,7 +122,7 @@ public class GoodsServiceImpl implements GoodsService{
 	{
 		String userid = session.getAttribute("userid").toString();
 		avo.setUserid(userid);
-		int addr_id = Integer.parseInt(request.getParameter("bidx"));
+		int addr_id;
 		// 회원 포인트 지급 
 		mapper.update_spoint((int)Math.round((ovo.getPrice()*0.1)), userid);
 		
@@ -131,6 +135,7 @@ public class GoodsServiceImpl implements GoodsService{
 		}
 		else// 기존 주소일경우 업데이트
 		{
+			addr_id = Integer.parseInt(request.getParameter("bidx"));
 			avo.setIdx(addr_id);
 			mapper.address_update(avo);
 		}
@@ -166,12 +171,14 @@ public class GoodsServiceImpl implements GoodsService{
 		}
 		
 		// 주문 완료 후 장바구니에서 삭제
-		String idxlist = request.getParameter("idxlist");
-		String[] chkarray = idxlist.split(",");
-		for (int i = 0; i < chkarray.length; i++) {
-			bmapper.del_cart(Integer.parseInt(chkarray[i]));
+		if(request.getParameter("idxlist") != "")
+		{
+			String idxlist = request.getParameter("idxlist");
+			String[] chkarray = idxlist.split(",");
+			for (int i = 0; i < chkarray.length; i++) {
+				bmapper.del_cart(Integer.parseInt(chkarray[i]));
+			}
 		}
-		
 		return "redirect:"+module+"/purchase_finish";
 	}
 	

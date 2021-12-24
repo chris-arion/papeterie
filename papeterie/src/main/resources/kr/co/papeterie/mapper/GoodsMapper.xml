@@ -17,6 +17,9 @@
 	<select id="next_qna" resultType="kr.co.papeterie.vo.QnaVO">
 		select qna.*, if(dapbun=1,'답변완료','답변대기') as dap from qna where userid!='admin' order by writeday desc limit #{parma1},5
 	</select>
+	<select id="dap_qna" resultType="kr.co.papeterie.vo.QnaVO">
+		select * from qna where userid='admin'
+	</select>
 	<select id="get_cartproduct" resultType="kr.co.papeterie.vo.GoodsVO">
 		select product.*, cart.count, product.pcode product from product, cart where product.pcode=cart.pcode 
 		and cart.userid=#{param1} and product.pcode in (${param2})
@@ -31,7 +34,7 @@
 		select * from address where userid=#{param1}
 	</select>
 	<insert id="address_add_ok" parameterType="kr.co.papeterie.vo.AddressVO">
-		insert into address name (addr_name, userid, rname, zip, addr1, addr2, phone, sdefault, soption)
+		insert into address (addr_name, userid, rname, zip, addr1, addr2, phone, sdefault, soption)
 		values (#{addr_name}, #{userid}, #{rname}, #{zip}, #{addr1}, #{addr2}, #{phone}, #{sdefault}, #{soption})
 	</insert>
 	<update id="update_spoint">

@@ -16,6 +16,7 @@ public interface GoodsService {
 	public String goods_view(String pcode, Model model);
 	public ArrayList<ReviewVO> next_review(int page, String pcode);
 	public ArrayList<QnaVO> next_qna(int page);
+	public ArrayList<QnaVO> dap_qna();
 	public String purchase(HttpSession session, Model model, HttpServletRequest request);
 	public String myjuso(HttpSession session, Model model);
 	public String address_add_ok(HttpSession session, AddressVO avo);

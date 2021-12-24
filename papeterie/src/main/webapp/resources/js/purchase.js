@@ -59,6 +59,11 @@
  		document.getElementById("address_list").style.display = "none";
  	}
  	else{
+ 		if(document.getElementById("imsi_addr_name").value == ""){
+ 			alert("등록된 주소지가 없거나 기본배송지 설정이 되어있지 않습니다");
+ 			document.getElementById("shipping_loc").checked = true;
+ 		}
+ 		else{
  		document.getElementById("address_list").style.display = "inline-block";
  		document.getElementById("addr_name").value = document.getElementById("imsi_addr_name").value;
 	 	document.getElementById("target").value=document.getElementById("imsi_target").value;
@@ -67,6 +72,8 @@
 	 	document.getElementById("addrDetail").value=document.getElementById("imsi_addrDetail").value;
 	 	document.getElementById("target_phone").value=document.getElementById("imsi_phone").value;
 	 	document.getElementById("target_option").value=document.getElementById("imsi_option").value;
+ 		}
+	
  	}
  }
  function shipping_my_m(my){
@@ -75,7 +82,7 @@
  }
  
  function justNum(){
- 	if(event.keyCode<48 || event.ketCode>57){
+ 	if(	(event.keyCode>45 && event.keyCode<48) || event.keyCode>57 || event.keyCode<45){
  		event.returnValue = false;
  	}
  }

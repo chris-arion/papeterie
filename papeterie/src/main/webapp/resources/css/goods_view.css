@@ -224,6 +224,7 @@
 #review_content .td_title{
 	width: 400px;
 	text-align: left;
+	color: black;
 }
 #review_content .review_content{
 	position: relative;
@@ -277,9 +278,10 @@
 #inquiry_content .td_dap{
 	width: 100px;
 }
-#inquiry_content .td_title{
+#inquiry_content .td_title, .td_title>a{
 	width: 400px;
 	text-align: left;
+	color: black;
 }
 #inquiry_content .qna_content{
 	position: relative;
@@ -303,7 +305,8 @@
 }
 #inquiry_content .qna_content>td{
 	text-align: left;
-	padding-left: 50px;	
+	padding-left: 50px;
+	padding-right: 50px;	
 }
 #qna_list .bimil{
 	display: none;
@@ -318,6 +321,17 @@
 #qna_list .btn_open:active, .btn_close:active{
 	background: black;
 	color: white;
+}
+#qna_list .qna_content_dap{
+	border-top: 1px solid #999;
+	margin-top: 50px;
+	min-height: 100px;
+	height: auto;
+}
+#qna_list .qna_dap_head, .qna_content_head{
+	font-weight: bold;
+	margin-bottom: 10px;
+	margin-top: 20px;
 }
 #qna_list a > img{
 	margin-right: 5px;

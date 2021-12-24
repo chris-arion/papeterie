@@ -83,6 +83,7 @@ public class GoodsController {
 		map.put("qna_sp", qna_sp);
 		map.put("qna_ep", qna_ep);		
 		map.put("qnalist", gservice.next_qna(qna_p));
+		map.put("daplist", gservice.dap_qna());
 		
 		return map;
 	}

@@ -139,7 +139,9 @@ function add_wish_fn(pcode) {
 					a = a+"</tr>";
 					a = a+"<tr class='review_content'>";
 					a = a+"<td colspan='4'><div class='review_content_x' onclick='hide_review(this)'>x</div>"+reviewlist[i].content;
-					a = a+"<div><img src='"+reviewlist[i].filename+"'></div>";
+					if(reviewlist[i].filename != null && reviewlist[i].filename != ""){
+						a = a+"<div><img src='"+reviewlist[i].filename+"'></div>";
+					}
 					a = a+"</td>";
 					a = a+"</tr>";
 				}
@@ -195,6 +197,7 @@ function Next_qna(p){
 			var qna_sp = res.qna_sp;
 			var qna_ep = res.qna_ep;
 			var qnalist = res.qnalist;
+			var daplist = res.daplist;
 			var a = "";
 			var b = "";
 			
@@ -217,8 +220,14 @@ function Next_qna(p){
 					a = a+"<td>"+qnalist[i].writeday+"</td>";	
 					a = a+"</tr>";
 					a = a+"<tr class='qna_content'>";
-					a = a+"<td colspan='4'><div class='qna_content_x' onclick='hide_qna(this)'>x</div>"+qnalist[i].content+"</td>";
-					a = a+"</tr>";
+					a = a+"<td colspan='4'><div class='qna_content_x' onclick='hide_qna(this)'>x</div><div class='qna_content_head'>문의 내용 : </div>"+qnalist[i].content;
+					for(var j=0; j<daplist.length; j++){
+						if(qnalist[i].grp == daplist[j].grp){
+							a = a+"<div class='qna_content_dap'><div class='qna_dap_head'>답변 내용 : </div>"+daplist[j].content+"</div>";
+						}
+					}
+					a = a+"</td>";
+					a = a+"</tr>";					
 					a = a+"<tr class='bimil'>";
 					a = a+"<td colspan='4'><input type='password' class='my_pwd' placeholder='비밀번호 입력'><button class='btn_open' onclick='bimil_pwdchk("+i+")'>확인</button><button class='btn_close' onclick='close_pwd("+i+")'>취소</button></td>";					
 					a = a+"</tr>";
@@ -295,6 +304,7 @@ function add_wish_fn(pcode) {
  	var my_pwd =  document.getElementsByClassName("my_pwd")[my].value;
  	var put_pwd = document.getElementsByClassName("bimil_pwd")[my].value;
  	if(my_pwd == put_pwd){
+ 		document.getElementsByClassName("my_pwd")[my].value = "";
  		document.getElementsByClassName("bimil")[my].style.display = "none";
  		view_qna(my);
  	}
@@ -304,6 +314,7 @@ function add_wish_fn(pcode) {
  }
  
  function close_pwd(my){;
+ 	document.getElementsByClassName("my_pwd")[my].value = "";
  	document.getElementsByClassName("bimil")[my].style.display = "none";
  }
 

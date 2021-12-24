@@ -190,6 +190,9 @@
 #addrDetail{
 	width: 150px;
 }
+#target_phone{
+	ime-mode: disabled;
+}
 /* 결제 수단 */
 #purchase_detail{
 	margin-top: 50px;
