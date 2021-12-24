@@ -95,5 +95,21 @@ public class BasketServiceImpl implements BasketService {
 		
 	}
 
+	@Override
+	public void add_cart_item(HttpServletRequest request) {
+		// 
+		String idx = request.getParameter("idx");
+		mapper.add_cart_item(Integer.parseInt(idx));
+		
+	}
+
+	@Override
+	public void sub_cart_item(HttpServletRequest request) {
+		// 
+		String idx = request.getParameter("idx");
+		mapper.sub_cart_item(Integer.parseInt(idx));
+		
+	}
+
 	
 }

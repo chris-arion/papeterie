@@ -35,4 +35,11 @@
 	<update id="deliver_ok">
 		update porder set state = 6 where order_code = #{_order_code}
 	</update>
+	<update id="add_cart_item">
+		update cart set count = count + 1 where idx = #{_idx}
+	</update>
+	<update id="sub_cart_item">
+		update cart set count = count - 1 where idx = #{_idx}
+	</update>
+
 </mapper>

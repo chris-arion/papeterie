@@ -91,4 +91,17 @@ public class BasketController {
 		out.print("done");
 	}
 
+	@RequestMapping("/basket/additem")
+	public void additem(HttpServletRequest request, PrintWriter out) {
+		service.add_cart_item(request);
+		out.print("done");
+	}
+
+	@RequestMapping("/basket/subitem")
+	public void subitem(HttpServletRequest request, PrintWriter out) {
+		service.sub_cart_item(request);
+		out.print("done");
+	}
+
+	
 }

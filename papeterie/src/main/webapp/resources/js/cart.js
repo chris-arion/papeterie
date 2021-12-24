@@ -52,15 +52,15 @@ function calc_price() {
 			price = price.replace("원", "");
 			price = price.replace(",", "");
 			price = price.trim();
-			console.log(price);
+			//console.log(price);
 			item_price += parseInt(price);
 	
 		});
 	
-		console.log("item_cnt = " + item_cnt + ", item_price = " + item_price);
+		//console.log("item_cnt = " + item_cnt + ", item_price = " + item_price);
 		totalprice = item_price.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-		shiptotal = (item_price + 3000).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
-		ship_fee = "3,000";
+		shiptotal = (item_price + 2500).toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",");
+		ship_fee = "2,500";
 	}
 	
 	$("#price_main_cnt").text(item_cnt);
@@ -111,5 +111,58 @@ function order_all() {
 		$("#cartFrm").submit();            
 
         return true;
+	}
+}
+
+function additem(idx) {
+	var itemcount = $("#itemcount").text();
+	console.log(itemcount);
+
+	$.ajax({
+		url : "../basket/additem",
+		method : "GET",
+		data : {
+			idx : idx
+		},
+		cache : false,
+		success : function(data) {
+			//console.log("return OK");
+			//console.log(data);
+			if (data.trim() != null) {
+				$("#itemcount").text(parseInt(itemcount) + 1);
+				location.reload();
+			}
+		},
+		error : function(request, status, error) {
+			console.log("return FAIL");
+			console.log("code: " + request.status + ", message: " + request.responseText + ", error: " + error);
+		}
+	});
+}
+
+function subitem(idx) {
+	var itemcount = $("#itemcount").text();
+	console.log(itemcount);
+	if (itemcount > 1) {
+		$.ajax({
+			url : "../basket/subitem",
+			method : "GET",
+			data : {
+				idx : idx
+			},
+			cache : false,
+			success : function(data) {
+				//console.log("return OK");
+				//console.log(data);
+				if (data.trim() != null) {
+					$("#itemcount").text(parseInt(itemcount) - 1);
+					location.reload();
+				}
+			},
+			error : function(request, status, error) {
+				console.log("return FAIL");
+				console.log("code: " + request.status + ", message: " + request.responseText + ", error: " + error);
+			}
+		});
 	}
 }
