@@ -79,6 +79,9 @@ public class MemberController {
 
 	@RequestMapping("/member/mypage")
 	public String mypage(HttpSession session, Model model) {
+		if (session.getAttribute("userid") == null ) {
+			return "../member/login";
+		}
 		return service.myorderlist(session, model);
 	}
 
@@ -104,6 +107,9 @@ public class MemberController {
 
 	@RequestMapping("/member/addressbook")
 	public String addressbook(HttpSession session, Model model) {
+		if (session.getAttribute("userid") == null ) {
+			return "../member/login";
+		}
 		return aservice.list(session, model);
 	}
 	
@@ -132,6 +138,9 @@ public class MemberController {
 	
 	@RequestMapping("/member/wishlist")
 	public String wishlist(HttpSession session, Model model) {
+		if (session.getAttribute("userid") == null ) {
+			return "../member/login";
+		}
 		return service.mywishlist(session, model);
 	}
 	
@@ -153,6 +162,9 @@ public class MemberController {
 	
 	@RequestMapping("/member/myreview")
 	public String myreview(HttpSession session, Model model) {
+		if (session.getAttribute("userid") == null ) {
+			return "../member/login";
+		}
 		return service.myreviewlist(session, model);
 	}
 
