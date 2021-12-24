@@ -208,14 +208,17 @@ public class MemberServiceImpl implements MemberService {
 
 		rvo.setScore(Integer.parseInt(multi.getParameter("score")));
 		rvo.setContent(multi.getParameter("content"));
+		int idx = Integer.parseInt(multi.getParameter("idx"));
+		rvo.setIdx(idx);
 		String filename = multi.getFilesystemName("filename");
 		if (filename != null) {
 			rvo.setFilename("/resources/img/p01/review/" + multi.getFilesystemName("filename"));
+			mapper.review_update_ok(rvo);
 		}
-		int idx = Integer.parseInt(multi.getParameter("idx"));
-		rvo.setIdx(idx);
+		else {
+			mapper.review_update_ok2(rvo);
+		}
 		
-		mapper.review_update_ok(rvo);
 
 		return "redirect:/member/myreview";
 	}

@@ -72,4 +72,7 @@
 	<update id="review_update_ok" parameterType="ReviewVO">
 		update review set score = #{score}, content = #{content}, filename = #{filename} where idx = ${idx}
 	</update>
+	<update id="review_update_ok2" parameterType="ReviewVO">
+		update review set score = #{score}, content = #{content} where idx = ${idx}
+	</update>
 </mapper>
