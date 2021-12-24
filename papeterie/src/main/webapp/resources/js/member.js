@@ -84,3 +84,15 @@ function del_review(idx) {
 		location = "del_review?idx=" + idx;
 	}
 }
+
+function updateopen(idx){
+    var frmPop= document.frmPopup;
+    var url = '../review/update';
+    window.open('','update','width=450, height=700, toolbar=no, menubar=no, resizable=no');  
+     
+    frmPop.action = url;
+    frmPop.target = 'update'; //window,open()의 두번째 인수와 같아야 하며 필수다.  
+    frmPop.idx.value = idx;
+    frmPop.submit();   
+}
+

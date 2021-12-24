@@ -9,7 +9,22 @@ public class ReviewVO {
 	private String content;		// 리뷰 내용
 	private String filename;	// 첨부파일
 	private String regdate;		// 등록일
+	// for join
+	private String title;		// 상품명
+	private String img;			// 이미지
 	
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
 	public int getIdx() {
 		return idx;
 	}

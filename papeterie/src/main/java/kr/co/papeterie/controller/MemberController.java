@@ -1,6 +1,7 @@
 package kr.co.papeterie.controller;
 
 import java.io.PrintWriter;
+import java.security.PublicKey;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -171,5 +172,18 @@ public class MemberController {
 	{
 		return service.member_update_ok(mvo);
 	}
+	
+	@RequestMapping("/review/update")
+	public String review_update(HttpServletRequest request, Model model) {
+		return service.update_review(request, model);
+	}
+
+	@RequestMapping("/review/update_ok")
+	public void review_update_ok(HttpServletRequest request, HttpSession session, ReviewVO rvo, PrintWriter out) throws Exception {
+		service.review_update_ok(request, session, rvo);
+		out.print("1");
+		
+	}
+
 
 }

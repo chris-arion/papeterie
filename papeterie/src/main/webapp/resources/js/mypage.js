@@ -42,3 +42,29 @@ function review_ok() {
 function review_cancel() {
 	self.close();   //자기자신창을 닫습니다.
 }
+
+function update_ok() {
+	var formData = new FormData($('#frm')[0]);
+
+	$.ajax({
+		url : "../review/update_ok",
+		method : "POST",
+		enctype: "multipart/form-data",  
+		data : formData,
+		cache : false,
+		processData: false, // 필수 
+		contentType: false, // 필수
+		datatype : "text",
+		success : function(data) {
+			//console.log("return OK");
+			opener.parent.location.reload();
+			console.log(data);
+			self.close();
+		},
+		error : function(request, status, error) {
+			console.log("return FAIL");
+			console.log("code: " + request.status + ", message: " + request.responseText + ", error: " + error);
+		}
+	});
+	
+}

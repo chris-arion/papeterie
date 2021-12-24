@@ -66,4 +66,10 @@
 		update member set uname=#{uname}, email=#{email}, phone=#{phone}
 		where idx=#{idx} 
 	</update>
+	<select id="getreview" resultType="ReviewVO">
+		select r.*, p.title, p.img from review r, product p where r.idx = #{_idx} and r.pcode = p.pcode
+	</select>
+	<update id="review_update_ok" parameterType="ReviewVO">
+		update review set score = #{score}, content = #{content}, filename = #{filename} where idx = ${idx}
+	</update>
 </mapper>

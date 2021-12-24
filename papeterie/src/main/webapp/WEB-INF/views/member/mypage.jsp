@@ -19,6 +19,7 @@
 			
  			<form name="frmPopup">
 			<input type="hidden" name="pcode">
+			<input type="hidden" name="order_code">
 			</form>
 			
 			<div>

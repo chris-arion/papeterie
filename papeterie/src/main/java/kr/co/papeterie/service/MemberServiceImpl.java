@@ -1,5 +1,6 @@
 package kr.co.papeterie.service;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletContext;
@@ -186,6 +187,37 @@ public class MemberServiceImpl implements MemberService {
 		mapper.member_update_ok(mvo);
 		
 		return "redirect:/member/mypage";
+	}
+
+	@Override
+	public String update_review(HttpServletRequest request, Model model) {
+		// 
+		int idx = Integer.parseInt(request.getParameter("idx"));
+//		System.out.println("idx = " + idx);
+		ReviewVO rvo = mapper.getreview(idx);
+		model.addAttribute("rvo", rvo);
+		return "/review/update";
+	}
+	
+	@Override
+	public String review_update_ok(HttpServletRequest request, HttpSession session, ReviewVO rvo) throws Exception {
+		ServletContext application = session.getServletContext();
+		String path = application.getRealPath("/resources/img/p01/review/");
+		int max = 1024 * 1024 * 10;
+		MultipartRequest multi = new MultipartRequest(request, path, max, "utf-8", new DefaultFileRenamePolicy());
+
+		rvo.setScore(Integer.parseInt(multi.getParameter("score")));
+		rvo.setContent(multi.getParameter("content"));
+		String filename = multi.getFilesystemName("filename");
+		if (filename != null) {
+			rvo.setFilename("/resources/img/p01/review/" + multi.getFilesystemName("filename"));
+		}
+		int idx = Integer.parseInt(multi.getParameter("idx"));
+		rvo.setIdx(idx);
+		
+		mapper.review_update_ok(rvo);
+
+		return "redirect:/member/myreview";
 	}
 
 }

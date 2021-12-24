@@ -17,6 +17,10 @@
 	<div id="section">
  		<%@include file="sidemenu.jsp" %>
 		
+		<form name="frmPopup">
+		<input type="hidden" name="idx">
+		</form>
+		
 		<div id="content">
 			<div style="margin-left: 20px; margin-top: 20px;">리뷰목록</div>
 			<BR>
@@ -36,7 +40,7 @@
 						<c:if test="${rvo.filename != null }">
 						<img src="${rvo.filename}" width="35">
 						</c:if>
-						${rvo.content}
+						<a href="javascript:;" onclick="updateopen('${rvo.idx}')">${rvo.content}</a>
 					</td>
 					<td>
 						<a href="javascript:;"><img src="/resources/img/ic_delete.svg" alt="삭제" title="삭제" onclick="del_review('${rvo.idx}')"></a>

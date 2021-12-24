@@ -23,4 +23,6 @@ public interface MemberMapper {
 	public void del_review(@Param("_idx") int idx);
 	public MemberVO member_update(String userid);
 	public void member_update_ok(MemberVO mvo);
+	public ReviewVO getreview(@Param("_idx") int idx);
+	public void review_update_ok(ReviewVO rvo);
 }
