@@ -1,6 +1,5 @@
 package kr.co.papeterie.service;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.servlet.ServletContext;
@@ -255,6 +254,5 @@ public class MemberServiceImpl implements MemberService {
 		
 		return "/member/mypage_qna";
 	}
-
 
 }

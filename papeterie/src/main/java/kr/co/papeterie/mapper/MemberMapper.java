@@ -29,4 +29,5 @@ public interface MemberMapper {
 	public void review_update_ok2(ReviewVO rvo);
 	public ArrayList<MyOrderVO> myorderdetail(@Param("_userid") String userid, @Param("_order_code") String order_code);
 	public ArrayList<QnaVO> mypage_qna(String userid);
+
 }
