@@ -15,7 +15,7 @@
  		<%@include file="sidemenu.jsp" %>
  		
 		<div id="content">
-			<div style="margin-left: 20px; margin-top: 20px; display: block;">상세보기</div>
+			<div style="margin-left: 20px; margin-top: 20px; display: block; font-weight:bold; font-size:18px;">상세보기</div>
 			
  			<form name="frmPopup">
 			<input type="hidden" name="pcode">
@@ -23,12 +23,12 @@
 			</form>
 			
 			<div>
-
+				<div style="width:700px;margin-left:20px;margin-top:20px;border-top:1px solid black;padding-top:20px;"><span class="orderContent" style="margin-right:310px;">배송지 정보</span> <span class="orderContent">결제방법</span></div>
 				<div id="dd_left">
 					받으시는분 <strong>${avo.rname}</strong><br>
 					(${avo.zip})<br>${avo.addr1} ${avo.addr2}
 				</div>
-				<div id="dd_right">
+				<div id="dd_right" style="margin-bottom:60px;">
 					<c:choose>
 						<c:when test="${ovo.pay_type == 1}">
 						신용카드<br>	<!-- 신한, 우리, 농협, 하나 : 일시불, 1, 2, 3, 4개월 -->
@@ -62,14 +62,14 @@
 					<c:forEach items="${olist}" var="mvo">
 					<c:if test="${i == 0}">
 					<tr>
-						<td class="td1"><div class="orderNO"><strong>주문번호 : ${mvo.order_code}</strong></div></td>
+						<td class="td1"><div class="orderNO"><strong>주문번호 &nbsp; : &nbsp; ${mvo.order_code}</strong></div></td>
 						<td class="td3" colspan="2"><div class="orderDATE">주문일시 : ${mvo.regdate}</div></td>
 					</tr>
 					<c:set var="i" value="${i + 1}"></c:set>
 					</c:if>
 					<tr>
-						<td class="td2" colspan="2"><div class="item_desc"><img src="${mvo.img}" width="35"> <span>${mvo.title}</span></div></td>
-						<td class="td3">
+						<td class="td2" colspan="2"><div class="item_desc"><img src="${mvo.img}" width="35"> &nbsp; <span>${mvo.title}</span></div></td>
+						<td>
 							<div class="review_btn">
 								<!-- 주문 상태 : 0 - 주문 완료, 1 - 결재완료, 2 - 입금대기, 3 - 입금확인, 4 - 상품준비중, 5 - 배송중, 6 - 배송완료 -->
 								<c:choose>

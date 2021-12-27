@@ -113,8 +113,8 @@
 
 <div id="bottom-head">
 	<div id="bottom-content">
-		<img src="/resources/img/papeterie.png"  width="250" style="cursor:pointer;" onclick="location='../main/index'" id="bottom-img">
-		<div>
+		<div id="bottom-left"><img src="/resources/img/papeterie.png"  width="250" style="cursor:pointer;" onclick="location='../main/index'" id="bottom-img"></div>
+		<div id="bottom-right">
 			<div id="bottom-first">
 				<a href="../gongji/list">공지사항</a>
 				<a href="../qna/list">질문/답변</a>
@@ -129,7 +129,7 @@
 		</div>
 		
 		<!-- 테스트용 -->
-		<div>
+		<div style="position:relative;top:-100px;left:80px;">
 		<form action="">
 			<select id="test" class="test" name="test">
 				<c:forEach items="${glist}" var="gvo">

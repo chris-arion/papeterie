@@ -23,7 +23,7 @@
 					<div class="title">회원정보</div>
 					<ul class="sub">
 						<li>
-							<a href="../member/member_update">회원정보수정</a>
+							<a href="../member/member_update">회원정보 변경</a>
 						</li>
 						<li>
 							<a href="../member/addressbook">배송지관리</a>

@@ -37,9 +37,9 @@
 						<td><input type="checkbox" name="cartchk" id="${cvo.pcode}" value="${cvo.idx}" checked="checked" onclick="calc_price()"></td>
 						<td class="goods_id_td"><img id="goods_img" src="${cvo.img}"> ${cvo.title}</td>
 						<td>
-							<img alt="" src="/resources/img/ic_remove_circle_24px.svg" onclick="subitem('${cvo.idx}')">
+							<img alt="" src="/resources/img/ic_remove_circle_24px.svg" onclick="subitem('${cvo.idx}')" style="cursor:pointer;">
 							<span id="itemcount">${cvo.count}</span> 개
-							<img alt="" src="/resources/img/ic_add_circle_24px.svg" onclick="additem('${cvo.idx}')">
+							<img alt="" src="/resources/img/ic_add_circle_24px.svg" onclick="additem('${cvo.idx}')" style="cursor:pointer;">
 						</td>
 						<td><fmt:formatNumber value="${cvo.price}"/> 원</td>
 						<td class="goods_td">10%포인트 적립</td>

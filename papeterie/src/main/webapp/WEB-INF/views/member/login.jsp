@@ -11,7 +11,7 @@
 </head>
 <body>
 
-	<div id="section">
+	<div id="section2">
 		<div align="center">
 			<div id="login-head">회원 로그인</div>
 			<form name="frm" method="post" action="login_ok">

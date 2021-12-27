@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap.min.css">
 <style>
 #content{
-height:1300px;
+height:auto;
 }
 
 #product-btn-add{

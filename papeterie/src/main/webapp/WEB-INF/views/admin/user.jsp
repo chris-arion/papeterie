@@ -33,9 +33,9 @@
             </tr>
         </thead>
         <tbody>
-        <c:forEach items="${list}" var="mvo">
+        <c:forEach items="${list}" var="mvo" varStatus="status">
             <tr>
-                <td>${mvo.idx}</td>
+                <td>${fn:length(list) - status.index}</td>
 				<td>${mvo.userid}</td>
 				<td>${mvo.uname}</td>
 				<td>${mvo.email}</td>

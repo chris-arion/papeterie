@@ -46,9 +46,9 @@ function delete_ok(my)
             </tr>
         </thead>
         <tbody>
-        <c:forEach items="${list}" var="gvo">
+        <c:forEach items="${list}" var="gvo" varStatus="status">
             <tr>
-                <td>${gvo.id}</td>
+                <td>${fn:length(list) - status.index}</td>
                 <td>${gvo.name}</td>
 				<td>${gvo.title}</td>
 				<td><a href="../gongji/content?id=${gvo.id}">Click</a></td>

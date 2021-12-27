@@ -32,6 +32,7 @@
 	
 	.top-head-menu{
 	position:absolute;
+	width:500px;
 	left:68%;
 	}
 	
@@ -48,6 +49,10 @@
 	font-size:10px;
 	font-weight:bold;
 	text-decoration:none;
+	color:gray;
+	}
+	
+	.top_head_first_menu:hover{
 	color:gray;
 	}
 	
@@ -88,14 +93,15 @@
 	
 	.second-head{
 	background:white;
+	border-bottom:1px solid #e6e6e6;
 	}
 	
 	.second-menu{
-	text-align:center;
+	width:1000px;
 	height:55px;
+	margin:auto;
 	padding-top:5px;
-	margin-bottom:0;
-	border-bottom:1px solid #e6e6e6;
+	padding-left:150px;
 	}
 	
 	.second-menu li{
@@ -147,12 +153,13 @@
 
 	#bottom-img{
 	margin-top:20px;
-	margin-bottom:20px;
+	margin-bottom:120px;
+	margin-right:20px;
 	}
 
 	#bottom-content{
-	width:700px;
-	height:200px;
+	width:1000px;
+	height:auto;
 	margin:auto;
 	}
 	
@@ -171,5 +178,15 @@
 	color:#4d4d4d;
 	font-size:14px;
 	margin-bottom:10px;
+	}
+	
+	#bottom-right{
+	display:inline-block;
+	margin-top:80px;
+	}
+	
+	#bottom-left{
+	display:inline-block;
+	padding-bottom:50px;
 	}
 	

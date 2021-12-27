@@ -411,7 +411,7 @@
 						<span>결제 금액의 10% 포인트 적립</span>
 						<span>(현재 포인트: ${mvo.spoint})</span><br>
 						<span class="my_point">
-							<strong><fmt:formatNumber value="${total_price*0.1}"/></strong>point 적립
+							<strong><fmt:formatNumber value="${total_price*0.1}"/> </strong>point 적립
 						</span>
 					</td>
 				</tr>
