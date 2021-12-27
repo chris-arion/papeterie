@@ -32,12 +32,12 @@
 					<c:choose>
 						<c:when test="${ovo.pay_type == 1}">
 						신용카드<br>	<!-- 신한, 우리, 농협, 하나 : 일시불, 1, 2, 3, 4개월 -->
-							<c:if test="${ovo.com == 1}">신한카드</c:if>
-							<c:if test="${ovo.com == 2}">우리카드</c:if>
-							<c:if test="${ovo.com == 3}">농협카드</c:if>
-							<c:if test="${ovo.com == 4}">하나카드</c:if>
+							<c:if test="${ovo.card == 1}">신한카드</c:if>
+							<c:if test="${ovo.card == 2}">우리카드</c:if>
+							<c:if test="${ovo.card == 3}">농협카드</c:if>
+							<c:if test="${ovo.card == 4}">하나카드</c:if>
 							<c:if test="${ovo.halbu == 0}">일시불</c:if>
-							 : <c:if test="${ovo.halbu != 0}">${ovo.halbu} 개월</c:if>
+							<c:if test="${ovo.halbu != 0}"> : ${ovo.halbu} 개월</c:if>
 						</c:when>
 						<c:when test="${ovo.pay_type == 2}">
 						간편결재<br>	<!-- skt, kt, lg, 알뜰 : 폰번호 -->
