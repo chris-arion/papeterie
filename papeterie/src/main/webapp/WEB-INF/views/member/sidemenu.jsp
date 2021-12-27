@@ -1,20 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 		<div id="side_menu">
+			<div id="side-head">마이페이지</div>
 			<ul id="navi">
 				<li class="group">
-					<div class="title">쇼핑내역</div>
+					<div class="title">쇼핑정보</div>
 					<ul class="sub">
 						<li>
 							<a href="../member/mypage">전체주문내역</a>
 						</li>
 						<li>
-							<a href="#">주문취소/교환/반품</a>
+							<a href="#">취소/반품/교환 내역</a>
 						</li>
 						<li>
-							<a href="../member/wishlist">찜목록</a>
-						</li>
-						<li>
-							<a href="../member/myreview">리뷰</a>
+							<a href="../member/wishlist">찜리스트</a>
 						</li>
 						<li>
 							<a href="#">고객센터</a>
@@ -29,6 +27,12 @@
 						</li>
 						<li>
 							<a href="../member/addressbook">배송지관리</a>
+						</li>
+						<li>
+							<a href="../member/mypage_qna">상품 문의</a>
+						</li>
+						<li>
+							<a href="../member/myreview">상품 후기</a>
 						</li>
 					</ul>
 				</li>

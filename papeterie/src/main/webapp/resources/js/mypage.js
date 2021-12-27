@@ -5,7 +5,7 @@
 function open_pop(pcode, ordercode){
     var frmPop= document.frmPopup;
     var url = '../review/write';
-    window.open('','write','width=450, height=550, toolbar=no, menubar=no, resizable=no');  
+    window.open('','write','width=450, height=680, toolbar=no, menubar=no, resizable=no');  
      
     frmPop.action = url;
     frmPop.target = 'write'; //window,open()의 두번째 인수와 같아야 하며 필수다.  

@@ -9,9 +9,17 @@
 }
 
 #content th, td {
-	border-bottom: 1px solid #444444;
-	border-left: 1px solid #444444;
-	padding: 10px;
+	border-bottom: 1px solid silver;
+	padding:10px;
+}
+
+#content th{
+	background:#f2f2f2;
+	text-align:center;
+}
+
+#content td{
+	padding:30px 10px;
 }
 
 #content th:first-child, td:first-child {
@@ -22,4 +30,11 @@
 	width: 36px;
 	height: 45px;
 	vertical-align: middle;
+}
+
+#wisi-head{
+	margin-left: 20px;
+	margin-top: 20px;
+	font-weight:bold;
+	font-size:18px;
 }

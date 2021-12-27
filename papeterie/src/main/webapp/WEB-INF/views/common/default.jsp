@@ -113,18 +113,20 @@
 
 <div id="bottom-head">
 	<div id="bottom-content">
-		<div id="bottom-img"><img src="/resources/img/papeterie.png"  width="250" style="cursor:pointer;" onclick="location='../main/index'"></div>
-		<div id="bottom-first">
-			<a href="../gongji/list">공지사항</a>
-			<a href="../qna/list">질문/답변</a>
-			<a href="#">이용약관</a>
-			<a href="#">개인정보처리방침</a>
-			<a href="#">판매처 안내</a>
+		<img src="/resources/img/papeterie.png"  width="250" style="cursor:pointer;" onclick="location='../main/index'" id="bottom-img">
+		<div>
+			<div id="bottom-first">
+				<a href="../gongji/list">공지사항</a>
+				<a href="../qna/list">질문/답변</a>
+				<a href="#">이용약관</a>
+				<a href="#">개인정보처리방침</a>
+				<a href="#">판매처 안내</a>
+			</div>
+			<div class="bottom-second">상호 : (주)Papeterie  사업자등록번호 : 120-10-01010 통신판매업신고번호 : 2022-서울구로-0106 [사업자정보확인] </div>
+			<div class="bottom-second">팩스번호 : 010-101-0011 메일 : papeterie@market.com / Papeterie 인스타그램 : @Papeterie </div>
+			<div class="bottom-second">주소 : 서울 구로구 구로중앙로34길 33-4 영림빌딩  호스팅제공 : 경영기술개발원 (주)</div>
+			<div class="bottom-second">© Papeterie Guro Corp. All right Reserved</div>
 		</div>
-		<div class="bottom-second">상호 : (주)Papeterie  사업자등록번호 : 120-10-01010 통신판매업신고번호 : 2022-서울구로-0106 [사업자정보확인] </div>
-		<div class="bottom-second">팩스번호 : 010-101-0011 메일 : papeterie@market.com / Papeterie 인스타그램 : @Papeterie </div>
-		<div class="bottom-second">주소 : 서울 구로구 구로중앙로34길 33-4 영림빌딩  호스팅제공 : 경영기술개발원 (주)</div>
-		<div class="bottom-second">© Papeterie Guro Corp. All right Reserved</div>
 		
 		<!-- 테스트용 -->
 		<div>

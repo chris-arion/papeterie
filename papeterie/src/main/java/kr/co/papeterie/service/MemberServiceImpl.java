@@ -15,12 +15,16 @@ import org.springframework.ui.Model;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
+import kr.co.papeterie.mapper.AddressMapper;
 import kr.co.papeterie.mapper.BasketMapper;
 import kr.co.papeterie.mapper.GoodsMapper;
 import kr.co.papeterie.mapper.MemberMapper;
+import kr.co.papeterie.vo.AddressVO;
 import kr.co.papeterie.vo.GoodsVO;
 import kr.co.papeterie.vo.MemberVO;
 import kr.co.papeterie.vo.MyOrderVO;
+import kr.co.papeterie.vo.OrderVO;
+import kr.co.papeterie.vo.QnaVO;
 import kr.co.papeterie.vo.ReviewVO;
 import kr.co.papeterie.vo.WishlistVO;
 
@@ -37,6 +41,9 @@ public class MemberServiceImpl implements MemberService {
 	@Autowired
 	private GoodsMapper gmapper;
 
+	@Autowired
+	private AddressMapper amapper;
+	
 	@Override
 	public String login_ok(MemberVO mvo, HttpSession session) {
 		// TODO Auto-generated method stub
@@ -134,7 +141,7 @@ public class MemberServiceImpl implements MemberService {
 	public String myorderlist(HttpSession session, Model model) {
 		// 
 		String userid = session.getAttribute("userid").toString();
-		ArrayList<MyOrderVO> list= mapper.myorderlist(userid);
+		ArrayList<MyOrderVO> list = mapper.myorderlist(userid);
 		model.addAttribute("olist", list);
 		return "/member/mypage";
 	}
@@ -222,5 +229,32 @@ public class MemberServiceImpl implements MemberService {
 
 		return "redirect:/member/myreview";
 	}
+
+	@Override
+	public String myorderdetail(HttpServletRequest request, HttpSession session, Model model) {
+		// 
+		String order_code = request.getParameter("order_code");
+		String userid = session.getAttribute("userid").toString();
+		ArrayList<MyOrderVO> list = mapper.myorderdetail(userid, order_code);
+		OrderVO ovo = gmapper.get_porder(userid);
+		AddressVO avo = amapper.get_address(ovo.getAddr_id());
+//		System.out.println("avo = " + avo.getIdx() + ", " + avo.getRname());
+		model.addAttribute("olist", list);
+		model.addAttribute("ovo", ovo);
+		model.addAttribute("avo", avo);
+//		System.out.println("ovo = " + ovo.getPay_type());
+		return "/member/order_detail";
+	}
+	
+	@Override
+	public String mypage_qna(HttpSession session, QnaVO qvo, Model model) {
+		
+		String userid = session.getAttribute("userid").toString();
+		
+		model.addAttribute("list",mapper.mypage_qna(userid));
+		
+		return "/member/mypage_qna";
+	}
+
 
 }

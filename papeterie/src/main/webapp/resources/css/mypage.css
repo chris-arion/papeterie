@@ -16,6 +16,9 @@
 
 .orderITEM .td1 {
 	width: 300px;
+	background:#f2f2f2;
+	padding:5px;
+	padding-left:20px;
 }
 
 .orderITEM .td2 {
@@ -24,6 +27,7 @@
 
 .orderITEM .td3 {
 	width: 200px;
+	background:#f2f2f2;
 }
 
 .orderNO {
@@ -37,7 +41,7 @@
 }
 
 .item_desc {
-	padding: 5px 5px 5px 50px;
+	padding: 10px 5px 5px 50px;
 	text-align: left;
 	height: 65px;
 }
@@ -47,3 +51,42 @@
 	text-align: right;
 	height: 65px;
 }
+
+#review-btn{
+	position:relative;
+	width:200px;
+	height:35px;
+	border:1px solid black;
+	background:black;
+	color:white;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+#order-head{
+	margin-left: 20px;
+	margin-top: 20px;
+	margin-bottom:20px;
+	display: block;
+	font-weight:bold;
+	font-size:18px;
+}
+
+#dd_left {
+	display: block;
+	border: 1px solid black;
+	padding: 5px;
+	height: 80px;
+	width: 400px;
+	float: left;
+	margin: 10px 0px 10px 20px;
+}
+
+#dd_right {
+	display: block;
+	border: 1px solid black;
+	padding: 5px;
+	height: 80px;
+	width: 300px;
+	float: right;
+	margin: 10px 20px 10px 0px;

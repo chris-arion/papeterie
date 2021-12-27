@@ -146,7 +146,8 @@
 	}
 
 	#bottom-img{
-	position:relative;
+	margin-top:20px;
+	margin-bottom:20px;
 	}
 
 	#bottom-content{
@@ -171,3 +172,4 @@
 	font-size:14px;
 	margin-bottom:10px;
 	}
+	

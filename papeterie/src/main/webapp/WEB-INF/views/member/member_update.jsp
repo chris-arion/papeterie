@@ -37,7 +37,6 @@
 	font-weight:bold;	
 	margin-left:30px;
 	padding-bottom:20px;
-	border-bottom:1px solid #444444;
 	margin-top:20px;
 }
 

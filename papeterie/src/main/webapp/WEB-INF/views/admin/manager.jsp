@@ -132,8 +132,7 @@
 			<div id="memo-head"><span id="memo-head-text">관리 메모</span></div>
 			<textarea rows="20" cols="53" name="memo" id="memo-textarea">${memo[0]}</textarea>
 			<div id="memo-footer">
-				${memo[1]}
-				<input type="submit" value="저장">
+				<input type="submit" value="저장" id="update-btn">
 			</div>
 		</form>
 	</div>

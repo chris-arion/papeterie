@@ -7,7 +7,7 @@
 <title>PAPETERIE - 배송지관리</title>
 <link rel="stylesheet" href="/resources/css/style.css">
 <link rel="stylesheet" href="/resources/css/member.css">
-<link rel="stylesheet" href="/resources/css/addressbook.css?var=1">
+<link rel="stylesheet" href="/resources/css/addressbook.css?var=2">
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="/resources/js/member.js"></script>
 <script>
@@ -153,7 +153,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td colspan="2" style="text-align: center;border-bottom:none;padding-top:20px;">
+						<td colspan="2" style="text-align: center;border-bottom:none;border-left:none;padding-top:20px;">
 							<input type="button" value="이전" style="width: 100px;" onclick="hide_update()">
 							<input type="submit" value="수정" style="width: 100px;">
 						</td>

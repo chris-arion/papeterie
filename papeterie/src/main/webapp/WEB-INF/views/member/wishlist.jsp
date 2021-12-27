@@ -8,7 +8,7 @@
 <title>PAPETERIE - 찜목록</title>
 <link rel="stylesheet" href="/resources/css/style.css">
 <link rel="stylesheet" href="/resources/css/member.css">
-<link rel="stylesheet" href="/resources/css/wishlist.css">
+<link rel="stylesheet" href="/resources/css/wishlist.css?var=1">
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="/resources/js/member.js"></script>
 <script>
@@ -19,11 +19,11 @@
  		<%@include file="sidemenu.jsp" %>
 		
 		<div id="content">
-			<div style="margin-left: 20px; margin-top: 20px;">찜목록</div>
+			<div  id="wisi-head">찜목록</div>
 			<BR>
 			<table id="">
 				<tr>
-					<th width="60">No</th>
+					<th width="60">번호</th>
 					<th width="400">상품정보</th>
 					<th width="100">상품금액</th>
 					<th width="60">삭제</th>
@@ -31,10 +31,10 @@
 				<c:forEach items="${wlist}" var="wvo">
 				<c:set var="i" value="${i + 1}"></c:set>
 				<tr>
-					<td>${i}</td>
+					<td align="center">${i}</td>
 					<td><img id="goods_img" src="${wvo.img}"> ${wvo.title}</td>
-					<td><fmt:formatNumber value="${wvo.price}"/> 원</td>
-					<td>
+					<td align="center"><fmt:formatNumber value="${wvo.price}"/> 원</td>
+					<td align="center">
 						<a href="del_wishlist?idx=${wvo.idx}"><img src="/resources/img/ic_delete.svg" alt="삭제" title="삭제"></a>
 					</td>
 				</tr>

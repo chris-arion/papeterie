@@ -21,7 +21,7 @@
 			<td><img id="goods_img" src="${gvo.img}"> ${gvo.title}</td>
 		</tr>
 		<tr>
-			<td>상품은 만족하셨나요?</td>
+			<td style="border:none;padding-top:20px;">상품은 만족하셨나요?</td>
 		</tr>
 		<tr>
 			<td>
@@ -32,25 +32,25 @@
 			        <input type="radio" name="score" value="2" id="rate4"><label for="rate4">★</label>
 			        <input type="radio" name="score" value="1" id="rate5"><label for="rate5">★</label>
 			    </fieldset>
-				<div class="_3Q4AGAjnPM">선택하세요.</div>
+				<div class="_3Q4AGAjnPM" style="padding-bottom:20px;">선택하세요.</div>
 			</td>
 		</tr>
 		<tr>
-			<td>어떤 점이 좋았나요?</td>
+			<td style="border:none;padding-top:20px;">어떤 점이 좋았나요?</td>
 		</tr>
 		<tr>
-			<td><textarea name="content" id="content" rows="10" cols="40"></textarea></td>
+			<td style="padding-bottom:20px;"><textarea name="content" id="content" rows="10" cols="40" style="outline:none;"></textarea></td>
 		</tr>
 		<tr>
-			<td>사진 첨부하기</td>
+			<td style="border:none;padding-top:20px;">사진 첨부하기</td>
 		</tr>
 		<tr>
-			<td><input type="file" name="filename"></td>
+			<td style="padding-bottom:20px;"><input type="file" name="filename"></td>
 		</tr>
 		<tr>
-			<td>
-			<input type="button" value="등록" onclick="review_ok()">
-			<input type="button" value="취소" onclick="review_cancel()">
+			<td style="border:none;padding-top:20px;">
+			<input type="button" value="취소" onclick="review_cancel()" id="update-btn2">
+			<input type="button" value="등록" onclick="review_ok()" id="update-btn">
 			</td>
 		</tr>
 	</table>

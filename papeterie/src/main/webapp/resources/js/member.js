@@ -88,7 +88,7 @@ function del_review(idx) {
 function updateopen(idx){
     var frmPop= document.frmPopup;
     var url = '../review/update';
-    window.open('','update','width=450, height=700, toolbar=no, menubar=no, resizable=no');  
+    window.open('','update','width=450, height=800, toolbar=no, menubar=no, resizable=no');  
      
     frmPop.action = url;
     frmPop.target = 'update'; //window,open()의 두번째 인수와 같아야 하며 필수다.  

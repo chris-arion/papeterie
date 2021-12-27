@@ -137,7 +137,7 @@ function add_wish_fn(pcode) {
 					a = a+"<td class='td_user'>"+reviewlist[i].userid+"</td>";
 					a = a+"<td>"+reviewlist[i].regdate+"</td>";
 					a = a+"</tr>";
-					a = a+"<tr class='review_content'>";
+					a = a+"<tr class='review_content_tr'>";
 					a = a+"<td colspan='4'><div class='review_content_x' onclick='hide_review(this)'>x</div>"+reviewlist[i].content;
 					if(reviewlist[i].filename != null && reviewlist[i].filename != ""){
 						a = a+"<div><img src='"+reviewlist[i].filename+"'></div>";
@@ -321,14 +321,14 @@ function add_wish_fn(pcode) {
  function view_review(n){
  	var cnt = $('.review_content').length;
  	for(var i=0; i<cnt; i++){
- 		document.getElementsByClassName("review_content")[i].style.display = "none";
+ 		document.getElementsByClassName("review_content_tr")[i].style.display = "none";
  	}
- 	document.getElementsByClassName("review_content")[n].style.display = "table-row";
+ 	document.getElementsByClassName("review_content_tr")[n].style.display = "table-row";
  }
  
  function hide_review(my){
  	var index = $(".review_content_x").index(my);
- 	document.getElementsByClassName("review_content")[index].style.display = "none";
+ 	document.getElementsByClassName("review_content_tr")[index].style.display = "none";
  }
  
  function view_qna(n){

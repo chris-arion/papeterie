@@ -1,8 +1,6 @@
 package kr.co.papeterie.controller;
 
 import java.io.PrintWriter;
-import java.security.PublicKey;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -17,6 +15,7 @@ import kr.co.papeterie.service.AddressService;
 import kr.co.papeterie.service.MemberService;
 import kr.co.papeterie.vo.AddressVO;
 import kr.co.papeterie.vo.MemberVO;
+import kr.co.papeterie.vo.QnaVO;
 import kr.co.papeterie.vo.ReviewVO;
 
 @Controller
@@ -194,8 +193,16 @@ public class MemberController {
 	public void review_update_ok(HttpServletRequest request, HttpSession session, ReviewVO rvo, PrintWriter out) throws Exception {
 		service.review_update_ok(request, session, rvo);
 		out.print("1");
-		
+	}
+	
+	@RequestMapping("/member/order_detail")
+	public String myorderdetail(HttpServletRequest request, HttpSession session, Model model) {
+		return service.myorderdetail(request, session, model);
 	}
 
-
+	@RequestMapping("/member/mypage_qna")
+	public String mypage_qna(HttpSession session,QnaVO qvo,Model model)
+	{
+		return service.mypage_qna(session,qvo,model);
+	}
 }

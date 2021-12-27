@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.ui.Model;
 
 import kr.co.papeterie.vo.MemberVO;
+import kr.co.papeterie.vo.QnaVO;
 import kr.co.papeterie.vo.ReviewVO;
 
 public interface MemberService {
@@ -25,4 +26,6 @@ public interface MemberService {
 	public String member_update_ok(MemberVO mvo);
 	public String update_review(HttpServletRequest request, Model model);
 	public String review_update_ok(HttpServletRequest request, HttpSession session, ReviewVO rvo) throws Exception;
+	public String myorderdetail(HttpServletRequest request, HttpSession session, Model model);
+	public String mypage_qna(HttpSession session,QnaVO qvo,Model model);
 }

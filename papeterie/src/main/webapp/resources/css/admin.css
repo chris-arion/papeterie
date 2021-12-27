@@ -176,7 +176,7 @@ top:140px;
 #content-note{
 	width:1524px;
 	margin:auto;
-	margin-top:30px;
+	margin-top:100px;
 }
 
 #content-i-text{
@@ -313,7 +313,7 @@ margin-bottom:10px;
 	height:60px;
 	position:absolute;
 	border:1px solid silver;
-	top:586px;
+	top:716px;
 	left:40px;
 	font-size:16px;
 	font-weight:bold;
@@ -326,7 +326,7 @@ margin-bottom:10px;
 	width:995px;
 	height:465px;
 	margin-left:40px;
-	margin-top:100px;
+	margin-top:160px;
 	border:1px solid silver;
 	background:white;
 }
@@ -340,9 +340,12 @@ margin-bottom:10px;
 	outline:none;
 	border:1px solid silver;
 	padding:10px;
+	width:410px;
 }
 
 #memo-content{
+	position:absolute;
+	top:716px;
 	display:inline-block;
 	margin-left:80px;	
 }
@@ -360,7 +363,9 @@ margin-bottom:10px;
 	border:1px solid silver;
 	background:#eeeeee;
 	width:410px;
-	height:50px;	
+	height:50px;
+	text-align:right;
+	padding-right:10px;	
 }
 
 #memo-head-text{
@@ -371,7 +376,18 @@ margin-bottom:10px;
 	font-size:16px;
 }
 
-
+#update-btn{
+	width:80px;
+	height:35px;
+	border:1px solid gray;
+	background:gray;
+	color:white;
+	font-size:12px;
+	font-weight:bold;
+	margin-bottom:15px;
+	cursor:pointer;
+	margin-top:7px;
+}
 
 
 

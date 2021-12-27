@@ -26,7 +26,7 @@ $(document).ready(function(){
 			<td><img id="goods_img" src="${rvo.img}"> ${rvo.title}</td>
 		</tr>
 		<tr>
-			<td>상품은 만족하셨나요?</td>
+			<td style="border:none;padding-top:20px;">상품은 만족하셨나요?</td>
 		</tr>
 		<tr>
 			<td>
@@ -76,30 +76,30 @@ $(document).ready(function(){
 						</c:otherwise>
 					</c:choose> 
 			    </fieldset>
-				<div class="_3Q4AGAjnPM">선택하세요.</div>
+				<div class="_3Q4AGAjnPM" style="padding-bottom:20px;">선택하세요.</div>
 			</td>
 		</tr>
 		<tr>
-			<td>어떤 점이 좋았나요?</td>
+			<td style="border:none;padding-top:20px;">어떤 점이 좋았나요?</td>
 		</tr>
 		<tr>
-			<td><textarea name="content" id="content" rows="10" cols="40">${rvo.content}</textarea></td>
+			<td style="padding-bottom:20px;"><textarea name="content" id="contenttext" rows="10" cols="40" >${rvo.content}</textarea></td>
 		</tr>
 		<tr>
-			<td>사진 첨부하기</td>
+			<td style="border:none;padding-top:20px;">사진 첨부하기</td>
 		</tr>
 		<tr>
-			<td><input type="file" name="filename"></td>
+			<td style="border:none;"><input type="file" name="filename"></td>
 		</tr>
 		<c:if test="${rvo.filename != null }">
 		<tr>
-			<td><img src="${rvo.filename}" width="100"></td>
+			<td style="padding-bottom:20px;"><img src="${rvo.filename}" width="100"></td>
 		</tr>
 		</c:if>
 		<tr>
-			<td>
-			<input type="button" value="수정" onclick="update_ok()">
-			<input type="button" value="취소" onclick="review_cancel()">
+			<td style="border:none;padding-top:20px;">
+			<input type="button" value="취소" onclick="review_cancel()" id="update-btn2">
+			<input type="button" value="수정" onclick="update_ok()" id="update-btn">
 			</td>
 		</tr>
 	</table>

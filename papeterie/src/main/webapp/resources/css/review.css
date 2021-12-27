@@ -48,16 +48,72 @@
 	width: 700px;
 	margin-left: auto;
 	margin-right: auto;
-	border-top: 1px solid #444444;
+	border-top:black;
 	border-collapse: collapse;
 }
 
 #content th, td {
-	border-bottom: 1px solid #444444;
-	border-left: 1px solid #444444;
+	border-bottom: 1px solid silver;
 	padding: 10px;
+	font-size:14px;
+}
+
+#content th{
+	background:#f2f2f2;
+	border-top:1px solid #666666;
 }
 
 #content th:first-child, td:first-child {
 	border-left: none;
+}
+
+#review-head{
+	margin-top: 20px;
+	margin-left: 20px;
+	font-weight:bold;
+	font-size:18px;
+}
+
+#contenttext{
+	outline:none;
+	padding:10px;
+}
+
+#update-btn{
+	width:60px;
+	height:35px;
+	border:1px solid black;
+	background:black;
+	color:white;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+#update-btn2{
+	width:60px;
+	height:35px;
+	border:1px solid black;
+	background:white;
+	color:black;
+	font-weight:bold;
+	cursor:pointer;
+}
+
+#qna_write{
+	display:inline-block;
+	float:right;
+	margin-top:20px;
+	margin-right:20px;
+}
+
+#qna_write_btn{
+	width:135px;
+	height:35px;
+	border:1px solid gray;
+	background:gray;
+	color:white;
+	font-size:12px;
+	font-weight:bold;
+	margin-bottom:15px;
+	cursor:pointer;
 }

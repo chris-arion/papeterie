@@ -8,8 +8,8 @@
 <title>PAPETERIE - 리뷰</title>
 <link rel="stylesheet" href="/resources/css/style.css">
 <link rel="stylesheet" href="/resources/css/member.css">
-<link rel="stylesheet" href="/resources/css/review.css">
-<script src="/resources/js/member.js"></script>
+<link rel="stylesheet" href="/resources/css/review.css?var=1">
+<script src="/resources/js/member.js?var=2"></script>
 <script>
 </script>
 </head>
@@ -22,25 +22,25 @@
 		</form>
 		
 		<div id="content">
-			<div style="margin-left: 20px; margin-top: 20px;">리뷰목록</div>
+			<div id="review-head">상품후기</div>
 			<BR>
 			<table id="">
 				<tr>
-					<th width="60">No</th>
+					<th width="60">번호</th>
 					<th width="100">별점</th>
-					<th width="400">내용</th>
-					<th width="100">관리</th>
+					<th width="400">제목</th>
+					<th width="100">삭제</th>
 				</tr>
 				<c:forEach items="${rlist}" var="rvo">
 				<c:set var="i" value="${i + 1}"></c:set>
 				<tr>
 					<td>${i}</td>
-					<td>${rvo.score}</td>
+					<td>${rvo.score}점</td>
 					<td>
 						<c:if test="${rvo.filename != null }">
 						<img src="${rvo.filename}" width="35">
 						</c:if>
-						<a href="javascript:;" onclick="updateopen('${rvo.idx}')">${rvo.content}</a>
+						<a href="javascript:;" onclick="updateopen('${rvo.idx}')" style="color:black;">${rvo.content}</a>
 					</td>
 					<td>
 						<a href="javascript:;"><img src="/resources/img/ic_delete.svg" alt="삭제" title="삭제" onclick="del_review('${rvo.idx}')"></a>
