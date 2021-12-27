@@ -118,7 +118,7 @@
 			<div id="bottom-first">
 				<a href="../gongji/list">공지사항</a>
 				<a href="../qna/list">질문/답변</a>
-				<a href="#">이용약관</a>
+				<a href="../ect/tos">이용약관</a>
 				<a href="#">개인정보처리방침</a>
 				<a href="#">판매처 안내</a>
 			</div>
@@ -129,7 +129,7 @@
 		</div>
 		
 		<!-- 테스트용 -->
-		<div style="position:relative;top:-100px;left:80px;">
+		<div style="position:relative;top:-100px;left:-200px;">
 		<form action="">
 			<select id="test" class="test" name="test">
 				<c:forEach items="${glist}" var="gvo">

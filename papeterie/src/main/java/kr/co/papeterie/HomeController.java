@@ -57,5 +57,11 @@ public class HomeController {
 		return "/admin/admin_login";
 	}
 	
+	@RequestMapping("/ect/tos")
+	public String tos()
+	{
+		return "/ect/tos";
+	}
+	
 
 }

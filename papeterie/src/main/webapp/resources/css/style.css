@@ -23,3 +23,11 @@ body {
 	position: relative; 
 	padding-top: 150px;
 }
+
+#section3 {
+	width: 1200px;
+	height: auto;
+	margin: auto;
+	position: relative; 
+	padding-top: 50px;
+}
