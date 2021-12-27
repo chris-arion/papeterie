@@ -47,3 +47,24 @@
 	text-align: right;
 	height: 65px;
 }
+
+#dd_left {
+	display: block;
+	border: 1px solid black;
+	padding: 5px;
+	height: 80px;
+	width: 400px;
+	float: left;
+	margin: 10px 0px 10px 20px;
+}
+
+#dd_right {
+	display: block;
+	border: 1px solid black;
+	padding: 5px;
+	height: 80px;
+	width: 300px;
+	float: right;
+	margin: 10px 20px 10px 0px;
+	
+}

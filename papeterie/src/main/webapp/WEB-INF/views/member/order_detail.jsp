@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>PAPETERIE - mypage</title>
+<title>PAPETERIE - 주문상세보기</title>
 <link rel="stylesheet" href="/resources/css/style.css">
 <link rel="stylesheet" href="/resources/css/member.css">
 <link rel="stylesheet" href="/resources/css/mypage.css">
@@ -15,7 +15,7 @@
  		<%@include file="sidemenu.jsp" %>
  		
 		<div id="content">
-			<div style="margin-left: 20px; margin-top: 20px; display: block;">전체주문내역</div>
+			<div style="margin-left: 20px; margin-top: 20px; display: block;">상세보기</div>
 			
  			<form name="frmPopup">
 			<input type="hidden" name="pcode">
@@ -23,15 +23,49 @@
 			</form>
 			
 			<div>
-				<c:set var="prev_code" value="0" scope="page"></c:set>
+
+				<div id="dd_left">
+					받으시는분 <strong>${avo.rname}</strong><br>
+					(${avo.zip})<br>${avo.addr1} ${avo.addr2}
+				</div>
+				<div id="dd_right">
+					<c:choose>
+						<c:when test="${ovo.pay_type == 1}">
+						신용카드<br>	<!-- 신한, 우리, 농협, 하나 : 일시불, 1, 2, 3, 4개월 -->
+							<c:if test="${ovo.com == 1}">신한카드</c:if>
+							<c:if test="${ovo.com == 2}">우리카드</c:if>
+							<c:if test="${ovo.com == 3}">농협카드</c:if>
+							<c:if test="${ovo.com == 4}">하나카드</c:if>
+							<c:if test="${ovo.halbu == 0}">일시불</c:if>
+							 : <c:if test="${ovo.halbu != 0}">${ovo.halbu} 개월</c:if>
+						</c:when>
+						<c:when test="${ovo.pay_type == 2}">
+						간편결재<br>	<!-- skt, kt, lg, 알뜰 : 폰번호 -->
+							<c:if test="${ovo.com == 1}">SKT</c:if>
+							<c:if test="${ovo.com == 2}">KT</c:if>
+							<c:if test="${ovo.com == 3}">LG</c:if>
+							<c:if test="${ovo.com == 4}">알뜰폰</c:if>
+							 : ${ovo.phone}
+						</c:when>
+						<c:otherwise>
+						계좌이체<br>	<!-- 신한, 우리, 농협, 하나  -->
+							<c:if test="${ovo.bank == 1}">신한은행</c:if>
+							<c:if test="${ovo.bank == 2}">우리은행</c:if>
+							<c:if test="${ovo.bank == 3}">농협은행</c:if>
+							<c:if test="${ovo.bank == 4}">하나은행</c:if>
+						</c:otherwise>
+					</c:choose> 
+				</div>
+
 				<table class="orderITEM">
+					<c:set var="i" value="0" scope="page"></c:set>
 					<c:forEach items="${olist}" var="mvo">
-					<c:if test="${prev_code != mvo.order_code}">
+					<c:if test="${i == 0}">
 					<tr>
-						<td class="td1"><div class="orderNO"><strong>주문번호 : <a href="order_detail?order_code=${mvo.order_code}">${mvo.order_code}</a></strong></div></td>
+						<td class="td1"><div class="orderNO"><strong>주문번호 : ${mvo.order_code}</strong></div></td>
 						<td class="td3" colspan="2"><div class="orderDATE">주문일시 : ${mvo.regdate}</div></td>
 					</tr>
-					<c:set var="prev_code">${mvo.order_code}</c:set>
+					<c:set var="i" value="${i + 1}"></c:set>
 					</c:if>
 					<tr>
 						<td class="td2" colspan="2"><div class="item_desc"><img src="${mvo.img}" width="35"> <span>${mvo.title}</span></div></td>

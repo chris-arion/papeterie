@@ -26,4 +26,5 @@ public interface MemberMapper {
 	public ReviewVO getreview(@Param("_idx") int idx);
 	public void review_update_ok(ReviewVO rvo);
 	public void review_update_ok2(ReviewVO rvo);
+	public ArrayList<MyOrderVO> myorderdetail(@Param("_userid") String userid, @Param("_order_code") String order_code);
 }

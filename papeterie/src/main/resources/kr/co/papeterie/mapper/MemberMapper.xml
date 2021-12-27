@@ -75,4 +75,8 @@
 	<update id="review_update_ok2" parameterType="ReviewVO">
 		update review set score = #{score}, content = #{content} where idx = ${idx}
 	</update>
+	<select id="myorderdetail" resultType="MyOrderVO">
+		select p.*, o.pcode, p2.title, p2.img 
+		from porder p, orderitem o, product p2 where userid = #{_userid} and p.order_code = o.order_code and o.pcode = p2.pcode and p.order_code = #{_order_code}
+	</select>
 </mapper>
