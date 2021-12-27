@@ -226,13 +226,13 @@
 	text-align: left;
 	color: black;
 }
-#review_content .review_content{
+#review_content .review_content_tr{
 	position: relative;
 	display: none;
 	height: 200px;
 	border: 1px solid #eee;
 }
-.review_content .review_content_x{
+.review_content_tr .review_content_x{
 	position: absolute;
 	top: 10px;
 	right: 10px;
@@ -242,13 +242,19 @@
 	color: white;
 	text-align: center;
 }
-.review_content .review_content_x:hover{
+.review_content_tr .review_content_x:hover{
 	background: black;
 	cursor: pointer;
 }
-#review_content .review_content>td{
+.review_content_tr img{
+	width: 350px;
+	margin-top: 20px;
+	margin-left: 200px
+}
+#review_content .review_content_tr>td{
 	text-align: left;
 	padding-left: 50px;	
+	padding-top: 20px;
 }
 /* 상품 문의 */
 #goods_data #goods_inquiry{
