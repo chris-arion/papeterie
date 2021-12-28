@@ -41,5 +41,7 @@ public interface AdminService {
 	public String review(ReviewVO rvo , Model model);
 	
 	public String del_review(HttpServletRequest request, HttpSession session);
+	
+	public String porder_delete(HttpServletRequest request);
 
 }

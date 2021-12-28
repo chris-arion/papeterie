@@ -220,4 +220,14 @@ public class AdminServiceImpl implements AdminService{
 		mapper.del_review(idx);
 		return "redirect:/admin/review";
 	}
+
+	@Override
+	public String porder_delete(HttpServletRequest request) {
+		
+		String idx = request.getParameter("idx");
+		
+		mapper.porder_delete(idx);
+		
+		return "redirect:"+module+"porder";
+	}
 }

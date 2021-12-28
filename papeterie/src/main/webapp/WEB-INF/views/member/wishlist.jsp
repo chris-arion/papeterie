@@ -28,12 +28,17 @@
 					<th width="100">상품금액</th>
 					<th width="60">삭제</th>
 				</tr>
+				<c:if test="${wlist.size() == 0 }">
+					<tr>
+						<td align="center" colspan="4"><img src="/resources/img/empty.png" width="300"></td>
+					</tr>
+				</c:if>
 				<c:forEach items="${wlist}" var="wvo">
 				<c:set var="i" value="${i + 1}"></c:set>
 				<tr>
 					<td align="center">${i}</td>
 					<td>
-						<a href="../goods/goods_view?pcode=${wvo.pcode}" style="color:black;"><img id="goods_img" src="${wvo.img}"> &nbsp; ${wvo.title}</a>
+						<a href="../goods/goods_view?pcode=${wvo.pcode}" style="color:black;" id="goods-title"><img id="goods_img" src="${wvo.img}"> &nbsp; ${wvo.title}</a>
 						<a href="../goods/goods_view?pcode=${wvo.pcode}" target="_blank"><img src="/resources/img/ic_open_in_new_24px.svg" alt="새창으로 열기" title="새창으로 열기"></a>
 					</td>
 					<td align="center"><fmt:formatNumber value="${wvo.price}"/> 원</td>

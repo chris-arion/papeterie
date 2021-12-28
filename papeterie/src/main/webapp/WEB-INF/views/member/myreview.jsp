@@ -31,6 +31,11 @@
 					<th width="400">제목</th>
 					<th width="100">삭제</th>
 				</tr>
+				<c:if test="${rlist.size() == 0 }">
+					<tr>
+						<td align="center" colspan="4"><img src="/resources/img/empty.png" width="300"></td>
+					</tr>
+				</c:if>
 				<c:forEach items="${rlist}" var="rvo">
 				<c:set var="i" value="${i + 1}"></c:set>
 				<tr>

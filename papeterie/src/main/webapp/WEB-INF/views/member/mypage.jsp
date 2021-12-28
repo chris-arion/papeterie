@@ -24,7 +24,19 @@
 			
 			<div>
 				<c:set var="prev_code" value="0" scope="page"></c:set>
-				<table class="orderITEM">
+				<table class="orderITEM" id="mypage-empty">
+					<c:if test="${olist.size() == 0 }">
+						<tr>
+							<th>날짜/주문번호</th>
+							<th>상품명/옵션</th>
+							<th>상품금액/수량</th>
+							<th>주문상태</th>
+							<th>주문일시</th>
+						</tr>
+						<tr>
+							<td align="center" colspan="5"><img src="/resources/img/empty.png" width="300"></td>
+						</tr>
+					</c:if>
 					<c:forEach items="${olist}" var="mvo">
 					<c:if test="${prev_code != mvo.order_code}">
 					<tr>
@@ -43,7 +55,7 @@
 					<tr>
 						<td class="td2" colspan="2">
 							<div class="item_desc">
-								<a href="../goods/goods_view?pcode=${mvo.pcode}">
+								<a href="../goods/goods_view?pcode=${mvo.pcode}" id="goods-title">
 								<img src="${mvo.img}" width="35"> &nbsp; 
 								<span>${mvo.title}</span>
 								</a>
@@ -85,7 +97,6 @@
 					</c:forEach>
 				</table>
 			</div>
-
  		</div>	<!-- id="content" -->
 
 	</div>	<!-- id="section" -->

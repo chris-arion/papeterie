@@ -123,5 +123,9 @@ public class AdminController {
 		return aservice.del_review(request, session);
 	}
 	
-	
+	@RequestMapping("porder_delete")
+	public String porder_delete(HttpServletRequest request)
+	{
+		return aservice.porder_delete(request);
+	}
 }

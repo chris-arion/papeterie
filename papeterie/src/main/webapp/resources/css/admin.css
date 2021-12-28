@@ -342,6 +342,7 @@ margin-bottom:10px;
 	border:1px solid silver;
 	padding:10px;
 	width:410px;
+	resize: none;
 }
 
 #memo-content{

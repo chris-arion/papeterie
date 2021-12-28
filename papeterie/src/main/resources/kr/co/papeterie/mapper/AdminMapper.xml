@@ -99,4 +99,8 @@
 	<delete id="del_review">
 		delete from review where idx = #{_idx}
 	</delete>
+	
+	<delete id="porder_delete">
+		delete from porder where idx=#{param1}
+	</delete>
 </mapper>

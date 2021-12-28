@@ -36,6 +36,7 @@ function state_chg(my,id)
 				<th>주문자</th>
 				<th>상태</th>
 				<th>주문일</th>
+				<th>삭제</th>
             </tr>
         </thead>
         <tbody>
@@ -56,6 +57,7 @@ function state_chg(my,id)
 					</select>
 				</td>
 				<td>${ovo.regdate}</td>
+				<td><a href="porder_delete?idx=${ovo.idx}" style="color:tomato;">주문삭제</a></td>
             </tr>
         </c:forEach>
         </tbody>

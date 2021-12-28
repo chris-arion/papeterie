@@ -28,6 +28,11 @@
 					<th width="400">제목</th>
 					<th width="100">문의상태</th>
 				</tr>
+				<c:if test="${list.size() == 0 }">
+					<tr>
+						<td align="center" colspan="4"><img src="/resources/img/empty.png" width="300"></td>
+					</tr>
+				</c:if>
 				<c:forEach items="${list}" var="qvo">
 				<tr>
 					<td>${qvo.writeday}</td>

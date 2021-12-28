@@ -59,4 +59,6 @@ public interface AdminMapper {
 	
 	public void del_review(@Param("_idx") int idx);
 	
+	public void porder_delete(String idx);
+	
 }
