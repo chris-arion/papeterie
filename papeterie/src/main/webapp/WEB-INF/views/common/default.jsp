@@ -14,7 +14,7 @@
 <decorator:head />
 </head>
 <body>
-
+ 
 	<!-- 
 	일전의 top.jsp / bottom.jsp의 역할을 한다
 	해당하는 decorator 태그에 지정된 문서가 자동으로 대치된다  
