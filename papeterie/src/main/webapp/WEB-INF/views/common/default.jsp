@@ -61,44 +61,40 @@
 			
 			<!-- 메뉴 카테고리 -->
 			<ul class="second-menu">
+				<li>
+					<a href="#">전체</a>
+				</li>
 				<li onmouseover="view_sub(0)" onmouseout="hide_sub(0)">
-					Item1
+					<a href="#">문구</a>
 					<ul class="sub">
-						<li>menu 1</li>
-						<li>menu 2</li>
-						<li>menu 3</li>
+						<li><a href="#">필기</a></li>
+						<li><a href="#">노트</a></li>
+						<li><a href="#">기타</a></li>
 					</ul>
 				</li>
 				<li onmouseover="view_sub(1)" onmouseout="hide_sub(1)">
-					Item2
+					<a href="#">리빙</a>
 					<ul class="sub">
-						<li>menu 1</li>
-						<li>menu 2</li>
-						<li>menu 3</li>
+						<li><a href="#">잡지</a></li>
+						<li><a href="#">잡화</a></li>
+						<li><a href="#">악세서리</a></li>
 					</ul>
 				</li>
 				<li onmouseover="view_sub(2)" onmouseout="hide_sub(2)">
-					Item3
+					<a href="#">에디션</a>
 					<ul class="sub">
-						<li>menu 1</li>
-						<li>menu 2</li>
-						<li>menu 3</li>
+						<li><a href="#">ㅋㅋ에디션</a></li>
+						<li><a href="#">을지로에디션</a></li>
+						<li><a href="#">배달이친구들</a></li>
+						<li><a href="#">콜라보레이션</a></li>
 					</ul>
 				</li>
 				<li onmouseover="view_sub(3)" onmouseout="hide_sub(3)">
-					Item4
+					<a href="#">세트</a>
 					<ul class="sub">
-						<li>menu 1</li>
-						<li>menu 2</li>
-						<li>menu 3</li>
-					</ul>
-				</li>
-				<li onmouseover="view_sub(4)" onmouseout="hide_sub(4)">
-					커뮤니티
-					<ul class="sub">
-						<li><a href="../gongji/list">공지사항</a></li>
-						<li><a href="../qna/list">고객센터</a></li>
-						<li><a href="#">추천상품</a></li>
+						<li><a href="#">선물세트</a></li>
+						<li><a href="#">혼합세트</a></li>
+						<li><a href="#">커플세트</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -127,27 +123,8 @@
 			<div class="bottom-second">주소 : 서울 구로구 구로중앙로34길 33-4 영림빌딩  호스팅제공 : 경영기술개발원 (주)</div>
 			<div class="bottom-second">© Papeterie Guro Corp. All right Reserved</div>
 		</div>
-		
-		<!-- 테스트용 -->
-		<div style="position:relative;top:-100px;left:-200px;">
-		<form action="">
-			<select id="test" class="test" name="test">
-				<c:forEach items="${glist}" var="gvo">
-				<option value="${gvo.pcode}">${gvo.pcode}</option>
-				</c:forEach>
-			</select>
-			<input type="button" value="이동" onclick="gotourl()">
-			</form>
-			<script>
-				function gotourl() {
-					var selectOption = document.getElementById("test");
-					selectOption = selectOption.options[selectOption.selectedIndex].value;
-					//alert(selectOption);
-					location = "../goods/goods_view?pcode=" + selectOption;
-				}
-			</script>
-		</div>
 	</div>
 	</div>
+		<a href="#" class="top"><img src="/resources/img/top.png" width="80"></a>
 </body>
 </html>

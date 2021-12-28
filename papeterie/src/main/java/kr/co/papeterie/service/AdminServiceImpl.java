@@ -2,6 +2,7 @@ package kr.co.papeterie.service;
 
 import java.util.ArrayList;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -19,6 +20,7 @@ import kr.co.papeterie.vo.GoodsVO;
 import kr.co.papeterie.vo.MemberVO;
 import kr.co.papeterie.vo.OrderVO;
 import kr.co.papeterie.vo.QnaVO;
+import kr.co.papeterie.vo.ReviewVO;
 
 @Service
 @Qualifier("as")
@@ -102,9 +104,11 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
-	public String product_add_ok(GoodsVO gsvo,HttpServletRequest request) throws Exception {
+	public String product_add_ok(GoodsVO gsvo,HttpServletRequest request, HttpSession session) throws Exception {
 		
-		String path = request.getRealPath("/resources/img/p01/");
+//		String path = request.getRealPath("/resources/img/p01/");
+		ServletContext application = session.getServletContext();
+		String path = application.getRealPath("/resources/img/p01/review/");
 		int max = 1024 * 1024 * 10;
 		MultipartRequest multi = new MultipartRequest(request, path, max, "utf-8", new DefaultFileRenamePolicy());
 		
@@ -199,5 +203,21 @@ public class AdminServiceImpl implements AdminService{
 		mapper.memo_update(memo);
 		
 		return "redirect:"+module+"manager";
+	}
+
+	@Override
+	public String review(ReviewVO rvo, Model model) {
+		
+		model.addAttribute("list",mapper.review());
+		
+		return module+"review";
+	}
+	
+	@Override
+	public String del_review(HttpServletRequest request, HttpSession session) {
+		// 
+		int idx = Integer.parseInt(request.getParameter("idx"));
+		mapper.del_review(idx);
+		return "redirect:/admin/review";
 	}
 }

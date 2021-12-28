@@ -91,4 +91,12 @@
 	<update id="memo_update">
 		update memo set memo=#{param1};
 	</update>
+	
+	<select id="review" resultType="kr.co.papeterie.vo.ReviewVO">
+		SELECT r.* , p.title,img FROM review AS r , product AS p WHERE r.pcode=p.pcode;
+	</select>
+	
+	<delete id="del_review">
+		delete from review where idx = #{_idx}
+	</delete>
 </mapper>

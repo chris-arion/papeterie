@@ -14,11 +14,19 @@
 	border:none;
 	box-shadow:none;
 	}
+	
+	.bx-wrapper,
+.bx-viewport,
+.bx-wrapper img {
+    height:500px;
+} 
+	
 </style>
 <script>
 $(document).ready(function(){
 	   $('.slider').bxSlider({
-		   auto: true
+		   auto: true,
+		   autoHover: true
 	   });
 	 });
 </script>
@@ -32,7 +40,16 @@ $(document).ready(function(){
       <img src="/resources/img/main2.jpg">
     </div>
     <div>
-      <img src="/resources/img/main3.jpg">
+      <img src="/resources/img/main3.gif">
+    </div>
+    <div>
+      <img src="/resources/img/main4.gif">
+    </div>
+    <div>
+      <img src="/resources/img/main5.gif">
+    </div>
+    <div>
+      <img src="/resources/img/main6.gif">
     </div>
 </div>
 	<div id="section">/main/index</div>

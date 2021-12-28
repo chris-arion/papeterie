@@ -10,6 +10,7 @@ import kr.co.papeterie.vo.GoodsVO;
 import kr.co.papeterie.vo.MemberVO;
 import kr.co.papeterie.vo.OrderVO;
 import kr.co.papeterie.vo.QnaVO;
+import kr.co.papeterie.vo.ReviewVO;
 
 public interface AdminService {
 
@@ -23,7 +24,7 @@ public interface AdminService {
 	
 	public String pro_list(GoodsVO gsvo,Model model);
 	
-	public String product_add_ok(GoodsVO gsvo,HttpServletRequest request) throws Exception;
+	public String product_add_ok(GoodsVO gsvo,HttpServletRequest request, HttpSession session) throws Exception;
 	
 	public String product_delete(HttpServletRequest request);
 	
@@ -36,4 +37,9 @@ public interface AdminService {
 	public String porder_content(HttpServletRequest request,OrderVO ovo,Model model,GoodsVO gvo);
 	
 	public String memo_update(HttpServletRequest request);
+	
+	public String review(ReviewVO rvo , Model model);
+	
+	public String del_review(HttpServletRequest request, HttpSession session);
+
 }

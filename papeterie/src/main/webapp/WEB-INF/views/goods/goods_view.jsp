@@ -7,15 +7,16 @@
 <head>
 <meta charset="UTF-8">
 <title>상품 상세</title>
-
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <link rel="stylesheet" href="/resources/css/goods_view.css?var=1">
 <script src="/resources/js/goods_view.js"></script>
-
+<script>
+</script>
 </head>
 <body>
 	<div id="section">
-		<div id="goods_img">
-			<img src="${gvo.img}">
+		<div id="goods_img" class="wrap">
+			<img class="target" src="${gvo.img}" data-zoom="2">
 		</div>
 		<div id="goods_side">
 		<h3>${gvo.title}</h3>

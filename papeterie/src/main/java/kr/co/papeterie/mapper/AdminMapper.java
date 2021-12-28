@@ -2,11 +2,14 @@ package kr.co.papeterie.mapper;
 
 import java.util.ArrayList;
 
+import org.apache.ibatis.annotations.Param;
+
 import kr.co.papeterie.vo.GongjiVO;
 import kr.co.papeterie.vo.GoodsVO;
 import kr.co.papeterie.vo.MemberVO;
 import kr.co.papeterie.vo.OrderVO;
 import kr.co.papeterie.vo.QnaVO;
+import kr.co.papeterie.vo.ReviewVO;
 
 public interface AdminMapper {
 
@@ -51,5 +54,9 @@ public interface AdminMapper {
 	public String[] memo();
 	
 	public void memo_update(String memo);
+	
+	public ArrayList<ReviewVO> review();
+	
+	public void del_review(@Param("_idx") int idx);
 	
 }

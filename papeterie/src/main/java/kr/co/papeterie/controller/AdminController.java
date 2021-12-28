@@ -9,14 +9,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartRequest;
-
 import kr.co.papeterie.service.AdminService;
 import kr.co.papeterie.vo.GongjiVO;
 import kr.co.papeterie.vo.GoodsVO;
 import kr.co.papeterie.vo.MemberVO;
 import kr.co.papeterie.vo.OrderVO;
 import kr.co.papeterie.vo.QnaVO;
+import kr.co.papeterie.vo.ReviewVO;
 
 @Controller
 @RequestMapping("/admin")
@@ -65,9 +64,9 @@ public class AdminController {
 	}
 	
 	@RequestMapping("product_add_ok")
-	public String product_add_ok(GoodsVO gsvo,HttpServletRequest request) throws Exception
+	public String product_add_ok(GoodsVO gsvo,HttpServletRequest request, HttpSession session) throws Exception
 	{
-		return aservice.product_add_ok(gsvo,request);
+		return aservice.product_add_ok(gsvo,request, session);
 	}
 	
 	@RequestMapping("product_delete")
@@ -111,6 +110,17 @@ public class AdminController {
 	public String memo_update(HttpServletRequest request)
 	{
 		return aservice.memo_update(request);
+	}
+	
+	@RequestMapping("review")
+	public String review(ReviewVO rvo , Model model)
+	{
+		return aservice.review(rvo , model);
+	}
+	
+	@RequestMapping("del_review")
+	public String del_review(HttpServletRequest request, HttpSession session, Model model) {
+		return aservice.del_review(request, session);
 	}
 	
 	
