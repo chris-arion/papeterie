@@ -23,7 +23,7 @@ public interface AdminService {
 	
 	public String pro_list(GoodsVO gsvo,Model model);
 	
-	public String product_add_ok(GoodsVO gsvo,HttpServletRequest request) throws Exception;
+	public String product_add_ok(GoodsVO gsvo,HttpServletRequest request, HttpSession session) throws Exception;
 	
 	public String product_delete(HttpServletRequest request);
 	

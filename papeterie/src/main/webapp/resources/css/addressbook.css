@@ -10,7 +10,7 @@
 
 #content th, td {
 	border-bottom: 1px solid silver;
-	padding: 10px;
+	padding: 5px;
 }
 
 #content th:first-child, td:first-child {

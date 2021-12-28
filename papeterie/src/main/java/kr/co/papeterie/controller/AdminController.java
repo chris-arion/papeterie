@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartRequest;
-
 import kr.co.papeterie.service.AdminService;
 import kr.co.papeterie.vo.GongjiVO;
 import kr.co.papeterie.vo.GoodsVO;
@@ -65,9 +63,9 @@ public class AdminController {
 	}
 	
 	@RequestMapping("product_add_ok")
-	public String product_add_ok(GoodsVO gsvo,HttpServletRequest request) throws Exception
+	public String product_add_ok(GoodsVO gsvo,HttpServletRequest request, HttpSession session) throws Exception
 	{
-		return aservice.product_add_ok(gsvo,request);
+		return aservice.product_add_ok(gsvo,request, session);
 	}
 	
 	@RequestMapping("product_delete")

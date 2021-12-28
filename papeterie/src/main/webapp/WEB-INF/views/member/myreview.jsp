@@ -35,7 +35,9 @@
 				<c:set var="i" value="${i + 1}"></c:set>
 				<tr>
 					<td>${i}</td>
-					<td>${rvo.score}점</td>
+					<td>
+						${rvo.score}점
+					</td>
 					<td>
 						<c:if test="${rvo.filename != null }">
 						<img src="${rvo.filename}" width="35">

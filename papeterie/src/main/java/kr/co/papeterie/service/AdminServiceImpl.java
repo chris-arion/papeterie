@@ -2,6 +2,7 @@ package kr.co.papeterie.service;
 
 import java.util.ArrayList;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -102,9 +103,11 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
-	public String product_add_ok(GoodsVO gsvo,HttpServletRequest request) throws Exception {
+	public String product_add_ok(GoodsVO gsvo,HttpServletRequest request, HttpSession session) throws Exception {
 		
-		String path = request.getRealPath("/resources/img/p01/");
+//		String path = request.getRealPath("/resources/img/p01/");
+		ServletContext application = session.getServletContext();
+		String path = application.getRealPath("/resources/img/p01/review/");
 		int max = 1024 * 1024 * 10;
 		MultipartRequest multi = new MultipartRequest(request, path, max, "utf-8", new DefaultFileRenamePolicy());
 		

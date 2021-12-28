@@ -28,13 +28,30 @@
 					<c:forEach items="${olist}" var="mvo">
 					<c:if test="${prev_code != mvo.order_code}">
 					<tr>
-						<td class="td1"><div class="orderNO"><strong>주문번호 &nbsp; : &nbsp; <a href="order_detail?order_code=${mvo.order_code}" id="orderDetail">${mvo.order_code}</a> &nbsp; <span style="font-size:12px;">(클릭)</span></strong></div></td>
+						<td class="td1">
+							<div class="orderNO">
+								<strong>주문번호 &nbsp; : &nbsp; 
+									<a href="order_detail?order_code=${mvo.order_code}" id="orderDetail">${mvo.order_code}</a> &nbsp; 
+									<span style="font-size:12px;">(클릭)</span>
+								</strong>
+							</div>
+						</td>
 						<td class="td3" colspan="2"><div class="orderDATE">주문일시 : ${mvo.regdate}</div></td>
 					</tr>
 					<c:set var="prev_code">${mvo.order_code}</c:set>
 					</c:if>
 					<tr>
-						<td class="td2" colspan="2"><div class="item_desc"><img src="${mvo.img}" width="35"> &nbsp; <span>${mvo.title}</span></div></td>
+						<td class="td2" colspan="2">
+							<div class="item_desc">
+								<a href="../goods/goods_view?pcode=${mvo.pcode}">
+								<img src="${mvo.img}" width="35"> &nbsp; 
+								<span>${mvo.title}</span>
+								</a>
+								<a href="../goods/goods_view?pcode=${mvo.pcode}" target="_blank">
+									<img src="/resources/img/ic_open_in_new_24px.svg" alt="새창으로 열기" title="새창으로 열기">
+								</a>
+							</div>
+						</td>
 						<td style="padding-bottom:50px;">
 							<div class="review_btn">
 								<!-- 주문 상태 : 0 - 주문 완료, 1 - 결재완료, 2 - 입금대기, 3 - 입금확인, 4 - 상품준비중, 5 - 배송중, 6 - 배송완료 -->
