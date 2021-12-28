@@ -72,7 +72,13 @@ function qnalist(){
 				</c:if>
 				<a href="bimil?id=${qvo.id}" id="bimil-title">${qvo.title}</a>&nbsp;&nbsp;<img src="/resources/img/ico_lock.gif">
 			</td>
-			<td class="list-center">${qvo.name}</td>
+			<td class="list-center">
+				<c:set var="name"       value="${qvo.name}" />
+				<c:set var="totalLength" value="${fn:length(name) }" />
+				<c:set var="first"      value="${fn:substring(name, 0, 1) }" />
+				<c:set var="last"      value="${fn:substring(name, 2, totalLength) }" />
+				<c:if test="${!empty  name}"><c:out value="${first}*${last}"/></c:if>
+			</td>
 			<td class="list-center">${qvo.writeday}</td>
 			<td class="list-center">${qvo.readnum}</td>
 		</tr>

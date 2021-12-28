@@ -30,7 +30,7 @@
 	        <div id="date"></div> 
 	        <div id="yoil"></div> 
 	        <div id="time"></div> 
-    	</div> 
+    	</div>     
     	<ul id="menu-list">
     		<li><a href="manager">▶ 전체페이지</a></li>
     		<li><a href="porder">▶ 주문관리</a></li>

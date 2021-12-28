@@ -64,12 +64,13 @@ margin-top:40px;
 font-size:22px;
 font-family: 'Black Han Sans', sans-serif;
 margin-left:60px;
+position:absolute;
 }
 
 #menu-list{
 list-style:none;
 padding-left:60px;
-margin-top:50px;
+margin-top:180px;
 }
 
 #menu-list li{
