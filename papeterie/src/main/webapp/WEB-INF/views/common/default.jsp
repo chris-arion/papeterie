@@ -127,26 +127,6 @@
 			<div class="bottom-second">주소 : 서울 구로구 구로중앙로34길 33-4 영림빌딩  호스팅제공 : 경영기술개발원 (주)</div>
 			<div class="bottom-second">© Papeterie Guro Corp. All right Reserved</div>
 		</div>
-		
-		<!-- 테스트용 -->
-		<div style="position:relative;top:-100px;left:-200px;">
-		<form action="">
-			<select id="test" class="test" name="test">
-				<c:forEach items="${glist}" var="gvo">
-				<option value="${gvo.pcode}">${gvo.pcode}</option>
-				</c:forEach>
-			</select>
-			<input type="button" value="이동" onclick="gotourl()">
-			</form>
-			<script>
-				function gotourl() {
-					var selectOption = document.getElementById("test");
-					selectOption = selectOption.options[selectOption.selectedIndex].value;
-					//alert(selectOption);
-					location = "../goods/goods_view?pcode=" + selectOption;
-				}
-			</script>
-		</div>
 	</div>
 	</div>
 </body>
