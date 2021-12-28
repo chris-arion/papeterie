@@ -131,8 +131,18 @@ function add_wish_fn(pcode) {
 			}
 			else{
 				for(var i=0; i<reviewlist.length; i++){
+					let star = "";
+					switch (reviewlist[i].score) {
+						case 1: star = "★☆☆☆☆"; break;
+						case 2: star = "★★☆☆☆"; break;
+						case 3: star = "★★★☆☆"; break;
+						case 4: star = "★★★★☆"; break;
+						case 5: star = "★★★★★"; break;
+						default: star = "☆☆☆☆☆"; break;
+					}
 					a = a+"<tr>";
-					a = a+"<td class='td_name'>"+reviewlist[i].score+"</td>";
+					//a = a+"<td class='td_name'>"+reviewlist[i].score+"</td>";
+					a = a+"<td class='td_name'>"+star+"</td>";
 					a = a+"<td class='td_title'><a href='javascript:view_review("+i+")'>"+reviewlist[i].content+"</a></td>";
 					a = a+"<td class='td_user'>"+reviewlist[i].userid+"</td>";
 					a = a+"<td>"+reviewlist[i].regdate+"</td>";

@@ -36,7 +36,14 @@
 				<tr>
 					<td>${i}</td>
 					<td>
-						${rvo.score}점
+						<c:choose>
+							<c:when test="${rvo.score == 1}">★☆☆☆☆</c:when>
+							<c:when test="${rvo.score == 2}">★★☆☆☆</c:when>
+							<c:when test="${rvo.score == 3}">★★★☆☆</c:when>
+							<c:when test="${rvo.score == 4}">★★★★☆</c:when>
+							<c:when test="${rvo.score == 5}">★★★★★</c:when>
+							<c:otherwise>☆☆☆☆☆</c:otherwise>
+						</c:choose> 
 					</td>
 					<td>
 						<c:if test="${rvo.filename != null }">
