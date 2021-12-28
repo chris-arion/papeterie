@@ -22,8 +22,8 @@
 			<table id="addlist_table">
 				<tr>
 					<th width="120">배송지이름</th>
-					<th width="300">주소</th>
-					<th width="150">연락처</th>
+					<th width="320">주소</th>
+					<th width="130">연락처</th>
 					<th width="80">받는 분</th>
 					<th width="90">수정/삭제</th>
 				</tr>
@@ -37,7 +37,7 @@
 						${avo.addr_name}
 						</c:if>
 					</td>
-					<td>(${avo.zip}) ${avo.addr1} ${avo.addr2}</td>
+					<td><p align="left">(${avo.zip})<br>${avo.addr1} ${avo.addr2}</p></td>
 					<td>${avo.phone}</td>
 					<td>${avo.rname}</td>
 					<td>

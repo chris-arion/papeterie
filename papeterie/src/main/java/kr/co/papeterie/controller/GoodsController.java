@@ -1,7 +1,6 @@
 package kr.co.papeterie.controller;
 
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,16 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.papeterie.mapper.GoodsMapper;
 import kr.co.papeterie.service.GoodsService;
 import kr.co.papeterie.vo.AddressVO;
 import kr.co.papeterie.vo.OrderVO;
-import kr.co.papeterie.vo.QnaVO;
 
 @Controller
 @RequestMapping("/goods")
