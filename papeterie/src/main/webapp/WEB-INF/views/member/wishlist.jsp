@@ -32,7 +32,10 @@
 				<c:set var="i" value="${i + 1}"></c:set>
 				<tr>
 					<td align="center">${i}</td>
-					<td><img id="goods_img" src="${wvo.img}"> &nbsp; <a href="../goods/goods_view?pcode=${wvo.pcode}" style="color:black;">${wvo.title}</a></td>
+					<td>
+						<a href="../goods/goods_view?pcode=${wvo.pcode}" style="color:black;"><img id="goods_img" src="${wvo.img}"> &nbsp; ${wvo.title}</a>
+						<a href="../goods/goods_view?pcode=${wvo.pcode}" target="_blank"><img src="/resources/img/ic_open_in_new_24px.svg" alt="새창으로 열기" title="새창으로 열기"></a>
+					</td>
 					<td align="center"><fmt:formatNumber value="${wvo.price}"/> 원</td>
 					<td align="center">
 						<a href="del_wishlist?idx=${wvo.idx}"><img src="/resources/img/ic_delete.svg" alt="삭제" title="삭제"></a>
