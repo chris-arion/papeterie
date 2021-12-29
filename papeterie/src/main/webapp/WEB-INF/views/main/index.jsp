@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>PAPETERIE</title>
+<link rel="stylesheet" href="/resources/css/index.css">
+<link rel="stylesheet" href="/resources/css/main-common.css">
 </head>
 <body>
 	<div id="section">
