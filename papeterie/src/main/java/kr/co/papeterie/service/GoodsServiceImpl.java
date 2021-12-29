@@ -130,6 +130,7 @@ public class GoodsServiceImpl implements GoodsService{
 		if(request.getParameter("shipping_loc").equals("0"))
 		{
 			avo.setSdefault(0);
+			avo.setSoption(0);
 			mapper.address_add_ok(avo);
 			addr_id = mapper.address_recent_id(userid);
 		}
