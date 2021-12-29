@@ -11,9 +11,10 @@ window.onload = function(){
 	check_wish();
 	
 	var op = document.getElementById("gvo_option").value;
-	
-	if(op != -1)
-	{
+	if(op == -1){
+		$('.target').css("position","relative");
+	}
+	else{
 		var target = $('.target');
 		var zoom = target.data('zoom');
 		

@@ -51,7 +51,9 @@
 							<input type="button" class="right_button" onclick="count_goods(this)" value="+">
 							<div class="option_price"><fmt:formatNumber value="${gvo.price}"/>원</div>
 						</c:if>
-						<span id="count_soldout">빠른 시일내에 상품을 준비하겠습니다.</span>
+						<c:if test="${gvo.option == -1}">
+							<span id="count_soldout">빠른 시일내에 상품을 준비하겠습니다.</span>
+						</c:if>
 						</div>
 					</td>
 				</tr>
