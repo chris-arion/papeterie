@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>PAPETERIE - 관리자로그인</title>
 <link rel="stylesheet" href="/resources/css/admin.css?var=1">
 <script src="/resources/js/admin.js"></script>
 <style>

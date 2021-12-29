@@ -389,3 +389,7 @@ strong{
 	display: block;
 	width: 100%;
 }
+
+#review_list .td_name{
+	color:gold;
+}
