@@ -44,11 +44,14 @@
 				<tr>
 					<td colspan="2" id="goods_option_list">
 						<div class="goods_option">
+						<c:if test="${gvo.option != -1}">
 							<div class="option_name">${gvo.title}</div>
 							<input type="button" class="left_button" onclick="count_goods(this)" value="-">
 							<div class="center_count">1</div>
 							<input type="button" class="right_button" onclick="count_goods(this)" value="+">
 							<div class="option_price"><fmt:formatNumber value="${gvo.price}"/>원</div>
+						</c:if>
+						<span id="count_soldout">빠른 시일내에 상품을 준비하겠습니다.</span>
 						</div>
 					</td>
 				</tr>
@@ -57,7 +60,12 @@
 				</tr>
 				<tr>
 					<td colspan="2" id="total_price_td">
-					<span id="total_price_word" class="td_head">총 합계 금액</span> <strong id="total_price"><fmt:formatNumber value="${gvo.price}"/>원</strong>
+					<c:if test="${gvo.option != -1}">
+						<span id="total_price_word" class="td_head">총 합계 금액</span> <strong id="total_price"><fmt:formatNumber value="${gvo.price}"/>원</strong>
+					</c:if>
+					<c:if test="${gvo.option == -1}">
+						<span class="td_head">상품 준비중...</span>
+					</c:if>
 					</td>
 				</tr>
 				<tr>
