@@ -320,23 +320,29 @@ public class MemberServiceImpl implements MemberService {
 				String orgFileName = filePart.getFileName();	// original filename
 				System.out.println("orgFileName = " + orgFileName);
 				
-				filePart.setRenamePolicy(new DefaultFileRenamePolicy()); //중복파일
-				String fileName = get_uploadFile(orgFileName);
-				System.out.println("fileName = " + fileName);
-				
-				if (fileName != null) {
-					File dir = new File(rootPath + "resources/img/" + cate + "/review");
-					if (!dir.isDirectory()) { //디렉토리 체크 후 없으면 생성
-						dir.mkdir();
-					}
-					
-					File savefile = new File(rootPath + "resources/img/" + cate + "/review/" + fileName);
-					newfilename = "/resources/img/" + cate + "/review/" + fileName;
-				long size = filePart.writeTo(savefile);
-				}
-				else {
+				if (orgFileName == null) {
 					bFlag = false;
 				}
+				else {
+					filePart.setRenamePolicy(new DefaultFileRenamePolicy()); //중복파일
+					String fileName = get_uploadFile(orgFileName);
+					System.out.println("fileName = " + fileName);
+					
+					if (fileName != null) {
+						File dir = new File(rootPath + "resources/img/" + cate + "/review");
+						if (!dir.isDirectory()) { //디렉토리 체크 후 없으면 생성
+							dir.mkdir();
+						}
+						
+						File savefile = new File(rootPath + "resources/img/" + cate + "/review/" + fileName);
+						newfilename = "/resources/img/" + cate + "/review/" + fileName;
+					long size = filePart.writeTo(savefile);
+					}
+					else {
+						bFlag = false;
+					}
+				}
+				
 			}
 		}
 
