@@ -51,6 +51,19 @@ height:32px;
 #submit{
 	width: 200px;
 	height: 55px;
+	border: 1px solid black;
+	cursor: pointer;
+	font-size: 18px;
+	background: black;
+	color: white;
+	font-weight:bold;
+	margin-top:55px;
+	padding-top:5px;
+}
+
+#button{
+	width: 200px;
+	height: 55px;
 	border: 1px solid silver;
 	cursor: pointer;
 	font-size: 18px;
@@ -139,6 +152,7 @@ select:focus {outline:none;}
 		</tr>
 	</table>
 	<div align="center">
+		<input type="button" value="이전" id="button" onclick="location='product'">
 		<input type="submit" value="상품등록" id="submit">
 	</div>
 </form>

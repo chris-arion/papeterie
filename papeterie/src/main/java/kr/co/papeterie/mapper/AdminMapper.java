@@ -61,4 +61,8 @@ public interface AdminMapper {
 	
 	public void porder_delete(String idx);
 	
+	public GoodsVO product_update(int idx);
+	
+	public void product_update_ok(GoodsVO gvo);
+	
 }

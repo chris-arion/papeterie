@@ -32,7 +32,26 @@ height:auto;
 	left:1180px;
 	top:195px;
 }
+
+#soldout{
+	font-size:12px;
+	font-weight:bold;
+	color:tomato;
+}
 </style>
+<script>
+function product_delete(my)
+{
+	if(!confirm("정말로 삭제하시겠습니까?"))
+	{
+	
+	}
+	else
+	{
+		location="product_delete?id="+my;	
+	}
+}
+</script>
 </head>
 <body>
 <!-- 본문 내용 -->
@@ -60,13 +79,21 @@ height:auto;
             <tr>
                 <td>${fn:length(list) - status.index}</td>
 				<td align="center"><img src="${gsvo.img}" width="50"></td>
-				<td>${gsvo.title}</td>
+				<td>
+					${gsvo.title} &nbsp;
+					<c:if test="${gsvo.option == '-1'}">
+						<span id="soldout">(품절)</span>
+					</c:if>
+				</td>
 				<td>${gsvo.price} 원</td>
 				<td>${gsvo.category}</td>
 				<td>${gsvo.pcode}</td>
 				<td><a href="../goods/goods_view?pcode=${gsvo.pcode}">Click</a></td>
 				<td>${gsvo.regdate}</td>
-				<td><a href="product_delete?id=${gsvo.idx}" style="color:tomato;">삭제</a></td>
+				<td>
+					<a href="product_update?idx=${gsvo.idx}" >수정</a> <span>/</span>
+					<a href="#" onclick="product_delete(${gsvo.idx})" style="color:tomato;">삭제</a>
+				</td>
             </tr>
         </c:forEach>
         </tbody>

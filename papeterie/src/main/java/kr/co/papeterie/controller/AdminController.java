@@ -128,4 +128,17 @@ public class AdminController {
 	{
 		return aservice.porder_delete(request);
 	}
+	
+	@RequestMapping("product_update")
+	public String product_update(HttpServletRequest request, Model model)
+	{
+		return aservice.product_update(request,model);
+	}
+	
+	@RequestMapping("product_update_ok")
+	public String product_update_ok(GoodsVO gvo)
+	{
+		return aservice.product_update_ok(gvo);
+	}
+	
 }

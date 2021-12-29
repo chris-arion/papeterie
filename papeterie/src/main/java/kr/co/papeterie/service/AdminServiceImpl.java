@@ -230,4 +230,21 @@ public class AdminServiceImpl implements AdminService{
 		
 		return "redirect:"+module+"porder";
 	}
+
+	@Override
+	public String product_update(HttpServletRequest request, Model model) {
+		
+		int idx = Integer.parseInt(request.getParameter("idx"));
+		
+		model.addAttribute("qvo",mapper.product_update(idx));
+		
+		return module+"product_update";
+	}
+
+	@Override
+	public String product_update_ok(GoodsVO gvo) {
+		
+		mapper.product_update_ok(gvo);
+		return "redirect:"+module+"product_update?idx="+gvo.getIdx();
+	}
 }

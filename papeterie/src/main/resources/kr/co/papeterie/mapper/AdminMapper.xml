@@ -103,4 +103,13 @@
 	<delete id="porder_delete">
 		delete from porder where idx=#{param1}
 	</delete>
+	
+	<select id="product_update" resultType="kr.co.papeterie.vo.GoodsVO" parameterType="Integer">
+		select * from product where idx=#{param1}
+	</select>
+	
+	<update id="product_update_ok" parameterType="kr.co.papeterie.vo.GoodsVO">
+		update product set title=#{title}, price=#{price}, category=#{category}, pcode=#{pcode}, option=#{sold}
+		where idx=#{idx}
+	</update>
 </mapper>
