@@ -1,6 +1,7 @@
 /**
  * 
  */
+
  
 // 일정스크롤 내릴시 두번째층 숨기고 fixed
 $(window).scroll(function(){
@@ -46,12 +47,5 @@ $( document ).ready( function() {
       return false;
     } );
   } );
-
-
-
-
-
-
-
 
 
