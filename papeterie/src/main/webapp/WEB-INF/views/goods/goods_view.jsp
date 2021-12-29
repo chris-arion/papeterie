@@ -15,8 +15,14 @@
 </head>
 <body>
 	<div id="section">
+		<input type="hidden" id="gvo_option" value="${gvo.option}">
 		<div id="goods_img" class="wrap">
 			<img class="target" src="${gvo.img}" data-zoom="2">
+			<c:if test="${gvo.option == -1}">
+			<div class="imgover_soldout">
+				<div class="imgover_soldout_inner"><strong>Sold Out</strong></div>
+			</div>
+			</c:if>
 		</div>
 		<div id="goods_side">
 		<h3>${gvo.title}</h3>
@@ -56,6 +62,7 @@
 				</tr>
 				<tr>
 					<td colspan="2" align="center">
+					<c:if test="${gvo.option != -1}">
 						<input type="submit" class="goods_buy_button" value="바 로 구 매"><br>
 						<c:if test="${userid == null}">
 						<a href="../member/login" class="goods_sub_button" id="goods_addwish">찜 하 기</a>
@@ -64,6 +71,10 @@
 						<a href="javascript:;" class="goods_sub_button" id="goods_addwish" onclick="add_wish_fn('${gvo.pcode}')">찜 하 기</a>
 						</c:if>
 						<a href="javascript:;" class="goods_sub_button" onclick="add_cart_fn('${gvo.pcode}')">장 바 구 니</a>
+					</c:if>
+					<c:if test="${gvo.option == -1}">
+						<span class="goods_soldout">Sold Out</span>
+					</c:if>
 					</td>
 				</tr>
 			</table>
