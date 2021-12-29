@@ -82,7 +82,7 @@
 									</c:when>
 									<c:when test="${mvo.state == 5}">
 									배송중<br>
-									<input type="button" value="구매확인" onclick="deliver_ok('${mvo.order_code}')" id="review-btn">
+									<input type="button" value="구매확정" onclick="deliver_ok('${mvo.order_code}')" id="confirm-btn">
 									</c:when>
 									<c:when test="${mvo.state == 6}">
 									배송완료<br>

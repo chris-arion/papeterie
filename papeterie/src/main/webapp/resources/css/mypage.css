@@ -66,6 +66,17 @@
 	cursor:pointer;
 }
 
+#confirm-btn{
+	position:relative;
+	width:200px;
+	height:35px;
+	border:1px solid black;
+	background: silver;
+	color:black;
+	font-weight:bold;
+	cursor:pointer;
+}
+
 #order-head{
 	margin-left: 20px;
 	margin-top: 20px;
