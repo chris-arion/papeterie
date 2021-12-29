@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="/resources/css/style.css">
 <link rel="stylesheet" href="/resources/css/member.css">
 <link rel="stylesheet" href="/resources/css/mypage.css">
-<script src="/resources/js/mypage.js?var=1"></script>
+<script src="/resources/js/mypage.js"></script>
 </head>
 <body>
 	<div id="section">
@@ -81,11 +81,12 @@
 									상품준비중
 									</c:when>
 									<c:when test="${mvo.state == 5}">
-									배송중
-									<input type="button" value="배송확인" onclick="open_pop('${mvo.pcode}')" id="review-btn">
+									배송중<br>
+									<input type="button" value="구매확인" onclick="deliver_ok('${mvo.order_code}')" id="review-btn">
 									</c:when>
 									<c:when test="${mvo.state == 6}">
-									배송완료
+									배송완료<br>
+									<input type="button" value="리뷰쓰기" onclick="open_pop('${mvo.pcode}', '${mvo.order_code}')" id="review-btn">
 									</c:when>
 									<c:otherwise>
 									주문완료 

@@ -1,6 +1,8 @@
 package kr.co.papeterie.service;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.UUID;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -11,8 +13,11 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
-import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
+import com.oreilly.servlet.multipart.FilePart;
+import com.oreilly.servlet.multipart.MultipartParser;
+import com.oreilly.servlet.multipart.ParamPart;
+import com.oreilly.servlet.multipart.Part;
 
 import kr.co.papeterie.mapper.AddressMapper;
 import kr.co.papeterie.mapper.BasketMapper;
@@ -42,6 +47,15 @@ public class MemberServiceImpl implements MemberService {
 
 	@Autowired
 	private AddressMapper amapper;
+	
+	// 파일명 랜덤생성 메서드
+	private String get_uploadFile(String originalName) throws Exception{
+		// uuid 생성(Universal Unique IDentifier, 범용 고유 식별자)
+		UUID uuid = UUID.randomUUID();
+		// 랜덤생성+파일이름 저장
+		String savedName = uuid.toString() + "-" + originalName;
+		return savedName;
+	}
 	
 	@Override
 	public String login_ok(MemberVO mvo, HttpSession session) {
@@ -105,34 +119,87 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public String review_write_ok(HttpServletRequest request, HttpSession session, ReviewVO rvo) throws Exception {
-		// 
+		// save path : /resources/img/p01/review/...
 		ServletContext application = session.getServletContext();
-		String path = application.getRealPath("/resources/img/p01/review/");
+		String rootPath = application.getRealPath("/");
 		int max = 1024 * 1024 * 10;
-		MultipartRequest multi = new MultipartRequest(request, path, max, "utf-8", new DefaultFileRenamePolicy());
+		String cate = null;
+		String order_code = null;
+		String pcode = null;
+		int score = 0;
+		String userid = null;
+		String content = null;
+		String newfilename = null;
+		
+		MultipartParser mp = new MultipartParser(request, max);
+		mp.setEncoding("UTF-8");
 
-//		System.out.println("pcode = " + multi.getParameter("pcode"));
-//		System.out.println("userid = " + multi.getParameter("userid"));
-//		System.out.println("score = " + multi.getParameter("score"));
-//		System.out.println("content = " + multi.getParameter("content"));
-//		System.out.println("filename = " + multi.getFilesystemName("filename"));
-//		System.out.println("path = " + path);
-		
-		rvo.setPcode(multi.getParameter("pcode"));
-		rvo.setScore(Integer.parseInt(multi.getParameter("score")));
-		rvo.setUserid(multi.getParameter("userid"));
-		rvo.setContent(multi.getParameter("content"));
-		String filename = multi.getFilesystemName("filename");
-		if (filename != null) {
-			rvo.setFilename("/resources/img/p01/review/" + multi.getFilesystemName("filename"));
+		Part part;
+		while ((part = mp.readNextPart()) != null) {
+			String name = part.getName();
+			
+			//파일이 아닐때
+			if (part.isParam()) {
+				ParamPart paramPart = (ParamPart) part;
+				String value = paramPart.getStringValue();
+//				System.out.println("param; name = " + name + ", value = " + value);
+				
+				if (name.equals("pcode")) {
+					pcode = value;
+					cate = pcode.substring(0, 3);
+//					System.out.println("param; name = " + name + ", value = " + value + ", cate = " + cate);
+				}
+				else if (name.equals("score")) {
+					score = Integer.parseInt(value);
+				}
+				else if (name.equals("userid")) {
+					userid = value;
+				}
+				else if (name.equals("content")) {
+					content = value;
+				}
+				else if (name.equals("order_code")) {
+					order_code = value;
+				}
+			}
+			else if (part.isFile()) {	// 파일일때
+				FilePart filePart = (FilePart) part;
+				String orgFileName = filePart.getFileName();	// original filename
+				System.out.println("orgFileName = " + orgFileName);
+				
+				filePart.setRenamePolicy(new DefaultFileRenamePolicy()); //중복파일
+				String fileName = get_uploadFile(orgFileName);
+				System.out.println("fileName = " + fileName);
+				
+				if (fileName != null) {
+					File dir = new File(rootPath + "resources/img/" + cate + "/review");
+					if (!dir.isDirectory()) { //디렉토리 체크 후 없으면 생성
+						dir.mkdir();
+					}
+					
+					File savefile = new File(rootPath + "resources/img/" + cate + "/review/" + fileName);
+					newfilename = "/resources/img/" + cate + "/review/" + fileName;
+				long size = filePart.writeTo(savefile);
+				}
+			}
 		}
-		String order_code = multi.getParameter("order_code");
-		rvo.setOrder_code(order_code);
+
+//		System.out.println("pcode = " + pcode);
+//		System.out.println("userid = " + userid);
+//		System.out.println("score = " + score);
+//		System.out.println("content = " + content);
+//		System.out.println("order_code = " + order_code);
+//		System.out.println("newfilename = " + newfilename);
 		
+		rvo.setOrder_code(order_code);
+		rvo.setUserid(userid);
+		rvo.setPcode(pcode);
+		rvo.setScore(score);
+		rvo.setContent(content);
+		rvo.setFilename(newfilename);
+
 		mapper.review_write_ok(rvo);
 		
-//		System.out.println("order_code = " + order_code);
-		bmapper.deliver_ok(order_code);
 		return null;
 	}
 
@@ -208,24 +275,83 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public String review_update_ok(HttpServletRequest request, HttpSession session, ReviewVO rvo) throws Exception {
 		ServletContext application = session.getServletContext();
-		String path = application.getRealPath("/resources/img/p01/review/");
+		String rootPath = application.getRealPath("/");
 		int max = 1024 * 1024 * 10;
-		MultipartRequest multi = new MultipartRequest(request, path, max, "utf-8", new DefaultFileRenamePolicy());
+		String cate = null;
+		String order_code = null;
+		int idx = 0;
+		String pcode = null;
+		int score = 0;
+		String userid = null;
+		String content = null;
+		String newfilename = null;
+		boolean bFlag = true;
+		
+		MultipartParser mp = new MultipartParser(request, max);
+		mp.setEncoding("UTF-8");
 
-		rvo.setScore(Integer.parseInt(multi.getParameter("score")));
-		rvo.setContent(multi.getParameter("content"));
-		int idx = Integer.parseInt(multi.getParameter("idx"));
+		Part part;
+		while ((part = mp.readNextPart()) != null) {
+			String name = part.getName();
+			
+			//파일이 아닐때
+			if (part.isParam()) {
+				ParamPart paramPart = (ParamPart) part;
+				String value = paramPart.getStringValue();
+//				System.out.println("param; name = " + name + ", value = " + value);
+				
+				if (name.equals("pcode")) {
+					pcode = value;
+					cate = pcode.substring(0, 3);
+//					System.out.println("param; name = " + name + ", value = " + value + ", cate = " + cate);
+				}
+				else if (name.equals("score")) {
+					score = Integer.parseInt(value);
+				}
+				else if (name.equals("idx")) {
+					idx = Integer.parseInt(value);
+				}
+				else if (name.equals("content")) {
+					content = value;
+				}
+			}
+			else if (part.isFile()) {	// 파일일때
+				FilePart filePart = (FilePart) part;
+				String orgFileName = filePart.getFileName();	// original filename
+				System.out.println("orgFileName = " + orgFileName);
+				
+				filePart.setRenamePolicy(new DefaultFileRenamePolicy()); //중복파일
+				String fileName = get_uploadFile(orgFileName);
+				System.out.println("fileName = " + fileName);
+				
+				if (fileName != null) {
+					File dir = new File(rootPath + "resources/img/" + cate + "/review");
+					if (!dir.isDirectory()) { //디렉토리 체크 후 없으면 생성
+						dir.mkdir();
+					}
+					
+					File savefile = new File(rootPath + "resources/img/" + cate + "/review/" + fileName);
+					newfilename = "/resources/img/" + cate + "/review/" + fileName;
+				long size = filePart.writeTo(savefile);
+				}
+				else {
+					bFlag = false;
+				}
+			}
+		}
+
 		rvo.setIdx(idx);
-		String filename = multi.getFilesystemName("filename");
-		if (filename != null) {
-			rvo.setFilename("/resources/img/p01/review/" + multi.getFilesystemName("filename"));
+		rvo.setScore(score);
+		rvo.setContent(content);
+		
+		if (bFlag) {
+			rvo.setFilename(newfilename);
 			mapper.review_update_ok(rvo);
 		}
 		else {
 			mapper.review_update_ok2(rvo);
 		}
 		
-
 		return "redirect:/member/myreview";
 	}
 
@@ -253,6 +379,14 @@ public class MemberServiceImpl implements MemberService {
 		model.addAttribute("list",mapper.mypage_qna(userid));
 		
 		return "/member/mypage_qna";
+	}
+
+	@Override
+	public String delivery_ok(HttpServletRequest request) {
+		// 
+		String order_code = request.getParameter("order_code");
+		bmapper.deliver_ok(order_code);
+		return null;
 	}
 
 }

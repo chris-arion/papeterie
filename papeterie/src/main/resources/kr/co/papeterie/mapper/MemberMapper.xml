@@ -39,8 +39,8 @@
 		delete from wishlist where idx = #{_idx}
 	</delete>
 	<insert id="review_write_ok" parameterType="ReviewVO">
-		insert into review (pcode, score, userid, content, filename) 
-		values (#{pcode}, #{score}, #{userid}, #{content}, #{filename})
+		insert into review (order_code, pcode, score, userid, content, filename) 
+		values (#{order_code}, #{pcode}, #{score}, #{userid}, #{content}, #{filename})
 	</insert>
 	<select id="myorderlist" resultType="MyOrderVO">
 		select p.idx, p.order_code, p.price, p.ship_price, p.state, p.regdate, o.pcode, p2.title, p2.img 

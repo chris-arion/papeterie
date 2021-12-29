@@ -14,6 +14,24 @@ function open_pop(pcode, ordercode){
     frmPop.submit();   
 }
 
+function deliver_ok(ordercode) {
+	$.ajax({
+		url : "../member/delivery_ok",
+		method : "GET",
+		data : { order_code : ordercode },
+		cache : false,
+		datatype : "text",
+		success : function(data) {
+			console.log(data);
+			location.reload();
+		},
+		error : function(request, status, error) {
+			console.log("return FAIL");
+			console.log("code: " + request.status + ", message: " + request.responseText + ", error: " + error);
+		}
+	});
+}
+
 function review_ok() {
 	var formData = new FormData($('#frm')[0]);
 

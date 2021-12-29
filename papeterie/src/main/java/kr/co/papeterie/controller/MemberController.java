@@ -205,4 +205,10 @@ public class MemberController {
 	{
 		return service.mypage_qna(session,qvo,model);
 	}
+	
+	@RequestMapping("/member/delivery_ok")
+	public void delivery_ok(HttpServletRequest request, PrintWriter out) {
+		service.delivery_ok(request);
+		out.print("1");
+	}
 }

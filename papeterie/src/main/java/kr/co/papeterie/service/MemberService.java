@@ -28,5 +28,6 @@ public interface MemberService {
 	public String review_update_ok(HttpServletRequest request, HttpSession session, ReviewVO rvo) throws Exception;
 	public String myorderdetail(HttpServletRequest request, HttpSession session, Model model);
 	public String mypage_qna(HttpSession session,QnaVO qvo,Model model);
+	public String delivery_ok(HttpServletRequest request);
 
 }
