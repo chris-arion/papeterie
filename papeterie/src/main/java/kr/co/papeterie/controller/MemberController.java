@@ -179,9 +179,9 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/member/member_update_ok")
-	public String member_update_ok(MemberVO mvo)
+	public String member_update_ok(MemberVO mvo,HttpServletRequest request)
 	{
-		return service.member_update_ok(mvo);
+		return service.member_update_ok(mvo,request);
 	}
 	
 	@RequestMapping("/review/update")

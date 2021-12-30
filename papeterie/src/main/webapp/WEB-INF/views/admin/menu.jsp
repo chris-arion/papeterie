@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://unpkg.com/boxicons@2.1.1/dist/boxicons.js"></script>
 <link rel="stylesheet" href="/resources/css/admin.css?var=6">
 <script src="/resources/js/admin.js"></script>
 </head>

@@ -27,11 +27,11 @@
 				<table class="orderITEM" id="mypage-empty">
 					<c:if test="${olist.size() == 0 }">
 						<tr>
-							<th>날짜/주문번호</th>
-							<th>상품명/옵션</th>
-							<th>상품금액/수량</th>
-							<th>주문상태</th>
-							<th>주문일시</th>
+							<th style="border-top:1px solid black;">날짜/주문번호</th>
+							<th style="border-top:1px solid black;">상품명/옵션</th>
+							<th style="border-top:1px solid black;">상품금액/수량</th>
+							<th style="border-top:1px solid black;">주문상태</th>
+							<th style="border-top:1px solid black;">주문일시</th>
 						</tr>
 						<tr>
 							<td align="center" colspan="5"><img src="/resources/img/empty.png" width="300"></td>

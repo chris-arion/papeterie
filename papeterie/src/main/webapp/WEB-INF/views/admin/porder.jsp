@@ -19,6 +19,15 @@ function state_chg(my,id)
 	location="state_ok?state="+my+"&id="+id;	
 }
 </script>
+<style>
+	.sorting{
+	text-align:center;
+	}
+	
+	.box:hover{
+		opacity:0.5;
+	}
+</style>
 </head>
 <body>
 <!-- 본문 내용 -->
@@ -31,21 +40,21 @@ function state_chg(my,id)
 	<table id="example" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th>번호</th>
-				<th>주문번호</th>
+                <th width="30" align="center">번호</th>
+				<th style="text-align:left;">주문번호</th>
 				<th>주문자</th>
 				<th>상태</th>
 				<th>주문일</th>
-				<th>삭제</th>
+				<th width="30">삭제</th>
             </tr>
         </thead>
         <tbody>
         <c:forEach items="${list}" var="ovo" varStatus="status">
             <tr>
-                <td>${fn:length(list) - status.index}</td>
+                <td align="center">${fn:length(list) - status.index}</td>
 				<td><a href="porder_content?idx=${ovo.idx}&ocode=${ovo.order_code}">${ovo.order_code}</a></td>
-				<td>${ovo.userid}</td>
-				<td>
+				<td align="center">${ovo.userid}</td>
+				<td align="center">
 					<select name="state" id="state" onchange="state_chg(this.value,${ovo.idx})">
 						<option value="0" <c:if test="${ovo.state == 0}">selected</c:if>>주문 완료</option>
 						<option value="1" <c:if test="${ovo.state == 1}">selected</c:if>>결제 완료</option>
@@ -56,8 +65,10 @@ function state_chg(my,id)
 						<option value="6" <c:if test="${ovo.state == 6}">selected</c:if>>배송 완료</option>
 					</select>
 				</td>
-				<td>${ovo.regdate}</td>
-				<td><a href="porder_delete?idx=${ovo.idx}" style="color:tomato;">주문삭제</a></td>
+				<td align="center">${ovo.regdate}</td>
+				<td align="center">
+					<box-icon class="box" type='solid' name='trash' size="md" onclick="location='porder_delete?idx=${ovo.idx}'" style="cursor:pointer;"></box-icon>
+				</td>
             </tr>
         </c:forEach>
         </tbody>

@@ -25,6 +25,19 @@ function qna_delete(my)
 	}
 }
 </script>
+<style>
+	td{
+	text-align:center;
+	}
+	
+	.sorting{
+		text-align:center;
+	}
+	
+	.box:hover{
+		opacity:0.5;
+	}
+</style>
 </head>
 <body>
 <!-- 본문 내용 -->
@@ -36,16 +49,15 @@ function qna_delete(my)
 	<table id="example" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th>번호</th>
+                <th width="30">번호</th>
 				<th>아이디</th>
 				<th>닉네임</th>
 				<th>제목</th>
-				<th>내용</th>
-				<th>조회수</th>
+				<th width="50">조회수</th>
 				<th>분류</th>
 				<th>작성일</th>
-				<th>답변하기</th>
-				<th>수정/삭제</th>
+				<th width="30">답변</th>
+				<th width="150">상세 &nbsp;/&nbsp; 수정 &nbsp;/&nbsp; 삭제</th>
             </tr>
         </thead>
         <tbody>
@@ -55,9 +67,8 @@ function qna_delete(my)
                 <td>${fn:length(list) - status.index}</td>
 				<td>${qvo.userid}</td>
 				<td>${qvo.name}</td>
-				<td>${qvo.title}</td>
-				<td><a href="../qna/content?id=${qvo.id}">Click</a></td>
-				<td>${qvo.readnum}</td>
+				<td style="text-align:left;">${qvo.title}</td>
+				<td>${qvo.readnum}명</td>
 				<td>
 					<c:if test="${qvo.category == 1}">
 						제품문의
@@ -78,13 +89,17 @@ function qna_delete(my)
 				<td>${qvo.writeday}</td>
 				<td>
 					<c:if test="${qvo.dapbun == 0}">
-						<a href="../qna/rewrite?id=${qvo.id}&grp=${qvo.grp}&seq=${qvo.seq}&dep=${qvo.dep}&pwd=${qvo.pwd}">답변작성</a>
+						<box-icon type='solid' name='comment-x' size="md" onclick="location='../qna/rewrite?id=${qvo.id}&grp=${qvo.grp}&seq=${qvo.seq}&dep=${qvo.dep}&pwd=${qvo.pwd}'" style="cursor:pointer;opacity:0.5; "></box-icon>
 					</c:if>
 					<c:if test="${qvo.dapbun == 1}">
-						답변완료
+						<box-icon name='comment-check' type='solid' size="md"></box-icon>
 					</c:if>
 				</td>
-				<td><a href="../qna/update?id=${qvo.id}" style="color:DodgerBlue;">수정</a> / <a href="#" onclick="qna_delete(${qvo.id})" style="color:tomato;">삭제</a></td>
+				<td>
+					<box-icon class="box" name='link-external' size="md" onclick="location='../qna/content?id=${qvo.id}'" style="cursor:pointer;"></box-icon> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<box-icon class="box" type='solid' name='receipt' size="md" onclick="location='../qna/update?id=${qvo.id}'" style="cursor:pointer;"></box-icon> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<box-icon class="box" type='solid' name='trash' size="md" onclick="qna_delete(${qvo.id})" style="cursor:pointer;"></box-icon>
+				</td>
             </tr>
         </c:if>
         </c:forEach>

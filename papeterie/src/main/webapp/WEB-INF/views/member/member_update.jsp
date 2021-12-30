@@ -46,6 +46,12 @@ input[type="text"]{
 	padding-left:10px;
 }
 
+input[type="password"]{
+	border:1px solid silver;
+	padding:5px;
+	padding-left:10px;
+}
+
 input[type="submit"]{
 	border:1px solid black;
 	background:black;
@@ -80,8 +86,6 @@ input[type="button"]{
 }
 
 #pwd-chg{
-	margin-top:10px;
-	margin-bottom:10px;
 	display:none;
 }
 
@@ -98,7 +102,7 @@ input[type="button"]{
 <script>
 function pwd_view()
 {
-	document.getElementById("pwd-chg").style.display="block";
+	document.getElementById("pwd-chg").style.display="inline-block";
 }
 </script>
 </head>
@@ -109,18 +113,20 @@ function pwd_view()
 		<div id="content">
 			<div id="update-head">회원정보 변경</div>
 			<form method="post" action="member_update_ok" name="mem">
+	
+				<input type="hidden" name="pwd2" value="${mvo.pwd}">
 				<input type="hidden" name="idx" value="${mvo.idx}">
 				<table id="update-table">
 					<tr>
-						<th>아이디</th>
-						<td>${mvo.userid}</td>
+						<th style="border-top:1px solid black;">아이디</th>
+						<td style="border-top:1px solid black;">${mvo.userid}</td>
 					</tr>
 					<tr>
 						<th>비밀번호</th>
 						<td>
-							<input type="button" value="비밀번호 변경" id="pwd-btn" onclick="pwd_view()">
+							<input type="button" value="비밀번호 변경" id="pwd-btn" onclick="pwd_view()">&nbsp;&nbsp;&nbsp;
 							<div id="pwd-chg">
-								<span class="pwd-text">새 비밀번호</span> <input type="password" name="pwd" class="pwd-input"> 
+								<span class="pwd-text">새 비밀번호 : </span><input type="password" name="pwd" class="pwd-input"> 
 							</div>
 						</td>
 					</tr>

@@ -23,7 +23,7 @@ public interface MemberService {
 	public String myreviewlist(HttpSession session, Model model);
 	public String del_review(HttpServletRequest request, HttpSession session);
 	public String member_update(MemberVO mvo,Model model,HttpSession session);
-	public String member_update_ok(MemberVO mvo);
+	public String member_update_ok(MemberVO mvo,HttpServletRequest request);
 	public String update_review(HttpServletRequest request, Model model);
 	public String review_update_ok(HttpServletRequest request, HttpSession session, ReviewVO rvo) throws Exception;
 	public String myorderdetail(HttpServletRequest request, HttpSession session, Model model);

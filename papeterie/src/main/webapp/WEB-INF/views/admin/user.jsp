@@ -12,6 +12,14 @@
 <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap.min.css">
+<style>
+	td{
+	text-align:center;
+	}
+	.sorting{
+	text-align:center;
+	}
+</style>
 </head>
 <body>
 <!-- 본문 내용 -->
@@ -23,7 +31,7 @@
 	<table id="example" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th>번호</th>
+                <th width="30">번호</th>
 				<th>아이디</th>
 				<th>닉네임</th>
 				<th>이메일</th>
@@ -35,7 +43,7 @@
         <tbody>
         <c:forEach items="${list}" var="mvo" varStatus="status">
             <tr>
-                <td>${fn:length(list) - status.index}</td>
+                <td >${fn:length(list) - status.index}</td>
 				<td>${mvo.userid}</td>
 				<td>${mvo.uname}</td>
 				<td>${mvo.email}</td>

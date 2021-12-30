@@ -25,6 +25,14 @@ function delete_ok(my)
 	}
 }
 </script>
+<style>
+	.sorting{
+	text-align:center;
+	}
+	.box:hover{
+		opacity:0.5;
+	}
+</style>
 </head>
 <body>
 <!-- 본문 내용 -->
@@ -36,25 +44,27 @@ function delete_ok(my)
 	<table id="example" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th>번호</th>
+                <th width="30">번호</th>
 				<th>이름</th>
 				<th>제목</th>
-				<th>내용</th>
 				<th>조회수</th>
 				<th>작성일</th>
-				<th>수정/삭제</th>
+				<th width="150">상세 &nbsp;/&nbsp; 수정 &nbsp;/&nbsp; 삭제</th>
             </tr>
         </thead>
         <tbody>
         <c:forEach items="${list}" var="gvo" varStatus="status">
             <tr>
-                <td>${fn:length(list) - status.index}</td>
-                <td>${gvo.name}</td>
+                <td align="center">${fn:length(list) - status.index}</td>
+                <td align="center">${gvo.name}</td>
 				<td>${gvo.title}</td>
-				<td><a href="../gongji/content?id=${gvo.id}">Click</a></td>
-				<td>${gvo.readnum}</td>
-				<td>${gvo.writeday}</td>
-				<td><a href="../gongji/update?id=${gvo.id}" style="color:DodgerBlue;">수정</a> / <a href="#" onclick="delete_ok(${gvo.id})" style="color:tomato;">삭제</a></td>
+				<td align="center">${gvo.readnum}명</td>
+				<td align="center">${gvo.writeday}</td>
+				<td align="center">
+					<box-icon class="box" name='link-external' size="md" onclick="location='../gongji/content?id=${gvo.id}'" style="cursor:pointer;"></box-icon> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					<box-icon class="box" type='solid' name='receipt' size="md" onclick="location='../gongji/update?id=${gvo.id}'" style="cursor:pointer;"></box-icon> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<box-icon class="box" type='solid' name='trash' size="md" onclick="delete_ok(${gvo.id})" style="cursor:pointer;"></box-icon>
+				</td>
             </tr>
         </c:forEach>
         </tbody>

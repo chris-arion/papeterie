@@ -63,7 +63,7 @@
 		select * from member where userid=#{param1}
 	</select>
 	<update id="member_update_ok" parameterType="MemberVO">
-		update member set uname=#{uname}, email=#{email}, phone=#{phone}
+		update member set uname=#{uname}, email=#{email}, phone=#{phone}, pwd=#{pwd}
 		where idx=#{idx} 
 	</update>
 	<select id="getreview" resultType="ReviewVO">

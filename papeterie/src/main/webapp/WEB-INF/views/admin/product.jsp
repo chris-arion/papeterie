@@ -52,6 +52,19 @@ function product_delete(my)
 	}
 }
 </script>
+<style>
+	#example td{
+		padding-top:25px;
+	}
+	
+	.sorting{
+		text-align:center;
+	}
+	
+	.box:hover{
+		opacity:0.5;
+	}
+</style>
 </head>
 <body>
 <!-- 본문 내용 -->
@@ -69,30 +82,29 @@ function product_delete(my)
 				<th width="60">상품가격</th>
 				<th width="60">상품분류</th>
 				<th width="60">상품번호</th>
-				<th width="60">상세정보</th>
 				<th>상품등록일</th>
-				<th width="60">상품삭제</th>
+				<th width="150">상세 &nbsp;/&nbsp; 수정 &nbsp;/&nbsp; 삭제</th>
             </tr>
         </thead>
         <tbody>
         <c:forEach items="${list}" var="gsvo" varStatus="status">
             <tr>
-                <td>${fn:length(list) - status.index}</td>
-				<td align="center"><img src="${gsvo.img}" width="50"></td>
+                <td align="center">${fn:length(list) - status.index}</td>
+				<td align="center" style="padding-top:8px;"><img src="${gsvo.img}" width="50"></td>
 				<td>
 					${gsvo.title} &nbsp;
 					<c:if test="${gsvo.option == '-1'}">
 						<span id="soldout">(품절)</span>
 					</c:if>
 				</td>
-				<td>${gsvo.price} 원</td>
-				<td>${gsvo.category}</td>
-				<td>${gsvo.pcode}</td>
-				<td><a href="../goods/goods_view?pcode=${gsvo.pcode}">Click</a></td>
-				<td>${gsvo.regdate}</td>
-				<td>
-					<a href="product_update?idx=${gsvo.idx}" >수정</a> <span>/</span>
-					<a href="#" onclick="product_delete(${gsvo.idx})" style="color:tomato;">삭제</a>
+				<td align="center">${gsvo.price} 원</td>
+				<td align="center">${gsvo.category}</td>
+				<td align="center">${gsvo.pcode}</td>
+				<td align="center">${gsvo.regdate}</td>
+				<td align="center">
+					<box-icon class="box" name='link-external' size="md" onclick="location='../goods/goods_view?pcode=${gsvo.pcode}'" style="cursor:pointer;"></box-icon> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<box-icon class="box" type='solid' name='receipt' size="md" onclick="location='product_update?idx=${gsvo.idx}'" style="cursor:pointer;"></box-icon> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<box-icon class="box" type='solid' name='trash' size="md" onclick="product_delete(${gsvo.idx})" style="cursor:pointer;"></box-icon>
 				</td>
             </tr>
         </c:forEach>

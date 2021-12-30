@@ -13,6 +13,23 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap.min.css">
 <script src="/resources/js/member.js?var=2"></script>
+<style>
+	td{
+	text-align:center
+	}
+
+	.sorting{
+	text-align:center;
+	}
+	
+	#example td{
+		padding-top:15px;
+	}
+	
+	.box:hover{
+		opacity:0.5;
+	}
+</style>
 </head>
 <body>
 <!-- 본문 내용 -->
@@ -25,14 +42,14 @@
 	<table id="example" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
-                <th>번호</th>
+                <th width="30">번호</th>
 				<th>주문번호</th>
 				<th>아이디</th>
 				<th>별점</th>
 				<th>상품제목</th>
 				<th>내용</th>
 				<th>작성일</th>
-				<th>수정/삭제</th>
+				<th width="100">수정 &nbsp;/&nbsp; 삭제</th>
             </tr>
         </thead>
         <tbody>
@@ -42,12 +59,12 @@
 				<td>${rvo.order_code}</td>
 				<td>${rvo.userid}</td>
 				<td>${rvo.score}점</td>
-				<td><img src="${rvo.img}" width="30"> &nbsp; ${rvo.title}</td>
-				<td><img src="${rvo.filename}" width="30"> &nbsp; ${rvo.content}</td>
+				<td style="text-align:left;padding-top:8px;"><img src="${rvo.img}" width="30"> &nbsp; ${rvo.title}</td>
+				<td style="text-align:left;padding-top:8px;"><img src="${rvo.filename}" width="30"> &nbsp; ${rvo.content}</td>
 				<td>${rvo.regdate}</td>
 				<td>
-					<a href="javascript:;" onclick="updateopen('${rvo.idx}')" >수정</a> <a>/</a>
-					<a href="javascript:;" onclick="del_review('${rvo.idx}')" style="color:tomato;">삭제</a>
+					<box-icon class="box" type='solid' name='receipt' size="md" onclick="updateopen('${rvo.idx}')" style="cursor:pointer;"></box-icon> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<box-icon class="box" type='solid' name='trash' size="md" onclick="del_review('${rvo.idx}')" style="cursor:pointer;"></box-icon>
 				</td>
             </tr>
         </c:forEach>

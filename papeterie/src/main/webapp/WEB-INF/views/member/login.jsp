@@ -43,7 +43,7 @@
 					<tr>
 						<td>
 							<div align="center">
-								<span class="login-sub-text">회원가입</span>
+								<span class="login-sub-text"><a href="../member/signup1" style="color:black;text-decoration:none;">회원가입</a></span>
 								<a style="color:silver;">&nbsp;&nbsp;|&nbsp;&nbsp;</a>
 								<span onclick="view_uidsearch()" class="login-sub-text">아이디 찾기</span>
 								<a style="color:silver;">&nbsp;&nbsp;|&nbsp;&nbsp;</a>
