@@ -51,7 +51,6 @@ function qna_delete(my)
             <tr>
                 <th width="30">번호</th>
 				<th>아이디</th>
-				<th>닉네임</th>
 				<th>제목</th>
 				<th width="50">조회수</th>
 				<th>분류</th>
@@ -66,7 +65,6 @@ function qna_delete(my)
             <tr>
                 <td>${fn:length(list) - status.index}</td>
 				<td>${qvo.userid}</td>
-				<td>${qvo.name}</td>
 				<td style="text-align:left;">${qvo.title}</td>
 				<td>${qvo.readnum}명</td>
 				<td>

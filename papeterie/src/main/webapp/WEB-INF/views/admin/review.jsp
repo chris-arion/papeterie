@@ -44,12 +44,12 @@
             <tr>
                 <th width="30">번호</th>
 				<th>주문번호</th>
-				<th>아이디</th>
-				<th>별점</th>
+				<th width="50">아이디</th>
+				<th width="30">별점</th>
 				<th>상품제목</th>
 				<th>내용</th>
 				<th>작성일</th>
-				<th width="100">수정 &nbsp;/&nbsp; 삭제</th>
+				<th width="80">수정 &nbsp;/&nbsp; 삭제</th>
             </tr>
         </thead>
         <tbody>
@@ -61,7 +61,7 @@
 				<td>${rvo.score}점</td>
 				<td style="text-align:left;padding-top:8px;"><img src="${rvo.img}" width="30"> &nbsp; ${rvo.title}</td>
 				<td style="text-align:left;padding-top:8px;"><img src="${rvo.filename}" width="30"> &nbsp; ${rvo.content}</td>
-				<td>${rvo.regdate}</td>
+				<td style="padding-top:8px;">${rvo.regdate}</td>
 				<td>
 					<box-icon class="box" type='solid' name='receipt' size="md" onclick="updateopen('${rvo.idx}')" style="cursor:pointer;"></box-icon> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<box-icon class="box" type='solid' name='trash' size="md" onclick="del_review('${rvo.idx}')" style="cursor:pointer;"></box-icon>

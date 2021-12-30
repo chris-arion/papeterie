@@ -29,8 +29,8 @@ height:auto;
 	color: black;
 	margin-bottom: 10px;
 	font-weight:bold;
-	left:1180px;
-	top:195px;
+	left:700px;
+	top:145px;
 }
 
 #soldout{
@@ -100,7 +100,7 @@ function product_delete(my)
 				<td align="center">${gsvo.price} 원</td>
 				<td align="center">${gsvo.category}</td>
 				<td align="center">${gsvo.pcode}</td>
-				<td align="center">${gsvo.regdate}</td>
+				<td align="center" style="padding-top:17px;">${gsvo.regdate}</td>
 				<td align="center">
 					<box-icon class="box" name='link-external' size="md" onclick="location='../goods/goods_view?pcode=${gsvo.pcode}'" style="cursor:pointer;"></box-icon> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<box-icon class="box" type='solid' name='receipt' size="md" onclick="location='product_update?idx=${gsvo.idx}'" style="cursor:pointer;"></box-icon> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
