@@ -21,6 +21,8 @@
 	-->
 	
 	<!-- 탑 부분 -->
+	<div class="top_head_blank">
+	</div>
 	<div class="top_head"> 
 	
 		<!-- 첫번째 층 -->
