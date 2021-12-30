@@ -130,6 +130,7 @@ public class MemberServiceImpl implements MemberService {
 		String userid = null;
 		String content = null;
 		String newfilename = null;
+		boolean bFlag = true;
 		
 		MultipartParser mp = new MultipartParser(request, max);
 		mp.setEncoding("UTF-8");
@@ -167,19 +168,27 @@ public class MemberServiceImpl implements MemberService {
 				String orgFileName = filePart.getFileName();	// original filename
 				System.out.println("orgFileName = " + orgFileName);
 				
-				filePart.setRenamePolicy(new DefaultFileRenamePolicy()); //중복파일
-				String fileName = get_uploadFile(orgFileName);
-				System.out.println("fileName = " + fileName);
-				
-				if (fileName != null) {
-					File dir = new File(rootPath + "resources/img/" + cate + "/review");
-					if (!dir.isDirectory()) { //디렉토리 체크 후 없으면 생성
-						dir.mkdir();
-					}
+				if (orgFileName == null) {
+					bFlag = false;
+				}
+				else {
+					filePart.setRenamePolicy(new DefaultFileRenamePolicy()); //중복파일
+					String fileName = get_uploadFile(orgFileName);
+					System.out.println("fileName = " + fileName);
 					
-					File savefile = new File(rootPath + "resources/img/" + cate + "/review/" + fileName);
-					newfilename = "/resources/img/" + cate + "/review/" + fileName;
-				long size = filePart.writeTo(savefile);
+					if (fileName != null) {
+						File dir = new File(rootPath + "resources/img/" + cate + "/review");
+						if (!dir.isDirectory()) { //디렉토리 체크 후 없으면 생성
+							dir.mkdir();
+						}
+						
+						File savefile = new File(rootPath + "resources/img/" + cate + "/review/" + fileName);
+						newfilename = "/resources/img/" + cate + "/review/" + fileName;
+						long size = filePart.writeTo(savefile);
+					}
+					else {
+						bFlag = false;
+					}
 				}
 			}
 		}

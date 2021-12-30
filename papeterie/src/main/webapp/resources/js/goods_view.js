@@ -5,6 +5,25 @@
 // 카트에 사용할 변수
 var count = 1;
 
+function encrypt_userid(userid) {
+	let retString;
+	let enc;
+	if (userid.length > 3) {
+		retString = userid.substring(0, 3);
+		enc = userid.length - 3;
+	}
+	else {
+		retString = userid;
+		enc = 5;
+	}
+	
+	for (i = 0; i < enc; i++) {
+		retString += "*";
+	}
+	
+	return retString;
+}
+
 window.onload = function(){
 	Next_qna(1);
 	Next_review(1);
@@ -199,7 +218,7 @@ function add_wish_fn(pcode) {
 					//a = a+"<td class='td_name'>"+reviewlist[i].score+"</td>";
 					a = a+"<td class='td_name'>"+star+"</td>";
 					a = a+"<td class='td_title'><a href='javascript:view_review("+i+")'>"+reviewlist[i].content+"</a></td>";
-					a = a+"<td class='td_user'>"+reviewlist[i].userid+"</td>";
+					a = a+"<td class='td_user'>" + encrypt_userid(reviewlist[i].userid) + "</td>";
 					a = a+"<td>"+reviewlist[i].regdate+"</td>";
 					a = a+"</tr>";
 					a = a+"<tr class='review_content_tr'>";
