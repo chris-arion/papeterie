@@ -31,3 +31,12 @@ body {
 	position: relative; 
 	padding-top: 50px;
 }
+
+#section-goods {
+	width: 1200px;
+	height: auto;
+	margin: auto;
+	position: relative; 
+	padding-top: 50px;
+	padding-left:30px;
+}

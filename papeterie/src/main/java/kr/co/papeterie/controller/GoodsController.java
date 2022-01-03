@@ -159,4 +159,22 @@ public class GoodsController {
 		}
 	}
 	
+	@RequestMapping("/goods_all")
+	public String goods_all(Model model,HttpServletRequest request)
+	{
+		return gservice.goods_all(model,request);
+	}
+	
+	@RequestMapping("/goods_p01")
+	public String goods_p01(Model model,HttpServletRequest request)
+	{
+		return gservice.goods_p01(model,request);
+	}
+	
+	@RequestMapping("/goods_p02")
+	public String goods_p02(Model model,HttpServletRequest request)
+	{
+		return gservice.goods_p02(model,request);
+	}
+	
 }

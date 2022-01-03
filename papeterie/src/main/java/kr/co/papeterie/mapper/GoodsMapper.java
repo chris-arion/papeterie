@@ -3,6 +3,7 @@ package kr.co.papeterie.mapper;
 import java.util.ArrayList;
 
 import org.apache.ibatis.annotations.Param;
+import org.springframework.ui.Model;
 
 import kr.co.papeterie.vo.AddressVO;
 import kr.co.papeterie.vo.GoodsVO;
@@ -34,4 +35,13 @@ public interface GoodsMapper {
 	public ArrayList<GoodsVO> get_product(String order_code);
 	public ArrayList<GoodsVO> all_goods();
 	public int checkwish(@Param("_userid") String userid, @Param("_pcode") String pcode);
+	public ArrayList<GoodsVO> goods_all(int index);
+	public ArrayList<GoodsVO> goods_p01(int index);
+	public ArrayList<GoodsVO> goods_p02(int index);
+	public String goods_cnt();
+	public String goods_cnt2();
+	public String goods_cnt3();
+	public int page_cnt();
+	public int page_cnt2();
+	public int page_cnt3();
 }

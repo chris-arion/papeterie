@@ -264,5 +264,128 @@ public class GoodsServiceImpl implements GoodsService{
 		String pcode = request.getParameter("pcode");
 		return mapper.checkwish(userid, pcode);
 	}
+
+	@Override
+	public String goods_all(Model model,HttpServletRequest request) {
+		
+		int page;
+		
+		if(request.getParameter("page")==null)
+		{
+			page=1;
+		}
+		else
+		{
+			page=Integer.parseInt(request.getParameter("page"));
+		}
+		
+		int index=(page-1)*10;
+		model.addAttribute("list",mapper.goods_all(index));
+		
+		model.addAttribute("page",page);
+		
+		int pstart = page / 10;
+		if(page % 10 == 0)
+			pstart = pstart-1;
+		
+		pstart = pstart * 10 + 1;
+		
+		int pend = pstart + 9;
+		
+		// chong 페이지값 구하기
+		int chong = mapper.page_cnt();
+		if(chong < pend)
+			pend = chong;
+		
+		model.addAttribute("pstart",pstart);
+		model.addAttribute("pend",pend);
+		model.addAttribute("chong",chong);
+		
+		model.addAttribute("goods_cnt",mapper.goods_cnt());
+		
+		return module+"/goods_all";
+	}
+	
+	@Override
+	public String goods_p01(Model model,HttpServletRequest request) {
+		
+		int page;
+		
+		if(request.getParameter("page")==null)
+		{
+			page=1;
+		}
+		else
+		{
+			page=Integer.parseInt(request.getParameter("page"));
+		}
+		
+		int index=(page-1)*10;
+		model.addAttribute("list",mapper.goods_p01(index));
+		
+		model.addAttribute("page",page);
+		
+		int pstart = page / 10;
+		if(page % 10 == 0)
+			pstart = pstart-1;
+		
+		pstart = pstart * 10 + 1;
+		
+		int pend = pstart + 9;
+		
+		// chong 페이지값 구하기
+		int chong = mapper.page_cnt2();
+		if(chong < pend)
+			pend = chong;
+		
+		model.addAttribute("pstart",pstart);
+		model.addAttribute("pend",pend);
+		model.addAttribute("chong",chong);
+		
+		model.addAttribute("goods_cnt",mapper.goods_cnt2());
+		
+		return module+"/goods_p01";
+	}
+	
+	@Override
+	public String goods_p02(Model model,HttpServletRequest request) {
+		
+		int page;
+		
+		if(request.getParameter("page")==null)
+		{
+			page=1;
+		}
+		else
+		{
+			page=Integer.parseInt(request.getParameter("page"));
+		}
+		
+		int index=(page-1)*10;
+		model.addAttribute("list",mapper.goods_p02(index));
+		
+		model.addAttribute("page",page);
+		
+		int pstart = page / 10;
+		if(page % 10 == 0)
+			pstart = pstart-1;
+		
+		pstart = pstart * 10 + 1;
+		
+		int pend = pstart + 9;
+		
+		// chong 페이지값 구하기
+		int chong = mapper.page_cnt3();
+		if(chong < pend)
+			pend = chong;
+		
+		model.addAttribute("pstart",pstart);
+		model.addAttribute("pend",pend);
+		model.addAttribute("chong",chong);
+		
+		model.addAttribute("goods_cnt",mapper.goods_cnt3());
+		
+		return module+"/goods_p02";
+	}
 	
 }

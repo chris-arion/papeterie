@@ -62,10 +62,10 @@
 			<!-- 메뉴 카테고리 -->
 			<ul class="second-menu">
 				<li>
-					<a href="#">전체</a>
+					<a href="../goods/goods_all">전체</a>
 				</li>
 				<li onmouseover="view_sub(0)" onmouseout="hide_sub(0)">
-					<a href="#">문구</a>
+					<a href="../goods/goods_p01">문구</a>
 					<ul class="sub">
 						<li><a href="#">필기</a></li>
 						<li><a href="#">노트</a></li>
@@ -73,7 +73,7 @@
 					</ul>
 				</li>
 				<li onmouseover="view_sub(1)" onmouseout="hide_sub(1)">
-					<a href="#">리빙</a>
+					<a href="../goods/goods_p02">리빙</a>
 					<ul class="sub">
 						<li><a href="#">잡지</a></li>
 						<li><a href="#">잡화</a></li>

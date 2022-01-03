@@ -23,4 +23,7 @@ public interface GoodsService {
 	public String purchase_ok(HttpServletRequest request, HttpSession session, AddressVO avo, OrderVO ovo);
 	public String purchase_finish(HttpSession session, Model model);
 	public int checkwish(HttpServletRequest request, HttpSession session);
+	public String goods_all(Model model,HttpServletRequest request);
+	public String goods_p01(Model model,HttpServletRequest request);
+	public String goods_p02(Model model,HttpServletRequest request);
 }

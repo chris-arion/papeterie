@@ -69,5 +69,31 @@
 	<select id="checkwish" resultType="Integer">
 		select count(*) from wishlist w where userid = #{_userid} and pcode = #{_pcode}
 	</select>
-	
+	<select id="goods_all" resultType="kr.co.papeterie.vo.GoodsVO">
+		select * from product order by idx desc limit #{param1},20
+	</select>
+	<select id="goods_p01" resultType="kr.co.papeterie.vo.GoodsVO">
+		select * from product where category='p01' order by idx desc limit #{param1},20
+	</select>
+	<select id="goods_p02" resultType="kr.co.papeterie.vo.GoodsVO">
+		select * from product where category='p02' order by idx desc limit #{param1},20
+	</select>
+	<select id="goods_cnt" resultType="String">
+		select count(*) from product;
+	</select>
+	<select id="goods_cnt2" resultType="String">
+		select count(*) from product where category='p01';
+	</select>
+	<select id="goods_cnt3" resultType="String">
+		select count(*) from product where category='p02';
+	</select>
+	<select id="page_cnt" resultType="Integer">
+  		select ceil(count(*)/10) from product
+  	</select>
+  	<select id="page_cnt2" resultType="Integer">
+  		select ceil(count(*)/10) from product where category='p01';
+  	</select>
+  	<select id="page_cnt3" resultType="Integer">
+  		select ceil(count(*)/10) from product where category='p02';
+  	</select>
 </mapper>
