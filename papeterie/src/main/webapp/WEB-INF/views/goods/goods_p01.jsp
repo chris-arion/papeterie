@@ -17,9 +17,9 @@
 		<div id="goods-head-menu">
 			<a href="#">추천순</a>
 			<a href="#">인기순</a>
-			<a href="#">최신순</a>
-			<a href="#">낮은가격순</a>
-			<a href="#">높은가격순</a>
+			<a href="goods_p01?st=2">최신순</a>
+			<a href="goods_p01?st=3">낮은가격순</a>
+			<a href="goods_p01?st=4">높은가격순</a>
 		</div>
 	</div>
 	<div id="goods-content">
@@ -50,7 +50,7 @@
    	 	<c:if test="${pstart != 1}">
    	 		<li>
    	 			<div class="pagingBox">
-   	 				<a href="../goods/goods_p01?page=${pstart-10}">◀맨앞</a>
+   	 				<a href="../goods/goods_p01?page=${pstart-10}&st=${st}">◀맨앞</a>
    	 			</div>
    	 		</li>
    	 	</c:if>
@@ -62,7 +62,7 @@
 		<c:if test="${page != 1 }">
    	 		<li>
    	 			<div class="pagingBox" style="margin-right:10px;">
-   	 				<a href="../goods/goods_p01?page=${page-1}">◁이전</a>
+   	 				<a href="../goods/goods_p01?page=${page-1}&st=${st}">◁이전</a>
    	 			</div>
    	 		</li>
    	 	</c:if>
@@ -76,14 +76,14 @@
 	   	 	<c:if test="${page == i}">
 	   	 		<c:set var="str" value="style='color:black'"></c:set>
 	   	 	</c:if>
-	   	 		<li><a id="pagingPage" href="../goods/goods_p01?page=${i}" ${str}>${i}</a></li>
+	   	 		<li><a id="pagingPage" href="../goods/goods_p01?page=${i}&st=${st}" ${str}>${i}</a></li>
 	   	 	</c:forEach>
    		
    		<!-- 다음페이지 -->	
    	 	<c:if test="${page != chong}">
   	 		<li>
   	 			<div class="pagingBox">
-  	 				<a href="../goods/goods_p01?page=${page+1}">다음▷</a>
+  	 				<a href="../goods/goods_p01?page=${page+1}&st=${st}">다음▷</a>
   	 			</div>
   	 		</li>
 	 	</c:if>
@@ -95,7 +95,7 @@
   	 	<c:if test="${pend != chong}">
    	 		<li>
    	 			<div class="pagingBox">
-   	 				<a href="../goods/goods_p01?page=${chong}">맨뒤▶</a>
+   	 				<a href="../goods/goods_p01?page=${chong}&st=${st}">맨뒤▶</a>
    	 			</div>
    	 		</li>
    	 	</c:if>

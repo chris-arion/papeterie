@@ -16,27 +16,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import kr.co.papeterie.mapper.GoodsMapper;
 import kr.co.papeterie.vo.GoodsVO;
 
-/**
- * Handles requests for the application home page.
- */
 @Controller
 public class HomeController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-	
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
-		logger.info("Welcome home! The client locale is {}.", locale);
 		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
+		model.addAttribute("list",mapper.main_goods());
+		model.addAttribute("list2",mapper.main_goods_new());
+		model.addAttribute("list3",mapper.main_goods_2022());
 		
 		return "/main/index";
 	}

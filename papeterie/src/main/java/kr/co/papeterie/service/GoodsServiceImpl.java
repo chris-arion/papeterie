@@ -269,7 +269,7 @@ public class GoodsServiceImpl implements GoodsService{
 	public String goods_all(Model model,HttpServletRequest request) {
 		
 		int page;
-		
+		ArrayList<GoodsVO> list = new ArrayList<GoodsVO>();
 		if(request.getParameter("page")==null)
 		{
 			page=1;
@@ -279,9 +279,19 @@ public class GoodsServiceImpl implements GoodsService{
 			page=Integer.parseInt(request.getParameter("page"));
 		}
 		
-		int index=(page-1)*10;
-		model.addAttribute("list",mapper.goods_all(index));
+		int index=(page-1)*20;
 		
+		if(request.getParameter("st") == null)
+			list = mapper.goods_all(index);
+		else if(request.getParameter("st").equals("2"))
+			list = mapper.goods_all_recent(index);
+		else if(request.getParameter("st").equals("3"))
+			list = mapper.goods_all_rowprice(index);
+		else
+			list = mapper.goods_all_highprice(index);
+
+		model.addAttribute("list", list);
+		model.addAttribute("st", request.getParameter("st"));
 		model.addAttribute("page",page);
 		
 		int pstart = page / 10;
@@ -310,6 +320,7 @@ public class GoodsServiceImpl implements GoodsService{
 	public String goods_p01(Model model,HttpServletRequest request) {
 		
 		int page;
+		ArrayList<GoodsVO> list = new ArrayList<GoodsVO>();
 		
 		if(request.getParameter("page")==null)
 		{
@@ -320,9 +331,19 @@ public class GoodsServiceImpl implements GoodsService{
 			page=Integer.parseInt(request.getParameter("page"));
 		}
 		
-		int index=(page-1)*10;
-		model.addAttribute("list",mapper.goods_p01(index));
+		int index=(page-1)*20;
 		
+		if(request.getParameter("st") == null)
+			list = mapper.goods_p01(index);
+		else if(request.getParameter("st").equals("2"))
+			list = mapper.goods_p01_recent(index);
+		else if(request.getParameter("st").equals("3"))
+			list = mapper.goods_p01_rowprice(index);
+		else
+			list = mapper.goods_p01_highprice(index);
+		
+		model.addAttribute("list", list);
+		model.addAttribute("st", request.getParameter("st"));
 		model.addAttribute("page",page);
 		
 		int pstart = page / 10;
@@ -351,6 +372,7 @@ public class GoodsServiceImpl implements GoodsService{
 	public String goods_p02(Model model,HttpServletRequest request) {
 		
 		int page;
+		ArrayList<GoodsVO> list = new ArrayList<GoodsVO>();
 		
 		if(request.getParameter("page")==null)
 		{
@@ -361,9 +383,19 @@ public class GoodsServiceImpl implements GoodsService{
 			page=Integer.parseInt(request.getParameter("page"));
 		}
 		
-		int index=(page-1)*10;
-		model.addAttribute("list",mapper.goods_p02(index));
+		int index=(page-1)*20;
 		
+		if(request.getParameter("st") == null)
+			list = mapper.goods_p02(index);
+		else if(request.getParameter("st").equals("2"))
+			list = mapper.goods_p02_recent(index);
+		else if(request.getParameter("st").equals("3"))
+			list = mapper.goods_p02_rowprice(index);
+		else
+			list = mapper.goods_p02_highprice(index);
+		
+		model.addAttribute("list", list);
+		model.addAttribute("st", request.getParameter("st"));
 		model.addAttribute("page",page);
 		
 		int pstart = page / 10;
