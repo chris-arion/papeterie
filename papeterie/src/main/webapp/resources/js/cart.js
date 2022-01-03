@@ -139,7 +139,7 @@ function additem(idx) {
 			//console.log("return OK");
 			//console.log(data);
 			if (data.trim() != null) {
-				$("#itemcount").text(parseInt(itemcount) + 1);
+				//$("#itemcount").text(parseInt(itemcount) + 1);
 				location.reload();
 			}
 		},
@@ -165,7 +165,7 @@ function subitem(idx) {
 				//console.log("return OK");
 				//console.log(data);
 				if (data.trim() != null) {
-					$("#itemcount").text(parseInt(itemcount) - 1);
+					//$("#itemcount").text(parseInt(itemcount) - 1);
 					location.reload();
 				}
 			},
