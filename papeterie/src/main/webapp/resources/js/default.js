@@ -5,15 +5,17 @@
  
 // 일정스크롤 내릴시 두번째층 숨기고 fixed
 $(window).scroll(function(){
-    if ($(window).scrollTop() >= 10) {
+    if ($(window).scrollTop() >= 180) {
         $('.top_head').addClass('fixed-header');
         $('.top_head_second').css('display','none');
         $('.top-logo-text3').css('display','block');
+        $('.top_head_blank').css('height','180px');
     }
     else {
         $('.top_head').removeClass('fixed-header');
         $('.top_head_second').css('display','block');
         $('.top-logo-text3').css('display','none');
+        $('.top_head_blank').css('height','0px');
     }
 });  
 
