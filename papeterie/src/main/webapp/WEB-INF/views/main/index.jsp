@@ -1,135 +1,182 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>PAPETERIE</title>
-<link rel="stylesheet" href="/resources/css/index.css">
-<link rel="stylesheet" href="/resources/css/main-common.css">
+<script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<link rel="stylesheet" href="/resources/css/style.css">
+<link rel="stylesheet" href="/resources/css/goods_list.css">
+<style>
+.slider img{margin:0 auto;}
+	
+.bx-wrapper{
+border:none;
+box-shadow:none;
+}
+	
+.bx-wrapper,
+.bx-viewport,
+.bx-wrapper img {
+    height:500px;
+} 
+
+.goods_title span{
+	display:inline-block;
+	font-weight:bold;
+	font-size:28px;
+	padding-bottom:10px;
+	padding-top:50px;
+}
+
+.goods_big{
+	display:inline-block;
+	margin-left:25px;
+	position:absolute;
+}
+
+.goods_big span{
+	display:inline-block;
+	font-size:32px;
+	margin-bottom:10px;
+}
+
+.goods_big p{
+	font-size:16px;
+}
+
+.goods_big_img img{
+	margin-bottom:30px;
+}
+</style>
+<script>
+$(document).ready(function(){
+	   $('.slider').bxSlider({
+		   auto: true,
+		   autoHover: true
+	   });
+	 });
+</script>
 </head>
 <body>
-	<div id="section">
-		<div id="slide-banner">
-			<a>큰이미지출력하는부분</a>
-			<ul>
-				<li><button class="active">1번 배너로 전환</button></li>
-				<li><button>2번 배너로 전환</button></li>
-				<li><button>3번 배너로 전환</button></li>
-				<li><button>4번 배너로 전환</button></li>
-			</ul>
-		</div><!-- slide-banner end -->
-		<div id="main-content">
-			<div id="best" class="list">
-				<h2>선호상품</h2>
-				<ul class="item-list">
-					
-				</ul>
-			</div><!-- best end -->
-			<div id="new" class="list">
-				<h2>신상품</h2>
-				<ul class="item-list">
-					
-				</ul>
-			</div><!-- new end -->
-			<div id="highlight">
-				<h2>강조</h2>
-				<ul class="item-list">
-					<li>
-						<div class="item-photo">
-							<a>
-								사진
-								<h3>이름</h3>
-							</a>
-						</div>
-						<div class="item-desc">
-							설명설명
-						</div>
-					</li>
-					<li>
-						<div class="item-photo">
-							<a>
-								사진
-								<h3>이름</h3>
-							</a>
-						</div>
-						<div class="item-desc">
-							설명설명
-						</div>
-					</li>
-				</ul>
-			</div><!-- highlight -->
-			<div id="discount" class="list">
-				<h2>할인중</h2>
-				<ul class="item-list">
-					
-				</ul>
-			</div><!-- discount end -->
+	<div class="slider">
+    <div>
+      <img src="/resources/img/main1.jpg">
+    </div>
+    <div>
+      <img src="/resources/img/main2.jpg">
+    </div>
+    <div>
+      <img src="/resources/img/main3.gif">
+    </div>
+    <div>
+      <img src="/resources/img/main4.gif">
+    </div>
+    <div>
+      <img src="/resources/img/main5.gif">
+    </div>
+    <div>
+      <img src="/resources/img/main6.gif">
+    </div>
+</div>
+	<div id="section3">
+		<div class="goods_title">
+			<span>잘나가요</span>
+		</div>
+		<div id="goods-content">
+		<ul>
+			<c:forEach items="${list}" var="gvo">
+			<li>
+				<div class="goods-item">
+					<div class="goods-item-imgbox">
+						<c:if test="${gvo.option == -1}">
+							<div class="imgover_soldout" onclick="location='../goods/goods_view?pcode=${gvo.pcode}'" style="cursor:pointer;">
+								<div class="imgover_soldout_inner"><strong>Sold Out</strong></div>
+							</div>
+						</c:if>
+						<img src="${gvo.img}" width="270" height="350" onclick="location='../goods/goods_view?pcode=${gvo.pcode}'" style="cursor:pointer;">
+					</div>
+					<div class="goods-item-contbox">
+						<div class="goods-item-titlebox"><span id="goods-item-title" onclick="location='../goods/goods_view?pcode=${gvo.pcode}'" style="cursor:pointer;">${gvo.title}</span></div>
+						<div class="goods-item-pricebox"><strong><fmt:formatNumber value="${gvo.price }"/>원</strong></div>
+					</div>
+				</div>
+			</li>
+			</c:forEach>
+		</ul>
+	</div>
+	
+		<div class="goods_title">
+			<span>새로 나왔어요</span>
+		</div>
+		<div id="goods-content">
+		<ul>
+			<c:forEach items="${list2}" var="gvo">
+			<li>
+				<div class="goods-item">
+					<div class="goods-item-imgbox">
+						<c:if test="${gvo.option == -1}">
+							<div class="imgover_soldout" onclick="location='../goods/goods_view?pcode=${gvo.pcode}'" style="cursor:pointer;">
+								<div class="imgover_soldout_inner"><strong>Sold Out</strong></div>
+							</div>
+						</c:if>
+						<img src="${gvo.img}" width="270" height="350" onclick="location='../goods/goods_view?pcode=${gvo.pcode}'" style="cursor:pointer;">
+					</div>
+					<div class="goods-item-contbox">
+						<div class="goods-item-titlebox"><span id="goods-item-title" onclick="location='../goods/goods_view?pcode=${gvo.pcode}'" style="cursor:pointer;">${gvo.title}</span></div>
+						<div class="goods-item-pricebox"><strong><fmt:formatNumber value="${gvo.price }"/>원</strong></div>
+					</div>
+				</div>
+			</li>
+			</c:forEach>
+		</ul>
+		</div>
+	
+		<div class="goods_title">
+			<span>선물하기 딱 좋아요!</span>
+		</div>
+		<div class="goods_big_img">
+			<img src="/resources/img/main_goods1.jpg" onclick="location='../goods/goods_view?pcode=p0102'" style="cursor:pointer;">
+		<div class="goods_big">
+			<span>2022년이 온다</span>
+			<p>다이어리</p>
+		</div>
+		<div class="goods_big_img">
+			<img src="/resources/img/main_goods2.jpg" onclick="location='../goods/goods_view?pcode=p0107'" style="cursor:pointer;">
+		<div class="goods_big">
+			<span>선물이 필요할 땐</span>
+			<p>잘나가요 세트</p>
+		</div>
+		</div>
+		</div>
+		
+		<div class="goods_title">
+			<span>2022 새로운 아이템!</span>
+		</div>
+		<div id="goods-content">
+		<ul>
+			<c:forEach items="${list3}" var="gvo">
+			<li>
+				<div class="goods-item">
+					<div class="goods-item-imgbox">
+						<c:if test="${gvo.option == -1}">
+							<div class="imgover_soldout" onclick="location='../goods/goods_view?pcode=${gvo.pcode}'" style="cursor:pointer;">
+								<div class="imgover_soldout_inner"><strong>Sold Out</strong></div>
+							</div>
+						</c:if>
+						<img src="${gvo.img}" width="270" height="350" onclick="location='../goods/goods_view?pcode=${gvo.pcode}'" style="cursor:pointer;">
+					</div>
+					<div class="goods-item-contbox">
+						<div class="goods-item-titlebox"><span id="goods-item-title" onclick="location='../goods/goods_view?pcode=${gvo.pcode}'" style="cursor:pointer;">${gvo.title}</span></div>
+						<div class="goods-item-pricebox"><strong><fmt:formatNumber value="${gvo.price }"/>원</strong></div>
+					</div>
+				</div>
+			</li>
+			</c:forEach>
+		</ul>
 		</div>
 	</div>
-	<!-- <template id="item-template">
-		<li class="item">
-			<div class="item-photo">
-				<a>사진</a>
-			</div>
-			<div class="item-discount-percent">할인율</div>
-			<h3 class="item-title"><a>상품명</a></h3>
-			<div class="item-original-value"><span>원래 가격</span></div>
-			<div class="item-value"><strong>가격</strong></div>
-		</li>
-	</template> -->
-	<script type="text/javascript">
-		// 슬라이드 기능 구현 감 잡아보기용 임시 스크립트
-		var slideBanner = document.getElementById("slide-banner");
-		var buttons = Array.from(slideBanner.getElementsByTagName("button"));
-		var colors = ["lightslategrey", "silver", "maroon", "thistle"];
-		function slideEvent(level) {
-			const length = buttons.length;
-			const currentLevel = getCurrentLevel();
-			let nextLevel;
-
-			if (level !== undefined) {
-				nextLevel = level;
-			} else if (length - 1 <= currentLevel) {
-				nextLevel = 0;
-			} else {
-				nextLevel = currentLevel + 1;
-			}
-
-			// 이미지 변경
-			slideBanner.style.backgroundColor = colors[nextLevel];
-			// active 변경
-			buttons[currentLevel].classList.remove("active");
-			buttons[nextLevel].classList.add("active");
-		}
-		function getCurrentLevel() {
-			let currentLevel;
-			buttons.forEach(function(e, idx) {
-				if (e.classList.contains("active"))
-					currentLevel = idx;
-			});
-			return currentLevel;
-		}
-
-		function setAutoEvent() {
-			slide = setInterval(slideEvent, 5000);
-		}
-
-		function setButtonEvent() {
-			buttons.forEach(function(e, idx) {
-				e.addEventListener("click", function() {
-					slideEvent(idx);
-				});
-			});
-		}
-
-		setAutoEvent();
-		setButtonEvent();
-		slideBanner.addEventListener("pointerover", function() {
-			clearInterval(slide);
-		}, false);
-		slideBanner.addEventListener("pointerout", function() {
-			setAutoEvent();
-		}, false);
-	</script>
+</body>
 </html>

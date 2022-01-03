@@ -72,11 +72,38 @@
 	<select id="goods_all" resultType="kr.co.papeterie.vo.GoodsVO">
 		select * from product order by idx desc limit #{param1},20
 	</select>
+	<select id="goods_all_recent" resultType="kr.co.papeterie.vo.GoodsVO">
+		select * from product order by regdate desc limit #{param1},20
+	</select>
+	<select id="goods_all_rowprice" resultType="kr.co.papeterie.vo.GoodsVO">
+		select * from product order by price asc limit #{param1},20
+	</select>
+	<select id="goods_all_highprice" resultType="kr.co.papeterie.vo.GoodsVO">
+		select * from product order by price desc limit #{param1},20
+	</select>
 	<select id="goods_p01" resultType="kr.co.papeterie.vo.GoodsVO">
 		select * from product where category='p01' order by idx desc limit #{param1},20
 	</select>
+	<select id="goods_p01_recent" resultType="kr.co.papeterie.vo.GoodsVO">
+		select * from product where category='p01' order by regdate desc limit #{param1},20
+	</select>
+	<select id="goods_p01_rowprice" resultType="kr.co.papeterie.vo.GoodsVO">
+		select * from product where category='p01' order by price asc limit #{param1},20
+	</select>
+	<select id="goods_p01_highprice" resultType="kr.co.papeterie.vo.GoodsVO">
+		select * from product where category='p01' order by price desc limit #{param1},20
+	</select>
 	<select id="goods_p02" resultType="kr.co.papeterie.vo.GoodsVO">
 		select * from product where category='p02' order by idx desc limit #{param1},20
+	</select>
+	<select id="goods_p02_recent" resultType="kr.co.papeterie.vo.GoodsVO">
+		select * from product where category='p02' order by regdate desc limit #{param1},20
+	</select>
+	<select id="goods_p02_rowprice" resultType="kr.co.papeterie.vo.GoodsVO">
+		select * from product where category='p02' order by price asc limit #{param1},20
+	</select>
+	<select id="goods_p02_highprice" resultType="kr.co.papeterie.vo.GoodsVO">
+		select * from product where category='p02' order by price desc limit #{param1},20
 	</select>
 	<select id="goods_cnt" resultType="String">
 		select count(*) from product;
@@ -88,12 +115,22 @@
 		select count(*) from product where category='p02';
 	</select>
 	<select id="page_cnt" resultType="Integer">
-  		select ceil(count(*)/10) from product
+  		select ceil(count(*)/20) from product
   	</select>
   	<select id="page_cnt2" resultType="Integer">
-  		select ceil(count(*)/10) from product where category='p01';
+  		select ceil(count(*)/20) from product where category='p01';
   	</select>
   	<select id="page_cnt3" resultType="Integer">
-  		select ceil(count(*)/10) from product where category='p02';
+  		select ceil(count(*)/20) from product where category='p02';
+  	</select>
+  	<select id="main_goods" resultType="kr.co.papeterie.vo.GoodsVO">
+  		select * from product where idx=7 or idx=2 or idx=8 or idx=14
+  	</select>
+  	<select id="main_goods_new" resultType="kr.co.papeterie.vo.GoodsVO">
+  		select * from product order by regdate desc limit 8;
+  	</select>
+  	<select id="main_goods_2022" resultType="kr.co.papeterie.vo.GoodsVO">
+  		select * from product where idx=99 or idx=62 or idx=18 or idx=19 or
+  		idx=20 or idx=21 or idx=22 or idx=23;
   	</select>
 </mapper>

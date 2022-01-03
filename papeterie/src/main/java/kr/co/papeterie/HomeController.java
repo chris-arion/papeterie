@@ -46,8 +46,11 @@ public class HomeController {
 
 	@RequestMapping("/main/index")
 	public String index(Model model) {
-		ArrayList<GoodsVO> glist = mapper.all_goods();
-		model.addAttribute("glist", glist);
+		
+		model.addAttribute("list",mapper.main_goods());
+		model.addAttribute("list2",mapper.main_goods_new());
+		model.addAttribute("list3",mapper.main_goods_2022());
+		
 		return "/main/index";
 	}
 	
