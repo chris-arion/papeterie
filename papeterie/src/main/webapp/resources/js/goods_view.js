@@ -237,7 +237,7 @@ function add_wish_fn(pcode) {
 				else{
 					b = b+"<a href='javascript:Next_review("+(review_sp-1)+")'>이전</a>";
 				}
-				for(var i=review_sp; i<=review_ep; i++){
+				for(var i=review_sp; i<review_ep; i++){
 					b = b+"&nbsp";
 					if(i == review_p){
 						b = b+"<span style='color:red'>"+i+"</span>";
@@ -325,7 +325,7 @@ function Next_qna(p){
 				else{
 					b = b+"<a href='javascript:Next_qna("+(qna_sp-1)+")'>이전</a>";
 				}
-				for(var i=qna_sp; i<=qna_ep; i++){
+				for(var i=qna_sp; i<qna_ep; i++){
 					b = b+"&nbsp";
 					if(i == qna_p){
 						b = b+"<span style='color:red'>"+i+"</span>";

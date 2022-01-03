@@ -129,6 +129,7 @@ public class GoodsServiceImpl implements GoodsService{
 		// 신규배송지 일경우 추가후 배송 아이디 가져오기
 		if(request.getParameter("shipping_loc").equals("0"))
 		{
+			System.out.println("동작");
 			avo.setSdefault(0);
 			avo.setSoption(0);
 			mapper.address_add_ok(avo);
