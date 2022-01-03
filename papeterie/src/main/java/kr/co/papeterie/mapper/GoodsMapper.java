@@ -36,8 +36,17 @@ public interface GoodsMapper {
 	public ArrayList<GoodsVO> all_goods();
 	public int checkwish(@Param("_userid") String userid, @Param("_pcode") String pcode);
 	public ArrayList<GoodsVO> goods_all(int index);
+	public ArrayList<GoodsVO> goods_all_recent(int index);
+	public ArrayList<GoodsVO> goods_all_rowprice(int index);
+	public ArrayList<GoodsVO> goods_all_highprice(int index);
 	public ArrayList<GoodsVO> goods_p01(int index);
+	public ArrayList<GoodsVO> goods_p01_recent(int index);
+	public ArrayList<GoodsVO> goods_p01_rowprice(int index);
+	public ArrayList<GoodsVO> goods_p01_highprice(int index);
 	public ArrayList<GoodsVO> goods_p02(int index);
+	public ArrayList<GoodsVO> goods_p02_recent(int index);
+	public ArrayList<GoodsVO> goods_p02_rowprice(int index);
+	public ArrayList<GoodsVO> goods_p02_highprice(int index);
 	public String goods_cnt();
 	public String goods_cnt2();
 	public String goods_cnt3();

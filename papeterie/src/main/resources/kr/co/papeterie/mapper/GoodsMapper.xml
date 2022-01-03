@@ -72,11 +72,38 @@
 	<select id="goods_all" resultType="kr.co.papeterie.vo.GoodsVO">
 		select * from product order by idx desc limit #{param1},20
 	</select>
+	<select id="goods_all_recent" resultType="kr.co.papeterie.vo.GoodsVO">
+		select * from product order by regdate desc limit #{param1},20
+	</select>
+	<select id="goods_all_rowprice" resultType="kr.co.papeterie.vo.GoodsVO">
+		select * from product order by price asc limit #{param1},20
+	</select>
+	<select id="goods_all_highprice" resultType="kr.co.papeterie.vo.GoodsVO">
+		select * from product order by price desc limit #{param1},20
+	</select>
 	<select id="goods_p01" resultType="kr.co.papeterie.vo.GoodsVO">
 		select * from product where category='p01' order by idx desc limit #{param1},20
 	</select>
+	<select id="goods_p01_recent" resultType="kr.co.papeterie.vo.GoodsVO">
+		select * from product where category='p01' order by regdate desc limit #{param1},20
+	</select>
+	<select id="goods_p01_rowprice" resultType="kr.co.papeterie.vo.GoodsVO">
+		select * from product where category='p01' order by price asc limit #{param1},20
+	</select>
+	<select id="goods_p01_highprice" resultType="kr.co.papeterie.vo.GoodsVO">
+		select * from product where category='p01' order by price desc limit #{param1},20
+	</select>
 	<select id="goods_p02" resultType="kr.co.papeterie.vo.GoodsVO">
 		select * from product where category='p02' order by idx desc limit #{param1},20
+	</select>
+	<select id="goods_p02_recent" resultType="kr.co.papeterie.vo.GoodsVO">
+		select * from product where category='p02' order by regdate desc limit #{param1},20
+	</select>
+	<select id="goods_p02_rowprice" resultType="kr.co.papeterie.vo.GoodsVO">
+		select * from product where category='p02' order by price asc limit #{param1},20
+	</select>
+	<select id="goods_p02_highprice" resultType="kr.co.papeterie.vo.GoodsVO">
+		select * from product where category='p02' order by price desc limit #{param1},20
 	</select>
 	<select id="goods_cnt" resultType="String">
 		select count(*) from product;
